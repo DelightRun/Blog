@@ -7,7 +7,7 @@ title: Welcome
 subtitle: This is Changxu's Personal Blog
 author: Changxu
 simple_search: https://www.google.com/search
-description: I'm Changxu, a student in Xidian University.
+description: I'm Changxu, a student in <a href="http://www.xidian.edu.cn/">Xidian University, China</a>.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -19,7 +19,7 @@ date_format: "ordinal"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email: Changxu.mail@gmail.com
+email: mailto:Changxu.mail@gmail.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -69,7 +69,7 @@ github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: Charlix_Wang
 twitter_tweet_button: true
 
 # Google +1
@@ -97,4 +97,4 @@ disqus_show_comment_count: true
 google_analytics_tracking_id:
 
 # Facebook Like
-facebook_like: false
+facebook_like: true
