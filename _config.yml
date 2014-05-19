@@ -4,7 +4,7 @@
 
 url: http://DelightRun.github.io/Blog
 title: Changxu's Blog 
-subtitle: This is Changxu's Personal Blog
+subtitle: Hello ~ I'm Changxu.
 author: Changxu Wang
 simple_search: https://www.google.com/search
 description: I'm Changxu, a student in <a href="http://www.xidian.edu.cn/">Xidian University, China</a>.
@@ -17,7 +17,7 @@ date_format: "ordinal"
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
 subscribe_rss: /atom.xml
-subscribe_email:
+subscribe_email: mailto:Changxu.mail@gmail.com
 # RSS feeds can list your email address if you like
 email: mailto:Changxu.mail@gmail.com
 
@@ -78,8 +78,8 @@ google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user: 昌旭
-googleplus_hidden: true
+googleplus_user: 113591875014287858210
+googleplus_hidden: false
 
 # Pinboard
 pinboard_user:
