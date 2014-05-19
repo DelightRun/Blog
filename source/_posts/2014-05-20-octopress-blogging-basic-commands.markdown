@@ -36,7 +36,8 @@ Add the following text:
     - categories_3
     - etc.
 
-###Generate & Preview:
+###Generate , Preview & deploy:
     rake generate   # Generate posts and pages into the public directory
     rake watch      # Watches source/ and sass/ for changes and regenerates
     rake preview    # Watches, and mounts a webserver at http://localhost:4000
+    rake deploy     # Deploy to your github or somewhere else, depands on your configuration
