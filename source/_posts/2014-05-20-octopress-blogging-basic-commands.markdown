@@ -6,38 +6,39 @@ comments: true
 categories:
 ---
 
-#####Create New Post:
+###新建博文:
     rake new_post["title"]    
 
-#####Create new pages:
-    # Create /source/directory/index.markdown
+###新建页面:
+    # 创建/source/directory/index.markdown
     rake new_page[directory]
     
-    # Create /source/directory/page.html
+    # 创建/source/directory/page.html
     rake new_page[directory/page.html]
 
-###Use draft:
-Edit your post/pages in a text editor,
-Change the attributions between `---`,
-Add the following text:
+###设置为草稿:
+编辑你的博文或页面，
+在`---`中间的元数据中添加下面一行
     published: false
 
-###Change categories:
-    # One category
+###改变文章分类:
+同样是在`---`中间添加内容，
+添加的内容根据如下情况选择
+    # 单个分类
     categories: your_category
     
-    # Multiple categories method 1
+    # 多个分类 - 方法1
     categories: [categories_1, categories_2, categories_3, etc.]
 
-    # Multiple categories method 2
+    # 多个分类 - 方法2
     categories:
     - categories_1
     - categories_2
     - categories_3
     - etc.
 
-###Generate , Preview & deploy:
-    rake generate   # Generate posts and pages into the public directory
-    rake watch      # Watches source/ and sass/ for changes and regenerates
-    rake preview    # Watches, and mounts a webserver at http://localhost:4000
-    rake deploy     # Deploy to your github or somewhere else, depands on your configuration
+###生成、预览和部署:
+    rake generate   # 生成博文和页面到`public`文件夹
+    rake watch      # 查看`source/`和`sass/`的变更并重新生成
+    rake preview    # 预览, 在浏览器中访问http://localhost:4000
+    rake deploy     # 部署网站，如部署到github
