@@ -3,12 +3,13 @@ layout: post
 title: "Git常用命令"
 date: 2014-05-20 22:50:43 +0800
 comments: true
-published: false
 categories: 
 ---
 
 ##术语中英文对照表
 `仓库`      <=>     `repository`
+`工作区`    <=>     `working directory`
+`暂存区`    <=>     `staging area`
 
 ##关于提交的某些代号
 + `HEAD`代表版本库最近一次提交
@@ -38,9 +39,35 @@ categories:
     $ git config --global alias.br branch
 
 ###建立仓库
-    $ git init              # 在本目录下初始化
-    $ git init <directory>  # 新建<directory>目录并在其中初始化
-*可添加`--bare`参数，以新建不含工作区的裸仓库*
+    # 新建
+    $ git init [--bare]             # 在本目录下初始化
+    $ git init [--bare] <directory>  # 新建<directory>目录并在其中初始化
+
+    # 克隆
+    $ git clone <repository>
+    $ git clone <repository> <directory>
+    $ git clone --bare <repository>         # 克隆下来不包含工作区的裸版本
+    $ git clone --mirror <repository>       # 也是克隆工作区，不过可以用git fetch和上游版本库持续同步
+
+###远程仓库操作
+    # 添加远程仓库
+    $ git remote add <remote> <url>
+
+    # 查看远程仓库列表
+    $ git remote -v
+
+    # 更改远程仓库URL
+    $ git remote set-url <remote> <url>
+
+    # 单独设置push和fetch的地址
+    $ git remote set-url --push <remote> <url>      # 设置push操作的地址
+    $ git remote set-url --fetch <remote> <url>     # 设置fetch操作的地址
+
+    # 从全部远程仓库获得更新
+    $ git remote update
+    
+    # 删除远程仓库
+    $ git remote rm <remote>
 
 ###比较
     # 比较工作区与暂存区
@@ -118,6 +145,19 @@ categories:
     # 重用某此提交的说明
     $ git commit -C <commit>
 
+###推送至远程仓库
+    $ git push              # 默认拉取origin
+    $ git push <remote>     # 从指定仓库拉取
+
+###从远程仓库拉取
+    # 仅拉取不合并
+    $ git fetch             # 默认获取origin
+    $ git fetch <remote>    # 从指定仓库获取
+
+    # 获取并合并，相当于git fetch + git merge
+    $ git pull              # 默认获取并合并origin
+    $ git pull <remote>     # 从指定仓库获取并合并
+
 ###提交一次反转提交
 >注：书上使用“反转提交”，但我认为这样有歧义，我管它叫“提交一次反转提交”
     
@@ -139,10 +179,10 @@ categories:
     $ git show <commit>     # 显示<commit>提交详情
 
 ###查看提交日志
-    $ git log [-{num}] [--pretty={pretty}] [-stat] [--graph]
+    $ git log [-<num>] [--pretty=<pretty>] [-stat] [--graph]
 *`-stat`参数自己试试吧*
-*`{num}`为限定显示的数量，{num}可以是1,2,3等*
-*`{pretty}`可以是`fuller`,`raw`,`oneline`,默认为`raw`*
+*`<num>`为限定显示的数量，<num>可以是1,2,3等*
+*`<pretty>`可以是`fuller`,`raw`,`oneline`,默认为`raw`*
 
 ###更改工作区文件
     # 用暂存区中的文件覆盖工作区中的文件
@@ -158,6 +198,30 @@ categories:
 
 ###汇总显示工作区、暂存区与HEAD的差异
     $ git checkout HEAD
+
+###分支管理
+    # 列出本地分支
+    $ git branch
+
+    # 创建分支
+    $ git branch <branch>              # 从HEAD创建
+    $ git branch <branch> <commit>     # 从提交<commit>开始创建
+
+    # 删除分支
+    $ git branch -d <branch>    # 检查要删除的分支是否已合并到其他分支，未合并则不删除
+    $ git branch -D <branch>    # 强制删除，不管是否合并
+
+    # 重命名分支
+    $ git branch -m <oldbranch> <newbranch>
+
+    # 远程仓库分支操作
+    $ git push <remote> <local-branch>:<remote-branch>     # 添加
+    $ git push <remote> :<remote-branch>                   # 删除
+
+###合并分支
+    $ git merge <branch>                # 将<branch>合并至当前分支并提交
+    $ git merge --no-commit <branch>    # 仅合并不提交
+*从远程仓库fetch下来的分支一般为`<remote>/<branch>`，如`origin/master`*
 
 ###变基操作
     # 将(<since>, <until>]之间的提交（不含<since>）嫁接到HEAD后
@@ -175,7 +239,6 @@ categories:
     $ git rebase --continue     # 解决冲突后暂存更改，然后恢复变基操作
     $ git rebase --skip         # 跳过当前提交
     $ git rebase --abort        # 终止变基操作，回到之前提交
-**变基操作可能是git里最牛逼最强大的操作之一了吧，具体用法什么的请参考其他教程**
 
 ###进度的保存与恢复相关
     # 保存
@@ -201,7 +264,12 @@ categories:
     $ git clean -nd     # 删除测试
     $ git clean -fd     # 强制删除
 
-###打标签
+###打标签/里程碑
+    # 显示当前版本库的标签列表
+    $ git tag
+    $ git tag -n<num>       # 限定显示<num>个
+    $ git tag -l <match>     # 用通配符过滤
+
     # 为HEAD打标签
     $ git tag <tag>
     $ git tag -m '标签说明信息' <tag>
@@ -213,9 +281,14 @@ categories:
     # 删除标签
     $ git tag -d <tag>
 
+    # 远程仓库标签操作
+    $ git push <remote> <tag>       # 添加
+    $ git push <remote> :<tag>      # 删除
+
 ###打包/归档
     $ git archive -o <归档文件名> <commit>
     $ git archive -o <归档文件名> <commit> <path1> <path2> <etc.>
 
-###二分查找
+###其他常用功能
     $ git bisect    # 这个功能很强大、但是有点复杂，所以就不想细说了
+    $ git rc        # 清理版本库中的冗余、垃圾、过期信息
