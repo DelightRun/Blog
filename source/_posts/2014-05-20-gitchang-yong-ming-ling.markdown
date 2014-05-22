@@ -146,7 +146,9 @@ categories:
     $ git commit -C <commit>
 
 ###推送至远程仓库
-    $ git push <remote> <branch>    # 推送至远程仓库指定分支
+    $ git push                      # 推送所有分支至默认origin
+    $ git push <remote>             # 推送所有分支至远程仓库
+    $ git push <remote> <branch>    # 推送指定分支至远程仓库
 
 ###从远程仓库拉取
     # 仅拉取不合并
@@ -179,11 +181,9 @@ categories:
 
 ###查看提交日志
     $ git log [-<num>] [--pretty=<pretty>] [-stat] [--graph]
-*`-stat`参数自己试试吧*
-
-*`<num>`为限定显示的数量，<num>可以是1,2,3等*
-
-*`<pretty>`可以是`fuller`,`raw`,`oneline`,默认为`raw`*
++ *`-stat`参数自己试试吧*
++ *`<num>`为限定显示的数量，<num>可以是1,2,3等*
++ *`<pretty>`可以是`fuller`,`raw`,`oneline`,默认为`raw`*
 
 ###更改工作区文件
     # 用暂存区中的文件覆盖工作区中的文件
