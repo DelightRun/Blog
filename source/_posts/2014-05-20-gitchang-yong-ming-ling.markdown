@@ -146,17 +146,16 @@ categories:
     $ git commit -C <commit>
 
 ###推送至远程仓库
-    $ git push              # 默认拉取origin
-    $ git push <remote>     # 从指定仓库拉取
+    $ git push <remote> <branch>    # 推送至远程仓库指定分支
 
 ###从远程仓库拉取
     # 仅拉取不合并
     $ git fetch             # 默认获取origin
     $ git fetch <remote>    # 从指定仓库获取
 
-    # 获取并合并，相当于git fetch + git merge
-    $ git pull              # 默认获取并合并origin
-    $ git pull <remote>     # 从指定仓库获取并合并
+    # 拉取并合并，相当于git fetch + git merge
+    $ git pull              # 默认拉取并合并origin
+    $ git pull <remote>     # 从指定仓库拉取并合并
 
 ###提交一次反转提交
 >注：书上使用“反转提交”，但我认为这样有歧义，我管它叫“提交一次反转提交”
