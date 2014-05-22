@@ -7,9 +7,9 @@ categories:
 ---
 
 ##术语中英文对照表
-`仓库`      <=>     `repository`
-`工作区`    <=>     `working directory`
-`暂存区`    <=>     `staging area`
++ `仓库`      <=>     `repository`
++ `工作区`    <=>     `working directory`
++ `暂存区`    <=>     `staging area`
 
 ##关于提交的某些代号
 + `HEAD`代表版本库最近一次提交
@@ -40,14 +40,14 @@ categories:
 
 ###建立仓库
     # 新建
-    $ git init [--bare]             # 在本目录下初始化
-    $ git init [--bare] <directory>  # 新建<directory>目录并在其中初始化
+    $ git init [--bare]                  # 在本目录下初始化
+    $ git init [--bare] <directory>      # 新建<directory>目录并在其中初始化
 
     # 克隆
     $ git clone <repository>
     $ git clone <repository> <directory>
     $ git clone --bare <repository>         # 克隆下来不包含工作区的裸版本
-    $ git clone --mirror <repository>       # 也是克隆工作区，不过可以用git fetch和上游版本库持续同步
+    $ git clone --mirror <repository>       # 克隆工作区，不过可以用git fetch和上游版本库持续同步
 
 ###远程仓库操作
     # 添加远程仓库
@@ -116,6 +116,7 @@ categories:
 *在git中经常用`.`表示所有符合条件的文件，下同*
 
 ###替换暂存区文件
+    $ git reset                         # 用HEAD指向的提交重置整个暂存区
     $ git reset -- <path>               # 用HEAD指向提交替换暂存区指定文件
     $ git reset <commit> -- <path>      # 用<commit>替换暂存区指定文件，不重置HEAD值
 
@@ -125,7 +126,6 @@ categories:
 
     # 更改HEAD与HEAD所指分支（如一般为master）指向的提交，并替换暂存区
     $ git reset [--mixed] <commit>      # --mixed是默认参数，没有也行
-    $ git reset                         # 特殊用法，效果为撤出缓存区文件然后将HEAD重置为自身，相当于没重置
 
     # 更改HEAD与HEAD所指分支（如一般为master）指向的提交，并替换暂存区与工作区
     $ git reset --hard <commit>
