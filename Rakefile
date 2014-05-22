@@ -6,7 +6,7 @@ require "stringex"
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
 ssh_user       = "Changxu.mail@gmail.com"
 ssh_port       = "22"
-document_root  = "~/DelightRun.github.io/"
+document_root  = "/home/axu/Blog/"
 rsync_delete   = false
 rsync_args     = ""  # Any extra arguments to pass to rsync
 deploy_default = "push"

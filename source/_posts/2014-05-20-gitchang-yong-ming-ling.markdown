@@ -180,7 +180,9 @@ categories:
 ###查看提交日志
     $ git log [-<num>] [--pretty=<pretty>] [-stat] [--graph]
 *`-stat`参数自己试试吧*
+
 *`<num>`为限定显示的数量，<num>可以是1,2,3等*
+
 *`<pretty>`可以是`fuller`,`raw`,`oneline`,默认为`raw`*
 
 ###更改工作区文件
