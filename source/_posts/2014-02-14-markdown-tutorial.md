@@ -3,7 +3,7 @@ layout: post
 title: "Markdown概述与标记总结"
 date: 2014-02-14 20:30:30 +0800
 comments: true
-categories:
+categories: Octopress
 ---
 
 #概述
@@ -12,6 +12,7 @@ categories:
     
 > 请关注下[reStructuredText](http://docutils.sourceforge.net/rst.html)和[Sphinx](http://sphinx-doc.org/)，他们经常被用于生成Python的文档。
 
+<!-- more -->
 
 #语法标记
 

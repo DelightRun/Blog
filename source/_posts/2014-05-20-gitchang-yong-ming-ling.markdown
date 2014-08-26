@@ -3,7 +3,7 @@ layout: post
 title: "Git常用命令"
 date: 2014-05-20 22:50:43 +0800
 comments: true
-categories: 
+categories: Git
 ---
 
 ##术语中英文对照表
@@ -20,6 +20,8 @@ categories:
 + `~<N>`代表第N个祖先提交，如：`HEAD~5`相当于`HEAD^^^^^`
 + `@{N}`代表N次修改前的值，如：`HEAD@{1}`代表HEAD上次被修改前的值
 + 每个分支的名称也指向某个独一无二的提交，所以下面的<commit>也可以是其他分支名
+
+<!-- more -->
 
 ###配置用户名和邮件
     $ git config --global user.name "name"

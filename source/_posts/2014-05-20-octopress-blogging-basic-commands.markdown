@@ -3,7 +3,7 @@ layout: post
 title: "Octopress博客常用命令"
 date: 2014-05-20 00:10:25 +0800
 comments: true
-categories:
+categories: Octopress
 ---
 
 ###新建博文:
@@ -16,6 +16,12 @@ categories:
     # 创建/source/directory/page.html
     rake new_page[directory/page.html]
 
+###readmore长度控制
+编辑你的博文或页面，在你想要的截断的地方的下一行添加
+    <!-- more -->
+
+<!-- more -->
+    
 ###设置为草稿:
 编辑你的博文或页面，
 在`---`中间的元数据中添加下面一行
