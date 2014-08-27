@@ -16,10 +16,10 @@ description: I'm Changxu, a student in <a href="http://www.xidian.edu.cn/">Xidia
 date_format: "ordinal"
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
-subscribe_rss: /atom.xml
+subscribe_rss: 
 subscribe_email: mailto:Changxu.mail@gmail.com
 # RSS feeds can list your email address if you like
-email: mailto:Changxu.mail@gmail.com
+email: Changxu.mail@gmail.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -69,8 +69,11 @@ github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user: Charlix_Wang
+twitter_user:
 twitter_tweet_button: true
+
+# Weibo
+weibo_user: singledust
 
 # Google +1
 google_plus_one: false

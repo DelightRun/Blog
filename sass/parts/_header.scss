@@ -298,7 +298,7 @@ $header-height: 30px;
 	}
 	.social{
 		float: left;
-		margin-right: 15px;
+		margin: auto;
 		@media screen and (max-width: 1040px){
 			float: none;
 			margin-right: 0;
@@ -310,16 +310,19 @@ $header-height: 30px;
 			@include border-radius(50%);
 			@include inline-block;
 			text-indent: -9999px;
-			margin: 0 15px 15px 0;
-      border: 1px solid #fff;
+            margin: 0 2px;
+            border: 1px solid #fff;
 			@include square(33px);
 			@include transition(0.3s);
 			&:hover{
-        opacity: 0.6;
+                opacity: 0.6;
 			}
 			&.email{
 				background: image-url('social/email.png') center no-repeat;
 			}
+            &.weibo{
+                background: image-url('soical/weibo.png') center no-repeat;
+            }
 			&.facebook{
 				background: image-url('social/facebook.png') center no-repeat;
 			}

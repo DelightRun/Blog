@@ -17,6 +17,9 @@
 		{% if site.email %}
 			<a class="email" href="mailto:{{ site.email }}" title="Email">Email</a>
 		{% endif %}
+    {% if site.weibo_user %}
+      <a class="weibo" href="http://weibo.com/{{ site.weibo_user }}" title="微博">微博</a>
+    {% endif %}
 		{% if site.facebook_user %}
 			<a class="facebook" href="http://www.facebook.com/{{ site.facebook_user }}" title="Facebook">Facebook</a>
 		{% endif %}
@@ -56,10 +59,10 @@
 		{% if site.instagram_user %}
 			<a class="instagram" href="https://instagram.com/{{ site.instagram_user }}" title="Instagram">Instagram</a>
 		{% endif %}
-    	{% if site.behance_user %}
+   	{% if site.behance_user %}
 			<a class="behance" href="https://www.behance.net/{{ site.behance_user }}" title="Behance">Behance</a>
 		{% endif %}
-    	{% if site.subscribe_rss %}
+   	{% if site.subscribe_rss %}
 			<a class="rss" href="{{ site.subscribe_rss }}" title="RSS">RSS</a>
 		{% endif %}
 	</div>
