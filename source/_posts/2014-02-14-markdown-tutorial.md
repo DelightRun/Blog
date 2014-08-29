@@ -3,7 +3,7 @@ layout: post
 title: "Markdown概述与标记总结"
 date: 2014-02-14 20:30:30 +0800
 comments: true
-categories: Octopress
+categories: [Octopress,前端]
 ---
 
 #概述

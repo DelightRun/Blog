@@ -3,9 +3,13 @@ layout: post
 title: "Octopress博客常用命令"
 date: 2014-05-20 00:10:25 +0800
 comments: true
-categories: Octopress
+categories: [Octopress]
 ---
 
+本文总结一些Octopress博客常用命令，以供参考
+
+<!-- more -->
+    
 ###新建博文:
 
     $ rake new_post["title"]    
@@ -23,8 +27,6 @@ categories: Octopress
 编辑你的博文或页面，在你想要的截断的地方的下一行添加
     <!-- more -->
 
-<!-- more -->
-    
 ###设置为草稿:
 
 编辑你的博文或页面，

@@ -9,6 +9,8 @@ categories: [Web,Ruby on Rails]
 在Ubuntu13.04下使用`apt-get`安装的Ruby版本为`1.9.3`，
 本文将介绍如何在Ubuntu下安装最新的`Ruby 2.1.2`
 
+<!-- more -->
+
 ###安装rbenv
 
 **首先**，手动安装rbenv

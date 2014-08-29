@@ -3,10 +3,10 @@ layout: post
 title: "C++头文件内容建议"
 date: 2014-05-22 22:31:06 +0800
 comments: true
-categories: C++
+categories: [C++]
 ---
 
-以下列出一些关于C++头文件内容的建议
+本文列出一些关于C++头文件内容的建议
 
 >本文内容摘自《C++程序设计语言》
 
