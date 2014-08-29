@@ -7,11 +7,13 @@ categories: Git
 ---
 
 ##术语中英文对照表
+
 + `仓库`      <=>     `repository`
 + `工作区`    <=>     `working directory`
 + `暂存区`    <=>     `staging area`
 
 ##关于提交的某些代号
+
 + `HEAD`代表版本库最近一次提交
 + `^`代表父提交，如：
     * HEAD^代表上一次提交
@@ -24,10 +26,12 @@ categories: Git
 <!-- more -->
 
 ###配置用户名和邮件
+
     $ git config --global user.name "name"
     $ git config --global user.email "email"
 
 ###配置命令别名
+
     #全局配置：
     $ sudo git config --system alias.st status
     $ sudo git config --system alias.ci commit
@@ -41,6 +45,7 @@ categories: Git
     $ git config --global alias.br branch
 
 ###建立仓库
+
     # 新建
     $ git init [--bare]                  # 在本目录下初始化
     $ git init [--bare] <directory>      # 新建<directory>目录并在其中初始化
@@ -52,6 +57,7 @@ categories: Git
     $ git clone --mirror <repository>       # 克隆工作区，不过可以用git fetch和上游版本库持续同步
 
 ###远程仓库操作
+
     # 添加远程仓库
     $ git remote add <remote> <url>
 
@@ -72,6 +78,7 @@ categories: Git
     $ git remote rm <remote>
 
 ###比较
+
     # 比较工作区与暂存区
     $ git diff              # 比较全部改动，下同
     $ git diff -- <path>    # 比较特定文件，下同
@@ -96,20 +103,24 @@ categories: Git
     $ git diff <path1> <path2>
 
 ###删除及移动
+
     $ git rm <path1> <path2> <etc.>     # 删除
     $ git mv <path1> <path2> <etc.>     # 移动
 
 ###追溯文件修改记录
+
     $ git blame <path>
     $ git blame -L n,m <path>   # 限定查看范围，m可以是相对坐标，如：-L 6,+5为查看[6,10]行
 
 ###查看工作区状态
+
     $ git status
     $ git status -s             # 精简显示
     $ git status --ignore       # 查看被忽略的文件
     $ git status --ignore -s    # 同上，只不过精简显示
 
 ###添加文件到暂存区
+
     $ git add <path>    # 暂存单个文件
     $ git add .         # 暂存所有文件
     $ git add -A        # 暂存所有改动及新增的文件
@@ -118,11 +129,13 @@ categories: Git
 *在git中经常用`.`表示所有符合条件的文件，下同*
 
 ###替换暂存区文件
+
     $ git reset                         # 用HEAD指向的提交重置整个暂存区
     $ git reset -- <path>               # 用HEAD指向提交替换暂存区指定文件
     $ git reset <commit> -- <path>      # 用<commit>替换暂存区指定文件，不重置HEAD值
 
 ###重置HEAD
+
     # 更改HEAD与HEAD所指分支（如一般为master）指向的提交
     $ git reset --soft <commit>
 
@@ -133,6 +146,7 @@ categories: Git
     $ git reset --hard <commit>
 
 ###提交
+
     # 提交
     $ git commit
     $ git commit -m '提交说明'
@@ -148,11 +162,13 @@ categories: Git
     $ git commit -C <commit>
 
 ###推送至远程仓库
+
     $ git push                      # 推送所有分支至默认origin
     $ git push <remote>             # 推送所有分支至远程仓库
     $ git push <remote> <branch>    # 推送指定分支至远程仓库
 
 ###从远程仓库拉取
+
     # 仅拉取不合并
     $ git fetch             # 默认获取origin
     $ git fetch <remote>    # 从指定仓库获取
@@ -162,6 +178,7 @@ categories: Git
     $ git pull <remote>     # 从指定仓库拉取并合并
 
 ###提交一次反转提交
+
 >注：书上使用“反转提交”，但我认为这样有歧义，我管它叫“提交一次反转提交”
     
     # 反向提交
@@ -178,16 +195,19 @@ categories: Git
     $ git revert --abort        # 终止反转提交，回到之前提交
 
 ###查看某次提交详情
+
     $ git show              # 显示HEAD提交详情
     $ git show <commit>     # 显示<commit>提交详情
 
 ###查看提交日志
+
     $ git log [-<num>] [--pretty=<pretty>] [-stat] [--graph]
 + *`-stat`参数自己试试吧*
 + *`<num>`为限定显示的数量，<num>可以是1,2,3等*
 + *`<pretty>`可以是`fuller`,`raw`,`oneline`,默认为`raw`*
 
 ###更改工作区文件
+
     # 用暂存区中的文件覆盖工作区中的文件
     $ git checkout -- <path>
     $ git checkout .
@@ -197,12 +217,15 @@ categories: Git
     $ git checkout <commit> .
 
 ###切换HEAD位置
+
     $ git checkout <commit>
 
 ###汇总显示工作区、暂存区与HEAD的差异
+
     $ git checkout HEAD
 
 ###分支管理
+
     # 列出本地分支
     $ git branch
 
@@ -222,11 +245,13 @@ categories: Git
     $ git push <remote> :<remote-branch>                   # 删除
 
 ###合并分支
+
     $ git merge <branch>                # 将<branch>合并至当前分支并提交
     $ git merge --no-commit <branch>    # 仅合并不提交
 *从远程仓库fetch下来的分支一般为`<remote>/<branch>`，如`origin/master`*
 
 ###变基操作
+
     # 将(<since>, <until>]之间的提交（不含<since>）嫁接到HEAD后
     $ git rebase <since>            # <until>为空，则默认为最后一次提交，下同
     $ git rebase <since> <until>
@@ -244,6 +269,7 @@ categories: Git
     $ git rebase --abort        # 终止变基操作，回到之前提交
 
 ###进度的保存与恢复相关
+
     # 保存
     $ git stash
     $ git stash save '保存说明'
@@ -264,10 +290,12 @@ categories: Git
     $ git stash branch <branchname> <stash>
 
 ###删除本地多余的文件与目录
+
     $ git clean -nd     # 删除测试
     $ git clean -fd     # 强制删除
 
 ###打标签/里程碑
+
     # 显示当前版本库的标签列表
     $ git tag
     $ git tag -n<num>       # 限定显示<num>个
@@ -289,9 +317,11 @@ categories: Git
     $ git push <remote> :<tag>      # 删除
 
 ###打包/归档
+
     $ git archive -o <归档文件名> <commit>
     $ git archive -o <归档文件名> <commit> <path1> <path2> <etc.>
 
 ###其他常用功能
+
     $ git bisect    # 这个功能很强大、但是有点复杂，所以就不想细说了
     $ git rc        # 清理版本库中的冗余、垃圾、过期信息
