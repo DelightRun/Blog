@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: "Git常用命令"
+title: Git常用命令
 date: 2014-05-20 22:50:43 +0800
 comments: true
 categories: [Git]

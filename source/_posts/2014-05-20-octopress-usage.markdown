@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Octopress博客常用命令"
+title: Octopress博客常用命令
 date: 2014-05-20 00:10:25 +0800
 comments: true
 categories: [Octopress]

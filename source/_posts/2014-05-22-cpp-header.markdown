@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "C++头文件内容建议"
+title: C++头文件内容建议
 date: 2014-05-22 22:31:06 +0800
 comments: true
 categories: [C++]
