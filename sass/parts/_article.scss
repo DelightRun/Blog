@@ -10,9 +10,9 @@ article{
 		padding: 15px 0;
 	}
 	h1.title{
-		font-weight: 300;
+		font-weight: 700;
 		line-height: 35px;
-		margin-bottom: 40px;
+		margin-bottom: 50px;
 		a{
 			color: $color-gray01;
 		}
@@ -38,7 +38,7 @@ article{
 				// left: 0;
 			}
 		}
-		p, blockquote, ul, ol, dl, table, iframe, h1, h2, h3, h4, h5, h6, .video-container{
+		pre, p, blockquote, ul, ol, dl, table, iframe, h1, h2, h3, h4, h5, h6, .video-container{
 			margin-top: 20px;
 		}
 		ul, ol, dl{
@@ -52,9 +52,6 @@ article{
 		}
 		em{
 			font-style: italic;
-		}
-		p{
-			margin-top: 10px;	
 		}
 		h2{
 			font-weight: 300;
@@ -77,7 +74,6 @@ article{
 			background: $color-gray04;
 			border-left: 5px solid $color-gray03;
 			padding: 15px 20px;
-			margin-top: 10px;
 			& > p:first-of-type{
 				margin-top: 0;
 			}
@@ -89,7 +85,6 @@ article{
 			background: $color-gray04;
 			border: 1px solid $color-gray03;
 			border-spacing: 0;
-			margin-top: 10px;
 			th{
 				background: $color-gray03;
 				padding: 0 15px;
