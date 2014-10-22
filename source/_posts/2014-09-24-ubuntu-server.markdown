@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ubuntu下搭建传统LAMP服务器
+title: Ubuntu下搭建LAMP服务器
 date: 2014-09-24 20:06:22 +0800
 comments: true
 categories: [Linux,服务器]
