@@ -3,7 +3,7 @@ layout: post
 title: 合并两个Python字典 
 date: 2014-10-16 19:55:24 +0800
 comments: true
-categories: Python
+categories: [Python]
 ---
 
 > [原帖在此](http://stackoverflow.com/questions/38987/how-can-i-merge-two-python-dictionaries-in-a-single-expression)

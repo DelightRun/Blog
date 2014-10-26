@@ -3,7 +3,7 @@ layout: post
 title: IntelliJ IDEA基本界面配置
 date: 2014-10-22 22:17:46 +0800
 comments: true
-categories: IntellijIDEA, Java, Ubuntu
+categories: [IntellijIDEA, Java, Ubuntu]
 ---
 
 IntelliJ IDEA是一款非常优秀的Java IDE，很多人认为它比Eclipse更优秀。
