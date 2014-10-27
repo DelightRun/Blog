@@ -16,9 +16,7 @@ IntelliJ IDEA是一款非常优秀的Java IDE，很多人认为它比Eclipse更�
 
 编辑`~/.bashrc`，添加如下行：
 
-~~~
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
-~~~
+    export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
 重启IntelliJ IDEA，字体的毛刺就消失了
 

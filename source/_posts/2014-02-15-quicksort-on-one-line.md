@@ -17,41 +17,51 @@ categories: [Python]
 #预备知识
 
 ####lambda表达式
-lambda表达式是*函数式编程*中的一种概念，也叫匿名函数。用法举例如下:
+lambda表达式是`函数式编程`中的一种概念，也叫匿名函数。用法举例如下:
 
-    f = lambda x: x**x
-    print f(3) # => 27
-
-在此函数f用于计算x的立方
+{% codeblock lang:python %}
+f = lambda x: (x + 2) * x
+print f(3) # => 15
+{% endcodeblock %}
 
 ####列表推导式
-Python中的列表推导式，这个自行GOOGLE吧，在Python中非常常用。
+Python中的列表推导式，这个自行[Google](https://www.google.com)吧，在Python中非常常用。
 
 ####Python中的三元表达式
 在Python中也有三元表达式, 形式如下:
 
-    TruePart if Condition else FalsePart
+{% codeblock lang:python %}
+TruePart if Condition else FalsePart
+{% endcodeblock %}
 
 相当于C语言中的:
 
-    TruePart ? Condition : FalsePart
+{% codeblock lang:c %}
+TruePart ? Condition : FalsePart
+{% endcodeblock %}
 
 #如何实现
 
-我们知道，快排的思想是，选定一个*key*，然后将比*key*小的选出构成一个线性表*smaller*，比*key*大的也选出来构成一个线性表*bigger*，然后对*smaller*和*bigger*递归进行快排直到表为空，最后合并。
+我们知道，快排的思想是，选定一个`key`，然后将比`key`小的选出构成一个线性表`smaller`，比`key`大的也选出来构成一个线性表`bigger`，然后对`smaller`和`bigger`递归进行快排直到表为空，最后合并。
 用Python表示就是:
 
-    smaller = [i for i in data if i < key]
-    bigger = [i for i in data if i > key]
-    result = smaller + [key] + bigger
+{% codeblock lang:python %}
+smaller = [i for i in data if i < key]
+bigger = [i for i in data if i > key]
+result = smaller + [key] + bigger
+{% endcodeblock %}
 
 那递归的边界条件怎么办呢？简单，用三元表达式啊:
 
-    [] if len(X) == 0 else [doSomething]
+{% codeblock lang:python %}
+[] if len(X) == 0 else [doSomething]
+{% endcodeblock %}
 
 好了，现在再结合上lambda表达式，最后一行的快速排序如下:
 
-    QuickSort = lambda X: [] if len(X) == 0 else QuickSort([i for i in X if i < X[0]]) + [X[0]] + QuickSort([i for i in X if i > X[0]])
+{% codeblock lang:python %}
+QuickSort = lambda X: [] if len(X) == 0 else QuickSort([i for i in X if i < X[0]]) + [X[0]] + QuickSort([i for i in X if i > X[0]])
+{% endcodeblock %}
 
 这就结束了，亲测可用。
 

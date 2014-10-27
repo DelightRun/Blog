@@ -13,6 +13,7 @@ categories: [C++]
 <!-- more -->
 
 ###可以包含
+
 + 命名名字空间          namespace N {/\*...\*/}
 + 类型定义              struct Point { int x,y; };
 + 模板声明              template<class T> class Z;
@@ -29,6 +30,7 @@ categories: [C++]
 + 注释                  /\* comment \*/
 
 ###绝不该有
+
 + 常规的函数定义        char get(char\* p) { return \*p++; }
 + 数据定义              int a;
 + 聚集量定义            short tbl[] = {1,2,3};

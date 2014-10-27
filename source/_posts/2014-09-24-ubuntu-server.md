@@ -8,7 +8,7 @@ categories: [Linux,服务器]
 
 本文讲述如何在Ubuntu下搭建LAMP服务器的大体流程
 
-> LAMP: Linux + Apache + MySQL + PHP
+> LAMP = Linux + Apache + MySQL + PHP
 
 <!-- more -->
 
@@ -31,7 +31,7 @@ categories: [Linux,服务器]
 
     $ sudo apt-get install mysql-server mysql-client php5-mysql
 
-**注意：**安装过程中的`root`账户密码你可以随便填，反正第一次用这个密码你一定无法登陆，
+**注意**：安装过程中的`root`账户密码你可以随便填，反正第一次用这个密码你一定无法登陆，
 下面我们将叙述如何解决该问题
 
 ##配置MySQL的root密码
