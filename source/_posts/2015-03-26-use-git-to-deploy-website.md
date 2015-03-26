@@ -57,3 +57,23 @@ categories: Git, Linxu
     $ chmod +x post-receive
 
 **注意：/path/to/your/website目录需自己手动创建**
+
+五、在本地添加远程仓库
+==================
+
+	$ git remote add origin ssh://git@your_server:/path/to/your/repo.git
+
+接下来就可以正常的*git push origin*了
+
+Extra、使用公钥进行SSH认证
+=======================
+
+每次登陆SSH都需要输入密码是一件非常麻烦的事情，所以我们使用公钥认证。
+
+首先，在本地生成公钥——输入以下命令并按提示操作
+
+	$ ssh-keygen -t rsa -C "your_email@youremail.com"
+	
+然后，打开*~/.ssh*目录下的*id_rsa.pub*文件，复制里面的内容，
+
+最后，将刚才复制的内容粘贴至服务器上的*/home/git/.ssh/authorized_keys*文件里（没有则新建）
