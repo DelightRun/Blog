@@ -402,3 +402,17 @@ task :list do
   puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).join(', ')}"
   puts "(type rake -T for more detail)\n\n"
 end
+
+editor = "Mou"
+desc "Edit a post (defaults to most recent)"
+task :edit_post, :title do |t, args|
+  args.with_defaults(:title => false)
+  posts = Dir.glob("#{source_dir}/#{posts_dir}/*.*")
+  post = (args.title) ? post = posts.keep_if {|post| post =~ /#{args.title}/}.last : posts.last
+  if post
+    puts "Opening #{post} with #{editor}..."
+    system "Open -a #{editor}.app #{post} &"
+  else
+    puts "No posts were found with \"#{args.title}\" in the title."
+  end
+end
