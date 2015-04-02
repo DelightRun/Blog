@@ -403,7 +403,7 @@ task :list do
   puts "(type rake -T for more detail)\n\n"
 end
 
-editor = "Mou"
+editor = "MacDown"
 desc "Edit a post (defaults to most recent)"
 task :edit_post, :title do |t, args|
   args.with_defaults(:title => false)
