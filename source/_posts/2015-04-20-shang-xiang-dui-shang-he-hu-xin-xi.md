@@ -15,7 +15,7 @@ categories: 信息论, 熵
 
 **定义** 离散型随机变量X的`熵(entropy)` $H(X)$定义为：
 
-$$ H(X) = -\sum_{x\in X}{p(x)\log{p(x)}} $$
+$$ H(X) = -\sum_{x \in \mathscr X}{p(x)\log{p(x)}} $$
 
 > 注意：熵实际上是随机变量$X$概率分布的泛函
 
@@ -24,7 +24,7 @@ $$ H(X) = -\sum_{x\in X}{p(x)\log{p(x)}} $$
 
 **定义** 对于服从联合分布为$p(x,y)$的一对离散型随机变量$(X,Y)$，其`联合熵(joint entropy)` $H(X,Y)$定义为：
 
-$$ H(X,Y) = -\sum_{x\in X}{\sum_{y\in Y}{p(x,y)\log{p(x,y)}}} $$
+$$ H(X,Y) = -\sum_{x\in \mathscr X}{\sum_{y\in \mathscr Y}{p(x,y)\log{p(x,y)}}} $$
 
 亦可表示成：
 
@@ -37,7 +37,7 @@ $$ H(X,Y) = -E\log{p(X,Y)} $$
 
 **定义** 若$(X,Y)$服从联合分布$p(x,y)$,`条件熵(conditional entropy)`$H(Y\vert X)$定义为：
 
-$$ H(Y\vert X) = \sum_{x\in X}{p(x)H(Y\vert X=x)} = -\sum_{x\in X}{\sum_{y\in Y}{p(x,y)\log{p(y\vert x)}}} = -E_{p((x,y)}\log{p(Y\vert X)} $$
+$$ H(Y\vert X) = \sum_{x\in \mathscr X}{p(x)H(Y\vert X=x)} = -\sum_{x\in \mathscr X}{\sum_{y\in \mathscr Y}{p(x,y)\log{p(y\vert x)}}} = -E_{p((x,y)}\log{p(Y\vert X)} $$
 
 **定理**  `链式法则` 设随机变量$X_1,X_2,\cdots,X_n$服从$p(x_1,x2,\cdots,x_n)$，则有：
 
@@ -53,7 +53,7 @@ $$ H(X_1,X_2,\cdots,X_n) = \sum_{i=1}^{n}H(X_i\vert X_{i-1},\cdots,X_1) $$
 
 **定义** 两个概率密度函数$p(x)$和$q(x)$之间的`相对熵`，或`Kullback Leibler距离`定义为：
 
-$$ D(p\Vert q) = \sum_{x\in X}{p(x)\log{\frac{p(x)}{q(x)}}} = E_p\log{\frac{p(X)}{q(X)}} $$
+$$ D(p\Vert q) = \sum_{x\in \mathscr X}{p(x)\log{\frac{p(x)}{q(x)}}} = E_p\log{\frac{p(X)}{q(X)}} $$
 
 > 约定 $0\log{\frac{0}{q}}=0$ 和 $p\log{\frac{p}{0}}=\infty$ （基于连续性假设）
 
@@ -70,7 +70,7 @@ $$ D(p(x,y)\Vert q(x,y)) = D(p(x)\Vert q(x)) + D(p(y\vert x)\Vert q(y\vert x)) $
 
 **定义** 考虑两个随机变量$X$和$Y$，其联合概率密度函数为$p(x,y)$，其边际概率密度函数分别是$p(x)$和$p(y)$。`互信息`$I(X;Y)$定义为联合分布$p(x,y)$和乘积分布$p(x)p(y)$之间的相对熵，即：
 
-$$ I(X;Y) = \sum_{x\in X}{\sum_{y\in Y}{p(x,y)\log{\frac{p(x,y)}{p(x)p(y)}}}} = D(p(x,y)\Vert p(x)p(y)) = E_{p(x,y)}\log{\frac{p(X,Y)}{p(X)p(Y)}} $$
+$$ I(X;Y) = \sum_{x\in \mathscr X}{\sum_{y\in \mathscr Y}{p(x,y)\log{\frac{p(x,y)}{p(x)p(y)}}}} = D(p(x,y)\Vert p(x)p(y)) = E_{p(x,y)}\log{\frac{p(X,Y)}{p(X)p(Y)}} $$
 
 熵与互信息的关系
 ==============
