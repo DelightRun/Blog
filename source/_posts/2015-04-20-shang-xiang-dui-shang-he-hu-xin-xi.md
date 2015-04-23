@@ -62,7 +62,7 @@ $$ D(p\Vert q) = \sum_{x\in X}{p(x)\log{\frac{p(x)}{q(x)}}} = E_p\log{\frac{p(X)
 
 **定理** `相对熵的链式法则`
 
-$$ D(p(x,y)\Vert q(x,y)) = D(p(x)\Vert q(x)) + D(p(y|x)\Vert q(y|x)) $$
+$$ D(p(x,y)\Vert q(x,y)) = D(p(x)\Vert q(x)) + D(p(y\vert x)\Vert q(y\vert x)) $$
 
 
 互信息
