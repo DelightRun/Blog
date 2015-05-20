@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Post 中文分词库"
+title: "中文分词库"
 date: 2015-04-27 10:15:36 +0800
 comments: true
 categories: 自然语言处理, 机器学习
