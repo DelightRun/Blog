@@ -91,6 +91,7 @@ class WdigetManager : public CreationPolicy<Widget>
         myPolicy.SetPrototype(pNewPrototype);
     }
 };
+```
 
 The resulting context is:
 
