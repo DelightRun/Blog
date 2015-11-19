@@ -3,7 +3,7 @@ layout: post
 title: "矩阵论——范数理论"
 date: 2015-11-11 15:08:06 +0800
 comments: true
-categories: Math, Linear Algebra, Matrix Theory
+categories: [Math, Linear Algebra, Matrix Theory]
 ---
 
 不加证明地简述向量范数和矩阵范数的概念与部分定理。
@@ -44,7 +44,7 @@ $$ \| \boldsymbol{x} \|_\infty = \max_{k}\vert \xi_k \vert $$
 
 + 向量**加权范数**或**椭圆范数**：
 
-$$ \|\boldsymbol{x}\|_\mathbf{A} = \sqrt{\boldsymbol{x}^H\mathbf{A}\boldsymbol{x}}，\mathbf{A}是n阶Hermite正定矩阵 $$
+$$ \|\boldsymbol{x}\|_\boldsymbol{A} = \sqrt{\boldsymbol{x}^H\boldsymbol{A}\boldsymbol{x}}，\boldsymbol{A}是n阶Hermite正定矩阵 $$
 
 
 ### 性质
@@ -63,7 +63,7 @@ $$ \alpha\|\boldsymbol{x}\|_a \leq \|\boldsymbol{x}\|_a \leq \beta\|\boldsymbol{
 
 **定理** &nbsp; $\mathbf{C}^n$上所有向量范数等价
 
-## $\mathbf{H\ddot{o}lder}不等式$
+## $\boldsymbol{H\ddot{o}lder}不等式$
 
 对任意 $$\xi_k, \eta_k \in \mathbf{C}(k=1,2,\cdots,n)$$，有：
 
@@ -79,20 +79,20 @@ $$ \sum_{k=1}^{n}{\vert \xi_k \vert \vert \eta_k \vert} \leq
 
 ## 矩阵范数四公理
 
-**定义** &nbsp; 若对任意 $\mathbf{A} \in \mathbf{C}^{m \times n}$ 都有一个实数 $\|\mathbf{A}\|$ 与之对应，且满足
+**定义** &nbsp; 若对任意 $\boldsymbol{A} \in \mathbf{C}^{m \times n}$ 都有一个实数 $\|\boldsymbol{A}\|$ 与之对应，且满足
 
-1. 非负性：当 $\mathbf{A} \neq \mathbf{O}$ 时，$$\|\mathbf{A}\| \gt 0$$，当 $\mathbf{A} = \mathbf{O}$ 时，$$\|\mathbf{A}\| = 0$$，
-2. 齐次性：对任意 $$\lambda \in \mathbf{C}， \|\lambda \mathbf{A}\| = \vert\lambda \vert \| \mathbf{A} \|$$，
-3. 三角不等式：对任意 $\mathbf{A,B} \in \mathbf{C}^{n \times n}$，都有 $$\|\mathbf{A} + \mathbf{B}\| \leq \|\mathbf{A}\| + \|\mathbf{B}\|$$，
-4. 相容性：对任意 $\mathbf{A} \in \mathbf{C}^{m \times n}, \mathbf{B} \in \mathbf{C}^{n \times l}$，都有 $$\|\mathbf{A}\mathbf{B}\| \leq \|\mathbf{A}\| \|\mathbf{B}\|$$，
+1. 非负性：当 $\boldsymbol{A} \neq \boldsymbol{O}$ 时，$$\|\boldsymbol{A}\| \gt 0$$，当 $\boldsymbol{A} = \boldsymbol{O}$ 时，$$\|\boldsymbol{A}\| = 0$$，
+2. 齐次性：对任意 $$\lambda \in \mathbf{C}， \|\lambda \boldsymbol{A}\| = \vert\lambda \vert \| \boldsymbol{A} \|$$，
+3. 三角不等式：对任意 $\boldsymbol{A,B} \in \mathbf{C}^{n \times n}$，都有 $$\|\boldsymbol{A} + \boldsymbol{B}\| \leq \|\boldsymbol{A}\| + \|\boldsymbol{B}\|$$，
+4. 相容性：对任意 $\boldsymbol{A} \in \mathbf{C}^{m \times n}, \boldsymbol{B} \in \mathbf{C}^{n \times l}$，都有 $$\|\boldsymbol{A}\boldsymbol{B}\| \leq \|\boldsymbol{A}\| \|\boldsymbol{B}\|$$，
 
-则称 $$\| \mathbf{A} \|$$ 为 $\mathbf{C}^{m \times n}$**上矩阵 $\mathbf{A}$ 的范数，简称矩阵范数**。
+则称 $$\| \boldsymbol{A} \|$$ 为 $\mathbf{C}^{m \times n}$**上矩阵 $\boldsymbol{A}$ 的范数，简称矩阵范数**。
 
 ## 与向量范数的相容性
 
-**定义** &nbsp; 设 $$\| \bullet \|_m$$ 是 $\mathbf{C}^{n \times n}$ 上的矩阵范数，$$\| \bullet \|_v$$ 是 $\mathbf{C}^n$ 上的向量范数，如果对任意 $\mathbf{A} \in \mathbf{C}^{n \times n}$ 和 $\boldsymbol{x} \in \mathbf{C}^m$ 都有
+**定义** &nbsp; 设 $$\| \bullet \|_m$$ 是 $\mathbf{C}^{n \times n}$ 上的矩阵范数，$$\| \bullet \|_v$$ 是 $\mathbf{C}^n$ 上的向量范数，如果对任意 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$ 和 $\boldsymbol{x} \in \mathbf{C}^m$ 都有
 
-$$ \|\mathbf{A}\boldsymbol{x}\|_v \leq \|\mathbf{A}\|_m \|\boldsymbol{x}\|_v $$
+$$ \|\boldsymbol{A}\boldsymbol{x}\|_v \leq \|\boldsymbol{A}\|_m \|\boldsymbol{x}\|_v $$
 
 则称矩阵范数 $$\| \bullet \|_m$$ 与向量范数 $$\| \bullet \|_v$$ 是**相容**的。
 
@@ -100,45 +100,45 @@ $$ \|\mathbf{A}\boldsymbol{x}\|_v \leq \|\mathbf{A}\|_m \|\boldsymbol{x}\|_v $$
 
 我们知道，单位矩阵在矩阵乘法中的作用类似于1在数的乘法的作用，但是对于矩阵的$m_1$、F和M范数，有
 
-$$ \|\mathbf{I}_n\|_{m_1} = n, \quad \|\mathbf{I}_n\|_F = \sqrt{n}, \quad \|\mathbf{I}_n\|_M = n $$
+$$ \|\boldsymbol{I}_n\|_{m_1} = n, \quad \|\boldsymbol{I}_n\|_F = \sqrt{n}, \quad \|\boldsymbol{I}_n\|_M = n $$
 
-这对于一些理论分析带来不便，因此下面定理告诉我们如何构造出使$\| \mathbf{I}_n \| \equiv 1$的矩阵范数。
+这对于一些理论分析带来不便，因此下面定理告诉我们如何构造出使$\| \boldsymbol{I}_n \| \equiv 1$的矩阵范数。
 
-**定理** &nbsp; 已知 $\mathbf{C}^n$ 上的向量范数 $$\| \bullet \|_v$$，对任意 $\mathbf{A} \in \mathbf{C}^{m \times n}$，规定
+**定理** &nbsp; 已知 $\mathbf{C}^n$ 上的向量范数 $$\| \bullet \|_v$$，对任意 $\boldsymbol{A} \in \mathbf{C}^{m \times n}$，规定
 
-$$ \| \mathbf{A} \| = \max_{x \neq 0}{\frac{\|\mathbf{A} \boldsymbol{x}\|_v}{\| \boldsymbol{x} \|_v}}  = \max_{\| \boldsymbol{X} \|_v = 1}{\| \mathbf{A} \boldsymbol{x} \|_v} $$
+$$ \| \boldsymbol{A} \| = \max_{x \neq 0}{\frac{\|\boldsymbol{A} \boldsymbol{x}\|_v}{\| \boldsymbol{x} \|_v}}  = \max_{\| \boldsymbol{X} \|_v = 1}{\| \boldsymbol{A} \boldsymbol{x} \|_v} $$
 
 则 $$\| \bullet \|$$ 是 $\mathbf{C}^{m \times n}$上与向量范数 $$\| \bullet \|_v$$ 相容的矩阵范数，称之为**由向量范数 $$\| \bullet \|_v$$ 导出的矩阵范数**或**从属于向量范数 $$\| \bullet \|_v$$ 的矩阵范数**，简称**导出范数**或**从属范数**。
 
 ## 常用矩阵范数
 
-设 $$\mathbf{A} = (a_{ij})_{m \times n} \in \mathbf{C}^{m \times n}$$
+设 $$\boldsymbol{A} = (a_{ij})_{m \times n} \in \mathbf{C}^{m \times n}$$
 
-+ 矩阵$\mathbf{m\_1}$**范数**：
++ 矩阵$\boldsymbol{m\_1}$**范数**：
 
-$$ \| \mathbf{A} \|_{m_1} = \sum_{i=1}^{m}{\sum_{j=1}^{n}{\vert a_{ij} \vert}} $$
+$$ \| \boldsymbol{A} \|_{m_1} = \sum_{i=1}^{m}{\sum_{j=1}^{n}{\vert a_{ij} \vert}} $$
 
 + 矩阵**Frobeniuse范数**或**F范数**：
 
-$$ \| \mathbf{A} \|_F = \sqrt{ \sum_{i=1}^{m}{\sum_{j=1}^{n}{\vert a_{ij} \vert^2 }} } = \sqrt{tr(\mathbf{A}^H \mathbf{A})}$$
+$$ \| \boldsymbol{A} \|_F = \sqrt{ \sum_{i=1}^{m}{\sum_{j=1}^{n}{\vert a_{ij} \vert^2 }} } = \sqrt{tr(\boldsymbol{A}^H \boldsymbol{A})}$$
 
 + 矩阵**M范数**或**最大范数**：
 
-$$ \| \mathbf{A} \|_M = max\{m,n\} \max_{i,j}{\vert a_{ij} \vert} $$
+$$ \| \boldsymbol{A} \|_M = max\{m,n\} \max_{i,j}{\vert a_{ij} \vert} $$
 
 + 矩阵**G范数**或**几何平均范数**：
 
-$$ \| \mathbf{A} \|_G = \sqrt{mn} \max_{i,j}{\vert a_{ij} \vert} $$
+$$ \| \boldsymbol{A} \|_G = \sqrt{mn} \max_{i,j}{\vert a_{ij} \vert} $$
 
 + 矩阵**1范数**或**列和范数**：
 
-$$ \| \mathbf{A} \|_1 = \max_{j}{\sum_{i=1}^{m}{\vert a_{ij} \vert}} $$
+$$ \| \boldsymbol{A} \|_1 = \max_{j}{\sum_{i=1}^{m}{\vert a_{ij} \vert}} $$
 
 + 矩阵**2范数**或**谱范数**：
 
-$$ \| \mathbf{A} \|_2 = \sqrt{\mathbf{A}^H \mathbf{A} 的最大特征值} $$
+$$ \| \boldsymbol{A} \|_2 = \sqrt{\boldsymbol{A}^H \boldsymbol{A} 的最大特征值} $$
 
-+ 矩阵$\mathbf{\infty}$**范数**或**行和范数**：
++ 矩阵$\boldsymbol{\infty}$**范数**或**行和范数**：
 
 $$ \max_i{\sum_{j=1}^{n}{\vert a_{ij} \vert}} $$
 
@@ -148,9 +148,9 @@ $$ \max_i{\sum_{j=1}^{n}{\vert a_{ij} \vert}} $$
 2. 相容性：
     + **矩阵$m\_1$范数**与**向量1范数**相容
     + **矩阵F范数、G范数**与**向量2范数**相容
-    + **矩阵M范数**分别与**向量1、2、$\mathbf{\infty}$范数**相容
-    +  **矩阵1、2、$\mathbf{\infty}$范数**分别与**向量1、2、$\mathbf{\infty}$范数**相容
-3. **矩阵1、2、$\mathbf{\infty}$范数**分别由**向量1、2、$\mathbf{\infty}$范数**导出，从而与相应的向量范数相容
+    + **矩阵M范数**分别与**向量1、2、$\boldsymbol{\infty}$范数**相容
+    +  **矩阵1、2、$\boldsymbol{\infty}$范数**分别与**向量1、2、$\boldsymbol{\infty}$范数**相容
+3. **矩阵1、2、$\boldsymbol{\infty}$范数**分别由**向量1、2、$\boldsymbol{\infty}$范数**导出，从而与相应的向量范数相容
 
 # 计算范数的Matlab命令 —— norm
 
@@ -160,28 +160,28 @@ $$ \max_i{\sum_{j=1}^{n}{\vert a_{ij} \vert}} $$
 
 ## 谱半径
 
-**定义** &nbsp; 设 $$\mathbf{A} \in \mathbf{C}^{n \times n}, \lambda_1, \lambda_2, \cdots, \lambda_n$$ 为 $\mathbf{A}$ 的 $n$ 个特征值，称
+**定义** &nbsp; 设 $$\boldsymbol{A} \in \mathbf{C}^{n \times n}, \lambda_1, \lambda_2, \cdots, \lambda_n$$ 为 $\boldsymbol{A}$ 的 $n$ 个特征值，称
 
-$$ \rho(\mathbf{A}) = \max_{j}{\vert \lambda_j \vert} $$
+$$ \rho(\boldsymbol{A}) = \max_{j}{\vert \lambda_j \vert} $$
 
-为 $\mathbf{A}$ 的**谱半径**
+为 $\boldsymbol{A}$ 的**谱半径**
 
-**定理** &nbsp; 设 $\mathbf{A} \in \mathbf{C}^{n \times n}$， 则
+**定理** &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$， 则
 
-1. $\rho(\mathbf{A}^k) = (\rho(\mathbf{A}))^k$
-2. $\rho(\mathbf{A}^H \mathbf{A}) = \rho(\mathbf{A} \mathbf{A}^H) = \\| \mathbf{A} \\|\_2^2$
-3. 当 $\mathbf{A}$ 是正规矩阵时，$$\rho(\mathbf{A}) = \|A\|_2$$
+1. $\rho(\boldsymbol{A}^k) = (\rho(\boldsymbol{A}))^k$
+2. $\rho(\boldsymbol{A}^H \boldsymbol{A}) = \rho(\boldsymbol{A} \boldsymbol{A}^H) = \\| \boldsymbol{A} \\|\_2^2$
+3. 当 $\boldsymbol{A}$ 是正规矩阵时，$$\rho(\boldsymbol{A}) = \|A\|_2$$
 
-**定理** &nbsp; 设 $\mathbf{A} \in \mathbf{C}^{n \times n}$， 则对 $\mathbf{C}^{n \times n}$上的任一矩阵范数 $$\| \bullet \|$$，都有
+**定理** &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$， 则对 $\mathbf{C}^{n \times n}$上的任一矩阵范数 $$\| \bullet \|$$，都有
 
-$$ \rho(\mathbf{A}) \leq \| \mathbf{A} \| $$
+$$ \rho(\boldsymbol{A}) \leq \| \boldsymbol{A} \| $$
 
 ## 条件数
 
-**定理** &nbsp; 设 $\mathbf{A} \in \mathbf{C}_n^{n \times n}$， $$\| \bullet \|$$ 是 $\mathbf{C}^{n \times n}$ 上的矩阵范数，称
+**定理** &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}_n^{n \times n}$， $$\| \bullet \|$$ 是 $\mathbf{C}^{n \times n}$ 上的矩阵范数，称
 
-$$ cond(\mathbf{A}) = \| \mathbf{A} \| \| \mathbf{A}^{-1} \| $$
+$$ cond(\boldsymbol{A}) = \| \boldsymbol{A} \| \| \boldsymbol{A}^{-1} \| $$
 
-为矩阵 $\mathbf{A}$（关于求逆或求解线性方程组）的**条件数**。
+为矩阵 $\boldsymbol{A}$（关于求逆或求解线性方程组）的**条件数**。
 
-一般地，如果矩阵 $\mathbf{A}$ 的条件数大就称 $\mathbf{A}$ 对于求逆矩阵或求解线性方程组是**病态的**，或**坏条件的**；否则，称为**良态**或**好条件的**
+一般地，如果矩阵 $\boldsymbol{A}$ 的条件数大就称 $\boldsymbol{A}$ 对于求逆矩阵或求解线性方程组是**病态的**，或**坏条件的**；否则，称为**良态**或**好条件的**
