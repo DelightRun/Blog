@@ -80,3 +80,7 @@ org:
           #+OPTIONS: toc:nil
           #+BIND: org-html-postamble \"Last Updated %d.</br>Render by <a href='https://github.com/CodeFalling/hexo-renderer-org'>hexo-renderer-org</a> with %c\"
   cachedir: './hexo-org-cache/'
+
+# Google Analytics
+# Google分析ID
+google_analytics: UA-72919231-1
