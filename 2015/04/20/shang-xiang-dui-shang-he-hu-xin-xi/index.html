@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>熵、相对熵和互信息 | Changxu&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="综述熵、相对熵和互信息的概念">
+<meta property="og:type" content="article">
+<meta property="og:title" content="熵、相对熵和互信息">
+<meta property="og:url" content="http://changxu.wang/2015/04/20/shang-xiang-dui-shang-he-hu-xin-xi/index.html">
+<meta property="og:site_name" content="Changxu's Blog">
+<meta property="og:description" content="综述熵、相对熵和互信息的概念">
+<meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="熵、相对熵和互信息">
+<meta name="twitter:description" content="综述熵、相对熵和互信息的概念">
+  
+    <link rel="alternate" href="/atom.xml" title="Changxu&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Changxu&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://changxu.wang"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-shang-xiang-dui-shang-he-hu-xin-xi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/20/shang-xiang-dui-shang-he-hu-xin-xi/" class="article-date">
+  <time datetime="2015-04-20T11:56:13.000Z" itemprop="datePublished">2015-04-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/信息论-熵/">信息论, 熵</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      熵、相对熵和互信息
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>综述熵、相对熵和互信息的概念</p>
+<a id="more"></a>
+<h1 id="u71B5"><a href="#u71B5" class="headerlink" title="熵"></a>熵</h1><p><strong>定义</strong> 离散型随机变量X的<code>熵(entropy)</code> $H(X)$定义为：</p>
+<p>$$ H(X) = -\sum_{x \in \mathscr X}{p(x)\log{p(x)}} $$</p>
+<blockquote>
+<p>注意：熵实际上是随机变量$X$概率分布的泛函</p>
+</blockquote>
+<h1 id="u8054_u5408_u71B5"><a href="#u8054_u5408_u71B5" class="headerlink" title="联合熵"></a>联合熵</h1><p><strong>定义</strong> 对于服从联合分布为$p(x,y)$的一对离散型随机变量$(X,Y)$，其<code>联合熵(joint entropy)</code> $H(X,Y)$定义为：</p>
+<p>$$ H(X,Y) = -\sum<em>{x\in \mathscr X}{\sum</em>{y\in \mathscr Y}{p(x,y)\log{p(x,y)}}} $$</p>
+<p>亦可表示成：</p>
+<p>$$ H(X,Y) = -E\log{p(X,Y)} $$</p>
+<p>即一个随机变量在给定另一个随机变量下的<code>条件熵</code>，它是条件分布熵关于起条件作用的那个随机变量取平均后的期望值。</p>
+<h1 id="u6761_u4EF6_u71B5"><a href="#u6761_u4EF6_u71B5" class="headerlink" title="条件熵"></a>条件熵</h1><p><strong>定义</strong> 若$(X,Y)$服从联合分布$p(x,y)$,<code>条件熵(conditional entropy)</code>$H(Y\vert X)$定义为：</p>
+<p>$$ H(Y\vert X) = \sum<em>{x\in \mathscr X}{p(x)H(Y\vert X=x)} = -\sum</em>{x\in \mathscr X}{\sum<em>{y\in \mathscr Y}{p(x,y)\log{p(y\vert x)}}} = -E</em>{p((x,y)}\log{p(Y\vert X)} $$</p>
+<p><strong>定理</strong>  <code>链式法则</code> 设随机变量$X_1,X_2,\cdots,X_n$服从$p(x_1,x2,\cdots,x_n)$，则有：</p>
+<p>$$ H(X_1,X_2,\cdots,X<em>n) = \sum</em>{i=1}^{n}H(X<em>i\vert X</em>{i-1},\cdots,X_1) $$</p>
+<p>比如，对于二元情况，$H(X,Y) = H(X) + H(Y\vert X)$</p>
+<h1 id="u76F8_u5BF9_u71B5"><a href="#u76F8_u5BF9_u71B5" class="headerlink" title="相对熵"></a>相对熵</h1><p>相对熵是两个随机分部之间的距离的度量。相对熵$D(p\Vert q)$度量的是当真是分布为$p$而假定分布为$q$时的无效性。</p>
+<p><strong>定义</strong> 两个概率密度函数$p(x)$和$q(x)$之间的<code>相对熵</code>，或<code>Kullback Leibler距离</code>定义为：</p>
+<p>$$ D(p\Vert q) = \sum_{x\in \mathscr X}{p(x)\log{\frac{p(x)}{q(x)}}} = E_p\log{\frac{p(X)}{q(X)}} $$</p>
+<blockquote>
+<p>约定 $0\log{\frac{0}{q}}=0$ 和 $p\log{\frac{p}{0}}=\infty$ （基于连续性假设）</p>
+<p>注意，相对熵并不对称且不满足三角不等式，所以并不是<code>范数</code>，但是将其视作<code>距离</code>往往很有用</p>
+</blockquote>
+<p><strong>定理</strong> <code>相对熵的链式法则</code></p>
+<p>$$ D(p(x,y)\Vert q(x,y)) = D(p(x)\Vert q(x)) + D(p(y\vert x)\Vert q(y\vert x)) $$</p>
+<h1 id="u4E92_u4FE1_u606F"><a href="#u4E92_u4FE1_u606F" class="headerlink" title="互信息"></a>互信息</h1><p><strong>定义</strong> 考虑两个随机变量$X$和$Y$，其联合概率密度函数为$p(x,y)$，其边际概率密度函数分别是$p(x)$和$p(y)$。<code>互信息</code>$I(X;Y)$定义为联合分布$p(x,y)$和乘积分布$p(x)p(y)$之间的相对熵，即：</p>
+<p>$$ I(X;Y) = \sum<em>{x\in \mathscr X}{\sum</em>{y\in \mathscr Y}{p(x,y)\log{\frac{p(x,y)}{p(x)p(y)}}}} = D(p(x,y)\Vert p(x)p(y)) = E_{p(x,y)}\log{\frac{p(X,Y)}{p(X)p(Y)}} $$</p>
+<h1 id="u71B5_u4E0E_u4E92_u4FE1_u606F_u7684_u5173_u7CFB"><a href="#u71B5_u4E0E_u4E92_u4FE1_u606F_u7684_u5173_u7CFB" class="headerlink" title="熵与互信息的关系"></a>熵与互信息的关系</h1><p>注意到：</p>
+<p>$$ I(X;Y) = H(X) - H(X\vert Y) = H(Y) - H(Y\vert X) $$</p>
+<p>由此表明互信息I(X;Y)是在给定$Y(X)$知识条件下$X(Y)$的不确定度的缩减量，即$X(Y)$中含有$Y(X)$的信息量。</p>
+<p>又因为$H(X,Y) = H(X) + H(Y\vert X)$，所以有：</p>
+<p>$$ I(X;Y) = H(X) + H(Y) - H(X,Y) $$</p>
+<p>最后，注意到：</p>
+<p>$$ I(X;X) = H(X) $$</p>
+<p>所以，有时熵也被称为<code>自信息(self-information)</code>。</p>
+<p>综上，我们关于熵和互信息有如下一组定理公式</p>
+<p><strong>定理</strong> <code>互信息与熵</code></p>
+<p>$$ I(X;Y) = H(X) - H(X\vert Y) = H(Y) - H(Y\vert X) $$</p>
+<p>$$ I(X;Y) = H(X) + H(Y) - H(X,Y) $$</p>
+<p>$$ I(X;Y) = I(Y;X) $$</p>
+<p>$$ I(X;X) = H(X) $$</p>
+<h1 id="u6761_u4EF6_u4E92_u4FE1_u606F"><a href="#u6761_u4EF6_u4E92_u4FE1_u606F" class="headerlink" title="条件互信息"></a>条件互信息</h1><p><strong>定义</strong> 随机变量$X$和$Y$在随机变量$Z$下的<code>条件互信息(conditional mutual information)</code>定义为：</p>
+<p>$$ I(X;Y\vert Z) = H(X\vert Z) - H(X\vert Y,Z) = E_{p(x,y,z)}\log{\frac{p(X,Y\vert Z)}{p(X\vert Z)p(Y\vert Z)}} $$</p>
+<p><strong>定理</strong> <code>互信息链式法则</code></p>
+<p>$$ I(X_1,X_2,\cdots,X<em>n\vert Y) = \sum</em>{i=1}^{n}I(X<em>i;Y\vert X</em>{i-1},X_{i-2},\cdots,X_1) $$</p>
+<h1 id="u6761_u4EF6_u76F8_u5BF9_u71B5"><a href="#u6761_u4EF6_u76F8_u5BF9_u71B5" class="headerlink" title="条件相对熵"></a>条件相对熵</h1><p><strong>定义</strong> <code>条件相对熵(conditional relative entropy)</code>$D(p(y\vert x)\Vert q(y\vert x))$定义为条件概率密度函数$p(y\vert x)$和$q(y\vert x)$之间的平均相对熵，其中“平均”二字是指针对$p(x)$平均，具体来讲就是：</p>
+<p>$$ D(p(y\vert x)\Vert q(y\vert x)) = \sum<em>{x}{p(x)\sum</em>{y}{p(y\vert x)\log{\frac{p(y\vert x)}{q(y\vert x)}}}} = E_{p(x,y)}\log{\frac{p(Y\vert X)}{q(Y\vert X)}} $$</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://changxu.wang/2015/04/20/shang-xiang-dui-shang-he-hu-xin-xi/" data-id="cijuu2gyt001krh851lifa3cw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/04/23/15ge-chang-yong-vimzhi-ling/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          15个常用Vim指令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/04/20/mo-shi-shi-bie-bei-xie-si-fen-lei-qi/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">模式识别——贝叶斯分类器</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/C/TC-PL/">TC++PL</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/Linxu/">Linxu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/">IntellijIDEA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/Java/Ubuntu/">Ubuntu</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Vim/">Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/服务器/">服务器</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Shadowsocks/">Linux, Shadowsocks</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Vim/">Linux, Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linear-Algebra/">Linear Algebra</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linear-Algebra/Matrix-Theory/">Matrix Theory</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linearn-Algebra/">Linearn Algebra</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linearn-Algebra/Matrix-Theory/">Matrix Theory</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/">Octopress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/前端/">前端</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-C/">Programming, C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Ruby-on-Rails/">Ruby on Rails</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/信息论-熵/">信息论, 熵</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用数据库-人脸识别/">常用数据库, 人脸识别</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-数学/">机器学习, 数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-模式识别-最优化/">机器学习, 模式识别, 最优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-神经网络/">机器学习, 神经网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/模式识别-机器学习/">模式识别, 机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/自然语言处理-机器学习/">自然语言处理, 机器学习</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/11/16/tc-plus-plus-pl-advices/">TC++PL Advices</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/12/ju-zhen-lun-yan-yi-ni-ju-zhen/">矩阵论——广义逆矩阵</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/11/ju-zhen-lun-ju-zhen-fen-jie/">矩阵论——矩阵分解</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/11/ju-zhen-lun-fan-shu-li-lun/">矩阵论——范数理论</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/10/modern-c-plus-plus-design-example-1-policy/">Modern C++ Design Example(1) -- Policy</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Changxu Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

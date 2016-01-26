@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ubuntu下搭建LAMP服务器 | Changxu&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文讲述如何在Ubuntu下搭建LAMP服务器的大体流程
+
+LAMP = Linux + Apache + MySQL + PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu下搭建LAMP服务器">
+<meta property="og:url" content="http://changxu.wang/2014/09/24/ubuntu-server/index.html">
+<meta property="og:site_name" content="Changxu's Blog">
+<meta property="og:description" content="本文讲述如何在Ubuntu下搭建LAMP服务器的大体流程
+
+LAMP = Linux + Apache + MySQL + PHP">
+<meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu下搭建LAMP服务器">
+<meta name="twitter:description" content="本文讲述如何在Ubuntu下搭建LAMP服务器的大体流程
+
+LAMP = Linux + Apache + MySQL + PHP">
+  
+    <link rel="alternate" href="/atom.xml" title="Changxu&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Changxu&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://changxu.wang"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ubuntu-server" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/09/24/ubuntu-server/" class="article-date">
+  <time datetime="2014-09-24T12:06:22.000Z" itemprop="datePublished">2014-09-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>►<a class="article-category-link" href="/categories/Linux/服务器/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ubuntu下搭建LAMP服务器
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文讲述如何在Ubuntu下搭建LAMP服务器的大体流程</p>
+<blockquote>
+<p>LAMP = Linux + Apache + MySQL + PHP</p>
+</blockquote>
+<a id="more"></a>
+<p>##安装Apache2</p>
+<p>搭建LAMP服务器第一步是安装Apache2，在Ubuntu下简单到只需如下一行命令：</p>
+<pre><code>$ sudo apt-get install apache2
+</code></pre><p>##安装PHP</p>
+<p>安装PHP需要安装两个包，一是<code>PHP5</code>本身，二是Apache2的<code>PHP模块</code>，安装命令如下：</p>
+<pre><code>$ sudo apt-get install php5 libapache2-mod-php5
+</code></pre><p>##安装MySQL</p>
+<p>安装MySQL需要安装服务端程序<code>mysql-server</code>、PHP的MySQL扩展<code>php5-mysql</code>，<br>同时一般还会安装MySQL的命令行客户端<code>mysql-client</code>：</p>
+<pre><code>$ sudo apt-get install mysql-server mysql-client php5-mysql
+</code></pre><p><strong>注意</strong>：安装过程中的<code>root</code>账户密码你可以随便填，反正第一次用这个密码你一定无法登陆，<br>下面我们将叙述如何解决该问题</p>
+<p>##配置MySQL的root密码</p>
+<p>如果你在用上述命令安装完MySQL后使用命令：</p>
+<pre><code>$ mysql -uroot -p你的密码
+</code></pre><p>一定会出现<code>error 1045</code>的错误，具体原因我也没完全搞清，有谁知道请<a href="mailto:changxu.mail@gmail.com" target="_blank" rel="external">不吝赐教</a></p>
+<p>解决方案是，首先查看文件<code>/etc/mysql/debian.cnf</code>文件：</p>
+<pre><code>$ sudo cat /etc/mysql/debian.cnf
+</code></pre><p><strong>注意</strong>：此处的<code>sudo</code>必不可少</p>
+<p>然后会看到下面这样的内容：</p>
+<pre><code># Automatically generated for Debian scripts. DO NOT TOUCH!
+[client]
+host     = localhost
+user     = debian-sys-maint
+password = 一个乱七八糟的字符串
+socket   = /var/run/mysqld/mysqld.sock
+[mysql_upgrade]
+host     = localhost
+user     = debian-sys-maint
+password = 同上面那个乱七八糟的字符串
+socket   = /var/run/mysqld/mysqld.sock
+basedir  = /usr
+</code></pre><p>注意到其中的<code>user</code>和<code>password</code>两行，那边是安装过程中系统提供的默认账户密码，于是我们这样登陆：</p>
+<pre><code>$ mysql -udebian-sys-maint -p那个乱七八糟的字符串
+</code></pre><p>这时候我们就能进入MySQL的命令行管理后台，我们在此设置<code>root</code>的密码：</p>
+<pre><code>&gt; USE mysql;
+&gt; UPDATE user SET password=PASSWORD(&apos;你要设置的密码&apos;) WHERE user=&apos;root&apos;;
+&gt; flush privilege;
+&gt; exit;
+</code></pre><p>这时候我们就能用<code>root</code>账户登陆MySQL</p>
+<pre><code>$ mysql -uroot -p你的root密码
+</code></pre><p>##启动Apache2</p>
+<p>现在我们启动<code>apache2</code>服务：</p>
+<pre><code>$ sudo service apache2 start
+</code></pre><p>然后我们访问<a href="http://localhost/" target="_blank" rel="external">http://localhost/</a>，应该能看到一个网页写着：</p>
+<pre><code>It Works!
+</code></pre><p>至此，一台基于Ubuntu、功能正常、有数据库、支持PHP语言的服务器就搭建完成了，下面是附加部分</p>
+<p>##可选：安装PHPMyAdmin</p>
+<p>PHPMyAdmin是一款基于PHP的数据库管理网站，在Ubuntu下安装非常简单：</p>
+<pre><code>$ sudo apt-get install phpmyadmin
+</code></pre><p>然后我们将PHPMyAdmin的配置复制至apache2的配置文件夹下：</p>
+<pre><code>$ sudo cp /etc/phpmyadmin/apache.conf /etc/apache2/sites-available/phpmyadmin.conf
+$ sudo ln -s /etc/apache2/sites-available/phpmyadmin.conf /etc/apache2/sites-enabled/phpmyadmin.conf
+</code></pre><p>最后重启apache2：</p>
+<pre><code>$ sudo service apache2 restart
+</code></pre><p>然后访问<a href="http://localhost/phpmyadmin/" target="_blank" rel="external">http://localhost/phpmyadmin/</a>，用你的数据库账号密码登陆</p>
+<p>###Enjoy!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://changxu.wang/2014/09/24/ubuntu-server/" data-id="cijuu2gz50028rh85oxcx4icv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/16/merge-two-python-dicts/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          合并两个Python字典
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/08/29/install-ruby-on-rails-in-ubuntu/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Ubuntu下安装Ruby 2.1.2和Rails</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/C/TC-PL/">TC++PL</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/Linxu/">Linxu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/">IntellijIDEA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/Java/Ubuntu/">Ubuntu</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Vim/">Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/服务器/">服务器</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Shadowsocks/">Linux, Shadowsocks</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Vim/">Linux, Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linear-Algebra/">Linear Algebra</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linear-Algebra/Matrix-Theory/">Matrix Theory</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linearn-Algebra/">Linearn Algebra</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linearn-Algebra/Matrix-Theory/">Matrix Theory</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/">Octopress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/前端/">前端</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-C/">Programming, C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Ruby-on-Rails/">Ruby on Rails</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/信息论-熵/">信息论, 熵</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用数据库-人脸识别/">常用数据库, 人脸识别</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-数学/">机器学习, 数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-模式识别-最优化/">机器学习, 模式识别, 最优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-神经网络/">机器学习, 神经网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/模式识别-机器学习/">模式识别, 机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/自然语言处理-机器学习/">自然语言处理, 机器学习</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/11/16/tc-plus-plus-pl-advices/">TC++PL Advices</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/12/ju-zhen-lun-yan-yi-ni-ju-zhen/">矩阵论——广义逆矩阵</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/11/ju-zhen-lun-ju-zhen-fen-jie/">矩阵论——矩阵分解</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/11/ju-zhen-lun-fan-shu-li-lun/">矩阵论——范数理论</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/10/modern-c-plus-plus-design-example-1-policy/">Modern C++ Design Example(1) -- Policy</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Changxu Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

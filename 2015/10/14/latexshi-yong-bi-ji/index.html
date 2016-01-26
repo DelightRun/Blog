@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>LaTeX笔记 —— 基础内容 | Changxu&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="LaTeX学习过程中的一些笔记 —— 基础内容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LaTeX笔记 —— 基础内容">
+<meta property="og:url" content="http://changxu.wang/2015/10/14/latexshi-yong-bi-ji/index.html">
+<meta property="og:site_name" content="Changxu's Blog">
+<meta property="og:description" content="LaTeX学习过程中的一些笔记 —— 基础内容">
+<meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LaTeX笔记 —— 基础内容">
+<meta name="twitter:description" content="LaTeX学习过程中的一些笔记 —— 基础内容">
+  
+    <link rel="alternate" href="/atom.xml" title="Changxu&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Changxu&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://changxu.wang"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-latexshi-yong-bi-ji" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/14/latexshi-yong-bi-ji/" class="article-date">
+  <time datetime="2015-10-14T10:16:21.000Z" itemprop="datePublished">2015-10-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LaTeX笔记 —— 基础内容
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>LaTeX学习过程中的一些笔记 —— 基础内容</p>
+<a id="more"></a>
+<h2 id="u6587_u6863_u7C7B"><a href="#u6587_u6863_u7C7B" class="headerlink" title="文档类"></a>文档类</h2><h3 id="Usage_3A"><a href="#Usage_3A" class="headerlink" title="Usage:"></a>Usage:</h3><pre><code>\documentclass[options]{class}
+</code></pre><h3 id="Class_3A"><a href="#Class_3A" class="headerlink" title="Class:"></a>Class:</h3><ul>
+<li><code>article</code> 排版科学期刊、演示文档、短报告、程序文档、邀请函……</li>
+<li><code>proc</code> 一个基于 article 的会议文集类</li>
+<li><code>minimal</code> 非常小的文档类。只设置了页面尺寸和基本字体。主要用来查错</li>
+<li><code>report</code> 排版多章节长报告、短篇书籍、博士论文……</li>
+<li><code>book</code> 排版书籍</li>
+<li><code>slides</code> 排版幻灯片。该文档类使用大号 sans serif 字体。也可以选用 FoilTEX来得到相同的效果。</li>
+</ul>
+<h3 id="Options_3A"><a href="#Options_3A" class="headerlink" title="Options:"></a>Options:</h3><ul>
+<li><code>10pt, 11pt, 12pt</code> 设置文档中所使用的字体的大小。如果该项没有指定,默认<br>使用10pt 字体。</li>
+<li><code>a4paper, letterpaper,</code> . . . 定义纸张的尺寸。缺省设置为letterpaper。此<br>外,还可以使用a5paper, b5paper, executivepaper 以及legalpaper。</li>
+<li><code>fleqn</code> 设置行间公式为左对齐,而不是居中对齐。</li>
+<li><code>leqno</code> 设置行间公式的编号为左对齐,而不是右对齐。</li>
+<li><code>titlepage, notitlepage</code> 指定是否在文档标题(document title) 后另起一 页。article 文档类缺省设置为不开始新页,report 和book 类则相反。</li>
+<li><code>onecolumn, twocolumn</code> LATEX 以单栏(one column) 或双栏(two column) 的 方式来排版文档。</li>
+<li><code>twoside, oneside</code> 指定文档为双面或单面打印格式。article 和report 类 为单面(single sided) 格式,book 类缺省为双面(double sided) 格式。注意 该选项只是作用于文档样式,而不会通知打印机以双面格式打印文档。</li>
+<li><code>landscape</code> 将文档的打印输出布局设置为 landscape 模式。</li>
+<li><code>openright, openany</code> 决定新的一章仅在奇数页开始还是在下一页开始。在文 档类型为article 时该选项不起作用,因为该类中没有定义“章” (chapter)。report 类默认在下一页开始新一章而book 类的新一章总是在 奇数页开始。</li>
+</ul>
+<h2 id="u9875_u9762_u6837_u5F0F"><a href="#u9875_u9762_u6837_u5F0F" class="headerlink" title="页面样式"></a>页面样式</h2><h3 id="Usage_3A-1"><a href="#Usage_3A-1" class="headerlink" title="Usage:"></a>Usage:</h3><p>全部设定：</p>
+<pre><code>\￼pagestyle{style}
+</code></pre><p>仅设置本页：</p>
+<pre><code>￼\thispagestyle{style}
+</code></pre><h3 id="Style_3A"><a href="#Style_3A" class="headerlink" title="Style:"></a>Style:</h3><ul>
+<li><code>￼plain</code> 在页脚正中显示页码。这是页面样式的缺省设置。</li>
+<li><code>headings</code> 在页眉中显示章节名及页码,页脚空白。</li>
+<li><code>empty</code> 将页眉页脚都设为空白。</li>
+</ul>
+<h2 id="u5927_u578B_u9879_u76EE"><a href="#u5927_u578B_u9879_u76EE" class="headerlink" title="大型项目"></a>大型项目</h2><h3 id="u5F15_u7528_u5355_u4E2A_u6587_u4EF6"><a href="#u5F15_u7528_u5355_u4E2A_u6587_u4EF6" class="headerlink" title="引用单个文件"></a>引用单个文件</h3><p>另起一页加入内容：</p>
+<pre><code>\include{filename}
+</code></pre><p>在当前位置插入文本：</p>
+<pre><code>\input{filename}
+</code></pre><h3 id="u8FDB_u884C_u8BED_u6CD5_u5DEE_u9519_u800C_u4E0D_u751F_u6210"><a href="#u8FDB_u884C_u8BED_u6CD5_u5DEE_u9519_u800C_u4E0D_u751F_u6210" class="headerlink" title="进行语法差错而不生成"></a>进行语法差错而不生成</h3><p>首先：</p>
+<pre><code>\usepackage{syntonly}
+</code></pre><p>然后：</p>
+<pre><code>\syntaxonly
+</code></pre><h2 id="u65AD_u884C_u548C_u5206_u9875"><a href="#u65AD_u884C_u548C_u5206_u9875" class="headerlink" title="断行和分页"></a>断行和分页</h2><h3 id="u65AD_u884C"><a href="#u65AD_u884C" class="headerlink" title="断行"></a>断行</h3><p>另起一行而不另起一段：</p>
+<pre><code>\\ 或 \newline
+</code></pre><p>断行后禁止分页：</p>
+<pre><code>\\*
+</code></pre><h3 id="u5206_u9875"><a href="#u5206_u9875" class="headerlink" title="分页"></a>分页</h3><p>另起一页：</p>
+<pre><code>\newpage
+</code></pre><h3 id="u65AD_u8BCD"><a href="#u65AD_u8BCD" class="headerlink" title="断词"></a>断词</h3><p>设置断词点：</p>
+<pre><code>\￼hyphenation{wo-rd1 w-or-d2}
+</code></pre><p>命令</p>
+<pre><code>\mbox{text}
+</code></pre><p>保证把几个单词排在同一行上，其兄弟命令：</p>
+<pre><code>\fbox{text}
+</code></pre><p>还会额外围绕内容加个框</p>
+<h2 id="u51E0_u4E2A_u5185_u7F6E_u5B57_u7B26_u4E32"><a href="#u51E0_u4E2A_u5185_u7F6E_u5B57_u7B26_u4E32" class="headerlink" title="几个内置字符串"></a>几个内置字符串</h2><ul>
+<li><code>\today</code></li>
+<li><code>\TeX</code></li>
+<li><code>\LaTeX</code></li>
+<li><code>\LaTeXe</code></li>
+</ul>
+<h2 id="u7279_u6B8A_u7B26_u53F7"><a href="#u7279_u6B8A_u7B26_u53F7" class="headerlink" title="特殊符号"></a>特殊符号</h2><h3 id="u5F15_u53F7"><a href="#u5F15_u53F7" class="headerlink" title="引号"></a>引号</h3><ul>
+<li>左引号 —— 连续两个<code>` </code></li>
+<li>右引号 —— 连续两个<code>&#39;</code></li>
+</ul>
+<h3 id="u7834_u6298_u53F7_u548C_u8FDE_u5B57_u53F7"><a href="#u7834_u6298_u53F7_u548C_u8FDE_u5B57_u53F7" class="headerlink" title="破折号和连字号"></a>破折号和连字号</h3><ul>
+<li><code>-</code> —— 连字号(hyphen)</li>
+<li><code>--</code> —— 短破折号(en-dash)</li>
+<li><code>---</code> —— 长破折号(em-dash)</li>
+<li><code>$-$</code> —— 负号/减号</li>
+</ul>
+<h3 id="u6CE2_u6D6A_u53F7"><a href="#u6CE2_u6D6A_u53F7" class="headerlink" title="波浪号"></a>波浪号</h3><ul>
+<li><code>\~{}</code> —— <code>̃</code></li>
+<li><code>$\sim$</code> —— <code>∼</code></li>
+</ul>
+<h3 id="u5EA6_u7684_u7B26_u53F7"><a href="#u5EA6_u7684_u7B26_u53F7" class="headerlink" title="度的符号"></a>度的符号</h3><ul>
+<li><code>\circ</code> —— <code>◦</code></li>
+</ul>
+<p>如果想排到右上角，可以如下：</p>
+<pre><code>It’s $-30\,^{\circ}\mathrm{C}$
+</code></pre><h3 id="u8D27_u5E01_u7B26_u53F7"><a href="#u8D27_u5E01_u7B26_u53F7" class="headerlink" title="货币符号"></a>货币符号</h3><p>首先载入宏包：</p>
+<pre><code>\usepackage{textcomp}
+</code></pre><p>然后引用：</p>
+<ul>
+<li><code>\texteuro</code> —— 欧元</li>
+<li><code>\textyen</code> —— 人民币</li>
+<li>其它符号请参考<code>textcomp</code>手册</li>
+</ul>
+<h3 id="u7701_u7565_u53F7"><a href="#u7701_u7565_u53F7" class="headerlink" title="省略号"></a>省略号</h3><ul>
+<li><code>ldots</code></li>
+</ul>
+<h2 id="u4EA4_u53C9_u5F15_u7528"><a href="#u4EA4_u53C9_u5F15_u7528" class="headerlink" title="交叉引用"></a>交叉引用</h2><ul>
+<li><code>\label{marker}</code> —— 设定label</li>
+<li><code>\ref{marker}</code> —— 引用，序号</li>
+<li><code>\pageref{marker}</code> —— 引用，页号</li>
+</ul>
+<h2 id="u811A_u6CE8"><a href="#u811A_u6CE8" class="headerlink" title="脚注"></a>脚注</h2><h3 id="Usage_3A-2"><a href="#Usage_3A-2" class="headerlink" title="Usage:"></a>Usage:</h3><pre><code>￼\footnote{footnote text}
+</code></pre><h3 id="Example_3A"><a href="#Example_3A" class="headerlink" title="Example:"></a>Example:</h3><pre><code>Footnotes\footnote{This is a footnote.} are often used by people using \LaTeX.
+</code></pre><h2 id="u5F3A_u8C03"><a href="#u5F3A_u8C03" class="headerlink" title="强调"></a>强调</h2><ul>
+<li><code>\underline{text}</code> —— 下划线</li>
+<li><code>\emph{text}</code> —— 斜体</li>
+</ul>
+<h2 id="u73AF_u5883"><a href="#u73AF_u5883" class="headerlink" title="环境"></a>环境</h2><h3 id="Usage_3A-3"><a href="#Usage_3A-3" class="headerlink" title="Usage:"></a>Usage:</h3><pre><code>\begin{environment} TEXT \end{environment}
+</code></pre><h3 id="u5E38_u7528_u73AF_u5883_uFF1A"><a href="#u5E38_u7528_u73AF_u5883_uFF1A" class="headerlink" title="常用环境："></a>常用环境：</h3><h4 id="u5217_u8868_3A"><a href="#u5217_u8868_3A" class="headerlink" title="列表:"></a>列表:</h4><ul>
+<li><code>itemize</code> —— 无序列表</li>
+<li><code>enumerate</code> —— 有序列表</li>
+<li><code>description</code> —— 带描述的列表</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;enumerate&#125;&#13;    \item You can mix the list environments to your taste:&#10;        \begin&#123;itemize&#125;&#13;            \item But it might start to look silly.&#13;            \item[-] With a dash.&#13;        \end&#123;itemize&#125;&#13;    \item Therefore remember:&#10;        \begin&#123;description&#125;&#13;            \item[Stupid] things will not become smart because they are in a list.&#13;            \item[Smart] things, though, can be presented beautifully in a list.&#13;        \end&#123;description&#125;&#13;\end&#123;enumerate&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u5DE6_u5BF9_u9F50_u3001_u53F3_u5BF9_u9F50_u548C_u5C45_u4E2D"><a href="#u5DE6_u5BF9_u9F50_u3001_u53F3_u5BF9_u9F50_u548C_u5C45_u4E2D" class="headerlink" title="左对齐、右对齐和居中"></a>左对齐、右对齐和居中</h4><ul>
+<li><code>flushleft</code> —— 左对齐</li>
+<li><code>flushright</code> —— 右对齐</li>
+<li><code>center</code> —— 居中</li>
+</ul>
+<h4 id="u5F15_u7528_u3001_u8BED_u5F55_u548C_u97F5_u6587"><a href="#u5F15_u7528_u3001_u8BED_u5F55_u548C_u97F5_u6587" class="headerlink" title="引用、语录和韵文"></a>引用、语录和韵文</h4><ul>
+<li><code>quote</code> —— 短引文、语录、例子</li>
+<li><code>quotation</code> —— 超过几段的长引文，会对段落进行缩紧</li>
+<li><code>verse</code> —— 用于诗歌</li>
+</ul>
+<h4 id="u6458_u8981"><a href="#u6458_u8981" class="headerlink" title="摘要"></a>摘要</h4><ul>
+<li><code>abstract</code> —— 就是论文的那个摘要</li>
+</ul>
+<h4 id="u539F_u6587_u6253_u5370"><a href="#u539F_u6587_u6253_u5370" class="headerlink" title="原文打印"></a>原文打印</h4><ul>
+<li><code>verbatim</code> —— 原文打印，不执行中间的LaTeX命令</li>
+</ul>
+<h4 id="u8868_u683C"><a href="#u8868_u683C" class="headerlink" title="表格"></a>表格</h4><ul>
+<li><code>tabular</code> —— 用法太麻烦了，不写了</li>
+</ul>
+<h4 id="u6D6E_u52A8_u4F53"><a href="#u6D6E_u52A8_u4F53" class="headerlink" title="浮动体"></a>浮动体</h4><p>就是浮动图片、图表什么的，使其周围被文本环绕</p>
+<ul>
+<li><code>figure</code> —— 图片</li>
+<li><code>table</code> —— 表格</li>
+</ul>
+<p>可以带参数，如：</p>
+<pre><code>\begin{figure}[arguments]
+</code></pre><p>参数可以如下参数的组合：</p>
+<ul>
+<li><code>h</code> —— here 在文本的确切位置上,对于小的浮动体很有用。</li>
+<li><code>t</code> —— 在页面的顶部(top)</li>
+<li><code>b</code> —— 在页面的底部(bottom)</li>
+<li><code>p</code> —— 在一个只有浮动体的专门的页面(page) 上。</li>
+<li><code>!</code> —— 忽略阻止浮动体放置的大多数内部参数a。</li>
+</ul>
+<p>此外，还可用如下命令添加说明文字：</p>
+<pre><code>\caption[short]{long caption text}
+</code></pre><h2 id="u4FDD_u62A4_u8106_u5F31_u547D_u4EE4"><a href="#u4FDD_u62A4_u8106_u5F31_u547D_u4EE4" class="headerlink" title="保护脆弱命令"></a>保护脆弱命令</h2><p>作为命令(如<code>\caption</code> 或<code>\section</code>)参量的文本,可能在文档中出现多次(例 如,在文档的目录和正文中)。当用于类似<code>\section</code>的参量时,一些命令会失效。它们被称为脆弱命令(fragile commands)。</p>
+<p><code>\footnote</code> 或<code>\phantom</code> 是脆弱命令的例子。这些脆弱命令需要的,正是保护。把<code>\protect</code> 命令放在它们前面, 就能保护它们。<br><code>\protect</code> 仅仅保护紧跟其右侧的命令,连它的参量也不惠及。在大多数情形下,过多的<code>\protect</code> 并不碍事。</p>
+<h3 id="Example_3A-1"><a href="#Example_3A-1" class="headerlink" title="Example:"></a>Example:</h3><pre><code>\protect\footnote{and protect my footnotes}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://changxu.wang/2015/10/14/latexshi-yong-bi-ji/" data-id="cijuu2gy4000urh85kfev57fr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/14/latexbi-ji-shu-xue/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          LaTeX笔记 —— 数学
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/30/da-jian-shadowsocksfu-wu-qi-bing-kai-qi-fastopenyou-hua/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">搭建Shadowsocks服务器并开启FastOpen优化</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/C/TC-PL/">TC++PL</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/Linxu/">Linxu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/">IntellijIDEA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/Java/Ubuntu/">Ubuntu</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Vim/">Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/服务器/">服务器</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Shadowsocks/">Linux, Shadowsocks</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Vim/">Linux, Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linear-Algebra/">Linear Algebra</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linear-Algebra/Matrix-Theory/">Matrix Theory</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linearn-Algebra/">Linearn Algebra</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linearn-Algebra/Matrix-Theory/">Matrix Theory</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/">Octopress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/前端/">前端</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-C/">Programming, C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Ruby-on-Rails/">Ruby on Rails</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/信息论-熵/">信息论, 熵</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用数据库-人脸识别/">常用数据库, 人脸识别</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-数学/">机器学习, 数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-模式识别-最优化/">机器学习, 模式识别, 最优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-神经网络/">机器学习, 神经网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/模式识别-机器学习/">模式识别, 机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/自然语言处理-机器学习/">自然语言处理, 机器学习</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/11/16/tc-plus-plus-pl-advices/">TC++PL Advices</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/12/ju-zhen-lun-yan-yi-ni-ju-zhen/">矩阵论——广义逆矩阵</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/11/ju-zhen-lun-ju-zhen-fen-jie/">矩阵论——矩阵分解</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/11/ju-zhen-lun-fan-shu-li-lun/">矩阵论——范数理论</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/10/modern-c-plus-plus-design-example-1-policy/">Modern C++ Design Example(1) -- Policy</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Changxu Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

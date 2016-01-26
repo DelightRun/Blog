@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>反向传播方程组 | Changxu&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="反向传播算法的核心是通过代价函数计算出权值和偏置的改变量，即计算出$\frac{\partial C}{\partial w}$和$\frac{\partial C}{\partial b}$。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="反向传播方程组">
+<meta property="og:url" content="http://changxu.wang/2015/04/26/fan-xiang-chuan-bo-fang-cheng-zu/index.html">
+<meta property="og:site_name" content="Changxu's Blog">
+<meta property="og:description" content="反向传播算法的核心是通过代价函数计算出权值和偏置的改变量，即计算出$\frac{\partial C}{\partial w}$和$\frac{\partial C}{\partial b}$。">
+<meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="反向传播方程组">
+<meta name="twitter:description" content="反向传播算法的核心是通过代价函数计算出权值和偏置的改变量，即计算出$\frac{\partial C}{\partial w}$和$\frac{\partial C}{\partial b}$。">
+  
+    <link rel="alternate" href="/atom.xml" title="Changxu&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Changxu&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://changxu.wang"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-fan-xiang-chuan-bo-fang-cheng-zu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/26/fan-xiang-chuan-bo-fang-cheng-zu/" class="article-date">
+  <time datetime="2015-04-26T10:49:45.000Z" itemprop="datePublished">2015-04-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/机器学习-神经网络/">机器学习, 神经网络</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      反向传播方程组
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>反向传播算法的核心是通过<code>代价函数</code>计算出<code>权值</code>和<code>偏置</code>的改变量，即计算出$\frac{\partial C}{\partial w}$和$\frac{\partial C}{\partial b}$。</p>
+<a id="more"></a>
+<h2 id="u53CD_u5411_u4F20_u64AD_u65B9_u7A0B_u7EC4"><a href="#u53CD_u5411_u4F20_u64AD_u65B9_u7A0B_u7EC4" class="headerlink" title="反向传播方程组"></a>反向传播方程组</h2><p>$$<br>\begin{eqnarray}<br>\delta^L &amp;=&amp; \nabla_{a}{C} \odot \sigma’(z^L) \tag{BP1}\<br>\delta^l &amp;=&amp; ((w^{l+1})^T \delta^{l+1}) \odot \sigma’(z^l) \tag{BP2}\<br>\frac{\partial C}{\partial b^l} &amp;=&amp; \delta^l \tag{BP3}\<br>\frac{\partial C}{\partial w^l} &amp;=&amp; (a^{l-1})^T \delta_j^l \tag{BP4}<br>\end{eqnarray}<br>$$</p>
+<h1 id="u8BC1_u660E"><a href="#u8BC1_u660E" class="headerlink" title="证明"></a>证明</h1><h4 id="u57FA_u672C_u5B9A_u4E49"><a href="#u57FA_u672C_u5B9A_u4E49" class="headerlink" title="基本定义"></a>基本定义</h4><ul>
+<li>$\sigma$是激活函数</li>
+<li>$w$是链接权重，$b$是偏置</li>
+</ul>
+<p>我们约定：</p>
+<ul>
+<li>$w^L$、$b^L$表示从$L-1$层到$L$层的权重矩阵和偏置</li>
+<li>$z^L$、$a^L$是$L$层的输出</li>
+</ul>
+<p>然后我们有如下定义：</p>
+<p>$$<br>\begin{eqnarray}<br>z^L &amp;=&amp; w^L a^{L-1} + b^L \tag{D1}\<br>a^L &amp;=&amp; \sigma(z^L)   \tag{D2}\<br>\delta^L &amp;=&amp; \frac{\partial C}{\partial z^L} \tag{D3}<br>\end{eqnarray}<br>$$</p>
+<h4 id="BP1_u4E0EBP2_u7684_u8BC1_u660E"><a href="#BP1_u4E0EBP2_u7684_u8BC1_u660E" class="headerlink" title="BP1与BP2的证明"></a>BP1与BP2的证明</h4><p>由求导<code>链式法则</code>和方程式<em>D3</em>、<em>D2</em>，我们有：</p>
+<p>$$\begin{eqnarray}<br>\delta^L &amp;=&amp; \frac{\partial C}{\partial z^L} \<br>         &amp;=&amp; \frac{\partial C}{\partial a^L} \frac{\partial a^L}{\partial z^L} \<br>         &amp;=&amp; \frac{\partial C}{\partial a^L} \sigma’(z^L) \<br>         &amp;=&amp;\nabla_{a}{C} \odot \sigma’(z^L)<br>\end{eqnarray}$$</p>
+<p>这样，我们就证明了<em>BP1</em>。同时，我们换种方式使用<code>链式法则</code>：</p>
+<p>$$\begin{eqnarray}<br>\delta^l &amp;=&amp; \frac{\partial C}{\partial z^l} \<br>         &amp;=&amp; \frac{\partial C}{\partial z^{l+1}} \frac{\partial z^{l+1}}{\partial z^l} \<br>         &amp;=&amp; \delta^{l+1} \frac{\partial z^{l+1}}{\partial z^l} \<br>         &amp;=&amp; \delta^{l+1} \frac{\partial (w^{l+1}\sigma(z^{l})+b^{l+1})}{\partial z^l}<br>         &amp;=&amp; \delta^{l+1} (w^{l+1}) \sigma’(z^l)<br>         &amp;=&amp; ((w^{l+1})^T \delta^{l+1}) \odot \sigma’(z^l)<br>\end{eqnarray}$$</p>
+<h4 id="BP3_u4E0EBP4_u7684_u8BC1_u660E"><a href="#BP3_u4E0EBP4_u7684_u8BC1_u660E" class="headerlink" title="BP3与BP4的证明"></a>BP3与BP4的证明</h4><p>因为：</p>
+<p>$$\begin{eqnarray}<br>z^{l}_j = \sum<em>k w^{l}</em>{jk} a^{l-1}_k + b^l_j<br>\end{eqnarray}$$</p>
+<p>所以</p>
+<p>$$\begin{eqnarray}<br>\frac{\partial C}{\partial b^l} &amp;=&amp; \frac{\partial C}{\partial z^l} \frac{\partial z^l}{\partial b^l} \<br>&amp;=&amp; \delta^l<br>\end{eqnarray}$$</p>
+<p>同理：</p>
+<p>$$\begin{eqnarray}<br>\frac{\partial C}{\partial w_{jk}^l} &amp;=&amp; \frac{\partial C}{\partial z_j^l} \frac{\partial z<em>j^l}{\partial  w</em>{jk}^l} \<br>&amp;=&amp; a_k^{l-1} \delta_j^l<br>&amp;=&amp; (a^{l-1})^T \delta_j^l<br>\end{eqnarray}$$</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://changxu.wang/2015/04/26/fan-xiang-chuan-bo-fang-cheng-zu/" data-id="cijuu2gyi0016rh85x8by5ed7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/04/27/zhong-wen-fen-ci-pythonku/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          中文分词库
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/04/25/ren-lian-shu-ju-ku/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">人脸数据库</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/C/TC-PL/">TC++PL</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/Linxu/">Linxu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/">IntellijIDEA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/Java/Ubuntu/">Ubuntu</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Vim/">Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/服务器/">服务器</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Shadowsocks/">Linux, Shadowsocks</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Vim/">Linux, Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linear-Algebra/">Linear Algebra</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linear-Algebra/Matrix-Theory/">Matrix Theory</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linearn-Algebra/">Linearn Algebra</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linearn-Algebra/Matrix-Theory/">Matrix Theory</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/">Octopress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/前端/">前端</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-C/">Programming, C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Ruby-on-Rails/">Ruby on Rails</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/信息论-熵/">信息论, 熵</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用数据库-人脸识别/">常用数据库, 人脸识别</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-数学/">机器学习, 数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-模式识别-最优化/">机器学习, 模式识别, 最优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-神经网络/">机器学习, 神经网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/模式识别-机器学习/">模式识别, 机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/自然语言处理-机器学习/">自然语言处理, 机器学习</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/11/16/tc-plus-plus-pl-advices/">TC++PL Advices</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/12/ju-zhen-lun-yan-yi-ni-ju-zhen/">矩阵论——广义逆矩阵</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/11/ju-zhen-lun-ju-zhen-fen-jie/">矩阵论——矩阵分解</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/11/ju-zhen-lun-fan-shu-li-lun/">矩阵论——范数理论</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/10/modern-c-plus-plus-design-example-1-policy/">Modern C++ Design Example(1) -- Policy</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Changxu Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

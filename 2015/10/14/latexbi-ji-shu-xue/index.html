@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>LaTeX笔记 —— 数学 | Changxu&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="LaTeX学习过程中的一些笔记 —— 数学相关">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LaTeX笔记 —— 数学">
+<meta property="og:url" content="http://changxu.wang/2015/10/14/latexbi-ji-shu-xue/index.html">
+<meta property="og:site_name" content="Changxu's Blog">
+<meta property="og:description" content="LaTeX学习过程中的一些笔记 —— 数学相关">
+<meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LaTeX笔记 —— 数学">
+<meta name="twitter:description" content="LaTeX学习过程中的一些笔记 —— 数学相关">
+  
+    <link rel="alternate" href="/atom.xml" title="Changxu&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Changxu&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://changxu.wang"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-latexbi-ji-shu-xue" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/14/latexbi-ji-shu-xue/" class="article-date">
+  <time datetime="2015-10-14T12:19:45.000Z" itemprop="datePublished">2015-10-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LaTeX笔记 —— 数学
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>LaTeX学习过程中的一些笔记 —— 数学相关</p>
+<a id="more"></a>
+<h2 id="u6570_u5B66_u6A21_u5F0F"><a href="#u6570_u5B66_u6A21_u5F0F" class="headerlink" title="数学模式"></a>数学模式</h2><h3 id="u884C_u5185_u6A21_u5F0F"><a href="#u884C_u5185_u6A21_u5F0F" class="headerlink" title="行内模式"></a>行内模式</h3><pre><code>$\lim_{n \to \infty}\sum_{k=1}^n \frac{1}{k^2}= \frac{\pi^2}{6}$
+</code></pre><p>效果如下：</p>
+<p>$\lim<em>{n \to \infty}\sum</em>{k=1}^n \frac{1}{k^2}= \frac{\pi^2}{6}$</p>
+<h3 id="u666E_u901A_u6A21_u5F0F"><a href="#u666E_u901A_u6A21_u5F0F" class="headerlink" title="普通模式"></a>普通模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;math&#125;&#10;\lim_&#123;n \to \infty&#125;\sum_&#123;k=1&#125;^n \frac&#123;1&#125;&#123;k^2&#125;= \frac&#123;\pi^2&#125;&#123;6&#125;&#10;\end&#123;math&#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p>$$<br>\lim<em>{n \to \infty}\sum</em>{k=1}^n \frac{1}{k^2}= \frac{\pi^2}{6}<br>$$</p>
+<h3 id="u5728_u6BB5_u843D_u5916_u663E_u793A"><a href="#u5728_u6BB5_u843D_u5916_u663E_u793A" class="headerlink" title="在段落外显示"></a>在段落外显示</h3><ul>
+<li><code>\[ TEXT \]</code></li>
+<li><code>\begin{displaymath} TEXT \end{displaymath}</code></li>
+</ul>
+<h3 id="u4E0E_u6587_u672C_u6A21_u5F0F_u7684_u533A_u522B"><a href="#u4E0E_u6587_u672C_u6A21_u5F0F_u7684_u533A_u522B" class="headerlink" title="与文本模式的区别"></a>与文本模式的区别</h3><ol>
+<li>大多数的空格和断行没有任何意义,而且所有的空隙要么是从相应数学 表达式中自然的生成,要么是用一些专门的命令来指定,如<code>\,</code>(小空白), <code>\quad</code>(中等空白) 或<code>\qquad</code>(大空白)。</li>
+<li>空白行是不允许的。每个公式只能为一段。</li>
+<li>每一个字母都会被认为是一个变量名,且会相应被排版为此种样式。如果 你想要在公式中排版普通的文本(直立字体和普通字距),那么你必须要 把这些文本放在\textrm{…} 命令中。</li>
+</ol>
+<h2 id="u65B9_u7A0B_u548C_u6570_u7EC4"><a href="#u65B9_u7A0B_u548C_u6570_u7EC4" class="headerlink" title="方程和数组"></a>方程和数组</h2><h3 id="u65B9_u7A0B"><a href="#u65B9_u7A0B" class="headerlink" title="方程"></a>方程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;equation&#125;&#10;    \label&#123;maker&#125; EQUATION&#10;\end&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+<p>其中<code>\label</code>是可选的，为了给方程加上编号以方便<code>\ref</code>等的引用</p>
+<h3 id="u6570_u7EC4"><a href="#u6570_u7EC4" class="headerlink" title="数组"></a>数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;array&#125;&#10;    x_&#123;11&#125; &#38; x_&#123;12&#125; &#38; \ldots \\&#13;    x_&#123;21&#125; &#38; x_&#123;22&#125; &#38; \ldots \\&#13;    \vdots &#38; \vdots &#38; \ddots&#10;\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="u5BF9_u9F50"><a href="#u5BF9_u9F50" class="headerlink" title="对齐"></a>对齐</h2><p>使用<code>&amp;</code>作为铆点进行对齐。</p>
+<p>Example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a^2 + b^2 &#38; = &#38; c^2&#10;a &#38; = &#38; b</span><br></pre></td></tr></table></figure>
+<p>则对齐两个方程的等号</p>
+<h2 id="u5404_u79CD_u5E0C_u814A_u5B57_u6BCD_u3001_u6570_u5B66_u7B26_u53F7_u7B49"><a href="#u5404_u79CD_u5E0C_u814A_u5B57_u6BCD_u3001_u6570_u5B66_u7B26_u53F7_u7B49" class="headerlink" title="各种希腊字母、数学符号等"></a>各种希腊字母、数学符号等</h2><p>这就不多说了，查手册就行，而且还有各种LaTeX的App可供参考</p>
+<h2 id="u590D_u6742_u8868_u8FBE_u5F0F_u4E2D_u6307_u6807_u7684_u653E_u7F6E"><a href="#u590D_u6742_u8868_u8FBE_u5F0F_u4E2D_u6307_u6807_u7684_u653E_u7F6E" class="headerlink" title="复杂表达式中指标的放置"></a>复杂表达式中指标的放置</h2><p>主要有两个环境：</p>
+<ul>
+<li>substack环境 —— 居中对齐</li>
+<li>subarray环境 —— 左对齐</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\sum_&#123;\substack&#123;0&#60;i&#60;n \\ 1&#60;j&#60;m&#125;&#125;&#13;   P(i,j) =&#13;\sum_&#123;\begin&#123;subarray&#125;&#123;l&#125;&#13;        i\in I \\ 1&#60;j&#60;m&#13;      \end&#123;subarray&#125;&#125;&#10;   Q(i,j)</span><br></pre></td></tr></table></figure>
+<h2 id="u5B9A_u754C_u7B26_u5C3A_u5BF8_u5339_u914D"><a href="#u5B9A_u754C_u7B26_u5C3A_u5BF8_u5339_u914D" class="headerlink" title="定界符尺寸匹配"></a>定界符尺寸匹配</h2><p>主要通过在定界符左边放置<strong>成对的</strong>如下两个命令实现：</p>
+<ul>
+<li><code>\left</code></li>
+<li><code>\right</code></li>
+</ul>
+<p>Example:</p>
+<p>$$ 1 + \left( \frac{1}{ 1-x^{2} } \right) $$</p>
+<p>在必要的时候还可以通过如下四个命令调整尺寸：</p>
+<ul>
+<li><code>\big</code></li>
+<li><code>\Big</code></li>
+<li><code>\bigg</code></li>
+<li><code>\Bigg</code></li>
+</ul>
+<p>Example：</p>
+<pre><code>\Bigg( \bigg( \Big( \big( \big) \Big) \bigg) \Bigg)
+</code></pre><p>效果如下：</p>
+<p>$$ \Bigg( \bigg( \Big( \big( \big) \Big) \bigg) \Bigg) $$</p>
+<h2 id="u865A_u4F4D"><a href="#u865A_u4F4D" class="headerlink" title="虚位"></a>虚位</h2><p>可以通过<code>\phantom</code>命令为不存在的字符留下虚位，如下面这个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#125;^&#123;12&#125;_&#123;\phantom&#123;1&#125;6&#125;\textrm&#123;C&#125; &#10;   \qquad \textrm&#123;VS&#125; \qquad&#10;&#123;&#125;^&#123;12&#125;_&#123;6&#125;\textrm&#123;C&#125;</span><br></pre></td></tr></table></figure>
+<p>左边的使用了虚位，右边的没有使用虚位，效果如下：</p>
+<p>$$<br>{}^{12}<em>{\phantom{1}6}\textrm{C}<br>   \qquad \textrm{VS} \qquad<br>{}^{12}</em>{6}\textrm{C}<br>$$</p>
+<h2 id="u5B9A_u7406_u3001_u5B9A_u5F8B_u2026_u2026"><a href="#u5B9A_u7406_u3001_u5B9A_u5F8B_u2026_u2026" class="headerlink" title="定理、定律……"></a>定理、定律……</h2><h3 id="Usage_3A"><a href="#Usage_3A" class="headerlink" title="Usage:"></a>Usage:</h3><pre><code>￼\newtheorem{name}[counter]{text}[section]
+</code></pre><p>参量name 是用来标识“定理”的短关键字。而参数text 才是真正的“定理”名,它会在最终的文档中被打印出来。</p>
+<p>方括号中是可选参量。两者都均用来指定“定理”的编号问题。使用counter参数来指定先前声明的“定理”的name。则此新的“定理”将与先前定理统一编 号。section 参数让你来指定章节单元,而“定理”会按相应的章节层次来编号。</p>
+<p>在你的文档的导言区执行\newtheorem 命令后,你就可以在文档中使用以下命令了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;name&#125;[text]&#13;This is my interesting theorem &#10;\end&#123;name&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u6837_u5F0F"><a href="#u6837_u5F0F" class="headerlink" title="样式"></a>样式</h3><p>使用如下命令设置定理样式：</p>
+<pre><code>\theoremstyle{style}
+</code></pre><p>其中style有如下三种：</p>
+<ul>
+<li><code>definition</code> —— 标题粗体, 内容罗马体</li>
+<li><code>plain</code> —— 标题粗体,内容斜体</li>
+<li><code>remark</code> —— 标题斜体,内容罗马体</li>
+</ul>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>首先定义定理环境：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\theoremstyle&#123;definition&#125; \newtheorem&#123;law&#125;&#123;Law&#125;&#13;\theoremstyle&#123;plain&#125;      \newtheorem&#123;jury&#125;[law]&#123;Jury&#125;&#13;\theoremstyle&#123;remark&#125;     \newtheorem*&#123;marg&#125;&#123;Margaret&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在文中写定理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;law&#125; \label&#123;law:box&#125;&#13;Don&#8217;t hide in the witness box&#13;\end&#123;law&#125;&#13;\begin&#123;jury&#125;[The Twelve]&#13;It could be you! So beware and&#13;see law \ref&#123;law:box&#125;\end&#123;jury&#125;&#13;\begin&#123;marg&#125;No, No, No\end&#123;marg&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u5B9A_u7406_u7684_u8BC1_u660E"><a href="#u5B9A_u7406_u7684_u8BC1_u660E" class="headerlink" title="定理的证明"></a>定理的证明</h3><p>使用<code>proof</code>环境即可为定理写写证明</p>
+<p>使用<code>\qedhere</code>表明证明完毕</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://changxu.wang/2015/10/14/latexbi-ji-shu-xue/" data-id="cijuu2gy6000vrh85pe0lmhju" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/10/modern-c-plus-plus-design-example-1-policy/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Modern C++ Design Example(1) -- Policy
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/14/latexshi-yong-bi-ji/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">LaTeX笔记 —— 基础内容</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/C/TC-PL/">TC++PL</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/Linxu/">Linxu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/">IntellijIDEA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/Java/Ubuntu/">Ubuntu</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Vim/">Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/服务器/">服务器</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Shadowsocks/">Linux, Shadowsocks</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Vim/">Linux, Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linear-Algebra/">Linear Algebra</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linear-Algebra/Matrix-Theory/">Matrix Theory</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linearn-Algebra/">Linearn Algebra</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linearn-Algebra/Matrix-Theory/">Matrix Theory</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/">Octopress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/前端/">前端</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-C/">Programming, C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Ruby-on-Rails/">Ruby on Rails</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/信息论-熵/">信息论, 熵</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用数据库-人脸识别/">常用数据库, 人脸识别</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-数学/">机器学习, 数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-模式识别-最优化/">机器学习, 模式识别, 最优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-神经网络/">机器学习, 神经网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/模式识别-机器学习/">模式识别, 机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/自然语言处理-机器学习/">自然语言处理, 机器学习</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/11/16/tc-plus-plus-pl-advices/">TC++PL Advices</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/12/ju-zhen-lun-yan-yi-ni-ju-zhen/">矩阵论——广义逆矩阵</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/11/ju-zhen-lun-ju-zhen-fen-jie/">矩阵论——矩阵分解</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/11/ju-zhen-lun-fan-shu-li-lun/">矩阵论——范数理论</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/10/modern-c-plus-plus-design-example-1-policy/">Modern C++ Design Example(1) -- Policy</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Changxu Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

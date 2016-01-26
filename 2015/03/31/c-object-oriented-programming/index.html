@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>面向对象的C编程 | Changxu&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="翻译自C Object Oriented Programming">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象的C编程">
+<meta property="og:url" content="http://changxu.wang/2015/03/31/c-object-oriented-programming/index.html">
+<meta property="og:site_name" content="Changxu's Blog">
+<meta property="og:description" content="翻译自C Object Oriented Programming">
+<meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象的C编程">
+<meta name="twitter:description" content="翻译自C Object Oriented Programming">
+  
+    <link rel="alternate" href="/atom.xml" title="Changxu&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Changxu&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://changxu.wang"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-c-object-oriented-programming" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/31/c-object-oriented-programming/" class="article-date">
+  <time datetime="2015-03-31T11:25:38.000Z" itemprop="datePublished">2015-03-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C/">C</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面向对象的C编程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>翻译自<a href="http://nullprogram.com/blog/2014/10/21/" target="_blank" rel="external">C Object Oriented Programming</a></p>
+</blockquote>
+<a id="more"></a>
+<p>面向对象编程，尤其是多态性，对大型复杂软件的开发至关重要。<br>没有面向对象编程，则分离不同系统组件将是非常困难的。<br>C语言并不支持面向对象，所以大型C程序总是发展其自己的构建方式，<br>而不是单纯地依照原始的C语言准则。<br>比较有代表性的大型C语言项目的例子如Linux内核、BSD内核和SQLite</p>
+<h1 id="u4E00_u4E2A_u7B80_u5355_u7684_u4F8B_u5B50"><a href="#u4E00_u4E2A_u7B80_u5355_u7684_u4F8B_u5B50" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h1><p>假设你打算写一个函数<code>pass_match()</code>，该函数接受一个输入流、一个输出流和一个模式串。<br>这个函数的工作有点像<code>grep</code>命令，它将输入流中与模式串相匹配的行输出至输出流。<br>模式串是一个shell风格Glob模式串，该串与<a href="http://man7.org/linux/man-pages/man3/fnmatch.3.html" target="_blank" rel="external">POSI fnmatch()</a>函数的模式串语法一致。<br>整个函数接口如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pass_match</span><span class="params">(FILE *in, FILE *out, <span class="keyword">const</span> <span class="keyword">char</span> *pattern)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>Glob风格模式串非常简单，所以不需要进行预编译（正则表达式一般需要预编译）。</p>
+<p>一段时间后，我们的客户想让程序除了shell风格Glob字符串外还支持正则表达式。<br>为了性能需要，正则表达式需要被预编译，所以不能直接作为模式串传递给我们的函数，取而代之的将是一个<a href="http://man7.org/linux/man-pages/man3/regexec.3.html" target="_blank" rel="external">POSIX regex_t</a>对象。<br>对本问题，一种快速但不怎么优雅的实现如下</p>
+<pre><code class="c"><span class="function"><span class="keyword">void</span> <span class="title">pass_match</span><span class="params">(FILE *in, FILE *out, <span class="keyword">const</span> <span class="keyword">char</span> *pattern, regex_t *re)</span></span>;
+</code></pre>
+<p>需要注意的是，<code>pattern</code>和<code>re</code>参数总有一个会是NULL。不过这个实现非常丑陋而且不便于扩展。<br>试想，如果我们需要更多种不同的匹配器该怎么办？所以我们需要一种只接受一个对象的实现，而不是像现在这样同时存在<code>pattern</code>和<code>re</code>对象。如果可能，我们还希望我们的对象可以扩展以适应各种不同的匹配器。</p>
+<h1 id="u652F_u6301_u901A_u7528_u7684_u5339_u914D_u51FD_u6570"><a href="#u652F_u6301_u901A_u7528_u7684_u5339_u914D_u51FD_u6570" class="headerlink" title="支持通用的匹配函数"></a>支持通用的匹配函数</h1><p>一种常见的用于扩展C语言函数的方式是向函数传递函数指针。<br>例如，作为比较器的<code>qsort()</code>函数的最后一个变量就是一个函数指针。</p>
+<p>对于我们的<code>pass_match()</code>函数，这个函数指针指向的函数应该可以接受一个字符串并返回一个布尔值以表明该字符串是否该被我们的<code>pass_match()</code>函数传递至输出流。<br>我们对输入流的每一行调用该函数。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void pass_match(FILE *in, FILE *out, bool (*match)(const char *));</span><br></pre></td></tr></table></figure>
+<p>不过，这种实现同<code>qsort()</code>一样——缺乏上下文环境。<code>match</code>所指向的函数需要一个模式串或者一个<code>regex_t</code>对象来操作。在其他语言中，这种对上下文环境的依赖可以作为一个闭包附加到函数，但是C语言并不支持闭包。一种简单粗暴地实现方式是使用全局变量，但这并不值得提倡。</p>
+<pre><code class="c"><span class="keyword">static</span> <span class="keyword">regexi_t</span> regex;    <span class="comment">// 非常差的方式！</span>
+
+<span class="function"><span class="keyword">bool</span> <span class="title">regex_match</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
+</span>{
+    <span class="keyword">return</span> regexec(&amp;regex, <span class="built_in">string</span>, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="number">0</span>) == <span class="number">0</span>;   
+}
+</code></pre>
+<p>因为全局变量的存在，<code>pass_match()</code>既不是可重入的也不是线程安全的。<br>我们将学习GNU的<code>qsort_r()</code>函数，接受一个上线文变量给我们的匹配函数，类似于一个闭包。</p>
+<pre><code class="c">void pass_match(FILE *in, FILE *out, 
+        bool (*match)(const char *, void *), void *context);
+</code></pre>
+<p>其中context指针将作为匹配函数的第二个参数以用来给其提供上下文环境，因此我们就用不到全局变量了。<br>这种实现对于许多简单情况是足够用了，我们的<code>pass_match()</code>接口也可以处理不同匹配函数的情况。</p>
+<p>但是，我们为何不能将一个函数及其上下文环境打包为一个对象呢？</p>
+<h1 id="u66F4_u62BD_u8C61_u7684_u505A_u6CD5"><a href="#u66F4_u62BD_u8C61_u7684_u505A_u6CD5" class="headerlink" title="更抽象的做法"></a>更抽象的做法</h1><p>我们为何不能将上下文参数放入一个结构体并对其开发接口？这里我们使用了<strong>结构体+联合</strong>的的方式：</p>
+<pre><code class="c"><span class="keyword">enum</span> filter_type { GLOB, REGEX };
+
+<span class="keyword">struct</span> filter {
+    <span class="keyword">enum</span> filter_type type;
+    <span class="keyword">union</span> {
+        <span class="keyword">const</span> <span class="keyword">char</span> *pattern;
+        <span class="keyword">regex_t</span> regex;
+    } context;
+};
+</code></pre>
+<p>然后我们定义一个操作该结构体的函数：<code>filter_match()</code>。它检查<code>type</code>成员并调用正确的函数来执行匹配工作。</p>
+<pre><code class="c"><span class="function"><span class="keyword">bool</span> <span class="title">filter_match</span><span class="params">(<span class="keyword">struct</span> filter *filter, <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
+</span>{
+    <span class="keyword">switch</span> (filter-&gt;type) {
+    <span class="keyword">case</span> GLOB:
+        <span class="keyword">return</span> fnmatch(filter-&gt;context.pattern, <span class="built_in">string</span>, <span class="number">0</span>) == <span class="number">0</span>;
+    <span class="keyword">case</span> REGEX:
+        <span class="keyword">return</span> regexec(&amp;filter-&gt;context.regex, <span class="built_in">string</span>, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="number">0</span>) == <span class="number">0</span>;
+    }
+    <span class="built_in">abort</span>();    <span class="comment">// handle errors</span>
+}
+</code></pre>
+<p>现在我们回到我们的<code>pass_match()</code>函数，它的接口现在应该如下所示，这也是本文对<code>pass_match()</code>函数接口形式和实现的最后一次修改。</p>
+<pre><code class="c"><span class="function"><span class="keyword">void</span> <span class="title">pass_match</span><span class="params">(FILE *input, FILE *output, <span class="keyword">struct</span> filter *filter)</span></span>;
+</code></pre>
+<p>现在我们的<code>pass_match()</code>无需关注匹配函数是如何工作的了，这样也为我们将来的扩展提供了可能。现在的<code>pass_match()</code>函数只是简单地调用<code>filter_match()</code>函数。但是，我们使用了<code>switch</code>语句和<code>union</code>，这样虽然能工作但并不优美，而且修改起来非常麻烦（如、我们添加一钟新的匹配器类型就需要改动多处），所以我们要进一步改进。</p>
+<h1 id="u65B9_u6CD5_uFF08Method_uFF09"><a href="#u65B9_u6CD5_uFF08Method_uFF09" class="headerlink" title="方法（Method）"></a>方法（Method）</h1><p>既然使用<code>switch</code>语句非常的不好，那我们就干脆将函数指针放入结构体：</p>
+<pre><code class="c"><span class="keyword">struct</span> filter {
+    <span class="keyword">bool</span> (*match)(<span class="keyword">struct</span> filter *, <span class="keyword">const</span> <span class="keyword">char</span> *);
+};
+</code></pre>
+<p>注意到我们<code>filter</code>结构体将其自身作为第一个参数传递给了<code>match()</code>函数。在OOP语言中，这就相当于实现了<code>this</code>指针。现在，我们将这样写<code>filter_match()</code>函数</p>
+<pre><code class="c"><span class="function"><span class="keyword">bool</span> <span class="title">filter_match</span><span class="params">(<span class="keyword">struct</span> filter *filter, <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
+</span>{
+    <span class="keyword">return</span> filter-&gt;match(filter, <span class="built_in">string</span>);
+}
+</code></pre>
+<p>注意到，我们的<code>filter</code>结构体只是个框架，我们还是缺少真正的上下文参数，一个模式串或者一个<code>regex</code>对象。这两者将会作为不同的结构体定义，而其公共部分正是<code>filter</code>结构体。</p>
+<pre><code class="c"><span class="keyword">struct</span> filter_regex {
+    <span class="keyword">struct</span> filter filter;
+    <span class="keyword">regex_t</span> regex;
+}
+
+<span class="keyword">struct</span> filter_glob {
+    <span class="keyword">struct</span> filter filter;
+    <span class="keyword">const</span> <span class="keyword">char</span> *pattern;
+}
+</code></pre>
+<p><strong>注意：<code>filter</code>结构体必须作为上述结构体的第一个成员</strong>。这个技巧叫做<em>结构双关</em>，英文名称<em>type punning</em>。结构体的第一个成员一定位于结构体内存区域的开始处，所以指向<code>struct filter_glob</code>的指针也是其第一个成员变量的指针，即指向<code>struct filter</code>的指针。这种做法是不是有点类似于继承？</p>
+<p>现在，我们的两个结构体类型——<code>filter_regex</code>和<code>filter_glob</code>都需要它们各自的匹配函数。</p>
+<pre><code class="c"><span class="function"><span class="keyword">static</span> <span class="keyword">bool</span>
+<span class="title">method_match_regex</span><span class="params">(<span class="keyword">struct</span> filter *filter, <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
+</span>{
+    <span class="keyword">struct</span> filter_regex *regex = (<span class="keyword">struct</span> filter_regex *) filter;
+    <span class="keyword">return</span> regexec(&amp;regex-&gt;regex, <span class="built_in">string</span>, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="number">0</span>) == <span class="number">0</span>;
+}
+
+<span class="function"><span class="keyword">static</span> <span class="keyword">bool</span>
+<span class="title">method_match_glob</span><span class="params">(<span class="keyword">struct</span> filter *filter, <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
+</span>{
+    <span class="keyword">struct</span> filter_glob *glob = (<span class="keyword">struct</span> filter_glob *) filter;
+    <span class="keyword">return</span> fnmatch(glob_pattern, <span class="built_in">string</span>, <span class="number">0</span>) == <span class="number">0</span>;
+}
+</code></pre>
+<p>使用前缀<code>method_</code>是为了指明它们的用途。声明为<code>static</code>是为了使其为文件私有，程序的其他部分只能通过结构体中的函数指针对其进行访问。同时，这也意味着我们需要一些构造函数来初始化那些函数指针。</p>
+<pre><code class="c"><span class="function"><span class="keyword">struct</span> filter *<span class="title">filter_regex_create</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *pattern)</span>
+</span>{
+    <span class="keyword">struct</span> filter_regex *regex = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(*regex));
+    regcomp(&amp;regex-&gt;regex, pattern, REG_EXTENDED);
+    regex-&gt;filter.match = method_match_regex;
+    <span class="keyword">return</span> &amp;regex-&gt;filter;
+}
+
+<span class="function"><span class="keyword">struct</span> filter *<span class="title">filter_glob_create</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *pattern)</span>
+</span>{
+    <span class="keyword">struct</span> filter_glob *glob = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(*glob));
+    glob-&gt;pattern = pattern;
+    glob-&gt;filter.match = method_match_glob;
+    <span class="keyword">return</span> &amp;glob-&gt;filter;
+}
+</code></pre>
+<p>以上，我们就完成了对接口的封装，而且从用户的角度来讲其足够健壮、可扩展并且易于使用。</p>
+<h1 id="u6E05_u7406"><a href="#u6E05_u7406" class="headerlink" title="清理"></a>清理</h1><p>以上还没完，我们的正则表达式匹配器在使用完后还需要进行清理，但是我们的用户并不知道如何正确执行清理操作。所以我们添加<code>free()</code>方法。</p>
+<pre><code class="c"><span class="keyword">struct</span> filter {
+    <span class="keyword">bool</span> (*match)(<span class="keyword">struct</span> filter *, <span class="keyword">const</span> <span class="keyword">char</span> *);
+    <span class="keyword">void</span> (*<span class="built_in">free</span>)(<span class="keyword">struct</span> filter *);
+};
+
+<span class="function"><span class="keyword">void</span> <span class="title">filter_free</span><span class="params">(<span class="keyword">struct</span> filter *filter)</span>
+</span>{
+    <span class="keyword">return</span> filter-&gt;<span class="built_in">free</span>(filter);
+}
+</code></pre>
+<p>同时，每种匹配器的清理函数，将在其构造函数内进行指定。</p>
+<pre><code class="c"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span>
+<span class="title">method_free_regex</span><span class="params">(<span class="keyword">struct</span> filter *f)</span>
+</span>{
+    <span class="keyword">struct</span> filter_regex *regex = (<span class="keyword">struct</span> filter_regex *) f;
+    regfree(&amp;regex-&gt;regex);
+    <span class="built_in">free</span>(f);
+}
+
+<span class="function"><span class="keyword">static</span> <span class="keyword">void</span>
+<span class="title">method_free_glob</span><span class="params">(<span class="keyword">struct</span> filter *f)</span>
+</span>{
+    <span class="built_in">free</span>(f);
+}
+</code></pre>
+<p>当然，上述只是个简单的事例，你还可以在其中添加其他的清理步骤。</p>
+<h1 id="u5BF9_u8C61_u7EC4_u4EF6"><a href="#u5BF9_u8C61_u7EC4_u4EF6" class="headerlink" title="对象组件"></a>对象组件</h1><p>很多时候使用组件而不是继承是一个好的实践。现在我们实现一个AND操作，该操作当且仅当两个子匹配器都匹配时返回真。</p>
+<pre><code class="c"><span class="keyword">struct</span> filter_and {
+    <span class="keyword">struct</span> filter filter;
+    <span class="keyword">struct</span> filter *sub[<span class="number">2</span>];
+};
+
+<span class="function"><span class="keyword">static</span> <span class="keyword">bool</span>
+<span class="title">method_match_and</span><span class="params">(<span class="keyword">struct</span> filter *f, <span class="keyword">const</span> <span class="keyword">char</span> *s)</span>
+</span>{
+    <span class="keyword">struct</span> filter_and *and = (<span class="keyword">struct</span> filter_and *) f;
+    <span class="keyword">return</span> filter_match(and-&gt;sub[<span class="number">0</span>], s) &amp;&amp; filter_match(and-&gt;sub[<span class="number">1</span>], s);
+}
+
+<span class="function"><span class="keyword">static</span> <span class="keyword">void</span>
+<span class="title">method_free_and</span><span class="params">(<span class="keyword">struct</span> filter *f)</span>
+</span>{
+    <span class="keyword">struct</span> filter_and *and = (<span class="keyword">struct</span> filter_and *) f;
+    filter_free(and-&gt;sub[<span class="number">0</span>]);
+    filter_free(and-&gt;sub[<span class="number">1</span>]);
+    <span class="built_in">free</span>(f);
+}
+
+<span class="function"><span class="keyword">struct</span> filter *<span class="title">filter_and</span><span class="params">(<span class="keyword">struct</span> filter *a, <span class="keyword">struct</span> filter *b)</span>
+</span>{
+    <span class="keyword">struct</span> filter_and *and = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(*and));
+    and-&gt;sub[<span class="number">0</span>] = a;
+    and-&gt;sub[<span class="number">1</span>] = b;
+    and-&gt;filter.match = method_match_and;
+    and-&gt;filter.<span class="built_in">free</span> = method_free_and;
+    <span class="keyword">return</span> &amp;and-&gt;filter;
+}
+</code></pre>
+<p>这样我们的AND操作可以结合一个正则表达式匹配器和一个glob匹配器、或两个正则表达式匹配器，甚至是其他的AND操作。</p>
+<p>为了使我们的作为组件的匹配器更容易使用，我们将创建两个“常量”匹配器。</p>
+<pre><code class="c"><span class="function"><span class="keyword">static</span> <span class="keyword">bool</span>
+<span class="title">method_match_and</span><span class="params">(<span class="keyword">struct</span> filter *f, <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
+</span>{
+    <span class="keyword">return</span> <span class="literal">true</span>;
+}
+
+<span class="function"><span class="keyword">static</span> <span class="keyword">bool</span>
+<span class="title">method_match_none</span><span class="params">(<span class="keyword">struct</span> filter *f, <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
+</span>{
+    <span class="keyword">return</span> <span class="literal">false</span>;
+}
+
+<span class="function"><span class="keyword">static</span> <span class="keyword">void</span>
+<span class="title">method_free_noop</span><span class="params">(<span class="keyword">struct</span> filter *f)</span>
+</span>{
+}
+
+<span class="keyword">struct</span> filter FILTER_ANY  = { method_match_any,  method_free_noop };
+<span class="keyword">struct</span> filter FILTER_NONE = { method_match_none, method_free_noop };
+</code></pre>
+<p>下面是一个将多个glob匹配器合成成一个匹配器的例子，每一个匹配器的模式串即是程序的一个参数。</p>
+<pre><code class="c"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span>
+</span>{
+    <span class="keyword">struct</span> filter *filter = &amp;FILTER_ANY;
+    <span class="keyword">for</span> (<span class="keyword">char</span> **p = argv+<span class="number">1</span>; *p; p++)
+        filter = filter_and(filter_glob_create(*p), filter);
+    pass_match(<span class="built_in">stdin</span>, <span class="built_in">stdout</span>, filter);
+    filter_free(filter);
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+<p>注意到我们只需要调用一次<code>filter_free()</code>就可以释放所有filter。</p>
+<h1 id="u591A_u91CD_u7EE7_u627F"><a href="#u591A_u91CD_u7EE7_u627F" class="headerlink" title="多重继承"></a>多重继承</h1><p>在前文中，我们提到为了使用类型双关技巧，我们的父类型结构体必须作为子类型结构体的第一个成员。但这样，我们就无法实现多重继承。</p>
+<p>不过幸运的是，我们可以推广我们的类型双关技巧，使“必须为第一个成员”这一条件不再是必须的。我们通过使用<code>container_of</code>宏来实现这一目的。</p>
+<pre><code class="c"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stddef.h&gt;</span></span>
+
+<span class="meta">#<span class="meta-keyword">define</span> container_of(ptr, type, member) \
+    ((type *)((char *)(ptr) - offsetof(type, member)))</span>
+</code></pre>
+<p>只要给定一个指向结构体成员的指针，我们的<code>container_of</code>宏就能返回只想其所在结构体的指针。假设我们之前定义的正则表达式结构体略有不同，<code>regex_t</code>成员成为了第一个成员。</p>
+<pre><code class="c"><span class="keyword">struct</span> filter_regex {
+    <span class="keyword">regex_t</span> regex;
+    <span class="keyword">struct</span> filter filter;
+}
+</code></pre>
+<p>我们的构造函数不变，但方法中的类型转换将变为宏调用。</p>
+<pre><code class="c"><span class="function"><span class="keyword">static</span> <span class="keyword">bool</span>
+<span class="title">method_match_regex</span><span class="params">(<span class="keyword">struct</span> filter *f, <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
+</span>{
+    <span class="keyword">struct</span> filter_regex *regex = container_of(f, <span class="keyword">struct</span> filter_regex, filter);
+    <span class="keyword">return</span> regexec(&amp;regex-&gt;regex, <span class="built_in">string</span>, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="number">0</span>) == <span class="number">0</span>;
+}
+
+<span class="function"><span class="keyword">static</span> <span class="keyword">void</span>
+<span class="title">method_free_regex</span><span class="params">(<span class="keyword">struct</span> filter *f)</span>
+</span>{
+    <span class="keyword">struct</span> filter_regex *regex = container_of(f, <span class="keyword">struct</span> filter_regex, filter);
+    regfree(&amp;regex-&gt;regex);
+    <span class="built_in">free</span>(f);
+}
+</code></pre>
+<p>该宏会在编译时被计算好，所以不会影响性能。而且，通过这个宏，我们就能实现多重继承了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://changxu.wang/2015/03/31/c-object-oriented-programming/" data-id="cijuu2gyx001qrh85pwogdfqp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/04/20/mo-shi-shi-bie-bei-xie-si-fen-lei-qi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          模式识别——贝叶斯分类器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/03/26/use-git-to-deploy-website/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用Git部署网站</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/C/TC-PL/">TC++PL</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/Linxu/">Linxu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/">IntellijIDEA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/Java/Ubuntu/">Ubuntu</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Vim/">Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/服务器/">服务器</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Shadowsocks/">Linux, Shadowsocks</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Vim/">Linux, Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linear-Algebra/">Linear Algebra</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linear-Algebra/Matrix-Theory/">Matrix Theory</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linearn-Algebra/">Linearn Algebra</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linearn-Algebra/Matrix-Theory/">Matrix Theory</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/">Octopress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/前端/">前端</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-C/">Programming, C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Ruby-on-Rails/">Ruby on Rails</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/信息论-熵/">信息论, 熵</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用数据库-人脸识别/">常用数据库, 人脸识别</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-数学/">机器学习, 数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-模式识别-最优化/">机器学习, 模式识别, 最优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-神经网络/">机器学习, 神经网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/模式识别-机器学习/">模式识别, 机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/自然语言处理-机器学习/">自然语言处理, 机器学习</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/11/16/tc-plus-plus-pl-advices/">TC++PL Advices</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/12/ju-zhen-lun-yan-yi-ni-ju-zhen/">矩阵论——广义逆矩阵</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/11/ju-zhen-lun-ju-zhen-fen-jie/">矩阵论——矩阵分解</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/11/ju-zhen-lun-fan-shu-li-lun/">矩阵论——范数理论</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/10/modern-c-plus-plus-design-example-1-policy/">Modern C++ Design Example(1) -- Policy</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Changxu Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

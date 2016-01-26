@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>矩阵论——范数理论 | Changxu&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="不加证明地简述向量范数和矩阵范数的概念与部分定理。
+
+内容摘录自《矩阵论简明教程》（科学出版社）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="矩阵论——范数理论">
+<meta property="og:url" content="http://changxu.wang/2015/11/11/ju-zhen-lun-fan-shu-li-lun/index.html">
+<meta property="og:site_name" content="Changxu's Blog">
+<meta property="og:description" content="不加证明地简述向量范数和矩阵范数的概念与部分定理。
+
+内容摘录自《矩阵论简明教程》（科学出版社）">
+<meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="矩阵论——范数理论">
+<meta name="twitter:description" content="不加证明地简述向量范数和矩阵范数的概念与部分定理。
+
+内容摘录自《矩阵论简明教程》（科学出版社）">
+  
+    <link rel="alternate" href="/atom.xml" title="Changxu&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Changxu&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://changxu.wang"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ju-zhen-lun-fan-shu-li-lun" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/11/ju-zhen-lun-fan-shu-li-lun/" class="article-date">
+  <time datetime="2015-11-11T07:08:06.000Z" itemprop="datePublished">2015-11-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Math/">Math</a>►<a class="article-category-link" href="/categories/Math/Linear-Algebra/">Linear Algebra</a>►<a class="article-category-link" href="/categories/Math/Linear-Algebra/Matrix-Theory/">Matrix Theory</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      矩阵论——范数理论
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>不加证明地简述向量范数和矩阵范数的概念与部分定理。</p>
+<blockquote>
+<p>内容摘录自《矩阵论简明教程》（科学出版社）</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="u5411_u91CF_u8303_u6570"><a href="#u5411_u91CF_u8303_u6570" class="headerlink" title="向量范数"></a>向量范数</h1><h2 id="u5411_u91CF_u8303_u6570_u4E09_u516C_u7406"><a href="#u5411_u91CF_u8303_u6570_u4E09_u516C_u7406" class="headerlink" title="向量范数三公理"></a>向量范数三公理</h2><p><strong>定义</strong> &nbsp; 若对任意 $$\boldsymbol{x} \in \mathbf{C}$$ 都有一个实数$$|\boldsymbol{x}|$$与之对应，且满足：</p>
+<ol>
+<li>非负性：当$\boldsymbol{x} \neq 0$时，$$| \boldsymbol{x} | \gt 0$$，当$\boldsymbol{x} = 0$时，$$| \boldsymbol{x} | = 0$$，</li>
+<li>齐次性：对任何$\lambda \in \mathbf{C}$，$$ |\lambda \boldsymbol{x}| = \vert\lambda\vert |\boldsymbol{x}| $$，</li>
+<li>三角不等式：对任意$\boldsymbol{x}, \boldsymbol{y} \in \mathbf{C}^n$，都有$$| \boldsymbol{x} + \boldsymbol{y} | \leq | \boldsymbol{x} | + | \boldsymbol{y} | $$，</li>
+</ol>
+<p>则称$\| \boldsymbol{x} \|$为$\mathbf{C}^n$<strong>上向量$\| \boldsymbol{x} \|$的范数，简称向量范数</strong>。</p>
+<h2 id="u5E38_u7528_u5411_u91CF_u8303_u6570"><a href="#u5E38_u7528_u5411_u91CF_u8303_u6570" class="headerlink" title="常用向量范数"></a>常用向量范数</h2><h3 id="u5B9A_u4E49"><a href="#u5B9A_u4E49" class="headerlink" title="定义"></a>定义</h3><p>设向量$$\boldsymbol{x} = (\xi_1, \xi_2, \cdots, \xi_n)^T \in \mathbf{C}^n$$</p>
+<ul>
+<li>向量<strong>1范数</strong>：</li>
+</ul>
+<p>$$ | \boldsymbol{x} |<em>1 = \sum</em>{k=1}^{n}{\vert \xi_k \vert} $$</p>
+<ul>
+<li>向量<strong>p范数</strong>：</li>
+</ul>
+<p>$$ | \boldsymbol{x} |<em>p = ( \sum</em>{k=1}^{n}{\vert \xi_k \vert^p} )^{\frac{1}{p}} \quad (1 \leq p \lt +\infty) $$</p>
+<ul>
+<li>向量<strong>$\infty$范数</strong>：</li>
+</ul>
+<p>$$ | \boldsymbol{x} |<em>\infty = \max</em>{k}\vert \xi_k \vert $$</p>
+<ul>
+<li>向量<strong>加权范数</strong>或<strong>椭圆范数</strong>：</li>
+</ul>
+<p>$$ |\boldsymbol{x}|_\boldsymbol{A} = \sqrt{\boldsymbol{x}^H\boldsymbol{A}\boldsymbol{x}}，\boldsymbol{A}是n阶Hermite正定矩阵 $$</p>
+<h3 id="u6027_u8D28"><a href="#u6027_u8D28" class="headerlink" title="性质"></a>性质</h3><ol>
+<li>常见的<strong>1范数和2范数（欧氏距离）</strong>是都是特殊的<strong>p范数</strong></li>
+<li>$$ \lim_{p \rightarrow +\infty} |\boldsymbol{x}|<em>p = |\boldsymbol{x}|</em>\infty $$</li>
+<li><strong>2范数</strong>具有<strong>酉不变性</strong></li>
+</ol>
+<h2 id="u5411_u91CF_u8303_u6570_u7B49_u4EF7_u6027"><a href="#u5411_u91CF_u8303_u6570_u7B49_u4EF7_u6027" class="headerlink" title="向量范数等价性"></a>向量范数等价性</h2><p><strong>定义</strong> &nbsp; 设 $$| \bullet |_a$$ 和 $$| \bullet |_b$$ 是 $\mathbf{C}^n$上的两种向量范数，如果存在<strong>正数</strong> $\alpha$ 和 $\beta$，使对任意 $\boldsymbol{x} \in \mathbf{C}^n$ 都有</p>
+<p>$$ \alpha|\boldsymbol{x}|_a \leq |\boldsymbol{x}|_a \leq \beta|\boldsymbol{x}|_b $$</p>
+<p>则称向量范数 $$| \bullet |_a$$ 和 $$| \bullet |_b$$ <strong>等价</strong>。</p>
+<p><strong>定理</strong> &nbsp; $\mathbf{C}^n$上所有向量范数等价</p>
+<h2 id="24_5Cboldsymbol_7BH_5Cddot_7Bo_7Dlder_7D_u4E0D_u7B49_u5F0F_24"><a href="#24_5Cboldsymbol_7BH_5Cddot_7Bo_7Dlder_7D_u4E0D_u7B49_u5F0F_24" class="headerlink" title="$\boldsymbol{H\ddot{o}lder}不等式$"></a>$\boldsymbol{H\ddot{o}lder}不等式$</h2><p>对任意 $$\xi_k, \eta_k \in \mathbf{C}(k=1,2,\cdots,n)$$，有：</p>
+<p>$$ \sum_{k=1}^{n}{\vert \xi_k \vert \vert \eta<em>k \vert} \leq<br>    ( \sum</em>{k=1}^{n}{\vert \xi<em>k \vert^p} )^{\frac{1}{p}}<br>    ( \sum</em>{k=1}^{n}{\vert \eta_k \vert^q} )^{\frac{1}{q}} $$</p>
+<p>其中 $p \gt 1, q \gt 1, \frac{1}{p} + \frac{1}{q} = 1$</p>
+<blockquote>
+<p>当 $p = q = 2$ 时，即得到Cauchy-Schwarz不等式</p>
+</blockquote>
+<h1 id="u77E9_u9635_u8303_u6570"><a href="#u77E9_u9635_u8303_u6570" class="headerlink" title="矩阵范数"></a>矩阵范数</h1><h2 id="u77E9_u9635_u8303_u6570_u56DB_u516C_u7406"><a href="#u77E9_u9635_u8303_u6570_u56DB_u516C_u7406" class="headerlink" title="矩阵范数四公理"></a>矩阵范数四公理</h2><p><strong>定义</strong> &nbsp; 若对任意 $\boldsymbol{A} \in \mathbf{C}^{m \times n}$ 都有一个实数 $|\boldsymbol{A}|$ 与之对应，且满足</p>
+<ol>
+<li>非负性：当 $\boldsymbol{A} \neq \boldsymbol{O}$ 时，$$|\boldsymbol{A}| \gt 0$$，当 $\boldsymbol{A} = \boldsymbol{O}$ 时，$$|\boldsymbol{A}| = 0$$，</li>
+<li>齐次性：对任意 $$\lambda \in \mathbf{C}， |\lambda \boldsymbol{A}| = \vert\lambda \vert | \boldsymbol{A} |$$，</li>
+<li>三角不等式：对任意 $\boldsymbol{A,B} \in \mathbf{C}^{n \times n}$，都有 $$|\boldsymbol{A} + \boldsymbol{B}| \leq |\boldsymbol{A}| + |\boldsymbol{B}|$$，</li>
+<li>相容性：对任意 $\boldsymbol{A} \in \mathbf{C}^{m \times n}, \boldsymbol{B} \in \mathbf{C}^{n \times l}$，都有 $$|\boldsymbol{A}\boldsymbol{B}| \leq |\boldsymbol{A}| |\boldsymbol{B}|$$，</li>
+</ol>
+<p>则称 $$| \boldsymbol{A} |$$ 为 $\mathbf{C}^{m \times n}$<strong>上矩阵 $\boldsymbol{A}$ 的范数，简称矩阵范数</strong>。</p>
+<h2 id="u4E0E_u5411_u91CF_u8303_u6570_u7684_u76F8_u5BB9_u6027"><a href="#u4E0E_u5411_u91CF_u8303_u6570_u7684_u76F8_u5BB9_u6027" class="headerlink" title="与向量范数的相容性"></a>与向量范数的相容性</h2><p><strong>定义</strong> &nbsp; 设 $$| \bullet |_m$$ 是 $\mathbf{C}^{n \times n}$ 上的矩阵范数，$$| \bullet |_v$$ 是 $\mathbf{C}^n$ 上的向量范数，如果对任意 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$ 和 $\boldsymbol{x} \in \mathbf{C}^m$ 都有</p>
+<p>$$ |\boldsymbol{A}\boldsymbol{x}|_v \leq |\boldsymbol{A}|_m |\boldsymbol{x}|_v $$</p>
+<p>则称矩阵范数 $$| \bullet |_m$$ 与向量范数 $$| \bullet |_v$$ 是<strong>相容</strong>的。</p>
+<h2 id="u4ECE_u5C5E_u8303_u6570_uFF08_u53C8_u540D_uFF1A_u5BFC_u51FA_u8303_u6570_uFF09"><a href="#u4ECE_u5C5E_u8303_u6570_uFF08_u53C8_u540D_uFF1A_u5BFC_u51FA_u8303_u6570_uFF09" class="headerlink" title="从属范数（又名：导出范数）"></a>从属范数（又名：导出范数）</h2><p>我们知道，单位矩阵在矩阵乘法中的作用类似于1在数的乘法的作用，但是对于矩阵的$m_1$、F和M范数，有</p>
+<p>$$ |\boldsymbol{I}<em>n|</em>{m_1} = n, \quad |\boldsymbol{I}_n|_F = \sqrt{n}, \quad |\boldsymbol{I}_n|_M = n $$</p>
+<p>这对于一些理论分析带来不便，因此下面定理告诉我们如何构造出使$| \boldsymbol{I}_n | \equiv 1$的矩阵范数。</p>
+<p><strong>定理</strong> &nbsp; 已知 $\mathbf{C}^n$ 上的向量范数 $$| \bullet |_v$$，对任意 $\boldsymbol{A} \in \mathbf{C}^{m \times n}$，规定</p>
+<p>$$ | \boldsymbol{A} | = \max_{x \neq 0}{\frac{|\boldsymbol{A} \boldsymbol{x}|_v}{| \boldsymbol{x} |<em>v}}  = \max</em>{| \boldsymbol{X} |_v = 1}{| \boldsymbol{A} \boldsymbol{x} |_v} $$</p>
+<p>则 $$| \bullet |$$ 是 $\mathbf{C}^{m \times n}$上与向量范数 $$| \bullet |_v$$ 相容的矩阵范数，称之为<strong>由向量范数 $$| \bullet |_v$$ 导出的矩阵范数</strong>或<strong>从属于向量范数 $$| \bullet |_v$$ 的矩阵范数</strong>，简称<strong>导出范数</strong>或<strong>从属范数</strong>。</p>
+<h2 id="u5E38_u7528_u77E9_u9635_u8303_u6570"><a href="#u5E38_u7528_u77E9_u9635_u8303_u6570" class="headerlink" title="常用矩阵范数"></a>常用矩阵范数</h2><p>设 $$\boldsymbol{A} = (a<em>{ij})</em>{m \times n} \in \mathbf{C}^{m \times n}$$</p>
+<ul>
+<li>矩阵$\boldsymbol{m_1}$<strong>范数</strong>：</li>
+</ul>
+<p>$$ | \boldsymbol{A} |_{m<em>1} = \sum</em>{i=1}^{m}{\sum<em>{j=1}^{n}{\vert a</em>{ij} \vert}} $$</p>
+<ul>
+<li>矩阵<strong>Frobeniuse范数</strong>或<strong>F范数</strong>：</li>
+</ul>
+<p>$$ | \boldsymbol{A} |<em>F = \sqrt{ \sum</em>{i=1}^{m}{\sum<em>{j=1}^{n}{\vert a</em>{ij} \vert^2 }} } = \sqrt{tr(\boldsymbol{A}^H \boldsymbol{A})}$$</p>
+<ul>
+<li>矩阵<strong>M范数</strong>或<strong>最大范数</strong>：</li>
+</ul>
+<p>$$ | \boldsymbol{A} |<em>M = max{m,n} \max</em>{i,j}{\vert a_{ij} \vert} $$</p>
+<ul>
+<li>矩阵<strong>G范数</strong>或<strong>几何平均范数</strong>：</li>
+</ul>
+<p>$$ | \boldsymbol{A} |<em>G = \sqrt{mn} \max</em>{i,j}{\vert a_{ij} \vert} $$</p>
+<ul>
+<li>矩阵<strong>1范数</strong>或<strong>列和范数</strong>：</li>
+</ul>
+<p>$$ | \boldsymbol{A} |<em>1 = \max</em>{j}{\sum<em>{i=1}^{m}{\vert a</em>{ij} \vert}} $$</p>
+<ul>
+<li>矩阵<strong>2范数</strong>或<strong>谱范数</strong>：</li>
+</ul>
+<p>$$ | \boldsymbol{A} |_2 = \sqrt{\boldsymbol{A}^H \boldsymbol{A} 的最大特征值} $$</p>
+<ul>
+<li>矩阵$\boldsymbol{\infty}$<strong>范数</strong>或<strong>行和范数</strong>：</li>
+</ul>
+<p>$$ \max<em>i{\sum</em>{j=1}^{n}{\vert a_{ij} \vert}} $$</p>
+<h3 id="u6027_u8D28-1"><a href="#u6027_u8D28-1" class="headerlink" title="性质"></a>性质</h3><ol>
+<li><strong>F范数</strong>和<strong>2范数</strong>具有<code>酉不变性</code></li>
+<li>相容性：<ul>
+<li><strong>矩阵$m_1$范数</strong>与<strong>向量1范数</strong>相容</li>
+<li><strong>矩阵F范数、G范数</strong>与<strong>向量2范数</strong>相容</li>
+<li><strong>矩阵M范数</strong>分别与<strong>向量1、2、$\boldsymbol{\infty}$范数</strong>相容</li>
+<li><strong>矩阵1、2、$\boldsymbol{\infty}$范数</strong>分别与<strong>向量1、2、$\boldsymbol{\infty}$范数</strong>相容</li>
+</ul>
+</li>
+<li><strong>矩阵1、2、$\boldsymbol{\infty}$范数</strong>分别由<strong>向量1、2、$\boldsymbol{\infty}$范数</strong>导出，从而与相应的向量范数相容</li>
+</ol>
+<h1 id="u8BA1_u7B97_u8303_u6570_u7684Matlab_u547D_u4EE4__u2014_u2014_norm"><a href="#u8BA1_u7B97_u8303_u6570_u7684Matlab_u547D_u4EE4__u2014_u2014_norm" class="headerlink" title="计算范数的Matlab命令 —— norm"></a>计算范数的Matlab命令 —— norm</h1><blockquote>
+<p>在Matlab中使用<code>doc norm</code>可查看其文档，在此不再赘述</p>
+</blockquote>
+<h1 id="u8303_u6570_u7684_u4E24_u79CD_u5E38_u89C1_u5E94_u7528"><a href="#u8303_u6570_u7684_u4E24_u79CD_u5E38_u89C1_u5E94_u7528" class="headerlink" title="范数的两种常见应用"></a>范数的两种常见应用</h1><h2 id="u8C31_u534A_u5F84"><a href="#u8C31_u534A_u5F84" class="headerlink" title="谱半径"></a>谱半径</h2><p><strong>定义</strong> &nbsp; 设 $$\boldsymbol{A} \in \mathbf{C}^{n \times n}, \lambda_1, \lambda_2, \cdots, \lambda_n$$ 为 $\boldsymbol{A}$ 的 $n$ 个特征值，称</p>
+<p>$$ \rho(\boldsymbol{A}) = \max_{j}{\vert \lambda_j \vert} $$</p>
+<p>为 $\boldsymbol{A}$ 的<strong>谱半径</strong></p>
+<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$， 则</p>
+<ol>
+<li>$\rho(\boldsymbol{A}^k) = (\rho(\boldsymbol{A}))^k$</li>
+<li>$\rho(\boldsymbol{A}^H \boldsymbol{A}) = \rho(\boldsymbol{A} \boldsymbol{A}^H) = \| \boldsymbol{A} \|_2^2$</li>
+<li>当 $\boldsymbol{A}$ 是正规矩阵时，$$\rho(\boldsymbol{A}) = |A|_2$$</li>
+</ol>
+<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$， 则对 $\mathbf{C}^{n \times n}$上的任一矩阵范数 $$| \bullet |$$，都有</p>
+<p>$$ \rho(\boldsymbol{A}) \leq | \boldsymbol{A} | $$</p>
+<h2 id="u6761_u4EF6_u6570"><a href="#u6761_u4EF6_u6570" class="headerlink" title="条件数"></a>条件数</h2><p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}_n^{n \times n}$， $$| \bullet |$$ 是 $\mathbf{C}^{n \times n}$ 上的矩阵范数，称</p>
+<p>$$ cond(\boldsymbol{A}) = | \boldsymbol{A} | | \boldsymbol{A}^{-1} | $$</p>
+<p>为矩阵 $\boldsymbol{A}$（关于求逆或求解线性方程组）的<strong>条件数</strong>。</p>
+<p>一般地，如果矩阵 $\boldsymbol{A}$ 的条件数大就称 $\boldsymbol{A}$ 对于求逆矩阵或求解线性方程组是<strong>病态的</strong>，或<strong>坏条件的</strong>；否则，称为<strong>良态</strong>或<strong>好条件的</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://changxu.wang/2015/11/11/ju-zhen-lun-fan-shu-li-lun/" data-id="cijuu2gxz000nrh85dtmx6sfb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/11/ju-zhen-lun-ju-zhen-fen-jie/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          矩阵论——矩阵分解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/10/modern-c-plus-plus-design-example-1-policy/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Modern C++ Design Example(1) -- Policy</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/C/TC-PL/">TC++PL</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/Linxu/">Linxu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/">IntellijIDEA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/Java/Ubuntu/">Ubuntu</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Vim/">Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/服务器/">服务器</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Shadowsocks/">Linux, Shadowsocks</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Vim/">Linux, Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linear-Algebra/">Linear Algebra</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linear-Algebra/Matrix-Theory/">Matrix Theory</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linearn-Algebra/">Linearn Algebra</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Math/Linearn-Algebra/Matrix-Theory/">Matrix Theory</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/">Octopress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/前端/">前端</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-C/">Programming, C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Ruby-on-Rails/">Ruby on Rails</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/信息论-熵/">信息论, 熵</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用数据库-人脸识别/">常用数据库, 人脸识别</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-数学/">机器学习, 数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-模式识别-最优化/">机器学习, 模式识别, 最优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-神经网络/">机器学习, 神经网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/模式识别-机器学习/">模式识别, 机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/自然语言处理-机器学习/">自然语言处理, 机器学习</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/11/16/tc-plus-plus-pl-advices/">TC++PL Advices</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/12/ju-zhen-lun-yan-yi-ni-ju-zhen/">矩阵论——广义逆矩阵</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/11/ju-zhen-lun-ju-zhen-fen-jie/">矩阵论——矩阵分解</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/11/ju-zhen-lun-fan-shu-li-lun/">矩阵论——范数理论</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/10/modern-c-plus-plus-design-example-1-policy/">Modern C++ Design Example(1) -- Policy</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Changxu Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
