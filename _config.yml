@@ -84,3 +84,7 @@ org:
 # Google Analytics
 # Google分析ID
 google_analytics: UA-72919231-1
+
+# Google Webmaster tools verification setting
+# See: https://www.google.com/webmasters/
+google_site_verification: FXzFPoVRWr9svWNTns-bJzqL2dDrqHS2IpeLIC1YPaY
