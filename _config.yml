@@ -96,3 +96,10 @@ sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
+
+# Social
+social:
+  GitHub: https://github.com/DelightRun
+  Weibo: http://weibo.com/singledust
+  ZhiHu: http://www.zhihu.com/people/wang-chang-xu
+  Facebook: https://www.facebook.com/Changxu.Black
