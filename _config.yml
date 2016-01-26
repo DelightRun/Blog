@@ -9,7 +9,7 @@ description:
 author: 昌旭(Changxu)
 language: zh-Hans
 timezone:
-avatar: images/avatar.jpg
+avatar: /images/avatar.jpg
 disqus_shortname: changxusblog
 
 # URL
