@@ -85,6 +85,7 @@ org:
 # Google分析ID
 google_analytics: UA-72919231-1
 
-# Google Webmaster tools verification setting
-# See: https://www.google.com/webmasters/
+# Site Verification
 google_site_verification: FXzFPoVRWr9svWNTns-bJzqL2dDrqHS2IpeLIC1YPaY
+baidu_site_verification: hJJbXprROq
+
