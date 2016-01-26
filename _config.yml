@@ -89,3 +89,8 @@ google_analytics: UA-72919231-1
 google_site_verification: FXzFPoVRWr9svWNTns-bJzqL2dDrqHS2IpeLIC1YPaY
 baidu_site_verification: hJJbXprROq
 
+# Sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
