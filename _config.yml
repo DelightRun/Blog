@@ -4,10 +4,10 @@
 
 # Site
 title: Changxu's Blog
-subtitle:
-description: I'm Changxu.
+subtitle: I'm Changxu.
+description: Machine Learning, Programming and Math
 author: Changxu Wang
-language:
+language: zh-CN
 timezone:
 
 # URL
@@ -70,3 +70,11 @@ theme: landscape
 deploy:
   type: git
   repo: git@github.com:DelightRun/Blog.git
+
+# Org
+org:
+  emacs: '/Applications/Emacs.app/Contents/MacOS/Emacs'
+  common: |
+          #+OPTIONS: toc:nil
+          #+BIND: org-html-postamble \"Last Updated %d.</br>Render by <a href='https://github.com/CodeFalling/hexo-renderer-org'>hexo-renderer-org</a> with %c\"
+  cachedir: './hexo-org-cache/'
