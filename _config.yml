@@ -87,6 +87,9 @@ google_analytics: UA-72919231-1
 # 百度分析ID
 baidu_analytics: 89199bd2c47b68c8b327d4c058e916ab
 
+# Swiftype Search Key
+swiftype_key: To_fxizZWUyK7wGxcaKB
+
 # Site Verification
 google_site_verification: FXzFPoVRWr9svWNTns-bJzqL2dDrqHS2IpeLIC1YPaY
 baidu_site_verification: hJJbXprROq
