@@ -155,7 +155,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -191,9 +191,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -298,14 +326,14 @@
 <ul>
 <li><code>:x</code>相当于<code>:wq</code></li>
 <li><code>Ctrl+R</code>后输入<code>=</code>可当计算器用</li>
-<li>查找连续重复单词的正则表达式——`(\&lt;\w+>))_s*\1</li>
+<li>查找连续重复单词的正则表达式——`(&lt;+&gt;))_s*</li>
 <li>设置缩写<code>:ab [缩写] [全部]</code></li>
 <li><code>:w !sudo tee %</code>直接以root保存</li>
 <li><code>ggVGg?</code>将屏幕内容以ROT13编码以让别人看不懂</li>
 <li>插入模式下按<code>Ctrl+n</code>自动补全</li>
 <li><code>:diffthis</code> + <code>:vsp [文件2]</code> + <code>:diffoff</code>组合指令分离进行文件对比</li>
 <li><code>:earlier 1m</code>回退到一分钟以前的状态，<code>:later</code>则是相反转换</li>
-<li>将光标放在(或[或{或”上，使用<code>di对应符号</code>可以删除()或{}或[]或””内的内容，如<code>di[</code></li>
+<li>将光标放在(或[或{或“上，使用<code>di对应符号</code>可以删除()或{}或[]或”“内的内容，如<code>di[</code></li>
 <li><code>dt[标记]</code>会删除从光标到标记之间的内容（标记不删）</li>
 <li><code>%!xxd</code>将Vim变成十六进制编辑器，恢复则用<code>%!xxd -r</code></li>
 <li><code>zz</code>将光标下的文字置于屏幕中央</li>

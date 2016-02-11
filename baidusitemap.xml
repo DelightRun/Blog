@@ -3,35 +3,9 @@
 
 
     
-    
-    
-  <url>
-    <loc>http://changxu.wang/2015/11/11/ju-zhen-lun-ju-zhen-fen-jie/</loc>
-    <lastmod>2016-01-26T03:11:35.000Z</lastmod>
-    <data>
-        <display>
-        <title>矩阵论——矩阵分解</title>
-        <pubTime>2015-11-11T10:53:08.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Math" url="http://changxu.wang/categories/Math/"/>
-          
-             
-              <breadCrumb title="Linear Algebra" url="http://changxu.wang/categories/Math/Linear-Algebra/"/>
-          
-             
-              <breadCrumb title="Matrix Theory" url="http://changxu.wang/categories/Math/Linear-Algebra/Matrix-Theory/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
   <url>
     <loc>http://changxu.wang/2015/11/11/ju-zhen-lun-fan-shu-li-lun/</loc>
-    <lastmod>2016-01-26T03:11:35.000Z</lastmod>
+    <lastmod>2016-02-11T06:33:52.000Z</lastmod>
     <data>
         <display>
         <title>矩阵论——范数理论</title>
@@ -54,22 +28,48 @@
 
     
   <url>
-    <loc>http://changxu.wang/2015/11/10/modern-c-plus-plus-design-example-1-policy/</loc>
-    <lastmod>2016-01-26T03:11:35.000Z</lastmod>
+    <loc>http://changxu.wang/2015/11/11/ju-zhen-lun-ju-zhen-fen-jie/</loc>
+    <lastmod>2016-02-11T06:32:12.000Z</lastmod>
     <data>
         <display>
-        <title>Modern C++ Design Example(1) -- Policy</title>
-        <pubTime>2015-11-10T11:17:45.000Z</pubTime>
+        <title>矩阵论——矩阵分解</title>
+        <pubTime>2015-11-11T10:53:08.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="Programming, C++" url="http://changxu.wang/categories/Programming-C/"/>
+              <breadCrumb title="Math" url="http://changxu.wang/categories/Math/"/>
+          
+             
+              <breadCrumb title="Linear Algebra" url="http://changxu.wang/categories/Math/Linear-Algebra/"/>
+          
+             
+              <breadCrumb title="Matrix Theory" url="http://changxu.wang/categories/Math/Linear-Algebra/Matrix-Theory/"/>
           
         </display>
     </data>
     </url>
 
+    
+  <url>
+    <loc>http://changxu.wang/2014/02/26/ubuntu-init/</loc>
+    <lastmod>2016-02-06T08:05:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>我的Ubuntu配置</title>
+        <pubTime>2014-02-26T12:30:30.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Linux" url="http://changxu.wang/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
     
   <url>
     <loc>http://changxu.wang/2015/10/14/latexshi-yong-bi-ji/</loc>
@@ -438,17 +438,20 @@
 
     
   <url>
-    <loc>http://changxu.wang/2014/02/26/ubuntu-init/</loc>
+    <loc>http://changxu.wang/2015/11/16/tc-plus-plus-pl-advices/</loc>
     <lastmod>2016-01-26T03:11:35.000Z</lastmod>
     <data>
         <display>
-        <title>我的Ubuntu配置</title>
-        <pubTime>2014-02-26T12:30:30.000Z</pubTime>
+        <title>TC++PL Advices</title>
+        <pubTime>2015-11-16T08:25:23.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="Linux" url="http://changxu.wang/categories/Linux/"/>
+              <breadCrumb title="C++" url="http://changxu.wang/categories/C/"/>
+          
+             
+              <breadCrumb title="TC++PL" url="http://changxu.wang/categories/C/TC-PL/"/>
           
         </display>
     </data>
@@ -516,20 +519,17 @@
 
     
   <url>
-    <loc>http://changxu.wang/2015/11/16/tc-plus-plus-pl-advices/</loc>
+    <loc>http://changxu.wang/2015/11/10/modern-c-plus-plus-design-example-1-policy/</loc>
     <lastmod>2016-01-26T03:11:35.000Z</lastmod>
     <data>
         <display>
-        <title>TC++PL Advices</title>
-        <pubTime>2015-11-16T08:25:23.000Z</pubTime>
+        <title>Modern C++ Design Example(1) -- Policy</title>
+        <pubTime>2015-11-10T11:17:45.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="C++" url="http://changxu.wang/categories/C/"/>
-          
-             
-              <breadCrumb title="TC++PL" url="http://changxu.wang/categories/C/TC-PL/"/>
+              <breadCrumb title="Programming, C++" url="http://changxu.wang/categories/Programming-C/"/>
           
         </display>
     </data>

@@ -170,7 +170,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -206,9 +206,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -315,11 +343,13 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>z = &#123;<span class="string">'a'</span>:<span class="number">1</span>, <span class="string">'b'</span>:<span class="number">2</span>, <span class="string">'c'</span>:<span class="number">3</span>, <span class="string">'d'</span>:<span class="number">4</span>&#125;</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>z = &#123;<span class="string">'a'</span>:<span class="number">1</span>, <span class="string">'b'</span>:<span class="number">2</span>, <span class="string">'c'</span>:<span class="number">3</span>, <span class="string">'d'</span>:<span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
 <p>解决方案有两种</p>
 <a id="more"></a>
-<h2 id="u65B9_u6CD5_u4E00"><a href="#u65B9_u6CD5_u4E00" class="headerlink" title="方法一"></a>方法一</h2><p>本方法速度不如第二种方法快：</p>
+<h2 id="方法一">方法一</h2>
+<p>本方法速度不如第二种方法快：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>x = &#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>&#125;</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>y = &#123;<span class="string">'c'</span>: <span class="number">3</span>, <span class="string">'d'</span>: <span class="number">4</span>&#125;</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>z = dict(x.items() + y.items())</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>z</span><br><span class="line">&#123;<span class="string">'a'</span>:<span class="number">1</span>, <span class="string">'b'</span>:<span class="number">2</span>, <span class="string">'c'</span>:<span class="number">3</span>, <span class="string">'d'</span>:<span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
 <p>在Python3下略有不同：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>x = &#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>&#125;</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>y = &#123;<span class="string">'c'</span>: <span class="number">3</span>, <span class="string">'d'</span>: <span class="number">4</span>&#125;</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>z = dict(list(x.items()) + list(y.items()))</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>z</span><br><span class="line">&#123;<span class="string">'a'</span>:<span class="number">1</span>, <span class="string">'b'</span>:<span class="number">2</span>, <span class="string">'c'</span>:<span class="number">3</span>, <span class="string">'d'</span>:<span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="u65B9_u6CD5_u4E8C"><a href="#u65B9_u6CD5_u4E8C" class="headerlink" title="方法二"></a>方法二</h2><p>本方法较方法一速度更快</p>
+<h2 id="方法二">方法二</h2>
+<p>本方法较方法一速度更快</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>x = &#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>&#125;</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>y = &#123;<span class="string">'c'</span>: <span class="number">3</span>, <span class="string">'d'</span>: <span class="number">4</span>&#125;</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>z = dict(x, **y)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>z</span><br><span class="line">&#123;<span class="string">'a'</span>:<span class="number">1</span>, <span class="string">'b'</span>:<span class="number">2</span>, <span class="string">'c'</span>:<span class="number">3</span>, <span class="string">'d'</span>:<span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
 <p>或者一种等价写法：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>x = &#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>&#125;</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>y = &#123;<span class="string">'c'</span>: <span class="number">3</span>, <span class="string">'d'</span>: <span class="number">4</span>&#125;</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>z = x.copy() <span class="comment"># 或z = dict(x)</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>z.update(y)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>z</span><br><span class="line">&#123;<span class="string">'a'</span>:<span class="number">1</span>, <span class="string">'b'</span>:<span class="number">2</span>, <span class="string">'c'</span>:<span class="number">3</span>, <span class="string">'d'</span>:<span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
@@ -499,7 +529,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u65B9_u6CD5_u4E00"><span class="nav-number">1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u65B9_u6CD5_u4E8C"><span class="nav-number">2.</span> <span class="nav-text">方法二</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一"><span class="nav-number">1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二"><span class="nav-number">2.</span> <span class="nav-text">方法二</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

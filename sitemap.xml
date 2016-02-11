@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://changxu.wang/2015/11/11/ju-zhen-lun-fan-shu-li-lun/</loc>
+    <lastmod>2016-02-11T06:33:52.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://changxu.wang/2015/11/11/ju-zhen-lun-ju-zhen-fen-jie/</loc>
+    <lastmod>2016-02-11T06:32:12.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://changxu.wang/2014/02/26/ubuntu-init/</loc>
+    <lastmod>2016-02-06T08:05:52.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://changxu.wang/tags/index.html</loc>
     <lastmod>2016-01-26T04:55:35.000Z</lastmod>
   </url>
@@ -9,21 +24,6 @@
   <url>
     <loc>http://changxu.wang/categories/index.html</loc>
     <lastmod>2016-01-26T04:54:21.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://changxu.wang/2015/11/11/ju-zhen-lun-ju-zhen-fen-jie/</loc>
-    <lastmod>2016-01-26T03:11:35.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://changxu.wang/2015/11/11/ju-zhen-lun-fan-shu-li-lun/</loc>
-    <lastmod>2016-01-26T03:11:35.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://changxu.wang/2015/11/10/modern-c-plus-plus-design-example-1-policy/</loc>
-    <lastmod>2016-01-26T03:11:35.000Z</lastmod>
   </url>
   
   <url>
@@ -127,7 +127,7 @@
   </url>
   
   <url>
-    <loc>http://changxu.wang/2014/02/26/ubuntu-init/</loc>
+    <loc>http://changxu.wang/2015/11/16/tc-plus-plus-pl-advices/</loc>
     <lastmod>2016-01-26T03:11:35.000Z</lastmod>
   </url>
   
@@ -147,7 +147,7 @@
   </url>
   
   <url>
-    <loc>http://changxu.wang/2015/11/16/tc-plus-plus-pl-advices/</loc>
+    <loc>http://changxu.wang/2015/11/10/modern-c-plus-plus-design-example-1-policy/</loc>
     <lastmod>2016-01-26T03:11:35.000Z</lastmod>
   </url>
   

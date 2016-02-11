@@ -71,7 +71,7 @@
 <meta property="og:description" content="不加证明地给出几种常用的矩阵分解
 
 内容摘录自《矩阵论简明教程》（科学出版社）">
-<meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
+<meta property="og:updated_time" content="2016-02-11T06:32:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="矩阵论——矩阵分解">
 <meta name="twitter:description" content="不加证明地给出几种常用的矩阵分解
@@ -161,7 +161,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -197,9 +197,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -326,135 +354,176 @@
 <p>内容摘录自《矩阵论简明教程》（科学出版社）</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="u4E09_u89D2_u5206_u89E3"><a href="#u4E09_u89D2_u5206_u89E3" class="headerlink" title="三角分解"></a>三角分解</h1><h2 id="u57FA_u672C_u6982_u5FF5"><a href="#u57FA_u672C_u6982_u5FF5" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>定义</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$。如果存在<code>下三角矩阵</code>$\boldsymbol{L} \in \mathbf{C}^{n \times n}$和<code>上三角矩阵</code>$\mathbf{R} \in \mathbf{C}^{n \times n}$，使得</p>
-<p>$$ \boldsymbol{A} = \boldsymbol{LR} $$</p>
-<p>则称 $\boldsymbol{A}$ 可以作<strong>LU分解</strong>或<strong>三角分解</strong>。</p>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}_n$，则 $\boldsymbol{A}$ 可作LU分解的<strong>充分必要条件</strong>是 $$\Delta<em>{k} \neq 0 (k = 1,2,\cdots,n-1)$$，其中$$\Delta</em>{k} = \det{\boldsymbol{A}_{k}}$$<br>为 $\boldsymbol{A}$ 的 $k$ 阶顺序主子式，而 $\boldsymbol{A}_k$ 为 $\boldsymbol{A}$ 的 $k$ 阶顺序主子阵。</p>
+<h1 id="三角分解">三角分解</h1>
+<h2 id="基本概念">基本概念</h2>
+<p><strong>定义</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}\)</span>。如果存在<code>下三角矩阵</code><span class="math">\(\boldsymbol{L} \in \mathbf{C}^{n \times n}\)</span>和<code>上三角矩阵</code><span class="math">\(\mathbf{R} \in \mathbf{C}^{n \times n}\)</span>，使得</p>
+<p><span class="math">\[ \boldsymbol{A} = \boldsymbol{LR} \]</span></p>
+<p>则称 <span class="math">\(\boldsymbol{A}\)</span> 可以作<strong>LU分解</strong>或<strong>三角分解</strong>。</p>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}_n\)</span>，则 <span class="math">\(\boldsymbol{A}\)</span> 可作LU分解的<strong>充分必要条件</strong>是 <span class="math">\(\Delta_{k} \neq 0 (k = 1,2,\cdots,n-1)\)</span>，其中<span class="math">\(\Delta_{k} = \det{\boldsymbol{A}_{k}}\)</span> 为 <span class="math">\(\boldsymbol{A}\)</span> 的 <span class="math">\(k\)</span> 阶顺序主子式，而 <span class="math">\(\boldsymbol{A}_k\)</span> 为 <span class="math">\(\boldsymbol{A}\)</span> 的 <span class="math">\(k\)</span> 阶顺序主子阵。</p>
 <blockquote>
 <p>这个定理说明，并不是每个可逆矩阵都可LU分解</p>
 </blockquote>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}_r$，且 $\boldsymbol{A}$ 的前 $r$ 个顺序主子式不为0，则 $\boldsymbol{A}$ 可作LU分解。</p>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}_r\)</span>，且 <span class="math">\(\boldsymbol{A}\)</span> 的前 <span class="math">\(r\)</span> 个顺序主子式不为0，则 <span class="math">\(\boldsymbol{A}\)</span> 可作LU分解。</p>
 <blockquote>
 <p>该定理的条件仅是充分的</p>
 </blockquote>
-<p><strong>定义</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$</p>
+<p><strong>定义</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}\)</span></p>
 <ul>
-<li>如果 $\boldsymbol{A}$ 可分解成 $\boldsymbol{A} = \boldsymbol{LR}$，其中 $\boldsymbol{L}$ 是<code>单位下三角阵</code>，$\mathbf{R}$是<code>上三角阵</code>，则称之为 $\boldsymbol{A}$ 的<strong>Doolittle分解</strong></li>
-<li>如果 $\boldsymbol{A}$ 可分解为 $\boldsymbol{A} = \boldsymbol{LR}$，其中 $\boldsymbol{L}$ 是<code>下三角阵</code>，$\mathbf{R}$是<code>单位上三角阵</code>，则称之为 $\boldsymbol{A}$ 的<strong>Crout分解</strong></li>
-<li>如果 $\boldsymbol{A}$ 可分解为 $\boldsymbol{A} = \boldsymbol{LDR}$，其中 $\boldsymbol{L}$ 是<code>单位下三角阵</code>，$\boldsymbol{D}$是<code>对角矩阵</code>，$\mathbf{R}$是<code>单位上三角阵</code>，则称之为 $\boldsymbol{A}$ 的<strong>LDR分解</strong></li>
+<li>如果 <span class="math">\(\boldsymbol{A}\)</span> 可分解成 <span class="math">\(\boldsymbol{A} = \boldsymbol{LR}\)</span>，其中 <span class="math">\(\boldsymbol{L}\)</span> 是<code>单位下三角阵</code>，<span class="math">\(\mathbf{R}\)</span>是<code>上三角阵</code>，则称之为 <span class="math">\(\boldsymbol{A}\)</span> 的<strong>Doolittle分解</strong></li>
+<li>如果 <span class="math">\(\boldsymbol{A}\)</span> 可分解为 <span class="math">\(\boldsymbol{A} = \boldsymbol{LR}\)</span>，其中 <span class="math">\(\boldsymbol{L}\)</span> 是<code>下三角阵</code>，<span class="math">\(\mathbf{R}\)</span>是<code>单位上三角阵</code>，则称之为 <span class="math">\(\boldsymbol{A}\)</span> 的<strong>Crout分解</strong></li>
+<li>如果 <span class="math">\(\boldsymbol{A}\)</span> 可分解为 <span class="math">\(\boldsymbol{A} = \boldsymbol{LDR}\)</span>，其中 <span class="math">\(\boldsymbol{L}\)</span> 是<code>单位下三角阵</code>，<span class="math">\(\boldsymbol{D}\)</span>是<code>对角矩阵</code>，<span class="math">\(\mathbf{R}\)</span>是<code>单位上三角阵</code>，则称之为 <span class="math">\(\boldsymbol{A}\)</span> 的<strong>LDR分解</strong></li>
 </ul>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}_n$，则 $\boldsymbol{A}$ 由唯一LDR分解的充分必要条件是 $$\Delta_{k} \neq 0 (k = 1,2,\cdots,n-1)$$。此时对角矩阵 $$\boldsymbol{D} = diag(d_1,d_2,\cdots,d_n)$$<br>的元素满足</p>
-<p>$$ d<em>1 = \Delta</em>{1}, \quad d<em>k = \frac{\Delta</em>{k}}{\Delta_{k-1}} \quad (k = 2,3,\cdots,n) $$</p>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}_n$，则 $\boldsymbol{A}$ 可作Doolittle分解或Crout分解的<strong>充分必要条件</strong>是 $$\Delta_{k} \neq 0 (k = 1,2,\cdots,n-1)$$。</p>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$ 是Hermite正定矩阵，则存在下三角矩阵 $\boldsymbol{G} \in \mathbf{C}^{n \times n}$ 使得</p>
-<p>$$ \boldsymbol{A} = \boldsymbol{G} \boldsymbol{G}^H $$</p>
-<p>称之为 $\boldsymbol{A}$ 的<strong>Cholesky分解</strong>，或写成LDR分解形式</p>
-<p>$$ \boldsymbol{A} = \boldsymbol{L} \boldsymbol{D} \boldsymbol{L}^H $$</p>
-<p>称之为 $\boldsymbol{A}$ 的<strong>LDL分解</strong></p>
-<h2 id="Matlab_u7A0B_u5E8F"><a href="#Matlab_u7A0B_u5E8F" class="headerlink" title="Matlab程序"></a>Matlab程序</h2><blockquote>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}_n\)</span>，则 <span class="math">\(\boldsymbol{A}\)</span> 由唯一LDR分解的充分必要条件是 <span class="math">\(\Delta_{k} \neq 0 (k = 1,2,\cdots,n-1)\)</span>。此时对角矩阵 <span class="math">\(\boldsymbol{D} = diag(d_1,d_2,\cdots,d_n)\)</span> 的元素满足</p>
+<p><span class="math">\[ d_1 = \Delta_{1}, \quad d_k = \frac{\Delta_{k}}{\Delta_{k-1}} \quad (k = 2,3,\cdots,n) \]</span></p>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}_n\)</span>，则 <span class="math">\(\boldsymbol{A}\)</span> 可作Doolittle分解或Crout分解的<strong>充分必要条件</strong>是 <span class="math">\(\Delta_{k} \neq 0 (k = 1,2,\cdots,n-1)\)</span>。</p>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}\)</span> 是Hermite正定矩阵，则存在下三角矩阵 <span class="math">\(\boldsymbol{G} \in \mathbf{C}^{n \times n}\)</span> 使得</p>
+<p><span class="math">\[ \boldsymbol{A} = \boldsymbol{G} \boldsymbol{G}^H \]</span></p>
+<p>称之为 <span class="math">\(\boldsymbol{A}\)</span> 的<strong>Cholesky分解</strong>，或写成LDR分解形式</p>
+<p><span class="math">\[ \boldsymbol{A} = \boldsymbol{L} \boldsymbol{D} \boldsymbol{L}^H \]</span></p>
+<p>称之为 <span class="math">\(\boldsymbol{A}\)</span> 的<strong>LDL分解</strong></p>
+<h2 id="matlab程序">Matlab程序</h2>
+<blockquote>
 <p>在此只列出命令名字，请参考Matlab文档使用 —— <code>doc 命令名字</code></p>
 </blockquote>
-<h3 id="LU_u5206_u89E3"><a href="#LU_u5206_u89E3" class="headerlink" title="LU分解"></a>LU分解</h3><pre><code>lu
-</code></pre><h3 id="Cholesky_u5206_u89E3"><a href="#Cholesky_u5206_u89E3" class="headerlink" title="Cholesky分解"></a>Cholesky分解</h3><pre><code>chol
-</code></pre><h3 id="LDL_u5206_u89E3"><a href="#LDL_u5206_u89E3" class="headerlink" title="LDL分解"></a>LDL分解</h3><pre><code>ldl
-</code></pre><h3 id="LDR_u5206_u89E3"><a href="#LDR_u5206_u89E3" class="headerlink" title="LDR分解"></a>LDR分解</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[L, D, R]</span> = <span class="title">LDR</span><span class="params">(A)</span></span></span><br><span class="line"><span class="matrix">[m, n]</span> = <span class="built_in">size</span>(A)    <span class="comment">% 获取矩阵行数m和列数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 判断矩阵是否为方阵</span></span><br><span class="line"><span class="keyword">if</span> (m ~= n)</span><br><span class="line">    error(<span class="string">'非方阵，不可分解'</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 判断矩阵是否可逆</span></span><br><span class="line"><span class="keyword">if</span> (n ~= rank(A))</span><br><span class="line">    errror(<span class="string">'奇异矩阵，不可分解'</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 判断矩阵是否有唯一LDR分解</span></span><br><span class="line"><span class="keyword">for</span> k = <span class="number">1</span>:n-<span class="number">1</span></span><br><span class="line">    D(k) = det(A(<span class="number">1</span>:k, <span class="number">1</span>:k));</span><br><span class="line">    <span class="keyword">if</span> (D(k) == <span class="number">0</span>)</span><br><span class="line">        error(sprintf(<span class="string">'%d阶顺序主子式为0，分解不唯一'</span>, k))</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 算法见《矩阵论简明教程》p89 定理4.3之证明</span></span><br><span class="line"><span class="matrix">[L, R]</span> = lu(A);     <span class="comment">% 对A做LU分解</span></span><br><span class="line">DL = <span class="built_in">diag</span>(<span class="built_in">diag</span>(L));</span><br><span class="line">DR = <span class="built_in">diag</span>(<span class="built_in">diag</span>(R));</span><br><span class="line">L = L * inv(DL);</span><br><span class="line">D = DL * DR;</span><br><span class="line">R = inv(DR) * R;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h3 id="Doolittle_u5206_u89E3"><a href="#Doolittle_u5206_u89E3" class="headerlink" title="Doolittle分解"></a>Doolittle分解</h3><pre><code>TODO：Doolittle分解的程序
-</code></pre><h3 id="Crout_u5206_u89E3"><a href="#Crout_u5206_u89E3" class="headerlink" title="Crout分解"></a>Crout分解</h3><pre><code>TODO：Crout分解的程序
-</code></pre><h1 id="QR_u5206_u89E3"><a href="#QR_u5206_u89E3" class="headerlink" title="QR分解"></a>QR分解</h1><h2 id="Householder_u77E9_u9635_u548CGivens_u77E9_u9635"><a href="#Householder_u77E9_u9635_u548CGivens_u77E9_u9635" class="headerlink" title="Householder矩阵和Givens矩阵"></a>Householder矩阵和Givens矩阵</h2><h3 id="Householder_u77E9_u9635"><a href="#Householder_u77E9_u9635" class="headerlink" title="Householder矩阵"></a>Householder矩阵</h3><h4 id="u5B9A_u4E49_u4E0E_u6027_u8D28"><a href="#u5B9A_u4E49_u4E0E_u6027_u8D28" class="headerlink" title="定义与性质"></a>定义与性质</h4><p><strong>定义</strong> &nbsp; 设 $\boldsymbol{u} \in \mathbf{C}^{n}$ 是单位向量，即 $\boldsymbol{u}^H \boldsymbol{u} = 1$，称</p>
-<p>$$ \boldsymbol{H} = \boldsymbol{I} - 2 \boldsymbol{u}\boldsymbol{u}^H $$</p>
-<p>为<strong>Householder矩阵</strong>或<strong>初等反射矩阵</strong>。由Householder矩阵 $\boldsymbol{H}$ 确定的 $\mathbf{C}^n$ 上的线性变换<br> $\boldsymbol{y} = \boldsymbol{H}\boldsymbol{x}$ 称为<strong>Householder变换</strong>或<strong>初等反射变换</strong>。</p>
-<p><strong>性质</strong> &nbsp; 设 $\boldsymbol{H} \in \mathbf{C}^{n \times n}$是Householder矩阵，则</p>
-<ol>
-<li>$$\boldsymbol{H}^H = \boldsymbol{H}$$（Hermite矩阵）</li>
-<li>$$\boldsymbol{H}^H \boldsymbol{H} = \boldsymbol{I}$$（酉矩阵）</li>
-<li>$$\boldsymbol{H}^2 = \boldsymbol{I}$$（对合矩阵）</li>
-<li>$$\boldsymbol{H}^{-1} = \boldsymbol{H}$$（自逆矩阵）</li>
-<li>$$\begin{pmatrix} \boldsymbol{I_r} &amp; \boldsymbol{O} \\ \boldsymbol{O} &amp; \boldsymbol{H} \end{pmatrix}$$是$n+r$阶Householder矩阵</li>
-<li>$\det{\boldsymbol{H}} = -1$</li>
+<h3 id="lu分解">LU分解</h3>
+<pre><code>lu</code></pre>
+<h3 id="cholesky分解">Cholesky分解</h3>
+<pre><code>chol</code></pre>
+<h3 id="ldl分解">LDL分解</h3>
+<pre><code>ldl</code></pre>
+<h3 id="ldr分解">LDR分解</h3>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[L, D, R]</span> = <span class="title">LDR</span><span class="params">(A)</span></span></span><br><span class="line"><span class="matrix">[m, n]</span> = <span class="built_in">size</span>(A)    <span class="comment">% 获取矩阵行数m和列数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 判断矩阵是否为方阵</span></span><br><span class="line"><span class="keyword">if</span> (m ~= n)</span><br><span class="line">    error(<span class="string">'非方阵，不可分解'</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 判断矩阵是否可逆</span></span><br><span class="line"><span class="keyword">if</span> (n ~= rank(A))</span><br><span class="line">    errror(<span class="string">'奇异矩阵，不可分解'</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 判断矩阵是否有唯一LDR分解</span></span><br><span class="line"><span class="keyword">for</span> k = <span class="number">1</span>:n-<span class="number">1</span></span><br><span class="line">    D(k) = det(A(<span class="number">1</span>:k, <span class="number">1</span>:k));</span><br><span class="line">    <span class="keyword">if</span> (D(k) == <span class="number">0</span>)</span><br><span class="line">        error(sprintf(<span class="string">'%d阶顺序主子式为0，分解不唯一'</span>, k))</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 算法见《矩阵论简明教程》p89 定理4.3之证明</span></span><br><span class="line"><span class="matrix">[L, R]</span> = lu(A);     <span class="comment">% 对A做LU分解</span></span><br><span class="line">DL = <span class="built_in">diag</span>(<span class="built_in">diag</span>(L));</span><br><span class="line">DR = <span class="built_in">diag</span>(<span class="built_in">diag</span>(R));</span><br><span class="line">L = L * inv(DL);</span><br><span class="line">D = DL * DR;</span><br><span class="line">R = inv(DR) * R;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="doolittle分解">Doolittle分解</h3>
+<pre><code>TODO：Doolittle分解的程序</code></pre>
+<h3 id="crout分解">Crout分解</h3>
+<pre><code>TODO：Crout分解的程序</code></pre>
+<h1 id="qr分解">QR分解</h1>
+<h2 id="householder矩阵和givens矩阵">Householder矩阵和Givens矩阵</h2>
+<h3 id="householder矩阵">Householder矩阵</h3>
+<h4 id="定义与性质">定义与性质</h4>
+<p><strong>定义</strong>   设 <span class="math">\(\boldsymbol{u} \in \mathbf{C}^{n}\)</span> 是单位向量，即 <span class="math">\(\boldsymbol{u}^H \boldsymbol{u} = 1\)</span>，称</p>
+<p><span class="math">\[ \boldsymbol{H} = \boldsymbol{I} - 2 \boldsymbol{u}\boldsymbol{u}^H \]</span></p>
+<p>为<strong>Householder矩阵</strong>或<strong>初等反射矩阵</strong>。由Householder矩阵 <span class="math">\(\boldsymbol{H}\)</span> 确定的 <span class="math">\(\mathbf{C}^n\)</span> 上的线性变换 <span class="math">\(\boldsymbol{y} = \boldsymbol{H}\boldsymbol{x}\)</span> 称为<strong>Householder变换</strong>或<strong>初等反射变换</strong>。</p>
+<p><strong>性质</strong>   设 <span class="math">\(\boldsymbol{H} \in \mathbf{C}^{n \times n}\)</span>是Householder矩阵，则</p>
+<ol style="list-style-type: decimal">
+<li><span class="math">\[\boldsymbol{H}^H = \boldsymbol{H}\]</span>（Hermite矩阵）</li>
+<li><span class="math">\[\boldsymbol{H}^H \boldsymbol{H} = \boldsymbol{I}\]</span>（酉矩阵）</li>
+<li><span class="math">\[\boldsymbol{H}^2 = \boldsymbol{I}\]</span>（对合矩阵）</li>
+<li><span class="math">\[\boldsymbol{H}^{-1} = \boldsymbol{H}\]</span>（自逆矩阵）</li>
+<li><span class="math">\[\begin{pmatrix} \boldsymbol{I_r} &amp; \boldsymbol{O} \\\ \boldsymbol{O} &amp; \boldsymbol{H} \end{pmatrix}\]</span>是<span class="math">\(n+r\)</span>阶Householder矩阵</li>
+<li><span class="math">\(\det{\boldsymbol{H}} = -1\)</span></li>
 </ol>
-<h4 id="u91CD_u8981_u5B9A_u7406"><a href="#u91CD_u8981_u5B9A_u7406" class="headerlink" title="重要定理"></a>重要定理</h4><p><strong>定理</strong> &nbsp; 设 $\boldsymbol{z} \in \mathbf{C}^n$ 是单位向量，则对任意 $\boldsymbol{x} \in \mathbf{C}^n$，<br>存在Householder矩阵 $\boldsymbol{H}$，使得 $\boldsymbol{H}\boldsymbol{x} = \alpha\boldsymbol{z}$，其中$\vert \alpha \vert<br> = \| \boldsymbol{x} \|_2$，且 $\alpha\boldsymbol{x}^H\boldsymbol{z}$ 为实数。</p>
-<p>上述定理中 $\boldsymbol{H}$ 构造方法如下：</p>
+<h4 id="重要定理">重要定理</h4>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{z} \in \mathbf{C}^n\)</span> 是单位向量，则对任意 <span class="math">\(\boldsymbol{x} \in \mathbf{C}^n\)</span>， 存在Householder矩阵 <span class="math">\(\boldsymbol{H}\)</span>，使得 <span class="math">\(\boldsymbol{H}\boldsymbol{x} = \alpha\boldsymbol{z}\)</span>，其中<span class="math">\(\vert \alpha \vert  = \\| \boldsymbol{x} \\|_2\)</span>，且 <span class="math">\(\alpha\boldsymbol{x}^H\boldsymbol{z}\)</span> 为实数。</p>
+<p>上述定理中 <span class="math">\(\boldsymbol{H}\)</span> 构造方法如下：</p>
 <ul>
-<li>当 $\boldsymbol{x} = 0$ 时，任取单位向量$boldsymbol{u}$</li>
-<li>当 $\boldsymbol{x} = \alpha\boldsymbol{z} \neq 0$ 时，取单位向量$\boldsymbol{u}$满足$\boldsymbol{u}^H\boldsymbol{x} = 0$</li>
-<li>当 $\boldsymbol{x} \neq \alpha\boldsymbol{z}$ 时，取</li>
+<li>当 <span class="math">\(\boldsymbol{x} = 0\)</span> 时，任取单位向量<span class="math">\(boldsymbol{u}\)</span></li>
+<li>当 <span class="math">\(\boldsymbol{x} = \alpha\boldsymbol{z} \neq 0\)</span> 时，取单位向量<span class="math">\(\boldsymbol{u}\)</span>满足<span class="math">\(\boldsymbol{u}^H\boldsymbol{x} = 0\)</span></li>
+<li>当 <span class="math">\(\boldsymbol{x} \neq \alpha\boldsymbol{z}\)</span> 时，取</li>
 </ul>
-<p>$$ \boldsymbol{u} = \frac{\boldsymbol{x} - \alpha\boldsymbol{z}}{| \boldsymbol{x} - \alpha\boldsymbol{z} |_2} $$</p>
-<p><strong>推论1</strong> &nbsp; 对任意 $\boldsymbol{x} \in \mathbf{C}^n$，存在Householder矩阵 $\boldsymbol{H} = \boldsymbol{I}-2\boldsymbol{u}\boldsymbol{u}^H$，<br>使得 $$\boldsymbol{H}\boldsymbol{x} = \alpha\boldsymbol{e}_1$$，其中$$\vert \alpha \vert = |\boldsymbol{x}|_2$$，<br>且$\alpha\boldsymbol{x}^H\boldsymbol{e}_1$为实数。</p>
-<p><strong>推论2</strong> &nbsp; 对任意 $\boldsymbol{x} \in \mathbf{R}^n$，存在Householder矩阵$$ \boldsymbol{H} = \boldsymbol{I}-2\boldsymbol{u}\boldsymbol{u}^T$$，<br>使得 $\boldsymbol{H}\boldsymbol{x} = \alpha\boldsymbol{e}_1$，其中$$\alpha=\pm |\boldsymbol{x}|_2$$。</p>
-<h3 id="Givens_u77E9_u9635"><a href="#Givens_u77E9_u9635" class="headerlink" title="Givens矩阵"></a>Givens矩阵</h3><h4 id="u5B9A_u4E49"><a href="#u5B9A_u4E49" class="headerlink" title="定义"></a>定义</h4><p><strong>定义</strong> &nbsp; 设 $c, s \in \mathbf{C}$，且满足$$\vert c\vert^2 + \vert s\vert^2 = 1$$，称$n$阶矩阵</p>
-<p>$$ \boldsymbol{T}_{pq} = \begin{pmatrix}<br>                          1 &amp;        &amp;   &amp;          &amp;   &amp;         &amp;   &amp;          &amp;   &amp;        &amp;   \\<br>                            &amp; \ddots &amp;   &amp;          &amp;   &amp;         &amp;   &amp;          &amp;   &amp;        &amp;   \\<br>                            &amp;        &amp; 1 &amp;          &amp;   &amp;         &amp;   &amp;          &amp;   &amp;        &amp;   \\<br>                            &amp;        &amp;   &amp; \bar{c}  &amp;   &amp;         &amp;   &amp; \bar{s}  &amp;   &amp;        &amp;   \\<br>                            &amp;        &amp;   &amp;          &amp; 1 &amp;         &amp;   &amp;          &amp;   &amp;        &amp;   \\<br>                            &amp;        &amp;   &amp;          &amp;   &amp; \ddots  &amp;   &amp;          &amp;   &amp;        &amp;   \\<br>                            &amp;        &amp;   &amp;          &amp;   &amp;         &amp; 1 &amp;          &amp;   &amp;        &amp;   \\<br>                            &amp;        &amp;   &amp;    -s    &amp;   &amp;         &amp;   &amp;     c    &amp;   &amp;        &amp;   \\<br>                            &amp;        &amp;   &amp;          &amp;   &amp;         &amp;   &amp;          &amp; 1 &amp;        &amp;   \\<br>                            &amp;        &amp;   &amp;          &amp;   &amp;         &amp;   &amp;          &amp; 1 &amp;        &amp;   \\<br>                            &amp;        &amp;   &amp;          &amp;   &amp;         &amp;   &amp;          &amp;   &amp; \ddots &amp; 1<br>                    \end{pmatrix}<br>$$</p>
-<p>（$\bar{c}$ 位于$p$行$p$列，$c$ 位于$q$行$q$列）</p>
-<p>为<strong>Givens矩阵</strong>或<strong>初等旋转矩阵</strong>。由Givens矩阵 $$\boldsymbol{T}<em>{pq}$$ 确定的 $\mathbf{C}^n$ 上的线性变换<br>$$\boldsymbol{y} = \boldsymbol{T}</em>{pq} \boldsymbol{x}$$ 称为<strong>Givens变换</strong>或<strong>初等旋转变换</strong>。</p>
-<h4 id="u91CD_u8981_u5B9A_u7406-1"><a href="#u91CD_u8981_u5B9A_u7406-1" class="headerlink" title="重要定理"></a>重要定理</h4><p><strong>定理</strong> &nbsp; 对任意 $$\boldsymbol{x} = (\xi_1,\xi_2,\cdots,\xi<em>n)^T \in \mathbf{C}^n$$，存在Givens矩阵 $$\boldsymbol{T}</em>{pq}$$，使得 $$\boldsymbol{T}_{pq}\boldsymbol{x}$$<br>的第$q$个分量为零，第$p$个分量为非负实数，其余分量不变。</p>
-<p>上述定理中 $\boldsymbol{T}_{pq}$ 的构造方法如下：</p>
+<p><span class="math">\[ \boldsymbol{u} = \frac{\boldsymbol{x} - \alpha\boldsymbol{z}}{\| \boldsymbol{x} - \alpha\boldsymbol{z} \|_2} \]</span></p>
+<p><strong>推论1</strong>   对任意 <span class="math">\(\boldsymbol{x} \in \mathbf{C}^n\)</span>，存在Householder矩阵 <span class="math">\(\boldsymbol{H} = \boldsymbol{I}-2\boldsymbol{u}\boldsymbol{u}^H\)</span>， 使得 <span class="math">\(\boldsymbol{H}\boldsymbol{x} = \alpha\boldsymbol{e}_1\)</span>，其中<span class="math">\(\vert \alpha \vert = \|\boldsymbol{x}\|_2\)</span>， 且<span class="math">\(\alpha\boldsymbol{x}^H\boldsymbol{e}_1\)</span>为实数。</p>
+<p><strong>推论2</strong>   对任意 <span class="math">\(\boldsymbol{x} \in \mathbf{R}^n\)</span>，存在Householder矩阵$  = -2^T$， 使得 <span class="math">\(\boldsymbol{H}\boldsymbol{x} = \alpha\boldsymbol{e}_1\)</span>，其中<span class="math">\(\alpha=\pm \|\boldsymbol{x}\|_2\)</span>。</p>
+<h3 id="givens矩阵">Givens矩阵</h3>
+<h4 id="定义">定义</h4>
+<p><strong>定义</strong>   设 <span class="math">\(c, s \in \mathbf{C}\)</span>，且满足<span class="math">\(\vert c\vert^2 + \vert s\vert^2 = 1\)</span>，称<span class="math">\(n\)</span>阶矩阵</p>
+<p><span class="math">\[ \boldsymbol{T}_{pq} = \begin{pmatrix}
+                          1 &amp;        &amp;   &amp;          &amp;   &amp;         &amp;   &amp;          &amp;   &amp;        &amp;   \\\
+                            &amp; \ddots &amp;   &amp;          &amp;   &amp;         &amp;   &amp;          &amp;   &amp;        &amp;   \\\
+                            &amp;        &amp; 1 &amp;          &amp;   &amp;         &amp;   &amp;          &amp;   &amp;        &amp;   \\\
+                            &amp;        &amp;   &amp; \bar{c}  &amp;   &amp;         &amp;   &amp; \bar{s}  &amp;   &amp;        &amp;   \\\
+                            &amp;        &amp;   &amp;          &amp; 1 &amp;         &amp;   &amp;          &amp;   &amp;        &amp;   \\\
+                            &amp;        &amp;   &amp;          &amp;   &amp; \ddots  &amp;   &amp;          &amp;   &amp;        &amp;   \\\
+                            &amp;        &amp;   &amp;          &amp;   &amp;         &amp; 1 &amp;          &amp;   &amp;        &amp;   \\\
+                            &amp;        &amp;   &amp;    -s    &amp;   &amp;         &amp;   &amp;     c    &amp;   &amp;        &amp;   \\\
+                            &amp;        &amp;   &amp;          &amp;   &amp;         &amp;   &amp;          &amp; 1 &amp;        &amp;   \\\
+                            &amp;        &amp;   &amp;          &amp;   &amp;         &amp;   &amp;          &amp; 1 &amp;        &amp;   \\\
+                            &amp;        &amp;   &amp;          &amp;   &amp;         &amp;   &amp;          &amp;   &amp; \ddots &amp; 1
+                    \end{pmatrix}
+\]</span></p>
+<p>（<span class="math">\(\bar{c}\)</span> 位于<span class="math">\(p\)</span>行<span class="math">\(p\)</span>列，<span class="math">\(c\)</span> 位于<span class="math">\(q\)</span>行<span class="math">\(q\)</span>列）</p>
+<p>为<strong>Givens矩阵</strong>或<strong>初等旋转矩阵</strong>。由Givens矩阵 <span class="math">\[\boldsymbol{T}_{pq}\]</span> 确定的 <span class="math">\(\mathbf{C}^n\)</span> 上的线性变换 <span class="math">\(\boldsymbol{y} = \boldsymbol{T}_{pq} \boldsymbol{x}\)</span> 称为<strong>Givens变换</strong>或<strong>初等旋转变换</strong>。</p>
+<h4 id="重要定理-1">重要定理</h4>
+<p><strong>定理</strong>   对任意 <span class="math">\(\boldsymbol{x} = (\xi_1,\xi_2,\cdots,\xi_n)^T \in \mathbf{C}^n\)</span>，存在Givens矩阵 <span class="math">\(\boldsymbol{T}_{pq}\)</span>，使得 <span class="math">\(\boldsymbol{T}_{pq}\boldsymbol{x}\)</span> 的第<span class="math">\(q\)</span>个分量为零，第<span class="math">\(p\)</span>个分量为非负实数，其余分量不变。</p>
+<p>上述定理中 <span class="math">\(\boldsymbol{T}_{pq}\)</span> 的构造方法如下：</p>
 <ul>
-<li>当 $$\vert \xi_p \vert^2 + \vert \xi<em>q \vert^2 = 0$$ 时，取$c = 1, s = 0$，即 $$\boldsymbol{T}</em>{pq} = \boldsymbol{I}$$</li>
-<li>当 $$\vert \xi_p \vert^2 + \vert \xi_q \vert^2 \neq 0$$ 时，取</li>
+<li>当 <span class="math">\(\vert \xi_p \vert^2 + \vert \xi_q \vert^2 = 0\)</span> 时，取<span class="math">\(c = 1, s = 0\)</span>，即 <span class="math">\(\boldsymbol{T}_{pq} = \boldsymbol{I}\)</span></li>
+<li>当 <span class="math">\(\vert \xi_p \vert^2 + \vert \xi_q \vert^2 \neq 0\)</span> 时，取</li>
 </ul>
-<p>$$ c = \frac{\xi_p}{\sqrt{\vert \xi_p \vert^2 + \vert \xi_q \vert^2}}, \quad s = \frac{\xi_q}{\sqrt{\vert \xi_p \vert^2 + \vert \xi_q \vert^2}} $$</p>
-<p><strong>推论</strong> &nbsp; 设 $$\boldsymbol{x} = (\xi_1,\xi_2,\cdots,\xi<em>n)^T \in \mathbf{C}^n$$ ，则存在Givens矩阵 $$\boldsymbol{T}</em>{12},\boldsymbol{T}<em>{13},\cdots,\boldsymbol{T}</em>{1n}$$，使得</p>
-<p>$$ \boldsymbol{T}<em>{1n}\cdots\boldsymbol{T}</em>{13}\boldsymbol{T}_{12}\boldsymbol{x} = |\boldsymbol{x}|_2 \boldsymbol{e}_1 $$</p>
-<p>称之为用Givens变换化向量$\boldsymbol{x}$与$\boldsymbol{e}_1$同方向。</p>
-<h2 id="QR_u5206_u89E3-1"><a href="#QR_u5206_u89E3-1" class="headerlink" title="QR分解"></a>QR分解</h2><p><strong>定义</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$，如果存在$n$阶酉矩阵$\boldsymbol{Q}$和$n$阶上三角矩阵$\mathbf{R}$，使得</p>
-<p>$$ \boldsymbol{A} = \boldsymbol{QR} $$</p>
-<p>则称之为 $\boldsymbol{A}$ 的<strong>QR分解</strong>或<em>酉-三角分解<strong>。当 $\boldsymbol{A} \in \mathbf{R}^{n \times n}$时，称为 $\boldsymbol{A}$ 的</strong>正交-三角分解*</em>。</p>
-<p><strong>定理</strong> &nbsp; 任意 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$都可以作QR分解，有两种分解方法：</p>
-<ul>
-<li>$ \boldsymbol{A} = \boldsymbol{H}_1 \boldsymbol{H}_2 \cdots \boldsymbol{H}_{n-1} \mathbf{R} = \boldsymbol{QR} $</li>
-<li>$ \boldsymbol{A} = \boldsymbol{T}_{12}^H \cdots \boldsymbol{T}_{1n}^H \boldsymbol{T}_{23}^H \cdots \boldsymbol{T}_{2n}^H \cdots \boldsymbol{T}_{n-1,n}^H \mathbf{R} = \boldsymbol{QR} $</li>
-</ul>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}_n$，则 $\boldsymbol{A}$ 可唯一地分解为</p>
-<p>$$ \boldsymbol{A} = \boldsymbol{QR} $$</p>
-<p>其中$\boldsymbol{Q}$是$n$阶酉矩阵，$\mathbf{R} \in \mathbf{C}^{n \times n}_n$是具有正对焦元的上三角矩阵。</p>
+<p><span class="math">\[ c = \frac{\xi_p}{\sqrt{\vert \xi_p \vert^2 + \vert \xi_q \vert^2}}, \quad s = \frac{\xi_q}{\sqrt{\vert \xi_p \vert^2 + \vert \xi_q \vert^2}} \]</span></p>
+<p><strong>推论</strong>   设 <span class="math">\(\boldsymbol{x} = (\xi_1,\xi_2,\cdots,\xi_n)^T \in \mathbf{C}^n\)</span> ，则存在Givens矩阵 <span class="math">\(\boldsymbol{T}_{12},\boldsymbol{T}_{13},\cdots,\boldsymbol{T}_{1n}\)</span>，使得</p>
+<p><span class="math">\[ \boldsymbol{T}_{1n}\cdots\boldsymbol{T}_{13}\boldsymbol{T}_{12}\boldsymbol{x} = \|\boldsymbol{x}\|_2 \boldsymbol{e}_1 \]</span></p>
+<p>称之为用Givens变换化向量<span class="math">\(\boldsymbol{x}\)</span>与<span class="math">\(\boldsymbol{e}_1\)</span>同方向。</p>
+<h2 id="qr分解-1">QR分解</h2>
+<p><strong>定义</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}\)</span>，如果存在<span class="math">\(n\)</span>阶酉矩阵<span class="math">\(\boldsymbol{Q}\)</span>和<span class="math">\(n\)</span>阶上三角矩阵<span class="math">\(\mathbf{R}\)</span>，使得</p>
+<p><span class="math">\[ \boldsymbol{A} = \boldsymbol{QR} \]</span></p>
+<p>则称之为 <span class="math">\(\boldsymbol{A}\)</span> 的<strong>QR分解</strong>或*酉-三角分解<strong>。当 <span class="math">\(\boldsymbol{A} \in \mathbf{R}^{n \times n}\)</span>时，称为 <span class="math">\(\boldsymbol{A}\)</span> 的</strong>正交-三角分解**。</p>
+<p><strong>定理</strong>   任意 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}\)</span>都可以作QR分解，有两种分解方法：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math">\[ \boldsymbol{A} = \boldsymbol{H}_1 \boldsymbol{H}_2 \cdots \boldsymbol{H}_{n-1} \mathbf{R} = \boldsymbol{QR} \]</span></li>
+<li><span class="math">\[ \boldsymbol{A} = \boldsymbol{T}_{12}^H \cdots \boldsymbol{T}_{1n}^H \boldsymbol{T}_{23}^H \cdots \boldsymbol{T}_{2n}^H \cdots \boldsymbol{T}_{n-1,n}^H \mathbf{R} = \boldsymbol{QR} \]</span></li>
+</ol>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}_n\)</span>，则 <span class="math">\(\boldsymbol{A}\)</span> 可唯一地分解为</p>
+<p><span class="math">\[ \boldsymbol{A} = \boldsymbol{QR} \]</span></p>
+<p>其中<span class="math">\(\boldsymbol{Q}\)</span>是<span class="math">\(n\)</span>阶酉矩阵，<span class="math">\(\mathbf{R} \in \mathbf{C}^{n \times n}_n\)</span>是具有正对焦元的上三角矩阵。</p>
 <p><strong>上面这个定理还可以推广到长方阵上</strong></p>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}_n$，则 $\boldsymbol{A}$ 可唯一地分解为</p>
-<p>$$ \boldsymbol{A} = \boldsymbol{QR} $$</p>
-<p>其中$\boldsymbol{Q} \in \mathbf{C}^{m \times n}_n$且满足$\boldsymbol{Q}^H\boldsymbol{Q} = \boldsymbol{I}$，$\mathbf{R} \in \mathbf{C}^{n \times n}_n$是具有正对焦元的上三角矩阵。</p>
-<h2 id="Matlab_u547D_u4EE4"><a href="#Matlab_u547D_u4EE4" class="headerlink" title="Matlab命令"></a>Matlab命令</h2><pre><code>qr
-</code></pre><h1 id="u6EE1_u79E9_u5206_u89E3"><a href="#u6EE1_u79E9_u5206_u89E3" class="headerlink" title="满秩分解"></a>满秩分解</h1><p><strong>定义</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}_r(r \gt 0)$。如果存在$\boldsymbol{F} \in \mathbf{C}^{m \times r}_r$和$\boldsymbol{G} \in \mathbf{C}^{r \times n}_r$，<br>使得</p>
-<p>$$ \boldsymbol{A} = \boldsymbol{FG} $$</p>
-<p>则称之为 $\boldsymbol{A}$ 的<strong>满秩分解</strong>。</p>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}_r(r \gt 0)$，则 $boldsymbol{A}$ 的满秩分解总存在。</p>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}_r(r \gt 0)$，且 $\boldsymbol{A}$ 的Hermite标准型为$\boldsymbol{H}$。取 $\boldsymbol{A}$ 的第$$j_1,j_2,\cdots,j_r$$列构成矩阵<br>$\boldsymbol{F}$，又取$\boldsymbol{H}$的前$r$行构成矩阵$\boldsymbol{G}$，则$\boldsymbol{A} = \boldsymbol{FG}$即为$\boldsymbol{A}$的一个满秩分解。</p>
-<h2 id="Matlab_u7A0B_u5E8F-1"><a href="#Matlab_u7A0B_u5E8F-1" class="headerlink" title="Matlab程序"></a>Matlab程序</h2><pre><code>TODO: 满秩分解的Matlab程序
-</code></pre><h1 id="u5947_u5F02_u503C_u5206_u89E3SVD"><a href="#u5947_u5F02_u503C_u5206_u89E3SVD" class="headerlink" title="奇异值分解SVD"></a>奇异值分解SVD</h1><h2 id="u9149_u76F8_u4F3C_u4E0E_u5947_u5F02_u503C"><a href="#u9149_u76F8_u4F3C_u4E0E_u5947_u5F02_u503C" class="headerlink" title="酉相似与奇异值"></a>酉相似与奇异值</h2><p><strong>定义</strong> &nbsp; 设 $\boldsymbol{A}, \boldsymbol{B} \in \mathbf{C}^{m \times n}$。若存在$m$阶酉矩阵 $\boldsymbol{U}$ 和$n$阶酉矩阵 $\boldsymbol{V}$，使得$\boldsymbol{U}^H\boldsymbol{A}\boldsymbol{V} = \boldsymbol{B}$<br>则称$\boldsymbol{A}$与$\boldsymbol{B}$<strong>酉等价</strong>。</p>
-<p><strong>定义</strong> &nbsp; 设 $$\boldsymbol{A} \in \mathbf{C}^{m \times n}_r(r \gt 0)$$，$\boldsymbol{A}^H\boldsymbol{A}$的特征值为</p>
-<p>$$ \lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda<em>r \ge \lambda</em>{r+1} = \cdots = \lambda_n = 0 $$</p>
-<p>则称$$\sigma_i = \sqrt{\lambda_i}(i=1,2,\cdots,n)$$为$\boldsymbol{A}$的<strong>奇异值</strong>。</p>
-<p><strong>定理</strong> &nbsp; 酉相似矩阵具有相同奇异值</p>
-<h2 id="u5947_u5F02_u503C_u5206_u89E3"><a href="#u5947_u5F02_u503C_u5206_u89E3" class="headerlink" title="奇异值分解"></a>奇异值分解</h2><p><strong>定义</strong> &nbsp; 设$\boldsymbol{A} \in \mathbf{C}^{m \times n}_r(r \gt 0)$，则存在$m$阶酉矩阵$\boldsymbol{U}$和$n$阶酉矩阵$\boldsymbol{v}$，使得</p>
-<p>$$ \boldsymbol{U}^H\boldsymbol{A}\boldsymbol{V} = \begin{pmatrix} \boldsymbol{\Sigma} &amp; \boldsymbol{O} \\ \boldsymbol{O} &amp; \boldsymbol{O} \end{pmatrix} $$</p>
-<p>其中 $$\Sigma = diag(\sigma_1,\sigma_2,\cdots,\sigma_r)$$，而$$\sigma_i(i=1,2,\cdots,r)$$为$\boldsymbol{A}$的非零奇异值。将上式改写为</p>
-<p>$$ \boldsymbol{A} = \boldsymbol{U} \begin{pmatrix} \boldsymbol{\Sigma} &amp; \boldsymbol{O} \\ \boldsymbol{O} &amp; \boldsymbol{O} \end{pmatrix} \boldsymbol{V}^H $$</p>
-<p>称之为 $\boldsymbol{A}$ 的<strong>奇异值分解</strong>。</p>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$，则 $\boldsymbol{A}$ 可分解为</p>
-<p>$$ \boldsymbol{A} = \boldsymbol{BQ} = \boldsymbol{QC} $$</p>
-<p>其中 $\boldsymbol{Q}$ 是$n$阶酉矩阵，$\boldsymbol{B}$和$\mathbf{C}$是Hermite半正定矩阵。称上式为矩阵 $\boldsymbol{A}$ 的<strong>极分解</strong>。</p>
-<h2 id="SVD_u91CD_u8981_u5E94_u7528"><a href="#SVD_u91CD_u8981_u5E94_u7528" class="headerlink" title="SVD重要应用"></a>SVD重要应用</h2><p>SVD有两个重要应用：</p>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}_n\)</span>，则 <span class="math">\(\boldsymbol{A}\)</span> 可唯一地分解为</p>
+<p><span class="math">\[ \boldsymbol{A} = \boldsymbol{QR} \]</span></p>
+<p>其中<span class="math">\(\boldsymbol{Q} \in \mathbf{C}^{m \times n}_n\)</span>且满足<span class="math">\(\boldsymbol{Q}^H\boldsymbol{Q} = \boldsymbol{I}\)</span>，<span class="math">\(\mathbf{R} \in \mathbf{C}^{n \times n}_n\)</span>是具有正对焦元的上三角矩阵。</p>
+<h2 id="matlab命令">Matlab命令</h2>
+<pre><code>qr</code></pre>
+<h1 id="满秩分解">满秩分解</h1>
+<p><strong>定义</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}_r(r \gt 0)\)</span>。如果存在<span class="math">\(\boldsymbol{F} \in \mathbf{C}^{m \times r}_r\)</span>和<span class="math">\(\boldsymbol{G} \in \mathbf{C}^{r \times n}_r\)</span>， 使得</p>
+<p><span class="math">\[ \boldsymbol{A} = \boldsymbol{FG} \]</span></p>
+<p>则称之为 <span class="math">\(\boldsymbol{A}\)</span> 的<strong>满秩分解</strong>。</p>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}_r(r \gt 0)\)</span>，则 <span class="math">\(\boldsymbol{A}\)</span> 的满秩分解总存在。</p>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}_r(r \gt 0)\)</span>，且 <span class="math">\(\boldsymbol{A}\)</span> 的Hermite标准型为<span class="math">\(\boldsymbol{H}\)</span>。取 <span class="math">\(\boldsymbol{A}\)</span> 的第<span class="math">\(j_1,j_2,\cdots,j_r\)</span>列构成矩阵 <span class="math">\(\boldsymbol{F}\)</span>，又取<span class="math">\(\boldsymbol{H}\)</span>的前<span class="math">\(r\)</span>行构成矩阵<span class="math">\(\boldsymbol{G}\)</span>，则<span class="math">\(\boldsymbol{A} = \boldsymbol{FG}\)</span>即为<span class="math">\(\boldsymbol{A}\)</span>的一个满秩分解。</p>
+<h2 id="matlab程序-1">Matlab程序</h2>
+<pre><code>TODO: 满秩分解的Matlab程序</code></pre>
+<h1 id="奇异值分解svd">奇异值分解SVD</h1>
+<h2 id="酉相似与奇异值">酉相似与奇异值</h2>
+<p><strong>定义</strong>   设 <span class="math">\(\boldsymbol{A}, \boldsymbol{B} \in \mathbf{C}^{m \times n}\)</span>。若存在<span class="math">\(m\)</span>阶酉矩阵 <span class="math">\(\boldsymbol{U}\)</span> 和<span class="math">\(n\)</span>阶酉矩阵 <span class="math">\(\boldsymbol{V}\)</span>，使得<span class="math">\(\boldsymbol{U}^H\boldsymbol{A}\boldsymbol{V} = \boldsymbol{B}\)</span> 则称<span class="math">\(\boldsymbol{A}\)</span>与<span class="math">\(\boldsymbol{B}\)</span><strong>酉等价</strong>。</p>
+<p><strong>定义</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}_r(r \gt 0)\)</span>，<span class="math">\(\boldsymbol{A}^H\boldsymbol{A}\)</span>的特征值为</p>
+<p><span class="math">\[ \lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_r \ge \lambda_{r+1} = \cdots = \lambda_n = 0 \]</span></p>
+<p>则称<span class="math">\(\sigma_i = \sqrt{\lambda_i}(i=1,2,\cdots,n)\)</span>为<span class="math">\(\boldsymbol{A}\)</span>的<strong>奇异值</strong>。</p>
+<p><strong>定理</strong>   酉相似矩阵具有相同奇异值</p>
+<h2 id="奇异值分解">奇异值分解</h2>
+<p><strong>定义</strong>   设<span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}_r(r \gt 0)\)</span>，则存在<span class="math">\(m\)</span>阶酉矩阵<span class="math">\(\boldsymbol{U}\)</span>和<span class="math">\(n\)</span>阶酉矩阵<span class="math">\(\boldsymbol{v}\)</span>，使得</p>
+<p><span class="math">\[ \boldsymbol{U}^H\boldsymbol{A}\boldsymbol{V} = \begin{pmatrix} \boldsymbol{\Sigma} &amp; \boldsymbol{O} \\\ \boldsymbol{O} &amp; \boldsymbol{O} \end{pmatrix} \]</span></p>
+<p>其中 <span class="math">\[\Sigma = diag(\sigma_1,\sigma_2,\cdots,\sigma_r)\]</span>，而<span class="math">\[\sigma_i(i=1,2,\cdots,r)\]</span>为<span class="math">\(\boldsymbol{A}\)</span>的非零奇异值。将上式改写为</p>
+<p><span class="math">\[ \boldsymbol{A} = \boldsymbol{U} \begin{pmatrix} \boldsymbol{\Sigma} &amp; \boldsymbol{O} \\\ \boldsymbol{O} &amp; \boldsymbol{O} \end{pmatrix} \boldsymbol{V}^H \]</span></p>
+<p>称之为 <span class="math">\(\boldsymbol{A}\)</span> 的<strong>奇异值分解</strong>。</p>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}\)</span>，则 <span class="math">\(\boldsymbol{A}\)</span> 可分解为</p>
+<p><span class="math">\[ \boldsymbol{A} = \boldsymbol{BQ} = \boldsymbol{QC} \]</span></p>
+<p>其中 <span class="math">\(\boldsymbol{Q}\)</span> 是<span class="math">\(n\)</span>阶酉矩阵，<span class="math">\(\boldsymbol{B}\)</span>和<span class="math">\(\mathbf{C}\)</span>是Hermite半正定矩阵。称上式为矩阵 <span class="math">\(\boldsymbol{A}\)</span> 的<strong>极分解</strong>。</p>
+<h2 id="svd重要应用">SVD重要应用</h2>
+<p>SVD有两个重要应用：</p>
 <ul>
-<li>求极小范数最小二乘解（或Moore—Penrose逆 $\boldsymbol{A}^+$）</li>
+<li>求极小范数最小二乘解（或Moore—Penrose逆 <span class="math">\(\boldsymbol{A}^+\)</span>）</li>
 <li>数据降维/压缩，如经典的<strong>PCA</strong></li>
 </ul>
-<h3 id="u6C42_u6781_u5C0F_u8303_u6570_u6700_u5C0F_u4E8C_u4E58_u89E3"><a href="#u6C42_u6781_u5C0F_u8303_u6570_u6700_u5C0F_u4E8C_u4E58_u89E3" class="headerlink" title="求极小范数最小二乘解"></a>求极小范数最小二乘解</h3><p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}_r，\boldsymbol{b} \in \mathbf{C}^{m}$，且 $\boldsymbol{A}$ 的SVD为</p>
-<p>$$ \boldsymbol{A} = \boldsymbol{U} \begin{pmatrix} \boldsymbol{\Sigma} &amp; \boldsymbol{O} \\ \boldsymbol{O} &amp; \boldsymbol{O} \end{pmatrix} \boldsymbol{V}^H $$</p>
+<h3 id="求极小范数最小二乘解">求极小范数最小二乘解</h3>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}_r，\boldsymbol{b} \in \mathbf{C}^{m}\)</span>，且 <span class="math">\(\boldsymbol{A}\)</span> 的SVD为</p>
+<p><span class="math">\[ \boldsymbol{A} = \boldsymbol{U} \begin{pmatrix} \boldsymbol{\Sigma} &amp; \boldsymbol{O} \\\ \boldsymbol{O} &amp; \boldsymbol{O} \end{pmatrix} \boldsymbol{V}^H \]</span></p>
 <p>则</p>
-<p>$$ \boldsymbol{x}^{(0)} = \boldsymbol{V} \begin{pmatrix} \boldsymbol{\Sigma}^{-1} &amp; \boldsymbol{O} \\ \boldsymbol{O} &amp; \boldsymbol{O} \end{pmatrix} \boldsymbol{U}^H \boldsymbol{b} $$</p>
-<p>是矛盾方程组 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}$ 的最小二乘解；如果该方程组的最小二乘解不唯一，则 $\boldsymbol{x}^{(0)}$ 是其中具有最小2范数的向量，<br>称之为 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}$ 的<strong>极小范数最小二乘解</strong>，而矩阵</p>
-<p>$$ \boldsymbol{A}^{+} = \boldsymbol{V} \begin{pmatrix} \boldsymbol{\Sigma}^{-1} &amp; \boldsymbol{O} \\ \boldsymbol{O} &amp; \boldsymbol{O} \end{pmatrix} \boldsymbol{U}^H $$</p>
-<p>称为矩阵 $\boldsymbol{A}$ 的<strong>Moore-Penrose逆</strong>。</p>
-<h3 id="u6570_u636E_u538B_u7F29__u2014_u2014_PCA"><a href="#u6570_u636E_u538B_u7F29__u2014_u2014_PCA" class="headerlink" title="数据压缩 —— PCA"></a>数据压缩 —— PCA</h3><p>这方面的文章非常多，推荐Standford <a href="http://cs229.stanford.edu" target="_blank" rel="external">CS229)</a> Andrew Ng的讲义。</p>
+<p><span class="math">\[ \boldsymbol{x}^{(0)} = \boldsymbol{V} \begin{pmatrix} \boldsymbol{\Sigma}^{-1} &amp; \boldsymbol{O} \\\ \boldsymbol{O} &amp; \boldsymbol{O} \end{pmatrix} \boldsymbol{U}^H \boldsymbol{b} \]</span></p>
+<p>是矛盾方程组 <span class="math">\(\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}\)</span> 的最小二乘解；如果该方程组的最小二乘解不唯一，则 <span class="math">\(\boldsymbol{x}^{(0)}\)</span> 是其中具有最小2范数的向量， 称之为 <span class="math">\(\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}\)</span> 的<strong>极小范数最小二乘解</strong>，而矩阵</p>
+<p><span class="math">\[ \boldsymbol{A}^{+} = \boldsymbol{V} \begin{pmatrix} \boldsymbol{\Sigma}^{-1} &amp; \boldsymbol{O} \\\ \boldsymbol{O} &amp; \boldsymbol{O} \end{pmatrix} \boldsymbol{U}^H \]</span></p>
+<p>称为矩阵 <span class="math">\(\boldsymbol{A}\)</span> 的<strong>Moore-Penrose逆</strong>。</p>
+<h3 id="数据压缩-pca">数据压缩 —— PCA</h3>
+<p>这方面的文章非常多，推荐<a href="http://cs229.stanford.edu" target="_blank" rel="external">Standford CS229</a> Andrew Ng的讲义。</p>
 <p>这里补充一点，就是如何通过SVD求协方差矩阵的特征值和特征向量。</p>
-<p>设数据矩阵为 $\boldsymbol{X} \in \mathbf{C}^{m \times n}$（其每列已减去均值，即alread zero-mean），根据协方差的定义，我们有协方差矩阵</p>
-<p>$$ cov(\boldsymbol{X}) = \frac{1}{m-1} \boldsymbol{X}^H \boldsymbol{X} $$</p>
-<p>显然，协方差矩阵的特征值和特征向量即为 $\boldsymbol{X}^H \boldsymbol{X}$ 的特征值和特征向量差个常数因子$\frac{1}{m-1}$。而 $\boldsymbol{X}^H \boldsymbol{X}$ 的特征值和特征向量可由对 $\boldsymbol{X}$ 进行SVD求得：</p>
+<p>设数据矩阵为 <span class="math">\(\boldsymbol{X} \in \mathbf{C}^{m \times n}\)</span>（其每列已减去均值，即alread zero-mean），根据协方差的定义，我们有协方差矩阵</p>
+<p><span class="math">\[ cov(\boldsymbol{X}) = \frac{1}{m-1} \boldsymbol{X}^H \boldsymbol{X} \]</span></p>
+<p>显然，协方差矩阵的特征值和特征向量即为 <span class="math">\(\boldsymbol{X}^H \boldsymbol{X}\)</span> 的特征值和特征向量差个常数因子<span class="math">\(\frac{1}{m-1}\)</span>。而 <span class="math">\(\boldsymbol{X}^H \boldsymbol{X}\)</span> 的特征值和特征向量可由对 <span class="math">\(\boldsymbol{X}\)</span> 进行SVD求得：</p>
 <ul>
-<li>特征值为 $\boldsymbol{D}^2$</li>
-<li>特征向量为 $\boldsymbol{V}$</li>
+<li>特征值为 <span class="math">\(\boldsymbol{D}^2\)</span></li>
+<li>特征向量为 <span class="math">\(\boldsymbol{V}\)</span></li>
 </ul>
 <p>因此我们就通过SVD直接求出了协方差矩阵的特征值和特征向量，而避免了计算协方差矩阵的开销。</p>
-<h2 id="Matlab_u547D_u4EE4-1"><a href="#Matlab_u547D_u4EE4-1" class="headerlink" title="Matlab命令"></a>Matlab命令</h2><pre><code>svd
-</code></pre>
+<h2 id="matlab命令-1">Matlab命令</h2>
+<pre><code>svd</code></pre>
+
       
     </div>
 
@@ -630,7 +699,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E09_u89D2_u5206_u89E3"><span class="nav-number">1.</span> <span class="nav-text">三角分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u57FA_u672C_u6982_u5FF5"><span class="nav-number">1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matlab_u7A0B_u5E8F"><span class="nav-number">1.2.</span> <span class="nav-text">Matlab程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LU_u5206_u89E3"><span class="nav-number">1.2.1.</span> <span class="nav-text">LU分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cholesky_u5206_u89E3"><span class="nav-number">1.2.2.</span> <span class="nav-text">Cholesky分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LDL_u5206_u89E3"><span class="nav-number">1.2.3.</span> <span class="nav-text">LDL分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LDR_u5206_u89E3"><span class="nav-number">1.2.4.</span> <span class="nav-text">LDR分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Doolittle_u5206_u89E3"><span class="nav-number">1.2.5.</span> <span class="nav-text">Doolittle分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Crout_u5206_u89E3"><span class="nav-number">1.2.6.</span> <span class="nav-text">Crout分解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#QR_u5206_u89E3"><span class="nav-number">2.</span> <span class="nav-text">QR分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Householder_u77E9_u9635_u548CGivens_u77E9_u9635"><span class="nav-number">2.1.</span> <span class="nav-text">Householder矩阵和Givens矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Householder_u77E9_u9635"><span class="nav-number">2.1.1.</span> <span class="nav-text">Householder矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u5B9A_u4E49_u4E0E_u6027_u8D28"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">定义与性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u91CD_u8981_u5B9A_u7406"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">重要定理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Givens_u77E9_u9635"><span class="nav-number">2.1.2.</span> <span class="nav-text">Givens矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u5B9A_u4E49"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u91CD_u8981_u5B9A_u7406-1"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">重要定理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QR_u5206_u89E3-1"><span class="nav-number">2.2.</span> <span class="nav-text">QR分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matlab_u547D_u4EE4"><span class="nav-number">2.3.</span> <span class="nav-text">Matlab命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u6EE1_u79E9_u5206_u89E3"><span class="nav-number">3.</span> <span class="nav-text">满秩分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Matlab_u7A0B_u5E8F-1"><span class="nav-number">3.1.</span> <span class="nav-text">Matlab程序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5947_u5F02_u503C_u5206_u89E3SVD"><span class="nav-number">4.</span> <span class="nav-text">奇异值分解SVD</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u9149_u76F8_u4F3C_u4E0E_u5947_u5F02_u503C"><span class="nav-number">4.1.</span> <span class="nav-text">酉相似与奇异值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5947_u5F02_u503C_u5206_u89E3"><span class="nav-number">4.2.</span> <span class="nav-text">奇异值分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVD_u91CD_u8981_u5E94_u7528"><span class="nav-number">4.3.</span> <span class="nav-text">SVD重要应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6C42_u6781_u5C0F_u8303_u6570_u6700_u5C0F_u4E8C_u4E58_u89E3"><span class="nav-number">4.3.1.</span> <span class="nav-text">求极小范数最小二乘解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6570_u636E_u538B_u7F29__u2014_u2014_PCA"><span class="nav-number">4.3.2.</span> <span class="nav-text">数据压缩 —— PCA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matlab_u547D_u4EE4-1"><span class="nav-number">4.4.</span> <span class="nav-text">Matlab命令</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#三角分解"><span class="nav-number">1.</span> <span class="nav-text">三角分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matlab程序"><span class="nav-number">1.2.</span> <span class="nav-text">Matlab程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lu分解"><span class="nav-number">1.2.1.</span> <span class="nav-text">LU分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cholesky分解"><span class="nav-number">1.2.2.</span> <span class="nav-text">Cholesky分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ldl分解"><span class="nav-number">1.2.3.</span> <span class="nav-text">LDL分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ldr分解"><span class="nav-number">1.2.4.</span> <span class="nav-text">LDR分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#doolittle分解"><span class="nav-number">1.2.5.</span> <span class="nav-text">Doolittle分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#crout分解"><span class="nav-number">1.2.6.</span> <span class="nav-text">Crout分解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#qr分解"><span class="nav-number">2.</span> <span class="nav-text">QR分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#householder矩阵和givens矩阵"><span class="nav-number">2.1.</span> <span class="nav-text">Householder矩阵和Givens矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#householder矩阵"><span class="nav-number">2.1.1.</span> <span class="nav-text">Householder矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义与性质"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">定义与性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重要定理"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">重要定理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#givens矩阵"><span class="nav-number">2.1.2.</span> <span class="nav-text">Givens矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重要定理-1"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">重要定理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qr分解-1"><span class="nav-number">2.2.</span> <span class="nav-text">QR分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matlab命令"><span class="nav-number">2.3.</span> <span class="nav-text">Matlab命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#满秩分解"><span class="nav-number">3.</span> <span class="nav-text">满秩分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#matlab程序-1"><span class="nav-number">3.1.</span> <span class="nav-text">Matlab程序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#奇异值分解svd"><span class="nav-number">4.</span> <span class="nav-text">奇异值分解SVD</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#酉相似与奇异值"><span class="nav-number">4.1.</span> <span class="nav-text">酉相似与奇异值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#奇异值分解"><span class="nav-number">4.2.</span> <span class="nav-text">奇异值分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#svd重要应用"><span class="nav-number">4.3.</span> <span class="nav-text">SVD重要应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#求极小范数最小二乘解"><span class="nav-number">4.3.1.</span> <span class="nav-text">求极小范数最小二乘解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据压缩-pca"><span class="nav-number">4.3.2.</span> <span class="nav-text">数据压缩 —— PCA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matlab命令-1"><span class="nav-number">4.4.</span> <span class="nav-text">Matlab命令</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -155,7 +155,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -191,9 +191,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -295,236 +323,224 @@
 <p>翻译自<a href="http://nullprogram.com/blog/2014/10/21/" target="_blank" rel="external">C Object Oriented Programming</a></p>
 </blockquote>
 <a id="more"></a>
-<p>面向对象编程，尤其是多态性，对大型复杂软件的开发至关重要。<br>没有面向对象编程，则分离不同系统组件将是非常困难的。<br>C语言并不支持面向对象，所以大型C程序总是发展其自己的构建方式，<br>而不是单纯地依照原始的C语言准则。<br>比较有代表性的大型C语言项目的例子如Linux内核、BSD内核和SQLite</p>
-<h1 id="u4E00_u4E2A_u7B80_u5355_u7684_u4F8B_u5B50"><a href="#u4E00_u4E2A_u7B80_u5355_u7684_u4F8B_u5B50" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h1><p>假设你打算写一个函数<code>pass_match()</code>，该函数接受一个输入流、一个输出流和一个模式串。<br>这个函数的工作有点像<code>grep</code>命令，它将输入流中与模式串相匹配的行输出至输出流。<br>模式串是一个shell风格Glob模式串，该串与<a href="http://man7.org/linux/man-pages/man3/fnmatch.3.html" target="_blank" rel="external">POSI fnmatch()</a>函数的模式串语法一致。<br>整个函数接口如下：</p>
+<p>面向对象编程，尤其是多态性，对大型复杂软件的开发至关重要。 没有面向对象编程，则分离不同系统组件将是非常困难的。 C语言并不支持面向对象，所以大型C程序总是发展其自己的构建方式， 而不是单纯地依照原始的C语言准则。 比较有代表性的大型C语言项目的例子如Linux内核、BSD内核和SQLite</p>
+<h1 id="一个简单的例子">一个简单的例子</h1>
+<p>假设你打算写一个函数<code>pass_match()</code>，该函数接受一个输入流、一个输出流和一个模式串。 这个函数的工作有点像<code>grep</code>命令，它将输入流中与模式串相匹配的行输出至输出流。 模式串是一个shell风格Glob模式串，该串与<a href="http://man7.org/linux/man-pages/man3/fnmatch.3.html" target="_blank" rel="external">POSI fnmatch()</a>函数的模式串语法一致。 整个函数接口如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pass_match</span><span class="params">(FILE *in, FILE *out, <span class="keyword">const</span> <span class="keyword">char</span> *pattern)</span></span>;</span><br></pre></td></tr></table></figure>
 <p>Glob风格模式串非常简单，所以不需要进行预编译（正则表达式一般需要预编译）。</p>
-<p>一段时间后，我们的客户想让程序除了shell风格Glob字符串外还支持正则表达式。<br>为了性能需要，正则表达式需要被预编译，所以不能直接作为模式串传递给我们的函数，取而代之的将是一个<a href="http://man7.org/linux/man-pages/man3/regexec.3.html" target="_blank" rel="external">POSIX regex_t</a>对象。<br>对本问题，一种快速但不怎么优雅的实现如下</p>
-<pre><code class="c"><span class="function"><span class="keyword">void</span> <span class="title">pass_match</span><span class="params">(FILE *in, FILE *out, <span class="keyword">const</span> <span class="keyword">char</span> *pattern, regex_t *re)</span></span>;
-</code></pre>
-<p>需要注意的是，<code>pattern</code>和<code>re</code>参数总有一个会是NULL。不过这个实现非常丑陋而且不便于扩展。<br>试想，如果我们需要更多种不同的匹配器该怎么办？所以我们需要一种只接受一个对象的实现，而不是像现在这样同时存在<code>pattern</code>和<code>re</code>对象。如果可能，我们还希望我们的对象可以扩展以适应各种不同的匹配器。</p>
-<h1 id="u652F_u6301_u901A_u7528_u7684_u5339_u914D_u51FD_u6570"><a href="#u652F_u6301_u901A_u7528_u7684_u5339_u914D_u51FD_u6570" class="headerlink" title="支持通用的匹配函数"></a>支持通用的匹配函数</h1><p>一种常见的用于扩展C语言函数的方式是向函数传递函数指针。<br>例如，作为比较器的<code>qsort()</code>函数的最后一个变量就是一个函数指针。</p>
-<p>对于我们的<code>pass_match()</code>函数，这个函数指针指向的函数应该可以接受一个字符串并返回一个布尔值以表明该字符串是否该被我们的<code>pass_match()</code>函数传递至输出流。<br>我们对输入流的每一行调用该函数。</p>
+<p>一段时间后，我们的客户想让程序除了shell风格Glob字符串外还支持正则表达式。 为了性能需要，正则表达式需要被预编译，所以不能直接作为模式串传递给我们的函数，取而代之的将是一个<a href="http://man7.org/linux/man-pages/man3/regexec.3.html" target="_blank" rel="external">POSIX regex_t</a>对象。 对本问题，一种快速但不怎么优雅的实现如下</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">void</span> pass_match(FILE *in, FILE *out, <span class="dt">const</span> <span class="dt">char</span> *pattern, regex_t *re);</code></pre></div>
+<p>需要注意的是，<code>pattern</code>和<code>re</code>参数总有一个会是NULL。不过这个实现非常丑陋而且不便于扩展。 试想，如果我们需要更多种不同的匹配器该怎么办？所以我们需要一种只接受一个对象的实现，而不是像现在这样同时存在<code>pattern</code>和<code>re</code>对象。如果可能，我们还希望我们的对象可以扩展以适应各种不同的匹配器。</p>
+<h1 id="支持通用的匹配函数">支持通用的匹配函数</h1>
+<p>一种常见的用于扩展C语言函数的方式是向函数传递函数指针。 例如，作为比较器的<code>qsort()</code>函数的最后一个变量就是一个函数指针。</p>
+<p>对于我们的<code>pass_match()</code>函数，这个函数指针指向的函数应该可以接受一个字符串并返回一个布尔值以表明该字符串是否该被我们的<code>pass_match()</code>函数传递至输出流。 我们对输入流的每一行调用该函数。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void pass_match(FILE *in, FILE *out, bool (*match)(const char *));</span><br></pre></td></tr></table></figure>
 <p>不过，这种实现同<code>qsort()</code>一样——缺乏上下文环境。<code>match</code>所指向的函数需要一个模式串或者一个<code>regex_t</code>对象来操作。在其他语言中，这种对上下文环境的依赖可以作为一个闭包附加到函数，但是C语言并不支持闭包。一种简单粗暴地实现方式是使用全局变量，但这并不值得提倡。</p>
-<pre><code class="c"><span class="keyword">static</span> <span class="keyword">regexi_t</span> regex;    <span class="comment">// 非常差的方式！</span>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">static</span> regexi_t regex;    <span class="co">// 非常差的方式！</span>
 
-<span class="function"><span class="keyword">bool</span> <span class="title">regex_match</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
-</span>{
-    <span class="keyword">return</span> regexec(&amp;regex, <span class="built_in">string</span>, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="number">0</span>) == <span class="number">0</span>;   
-}
-</code></pre>
-<p>因为全局变量的存在，<code>pass_match()</code>既不是可重入的也不是线程安全的。<br>我们将学习GNU的<code>qsort_r()</code>函数，接受一个上线文变量给我们的匹配函数，类似于一个闭包。</p>
-<pre><code class="c">void pass_match(FILE *in, FILE *out, 
-        bool (*match)(const char *, void *), void *context);
-</code></pre>
-<p>其中context指针将作为匹配函数的第二个参数以用来给其提供上下文环境，因此我们就用不到全局变量了。<br>这种实现对于许多简单情况是足够用了，我们的<code>pass_match()</code>接口也可以处理不同匹配函数的情况。</p>
+bool regex_match(<span class="dt">const</span> <span class="dt">char</span> *string)
+{
+    <span class="kw">return</span> regexec(&amp;regex, string, <span class="dv">0</span>, NULL, <span class="dv">0</span>) == <span class="dv">0</span>;   
+}</code></pre></div>
+<p>因为全局变量的存在，<code>pass_match()</code>既不是可重入的也不是线程安全的。 我们将学习GNU的<code>qsort_r()</code>函数，接受一个上线文变量给我们的匹配函数，类似于一个闭包。</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">void</span> pass_match(FILE *in, FILE *out, 
+        bool (*match)(<span class="dt">const</span> <span class="dt">char</span> *, <span class="dt">void</span> *), <span class="dt">void</span> *context);</code></pre></div>
+<p>其中context指针将作为匹配函数的第二个参数以用来给其提供上下文环境，因此我们就用不到全局变量了。 这种实现对于许多简单情况是足够用了，我们的<code>pass_match()</code>接口也可以处理不同匹配函数的情况。</p>
 <p>但是，我们为何不能将一个函数及其上下文环境打包为一个对象呢？</p>
-<h1 id="u66F4_u62BD_u8C61_u7684_u505A_u6CD5"><a href="#u66F4_u62BD_u8C61_u7684_u505A_u6CD5" class="headerlink" title="更抽象的做法"></a>更抽象的做法</h1><p>我们为何不能将上下文参数放入一个结构体并对其开发接口？这里我们使用了<strong>结构体+联合</strong>的的方式：</p>
-<pre><code class="c"><span class="keyword">enum</span> filter_type { GLOB, REGEX };
+<h1 id="更抽象的做法">更抽象的做法</h1>
+<p>我们为何不能将上下文参数放入一个结构体并对其开发接口？这里我们使用了<strong>结构体+联合</strong>的的方式：</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="kw">enum</span> filter_type { GLOB, REGEX };
 
-<span class="keyword">struct</span> filter {
-    <span class="keyword">enum</span> filter_type type;
-    <span class="keyword">union</span> {
-        <span class="keyword">const</span> <span class="keyword">char</span> *pattern;
-        <span class="keyword">regex_t</span> regex;
+<span class="kw">struct</span> filter {
+    <span class="kw">enum</span> filter_type type;
+    <span class="kw">union</span> {
+        <span class="dt">const</span> <span class="dt">char</span> *pattern;
+        regex_t regex;
     } context;
-};
-</code></pre>
+};</code></pre></div>
 <p>然后我们定义一个操作该结构体的函数：<code>filter_match()</code>。它检查<code>type</code>成员并调用正确的函数来执行匹配工作。</p>
-<pre><code class="c"><span class="function"><span class="keyword">bool</span> <span class="title">filter_match</span><span class="params">(<span class="keyword">struct</span> filter *filter, <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
-</span>{
-    <span class="keyword">switch</span> (filter-&gt;type) {
-    <span class="keyword">case</span> GLOB:
-        <span class="keyword">return</span> fnmatch(filter-&gt;context.pattern, <span class="built_in">string</span>, <span class="number">0</span>) == <span class="number">0</span>;
-    <span class="keyword">case</span> REGEX:
-        <span class="keyword">return</span> regexec(&amp;filter-&gt;context.regex, <span class="built_in">string</span>, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="number">0</span>) == <span class="number">0</span>;
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">bool filter_match(<span class="kw">struct</span> filter *filter, <span class="dt">const</span> <span class="dt">char</span> *string)
+{
+    <span class="kw">switch</span> (filter-&gt;type) {
+    <span class="kw">case</span> GLOB:
+        <span class="kw">return</span> fnmatch(filter-&gt;context.pattern, string, <span class="dv">0</span>) == <span class="dv">0</span>;
+    <span class="kw">case</span> REGEX:
+        <span class="kw">return</span> regexec(&amp;filter-&gt;context.regex, string, <span class="dv">0</span>, NULL, <span class="dv">0</span>) == <span class="dv">0</span>;
     }
-    <span class="built_in">abort</span>();    <span class="comment">// handle errors</span>
-}
-</code></pre>
+    abort();    <span class="co">// handle errors</span>
+}</code></pre></div>
 <p>现在我们回到我们的<code>pass_match()</code>函数，它的接口现在应该如下所示，这也是本文对<code>pass_match()</code>函数接口形式和实现的最后一次修改。</p>
-<pre><code class="c"><span class="function"><span class="keyword">void</span> <span class="title">pass_match</span><span class="params">(FILE *input, FILE *output, <span class="keyword">struct</span> filter *filter)</span></span>;
-</code></pre>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">void</span> pass_match(FILE *input, FILE *output, <span class="kw">struct</span> filter *filter);</code></pre></div>
 <p>现在我们的<code>pass_match()</code>无需关注匹配函数是如何工作的了，这样也为我们将来的扩展提供了可能。现在的<code>pass_match()</code>函数只是简单地调用<code>filter_match()</code>函数。但是，我们使用了<code>switch</code>语句和<code>union</code>，这样虽然能工作但并不优美，而且修改起来非常麻烦（如、我们添加一钟新的匹配器类型就需要改动多处），所以我们要进一步改进。</p>
-<h1 id="u65B9_u6CD5_uFF08Method_uFF09"><a href="#u65B9_u6CD5_uFF08Method_uFF09" class="headerlink" title="方法（Method）"></a>方法（Method）</h1><p>既然使用<code>switch</code>语句非常的不好，那我们就干脆将函数指针放入结构体：</p>
-<pre><code class="c"><span class="keyword">struct</span> filter {
-    <span class="keyword">bool</span> (*match)(<span class="keyword">struct</span> filter *, <span class="keyword">const</span> <span class="keyword">char</span> *);
-};
-</code></pre>
+<h1 id="方法method">方法（Method）</h1>
+<p>既然使用<code>switch</code>语句非常的不好，那我们就干脆将函数指针放入结构体：</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="kw">struct</span> filter {
+    bool (*match)(<span class="kw">struct</span> filter *, <span class="dt">const</span> <span class="dt">char</span> *);
+};</code></pre></div>
 <p>注意到我们<code>filter</code>结构体将其自身作为第一个参数传递给了<code>match()</code>函数。在OOP语言中，这就相当于实现了<code>this</code>指针。现在，我们将这样写<code>filter_match()</code>函数</p>
-<pre><code class="c"><span class="function"><span class="keyword">bool</span> <span class="title">filter_match</span><span class="params">(<span class="keyword">struct</span> filter *filter, <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
-</span>{
-    <span class="keyword">return</span> filter-&gt;match(filter, <span class="built_in">string</span>);
-}
-</code></pre>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">bool filter_match(<span class="kw">struct</span> filter *filter, <span class="dt">const</span> <span class="dt">char</span> *string)
+{
+    <span class="kw">return</span> filter-&gt;match(filter, string);
+}</code></pre></div>
 <p>注意到，我们的<code>filter</code>结构体只是个框架，我们还是缺少真正的上下文参数，一个模式串或者一个<code>regex</code>对象。这两者将会作为不同的结构体定义，而其公共部分正是<code>filter</code>结构体。</p>
-<pre><code class="c"><span class="keyword">struct</span> filter_regex {
-    <span class="keyword">struct</span> filter filter;
-    <span class="keyword">regex_t</span> regex;
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="kw">struct</span> filter_regex {
+    <span class="kw">struct</span> filter filter;
+    regex_t regex;
 }
 
-<span class="keyword">struct</span> filter_glob {
-    <span class="keyword">struct</span> filter filter;
-    <span class="keyword">const</span> <span class="keyword">char</span> *pattern;
-}
-</code></pre>
+<span class="kw">struct</span> filter_glob {
+    <span class="kw">struct</span> filter filter;
+    <span class="dt">const</span> <span class="dt">char</span> *pattern;
+}</code></pre></div>
 <p><strong>注意：<code>filter</code>结构体必须作为上述结构体的第一个成员</strong>。这个技巧叫做<em>结构双关</em>，英文名称<em>type punning</em>。结构体的第一个成员一定位于结构体内存区域的开始处，所以指向<code>struct filter_glob</code>的指针也是其第一个成员变量的指针，即指向<code>struct filter</code>的指针。这种做法是不是有点类似于继承？</p>
 <p>现在，我们的两个结构体类型——<code>filter_regex</code>和<code>filter_glob</code>都需要它们各自的匹配函数。</p>
-<pre><code class="c"><span class="function"><span class="keyword">static</span> <span class="keyword">bool</span>
-<span class="title">method_match_regex</span><span class="params">(<span class="keyword">struct</span> filter *filter, <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
-</span>{
-    <span class="keyword">struct</span> filter_regex *regex = (<span class="keyword">struct</span> filter_regex *) filter;
-    <span class="keyword">return</span> regexec(&amp;regex-&gt;regex, <span class="built_in">string</span>, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="number">0</span>) == <span class="number">0</span>;
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">static</span> bool
+method_match_regex(<span class="kw">struct</span> filter *filter, <span class="dt">const</span> <span class="dt">char</span> *string)
+{
+    <span class="kw">struct</span> filter_regex *regex = (<span class="kw">struct</span> filter_regex *) filter;
+    <span class="kw">return</span> regexec(&amp;regex-&gt;regex, string, <span class="dv">0</span>, NULL, <span class="dv">0</span>) == <span class="dv">0</span>;
 }
 
-<span class="function"><span class="keyword">static</span> <span class="keyword">bool</span>
-<span class="title">method_match_glob</span><span class="params">(<span class="keyword">struct</span> filter *filter, <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
-</span>{
-    <span class="keyword">struct</span> filter_glob *glob = (<span class="keyword">struct</span> filter_glob *) filter;
-    <span class="keyword">return</span> fnmatch(glob_pattern, <span class="built_in">string</span>, <span class="number">0</span>) == <span class="number">0</span>;
-}
-</code></pre>
+<span class="dt">static</span> bool
+method_match_glob(<span class="kw">struct</span> filter *filter, <span class="dt">const</span> <span class="dt">char</span> *string)
+{
+    <span class="kw">struct</span> filter_glob *glob = (<span class="kw">struct</span> filter_glob *) filter;
+    <span class="kw">return</span> fnmatch(glob_pattern, string, <span class="dv">0</span>) == <span class="dv">0</span>;
+}</code></pre></div>
 <p>使用前缀<code>method_</code>是为了指明它们的用途。声明为<code>static</code>是为了使其为文件私有，程序的其他部分只能通过结构体中的函数指针对其进行访问。同时，这也意味着我们需要一些构造函数来初始化那些函数指针。</p>
-<pre><code class="c"><span class="function"><span class="keyword">struct</span> filter *<span class="title">filter_regex_create</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *pattern)</span>
-</span>{
-    <span class="keyword">struct</span> filter_regex *regex = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(*regex));
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="kw">struct</span> filter *filter_regex_create(<span class="dt">const</span> <span class="dt">char</span> *pattern)
+{
+    <span class="kw">struct</span> filter_regex *regex = malloc(<span class="kw">sizeof</span>(*regex));
     regcomp(&amp;regex-&gt;regex, pattern, REG_EXTENDED);
     regex-&gt;filter.match = method_match_regex;
-    <span class="keyword">return</span> &amp;regex-&gt;filter;
+    <span class="kw">return</span> &amp;regex-&gt;filter;
 }
 
-<span class="function"><span class="keyword">struct</span> filter *<span class="title">filter_glob_create</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *pattern)</span>
-</span>{
-    <span class="keyword">struct</span> filter_glob *glob = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(*glob));
+<span class="kw">struct</span> filter *filter_glob_create(<span class="dt">const</span> <span class="dt">char</span> *pattern)
+{
+    <span class="kw">struct</span> filter_glob *glob = malloc(<span class="kw">sizeof</span>(*glob));
     glob-&gt;pattern = pattern;
     glob-&gt;filter.match = method_match_glob;
-    <span class="keyword">return</span> &amp;glob-&gt;filter;
-}
-</code></pre>
+    <span class="kw">return</span> &amp;glob-&gt;filter;
+}</code></pre></div>
 <p>以上，我们就完成了对接口的封装，而且从用户的角度来讲其足够健壮、可扩展并且易于使用。</p>
-<h1 id="u6E05_u7406"><a href="#u6E05_u7406" class="headerlink" title="清理"></a>清理</h1><p>以上还没完，我们的正则表达式匹配器在使用完后还需要进行清理，但是我们的用户并不知道如何正确执行清理操作。所以我们添加<code>free()</code>方法。</p>
-<pre><code class="c"><span class="keyword">struct</span> filter {
-    <span class="keyword">bool</span> (*match)(<span class="keyword">struct</span> filter *, <span class="keyword">const</span> <span class="keyword">char</span> *);
-    <span class="keyword">void</span> (*<span class="built_in">free</span>)(<span class="keyword">struct</span> filter *);
+<h1 id="清理">清理</h1>
+<p>以上还没完，我们的正则表达式匹配器在使用完后还需要进行清理，但是我们的用户并不知道如何正确执行清理操作。所以我们添加<code>free()</code>方法。</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="kw">struct</span> filter {
+    bool (*match)(<span class="kw">struct</span> filter *, <span class="dt">const</span> <span class="dt">char</span> *);
+    <span class="dt">void</span> (*free)(<span class="kw">struct</span> filter *);
 };
 
-<span class="function"><span class="keyword">void</span> <span class="title">filter_free</span><span class="params">(<span class="keyword">struct</span> filter *filter)</span>
-</span>{
-    <span class="keyword">return</span> filter-&gt;<span class="built_in">free</span>(filter);
-}
-</code></pre>
+<span class="dt">void</span> filter_free(<span class="kw">struct</span> filter *filter)
+{
+    <span class="kw">return</span> filter-&gt;free(filter);
+}</code></pre></div>
 <p>同时，每种匹配器的清理函数，将在其构造函数内进行指定。</p>
-<pre><code class="c"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span>
-<span class="title">method_free_regex</span><span class="params">(<span class="keyword">struct</span> filter *f)</span>
-</span>{
-    <span class="keyword">struct</span> filter_regex *regex = (<span class="keyword">struct</span> filter_regex *) f;
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">static</span> <span class="dt">void</span>
+method_free_regex(<span class="kw">struct</span> filter *f)
+{
+    <span class="kw">struct</span> filter_regex *regex = (<span class="kw">struct</span> filter_regex *) f;
     regfree(&amp;regex-&gt;regex);
-    <span class="built_in">free</span>(f);
+    free(f);
 }
 
-<span class="function"><span class="keyword">static</span> <span class="keyword">void</span>
-<span class="title">method_free_glob</span><span class="params">(<span class="keyword">struct</span> filter *f)</span>
-</span>{
-    <span class="built_in">free</span>(f);
-}
-</code></pre>
+<span class="dt">static</span> <span class="dt">void</span>
+method_free_glob(<span class="kw">struct</span> filter *f)
+{
+    free(f);
+}</code></pre></div>
 <p>当然，上述只是个简单的事例，你还可以在其中添加其他的清理步骤。</p>
-<h1 id="u5BF9_u8C61_u7EC4_u4EF6"><a href="#u5BF9_u8C61_u7EC4_u4EF6" class="headerlink" title="对象组件"></a>对象组件</h1><p>很多时候使用组件而不是继承是一个好的实践。现在我们实现一个AND操作，该操作当且仅当两个子匹配器都匹配时返回真。</p>
-<pre><code class="c"><span class="keyword">struct</span> filter_and {
-    <span class="keyword">struct</span> filter filter;
-    <span class="keyword">struct</span> filter *sub[<span class="number">2</span>];
+<h1 id="对象组件">对象组件</h1>
+<p>很多时候使用组件而不是继承是一个好的实践。现在我们实现一个AND操作，该操作当且仅当两个子匹配器都匹配时返回真。</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="kw">struct</span> filter_and {
+    <span class="kw">struct</span> filter filter;
+    <span class="kw">struct</span> filter *sub[<span class="dv">2</span>];
 };
 
-<span class="function"><span class="keyword">static</span> <span class="keyword">bool</span>
-<span class="title">method_match_and</span><span class="params">(<span class="keyword">struct</span> filter *f, <span class="keyword">const</span> <span class="keyword">char</span> *s)</span>
-</span>{
-    <span class="keyword">struct</span> filter_and *and = (<span class="keyword">struct</span> filter_and *) f;
-    <span class="keyword">return</span> filter_match(and-&gt;sub[<span class="number">0</span>], s) &amp;&amp; filter_match(and-&gt;sub[<span class="number">1</span>], s);
+<span class="dt">static</span> bool
+method_match_and(<span class="kw">struct</span> filter *f, <span class="dt">const</span> <span class="dt">char</span> *s)
+{
+    <span class="kw">struct</span> filter_and *and = (<span class="kw">struct</span> filter_and *) f;
+    <span class="kw">return</span> filter_match(and-&gt;sub[<span class="dv">0</span>], s) &amp;&amp; filter_match(and-&gt;sub[<span class="dv">1</span>], s);
 }
 
-<span class="function"><span class="keyword">static</span> <span class="keyword">void</span>
-<span class="title">method_free_and</span><span class="params">(<span class="keyword">struct</span> filter *f)</span>
-</span>{
-    <span class="keyword">struct</span> filter_and *and = (<span class="keyword">struct</span> filter_and *) f;
-    filter_free(and-&gt;sub[<span class="number">0</span>]);
-    filter_free(and-&gt;sub[<span class="number">1</span>]);
-    <span class="built_in">free</span>(f);
+<span class="dt">static</span> <span class="dt">void</span>
+method_free_and(<span class="kw">struct</span> filter *f)
+{
+    <span class="kw">struct</span> filter_and *and = (<span class="kw">struct</span> filter_and *) f;
+    filter_free(and-&gt;sub[<span class="dv">0</span>]);
+    filter_free(and-&gt;sub[<span class="dv">1</span>]);
+    free(f);
 }
 
-<span class="function"><span class="keyword">struct</span> filter *<span class="title">filter_and</span><span class="params">(<span class="keyword">struct</span> filter *a, <span class="keyword">struct</span> filter *b)</span>
-</span>{
-    <span class="keyword">struct</span> filter_and *and = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(*and));
-    and-&gt;sub[<span class="number">0</span>] = a;
-    and-&gt;sub[<span class="number">1</span>] = b;
+<span class="kw">struct</span> filter *filter_and(<span class="kw">struct</span> filter *a, <span class="kw">struct</span> filter *b)
+{
+    <span class="kw">struct</span> filter_and *and = malloc(<span class="kw">sizeof</span>(*and));
+    and-&gt;sub[<span class="dv">0</span>] = a;
+    and-&gt;sub[<span class="dv">1</span>] = b;
     and-&gt;filter.match = method_match_and;
-    and-&gt;filter.<span class="built_in">free</span> = method_free_and;
-    <span class="keyword">return</span> &amp;and-&gt;filter;
-}
-</code></pre>
+    and-&gt;filter.free = method_free_and;
+    <span class="kw">return</span> &amp;and-&gt;filter;
+}</code></pre></div>
 <p>这样我们的AND操作可以结合一个正则表达式匹配器和一个glob匹配器、或两个正则表达式匹配器，甚至是其他的AND操作。</p>
 <p>为了使我们的作为组件的匹配器更容易使用，我们将创建两个“常量”匹配器。</p>
-<pre><code class="c"><span class="function"><span class="keyword">static</span> <span class="keyword">bool</span>
-<span class="title">method_match_and</span><span class="params">(<span class="keyword">struct</span> filter *f, <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
-</span>{
-    <span class="keyword">return</span> <span class="literal">true</span>;
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">static</span> bool
+method_match_and(<span class="kw">struct</span> filter *f, <span class="dt">const</span> <span class="dt">char</span> *string)
+{
+    <span class="kw">return</span> true;
 }
 
-<span class="function"><span class="keyword">static</span> <span class="keyword">bool</span>
-<span class="title">method_match_none</span><span class="params">(<span class="keyword">struct</span> filter *f, <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
-</span>{
-    <span class="keyword">return</span> <span class="literal">false</span>;
+<span class="dt">static</span> bool
+method_match_none(<span class="kw">struct</span> filter *f, <span class="dt">const</span> <span class="dt">char</span> *string)
+{
+    <span class="kw">return</span> false;
 }
 
-<span class="function"><span class="keyword">static</span> <span class="keyword">void</span>
-<span class="title">method_free_noop</span><span class="params">(<span class="keyword">struct</span> filter *f)</span>
-</span>{
+<span class="dt">static</span> <span class="dt">void</span>
+method_free_noop(<span class="kw">struct</span> filter *f)
+{
 }
 
-<span class="keyword">struct</span> filter FILTER_ANY  = { method_match_any,  method_free_noop };
-<span class="keyword">struct</span> filter FILTER_NONE = { method_match_none, method_free_noop };
-</code></pre>
+<span class="kw">struct</span> filter FILTER_ANY  = { method_match_any,  method_free_noop };
+<span class="kw">struct</span> filter FILTER_NONE = { method_match_none, method_free_noop };</code></pre></div>
 <p>下面是一个将多个glob匹配器合成成一个匹配器的例子，每一个匹配器的模式串即是程序的一个参数。</p>
-<pre><code class="c"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span>
-</span>{
-    <span class="keyword">struct</span> filter *filter = &amp;FILTER_ANY;
-    <span class="keyword">for</span> (<span class="keyword">char</span> **p = argv+<span class="number">1</span>; *p; p++)
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> **argv)
+{
+    <span class="kw">struct</span> filter *filter = &amp;FILTER_ANY;
+    <span class="kw">for</span> (<span class="dt">char</span> **p = argv<span class="dv">+1</span>; *p; p++)
         filter = filter_and(filter_glob_create(*p), filter);
-    pass_match(<span class="built_in">stdin</span>, <span class="built_in">stdout</span>, filter);
+    pass_match(stdin, stdout, filter);
     filter_free(filter);
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-</code></pre>
+    <span class="kw">return</span> <span class="dv">0</span>;
+}</code></pre></div>
 <p>注意到我们只需要调用一次<code>filter_free()</code>就可以释放所有filter。</p>
-<h1 id="u591A_u91CD_u7EE7_u627F"><a href="#u591A_u91CD_u7EE7_u627F" class="headerlink" title="多重继承"></a>多重继承</h1><p>在前文中，我们提到为了使用类型双关技巧，我们的父类型结构体必须作为子类型结构体的第一个成员。但这样，我们就无法实现多重继承。</p>
+<h1 id="多重继承">多重继承</h1>
+<p>在前文中，我们提到为了使用类型双关技巧，我们的父类型结构体必须作为子类型结构体的第一个成员。但这样，我们就无法实现多重继承。</p>
 <p>不过幸运的是，我们可以推广我们的类型双关技巧，使“必须为第一个成员”这一条件不再是必须的。我们通过使用<code>container_of</code>宏来实现这一目的。</p>
-<pre><code class="c"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stddef.h&gt;</span></span>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;stddef.h&gt;</span>
 
-<span class="meta">#<span class="meta-keyword">define</span> container_of(ptr, type, member) \
-    ((type *)((char *)(ptr) - offsetof(type, member)))</span>
-</code></pre>
+<span class="ot">#define container_of(ptr, type, member) \</span>
+<span class="ot">    ((type *)((char *)(ptr) - offsetof(type, member)))</span></code></pre></div>
 <p>只要给定一个指向结构体成员的指针，我们的<code>container_of</code>宏就能返回只想其所在结构体的指针。假设我们之前定义的正则表达式结构体略有不同，<code>regex_t</code>成员成为了第一个成员。</p>
-<pre><code class="c"><span class="keyword">struct</span> filter_regex {
-    <span class="keyword">regex_t</span> regex;
-    <span class="keyword">struct</span> filter filter;
-}
-</code></pre>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="kw">struct</span> filter_regex {
+    regex_t regex;
+    <span class="kw">struct</span> filter filter;
+}</code></pre></div>
 <p>我们的构造函数不变，但方法中的类型转换将变为宏调用。</p>
-<pre><code class="c"><span class="function"><span class="keyword">static</span> <span class="keyword">bool</span>
-<span class="title">method_match_regex</span><span class="params">(<span class="keyword">struct</span> filter *f, <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span>
-</span>{
-    <span class="keyword">struct</span> filter_regex *regex = container_of(f, <span class="keyword">struct</span> filter_regex, filter);
-    <span class="keyword">return</span> regexec(&amp;regex-&gt;regex, <span class="built_in">string</span>, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="number">0</span>) == <span class="number">0</span>;
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">static</span> bool
+method_match_regex(<span class="kw">struct</span> filter *f, <span class="dt">const</span> <span class="dt">char</span> *string)
+{
+    <span class="kw">struct</span> filter_regex *regex = container_of(f, <span class="kw">struct</span> filter_regex, filter);
+    <span class="kw">return</span> regexec(&amp;regex-&gt;regex, string, <span class="dv">0</span>, NULL, <span class="dv">0</span>) == <span class="dv">0</span>;
 }
 
-<span class="function"><span class="keyword">static</span> <span class="keyword">void</span>
-<span class="title">method_free_regex</span><span class="params">(<span class="keyword">struct</span> filter *f)</span>
-</span>{
-    <span class="keyword">struct</span> filter_regex *regex = container_of(f, <span class="keyword">struct</span> filter_regex, filter);
+<span class="dt">static</span> <span class="dt">void</span>
+method_free_regex(<span class="kw">struct</span> filter *f)
+{
+    <span class="kw">struct</span> filter_regex *regex = container_of(f, <span class="kw">struct</span> filter_regex, filter);
     regfree(&amp;regex-&gt;regex);
-    <span class="built_in">free</span>(f);
-}
-</code></pre>
+    free(f);
+}</code></pre></div>
 <p>该宏会在编译时被计算好，所以不会影响性能。而且，通过这个宏，我们就能实现多重继承了。</p>
 
       
@@ -702,7 +718,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E00_u4E2A_u7B80_u5355_u7684_u4F8B_u5B50"><span class="nav-number">1.</span> <span class="nav-text">一个简单的例子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u652F_u6301_u901A_u7528_u7684_u5339_u914D_u51FD_u6570"><span class="nav-number">2.</span> <span class="nav-text">支持通用的匹配函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u66F4_u62BD_u8C61_u7684_u505A_u6CD5"><span class="nav-number">3.</span> <span class="nav-text">更抽象的做法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u65B9_u6CD5_uFF08Method_uFF09"><span class="nav-number">4.</span> <span class="nav-text">方法（Method）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u6E05_u7406"><span class="nav-number">5.</span> <span class="nav-text">清理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5BF9_u8C61_u7EC4_u4EF6"><span class="nav-number">6.</span> <span class="nav-text">对象组件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u591A_u91CD_u7EE7_u627F"><span class="nav-number">7.</span> <span class="nav-text">多重继承</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一个简单的例子"><span class="nav-number">1.</span> <span class="nav-text">一个简单的例子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#支持通用的匹配函数"><span class="nav-number">2.</span> <span class="nav-text">支持通用的匹配函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更抽象的做法"><span class="nav-number">3.</span> <span class="nav-text">更抽象的做法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法method"><span class="nav-number">4.</span> <span class="nav-text">方法（Method）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#清理"><span class="nav-number">5.</span> <span class="nav-text">清理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象组件"><span class="nav-number">6.</span> <span class="nav-text">对象组件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多重继承"><span class="nav-number">7.</span> <span class="nav-text">多重继承</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

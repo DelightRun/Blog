@@ -161,7 +161,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -197,9 +197,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -302,47 +330,59 @@
 </blockquote>
 <p>在约束最优化问题中，我们经常使用拉格朗日对偶性(Lagrange Duality)将原始问题转换为其对偶问题，通过解对偶问题而得到原始问题的解。</p>
 <a id="more"></a>
-<h1 id="u539F_u59CB_u95EE_u9898"><a href="#u539F_u59CB_u95EE_u9898" class="headerlink" title="原始问题"></a>原始问题</h1><p>假设$f(x)$,$c_i(x)$,$h_j(x)$是定义在$R^n$上的<strong>连续可微函数</strong>，则约束最优化问题表述如下：</p>
-<p>$$\begin{equation} \min_{x\in R^n}{\;f(x)} \end{equation}$$</p>
-<p>$$\begin{align}<br>s.t. \quad &amp;c_i(x)\leq 0, \quad i=1,2,\cdots,k\<br>&amp;h_j(x) = 0, \quad j=1,2,\cdots,l<br>\end{align}$$</p>
+<h1 id="原始问题">原始问题</h1>
+<p>假设<span class="math">\(f(x)\)</span>,<span class="math">\(c\_i(x)\)</span>,<span class="math">\(h\_j(x)\)</span>是定义在<span class="math">\(R^n\)</span>上的<strong>连续可微函数</strong>，则约束最优化问题表述如下：</p>
+<p><span class="math">\[\begin{equation} \min_{x\in R^n}{\;f(x)} \end{equation}\]</span></p>
+<p><span class="math">\[\begin{align}
+s.t. \quad &amp;c_i(x)\leq 0, \quad i=1,2,\cdots,k\\
+&amp;h_j(x) = 0, \quad j=1,2,\cdots,l
+\end{align}\]</span></p>
 <p>称此约束最优化问题为<code>原始最优化问题</code>或<code>原始问题</code>。</p>
 <p>在此，我们引进<code>广义拉格朗日函数(generalized Lagrange function)</code>：</p>
-<p>$$ L(x,\alpha,\beta) = f(x) + \sum_{i=1}^{k}{\alpha_i c<em>i(x)} + \sum</em>{j=1}^{l}{\beta_j h_j(x)} $$</p>
-<p>这里，$x = (x_1,x_2,\cdots,x_n)^T \in R^n$，$\alpha_i$, $\beta_i$是<code>拉格朗日乘子</code>, $\alpha_i \geq 0$。则考虑$x$的函数：</p>
-<p>$$ \theta<em>P(x) = \max</em>{\alpha,\beta:\alpha_i \geq 0}{L(x,\alpha,\beta)} $$</p>
-<p>这里的下标$P$表示原始问题。</p>
-<p>现在，假设给定某个$x$。如果$x$违反原始问题的约束条件，即存在某个$i$使得$c_i(x)&gt;0$或存在某个$j$使得$h_j(x) \neq 0$，那么就有：</p>
-<p>$$ \theta<em>P(x) = \max</em>{\alpha,\beta:\alpha<em>i \geq 0}{\left[f(x) + \sum</em>{i=1}^{k}{\alpha_i c<em>i(x)} + \sum</em>{j=1}^{l}{\beta_j h_j(x)}\right]} = +\infty$$</p>
-<p>相反地，如果$x$满足约束条件，则有$\theta_P(x) = f(x)$。因此：</p>
-<p>$$<br>\theta_P(x) =<br>\begin{cases}<br>f(x), &amp; \text{x满足原始问题约束条件} \<br>+\infty, &amp; \text{其他} \<br>\end{cases}<br>$$</p>
-<p>所以如果考虑极小化$\theta_P(x)$：</p>
-<p>$$ \min_{x}{\theta<em>P(X)} = \min</em>{x}{\max_{\alpha,\beta:\alpha_i \geq 0}{L(x,\alpha,\beta)}} $$</p>
-<p>它与原始最优化问题等价，即它们有相同的解。问题$\min_{x}{\max_{\alpha,\beta:\alpha_i \geq 0}{L(x,\alpha,\beta)}}$称为<code>广义拉格朗如函数的极小极大问题</code>，这样我们就将原始问题转换成了广义拉格朗日函数的极小极大问题。为了方便，我们定义原始问题的最优值为：</p>
-<p>$$ p^\ast = \min_{x}{\theta_P(x)} $$</p>
-<h1 id="u5BF9_u5076_u95EE_u9898"><a href="#u5BF9_u5076_u95EE_u9898" class="headerlink" title="对偶问题"></a>对偶问题</h1><p>首先我们引入如下定义：</p>
-<p>$$\theta<em>D(\alpha,\beta) = \min</em>{x}{L(x,\alpha,\beta)} $$</p>
-<p>然后我们再考虑极大化$\theta<em>D(\alpha,\beta)=\min</em>{x}{L(x,\alpha,\beta)}$，即：</p>
-<p>$$ \max_{\alpha,\beta:\alpha_i \geq 0}{\theta<em>D(\alpha,\beta)} = \max</em>{\alpha,\beta:\alpha<em>i \geq 0}{\min</em>{x}{L(x,\alpha,\beta)}} $$</p>
+<p><span class="math">\[ L(x,\alpha,\beta) = f(x) + \sum_{i=1}^{k}{\alpha_i c_i(x)} + \sum_{j=1}^{l}{\beta_j h_j(x)} \]</span></p>
+<p>这里，<span class="math">\(x = (x\_1,x\_2,\cdots,x\_n)^T \in R^n\)</span>，<span class="math">\(\alpha\_i\)</span>, <span class="math">\(\beta\_i\)</span>是<code>拉格朗日乘子</code>, <span class="math">\(\alpha_i \geq 0\)</span>。则考虑<span class="math">\(x\)</span>的函数：</p>
+<p><span class="math">\[ \theta_P(x) = \max_{\alpha,\beta:\alpha_i \geq 0}{L(x,\alpha,\beta)} \]</span></p>
+<p>这里的下标<span class="math">\(P\)</span>表示原始问题。</p>
+<p>现在，假设给定某个<span class="math">\(x\)</span>。如果<span class="math">\(x\)</span>违反原始问题的约束条件，即存在某个<span class="math">\(i\)</span>使得<span class="math">\(c\_i(x)&gt;0\)</span>或存在某个<span class="math">\(j\)</span>使得<span class="math">\(h\_j(x) \neq 0\)</span>，那么就有：</p>
+<p><span class="math">\[ \theta_P(x) = \max_{\alpha,\beta:\alpha_i \geq 0}{\left[f(x) + \sum_{i=1}^{k}{\alpha_i c_i(x)} + \sum_{j=1}^{l}{\beta_j h_j(x)}\right]} = +\infty\]</span></p>
+<p>相反地，如果<span class="math">\(x\)</span>满足约束条件，则有<span class="math">\(\theta_P(x) = f(x)\)</span>。因此：</p>
+<p><span class="math">\[ 
+\theta_P(x) = 
+\begin{cases}
+f(x), &amp; \text{x满足原始问题约束条件} \\
++\infty, &amp; \text{其他} \\
+\end{cases} 
+\]</span></p>
+<p>所以如果考虑极小化<span class="math">\(\theta_P(x)\)</span>：</p>
+<p><span class="math">\[ \min_{x}{\theta_P(X)} = \min_{x}{\max_{\alpha,\beta:\alpha_i \geq 0}{L(x,\alpha,\beta)}} \]</span></p>
+<p>它与原始最优化问题等价，即它们有相同的解。问题<span class="math">\(\min\_{x}{\max\_{\alpha,\beta:\alpha\_i \geq 0}{L(x,\alpha,\beta)}}\)</span>称为<code>广义拉格朗如函数的极小极大问题</code>，这样我们就将原始问题转换成了广义拉格朗日函数的极小极大问题。为了方便，我们定义原始问题的最优值为：</p>
+<p><span class="math">\[ p^\ast = \min_{x}{\theta_P(x)} \]</span></p>
+<h1 id="对偶问题">对偶问题</h1>
+<p>首先我们引入如下定义：</p>
+<p><span class="math">\[\theta_D(\alpha,\beta) = \min_{x}{L(x,\alpha,\beta)} \]</span></p>
+<p>然后我们再考虑极大化<span class="math">\(\theta_D(\alpha,\beta)=\min_{x}{L(x,\alpha,\beta)}\)</span>，即：</p>
+<p><span class="math">\[ \max_{\alpha,\beta:\alpha_i \geq 0}{\theta_D(\alpha,\beta)} = \max_{\alpha,\beta:\alpha_i \geq 0}{\min_{x}{L(x,\alpha,\beta)}} \]</span></p>
 <p>上式问题称为<code>广义拉格朗日函数的极大极小问题</code>。</p>
 <p>可以将广义拉格朗日函数的极大极小问题表示为约束最优化问题：</p>
-<p>$$ \max_{\alpha,\beta}{\theta<em>D(\alpha,\beta)} = \max</em>{\alpha,\beta}{\min_{x}{L(x,\alpha,\beta)}} $$</p>
-<p>$$ s.t. \quad \alpha_i \geq 0, i = 1,2,\cdots,k $$</p>
+<p><span class="math">\[ \max_{\alpha,\beta}{\theta_D(\alpha,\beta)} = \max_{\alpha,\beta}{\min_{x}{L(x,\alpha,\beta)}} \]</span></p>
+<p><span class="math">\[ s.t. \quad \alpha_i \geq 0, i = 1,2,\cdots,k \]</span></p>
 <p>上式所列约束最优化问题称为原始问题的<code>对偶问题</code>。定义对偶问题的最优值为：</p>
-<p>$$ d^\ast = \max_{\alpha,\beta:\alpha_i \geq 0}{\theta_D(\alpha,\beta)} $$</p>
-<h1 id="u539F_u59CB_u95EE_u9898_u4E0E_u5BF9_u5076_u95EE_u9898_u7684_u5173_u7CFB"><a href="#u539F_u59CB_u95EE_u9898_u4E0E_u5BF9_u5076_u95EE_u9898_u7684_u5173_u7CFB" class="headerlink" title="原始问题与对偶问题的关系"></a>原始问题与对偶问题的关系</h1><p><strong>定理1</strong> 若原始问题与对偶问题都有最优值，则</p>
-<p>$$ d^\ast = \max_{\alpha,\beta:\alpha<em>i \geq 0}{\min</em>{x}{L(x,\alpha,\beta)}} $$<br>$$ \leq $$<br>$$ \min<em>{x}{\max</em>{\alpha,\beta:\alpha_i \geq 0}{L(x,\alpha,\beta)}} = p^\ast $$</p>
-<p>在某些条件下，原始问题与对偶问题的最优值相等，即$d^\ast = p^\ast$。这时我们可以用解对偶问题替代解原始问题。我们不加证明地叙述如下定理结论。</p>
-<p><strong>定理2</strong> 考虑原始问题和对偶问题。假设函数$f(x)$和$c_i(x)$是凸函数，$h_j(x)$是仿射函数（<em>即一阶多项式函数</em>$Ax+b$），并且假设不等式约束$c_i(x)$是严格可行的（$\exists x\forall i \space c_i(x)&lt;0$），则存在$x^\ast$,$\alpha^\ast$,$\beta^\ast$，使得$x^\ast$是原始问题的解，$\alpha^\ast$,$\beta^\ast$是对偶问题的解，并且</p>
-<p>$$ p^\ast = d^\ast = L(x^\ast, \alpha^\ast, \beta^\ast) $$</p>
-<p><strong>定理3</strong> 对原始问题和对偶问题，假设函数$f(x)$和$c_i(x)$是凸函数，$h\_j(x)$是仿射函数，并且假设不等式约束$c_i(x)$是严格可行的，则$x^\ast$和$\alpha^\ast$,$\beta^\ast$分别是原始问题和对偶问题的解的充分必要条件是$x^\ast$,$\alpha^\ast$,$\beta^\ast$满足如下<strong>Karush-Kuhn-Tucker(KKT)条件</strong>：</p>
-<p>$$ \nabla_x L(x^\ast, \alpha^\ast, \beta^\ast) = 0 $$</p>
-<p>$$ \nabla_\alpha L(x^\ast, \alpha^\ast, \beta^\ast) = 0 $$</p>
-<p>$$ \nabla_\beta L(x^\ast, \alpha^\ast, \beta^\ast) = 0 $$</p>
-<p>$$ \alpha_i^\ast c_i(x^\ast) = 0, \quad i = 1,2,\cdots,k $$</p>
-<p>$$ c_i(x^\ast) \leq 0, \quad i = 1,2,\cdots,k $$</p>
-<p>$$ \alpha_i^\ast \geq 0, \quad i = 1,2,\cdots,k $$</p>
-<p>$$ h_j(x^\ast) = 0, \quad j = 1,2,\cdots,l $$</p>
-<p>特别指出，$\alpha_i^\ast c_i(x^\ast) = 0$称为KKT的<strong>对偶互补条件</strong>。由此条件可知：<strong>若$\alpha_i^\ast &gt; 0$，则$c_i(x^\ast) = 0$</strong>。</p>
+<p><span class="math">\[ d^\ast = \max_{\alpha,\beta:\alpha_i \geq 0}{\theta_D(\alpha,\beta)} \]</span></p>
+<h1 id="原始问题与对偶问题的关系">原始问题与对偶问题的关系</h1>
+<p><strong>定理1</strong> 若原始问题与对偶问题都有最优值，则</p>
+<p><span class="math">\[ d^\ast = \max_{\alpha,\beta:\alpha_i \geq 0}{\min_{x}{L(x,\alpha,\beta)}} \]</span> <span class="math">\[ \leq \]</span> <span class="math">\[ \min_{x}{\max_{\alpha,\beta:\alpha_i \geq 0}{L(x,\alpha,\beta)}} = p^\ast \]</span></p>
+<p>在某些条件下，原始问题与对偶问题的最优值相等，即<span class="math">\(d^\ast = p^\ast\)</span>。这时我们可以用解对偶问题替代解原始问题。我们不加证明地叙述如下定理结论。</p>
+<p><strong>定理2</strong> 考虑原始问题和对偶问题。假设函数<span class="math">\(f(x)\)</span>和<span class="math">\(c\_i(x)\)</span>是凸函数，<span class="math">\(h\_j(x)\)</span>是仿射函数（<em>即一阶多项式函数</em><span class="math">\(Ax+b\)</span>），并且假设不等式约束<span class="math">\(c\_i(x)\)</span>是严格可行的（<span class="math">\(\exists x\forall i \space c_i(x)&lt;0\)</span>），则存在<span class="math">\(x^\ast\)</span>,<span class="math">\(\alpha^\ast\)</span>,<span class="math">\(\beta^\ast\)</span>，使得<span class="math">\(x^\ast\)</span>是原始问题的解，<span class="math">\(\alpha^\ast\)</span>,<span class="math">\(\beta^\ast\)</span>是对偶问题的解，并且</p>
+<p><span class="math">\[ p^\ast = d^\ast = L(x^\ast, \alpha^\ast, \beta^\ast) \]</span></p>
+<p><strong>定理3</strong> 对原始问题和对偶问题，假设函数<span class="math">\(f(x)\)</span>和<span class="math">\(c\_i(x)\)</span>是凸函数，<span class="math">\(h\\_j(x)\)</span>是仿射函数，并且假设不等式约束<span class="math">\(c\_i(x)\)</span>是严格可行的，则<span class="math">\(x^\ast\)</span>和<span class="math">\(\alpha^\ast\)</span>,<span class="math">\(\beta^\ast\)</span>分别是原始问题和对偶问题的解的充分必要条件是<span class="math">\(x^\ast\)</span>,<span class="math">\(\alpha^\ast\)</span>,<span class="math">\(\beta^\ast\)</span>满足如下<strong>Karush-Kuhn-Tucker(KKT)条件</strong>：</p>
+<p><span class="math">\[ \nabla_x L(x^\ast, \alpha^\ast, \beta^\ast) = 0 \]</span></p>
+<p><span class="math">\[ \nabla_\alpha L(x^\ast, \alpha^\ast, \beta^\ast) = 0 \]</span></p>
+<p><span class="math">\[ \nabla_\beta L(x^\ast, \alpha^\ast, \beta^\ast) = 0 \]</span></p>
+<p><span class="math">\[ \alpha_i^\ast c_i(x^\ast) = 0, \quad i = 1,2,\cdots,k \]</span></p>
+<p><span class="math">\[ c_i(x^\ast) \leq 0, \quad i = 1,2,\cdots,k \]</span></p>
+<p><span class="math">\[ \alpha_i^\ast \geq 0, \quad i = 1,2,\cdots,k \]</span></p>
+<p><span class="math">\[ h_j(x^\ast) = 0, \quad j = 1,2,\cdots,l \]</span></p>
+<p>特别指出，<span class="math">\(\alpha\_i^\ast c\_i(x^\ast) = 0\)</span>称为KKT的<strong>对偶互补条件</strong>。由此条件可知：<strong>若<span class="math">\(\alpha_i^\ast &gt; 0\)</span>，则<span class="math">\(c_i(x^\ast) = 0\)</span></strong>。</p>
 
       
     </div>
@@ -519,7 +559,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u539F_u59CB_u95EE_u9898"><span class="nav-number">1.</span> <span class="nav-text">原始问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5BF9_u5076_u95EE_u9898"><span class="nav-number">2.</span> <span class="nav-text">对偶问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u539F_u59CB_u95EE_u9898_u4E0E_u5BF9_u5076_u95EE_u9898_u7684_u5173_u7CFB"><span class="nav-number">3.</span> <span class="nav-text">原始问题与对偶问题的关系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原始问题"><span class="nav-number">1.</span> <span class="nav-text">原始问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对偶问题"><span class="nav-number">2.</span> <span class="nav-text">对偶问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原始问题与对偶问题的关系"><span class="nav-number">3.</span> <span class="nav-text">原始问题与对偶问题的关系</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

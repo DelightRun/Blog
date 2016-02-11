@@ -161,7 +161,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -197,9 +197,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -326,65 +354,75 @@
 <p>内容摘自《矩阵论简明教程》（科学出版社）一书。</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="u5E7F_u4E49_u9006_u77E9_u9635_u7684_u6982_u5FF5"><a href="#u5E7F_u4E49_u9006_u77E9_u9635_u7684_u6982_u5FF5" class="headerlink" title="广义逆矩阵的概念"></a>广义逆矩阵的概念</h1><p><strong>定义</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}$。如果 $\boldsymbol{X} \in \mathbf{C}^{n \times m}$满足下列四个<strong>Penrose方程</strong></p>
-<ol>
-<li>$\boldsymbol{AXA} = \boldsymbol{A}$</li>
-<li>$\boldsymbol{XAX} = \boldsymbol{X}$</li>
-<li>$(\boldsymbol{AX})^H = \boldsymbol{AX}$</li>
-<li>$(\boldsymbol{XA})^H = \boldsymbol{XA}$</li>
+<h1 id="广义逆矩阵的概念">广义逆矩阵的概念</h1>
+<p><strong>定义</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}\)</span>。如果 <span class="math">\(\boldsymbol{X} \in \mathbf{C}^{n \times m}\)</span>满足下列四个<strong>Penrose方程</strong></p>
+<ol style="list-style-type: decimal">
+<li><span class="math">\(\boldsymbol{AXA} = \boldsymbol{A}\)</span></li>
+<li><span class="math">\(\boldsymbol{XAX} = \boldsymbol{X}\)</span></li>
+<li><span class="math">\((\boldsymbol{AX})^H = \boldsymbol{AX}\)</span></li>
+<li><span class="math">\((\boldsymbol{XA})^H = \boldsymbol{XA}\)</span></li>
 </ol>
-<p>的某几个或全部，则称 $\boldsymbol{X}$ 是 $\boldsymbol{A}$ 的<strong>广义逆矩阵</strong>。满足全部四个方程的广义逆矩阵 $\boldsymbol{X}$ 称为 $\boldsymbol{A}$ 的<br><strong>Moore-Penrose逆</strong>。</p>
+<p>的某几个或全部，则称 <span class="math">\(\boldsymbol{X}\)</span> 是 <span class="math">\(\boldsymbol{A}\)</span> 的<strong>广义逆矩阵</strong>。满足全部四个方程的广义逆矩阵 <span class="math">\(\boldsymbol{X}\)</span> 称为 <span class="math">\(\boldsymbol{A}\)</span> 的 <strong>Moore-Penrose逆</strong>。</p>
 <blockquote>
-<p>显然，如果 $\boldsymbol{A}$ 是可逆矩阵，则 $\boldsymbol{X} = \boldsymbol{A}^{-1}$ 满足四个Penrose方程。</p>
+<p>显然，如果 <span class="math">\(\boldsymbol{A}\)</span> 是可逆矩阵，则 <span class="math">\(\boldsymbol{X} = \boldsymbol{A}^{-1}\)</span> 满足四个Penrose方程。</p>
 </blockquote>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}$，则 $\boldsymbol{A}$ 的Moore-Penrose逆存在且唯一。</p>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}\)</span>，则 <span class="math">\(\boldsymbol{A}\)</span> 的Moore-Penrose逆存在且唯一。</p>
 <blockquote>
-<p>注意：只要 $\boldsymbol{A}$ 不是可逆矩阵，则除了Moore-Penrose逆以外的其他14类广义逆矩阵都不是唯一的。</p>
+<p>注意：只要 <span class="math">\(\boldsymbol{A}\)</span> 不是可逆矩阵，则除了Moore-Penrose逆以外的其他14类广义逆矩阵都不是唯一的。</p>
 </blockquote>
-<p><strong>定义</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}$。若 $\boldsymbol{X} \in \mathbf{C}^{n \times m}$ 满足Penrose方程中的第$(i),(j),\cdots,(l)$<br>等方程，则称 $\boldsymbol{X}$ 为 $\boldsymbol{A}$ 的 ${\boldsymbol{i},\boldsymbol{j},\cdots,\boldsymbol{l}}$ <strong>逆</strong>，记为 $$A^{(i,j,\cdots,l)}$$，<br>其全体记为$$\boldsymbol{A}{i,j,\cdots,l}$$。$\boldsymbol{A}$的唯一的Moore-Penrose逆记为 $\boldsymbol{A}^{+}$，也称之为 $\boldsymbol{A}$ 的<strong>加号逆</strong>。</p>
-<h1 id="u7531_7B1_7D_u9006_u6784_u9020_u5176_u4ED6_u5E7F_u4E49_u9006_u77E9_u9635"><a href="#u7531_7B1_7D_u9006_u6784_u9020_u5176_u4ED6_u5E7F_u4E49_u9006_u77E9_u9635" class="headerlink" title="由{1}逆构造其他广义逆矩阵"></a>由{1}逆构造其他广义逆矩阵</h1><p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}$，$\boldsymbol{Y}, \boldsymbol{Z} \in A{1}$，记 $\boldsymbol{X} = \boldsymbol{YAZ}$，则 $\boldsymbol{X} \in A{1,2}$</p>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}$，$$(\boldsymbol{A}^H\boldsymbol{A})^{(1)} \in (A^HA){1}$$，$$(\boldsymbol{A}\boldsymbol{A}^H)^{(1)} \in (AA^H){1}$$，则</p>
-<p>$$ \boldsymbol{Y} = (\boldsymbol{A}^H\boldsymbol{A})^{(1)}\boldsymbol{A}^H \in A{1,2,3}, \quad \boldsymbol{Z} = \boldsymbol{A}^H(\boldsymbol{A}\boldsymbol{A}^H)^{(1)} \in A{1,2,4} $$</p>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}$，且$\mathbf{A}^{(1,3)} \in A{1,3}, \boldsymbol{A}^{(1,4)} \in A{1,4}$，则</p>
-<p>$$ \boldsymbol{A}^{+} = \boldsymbol{A}^{(1,4)}\boldsymbol{A}\boldsymbol{A}^{(1,3)} $$</p>
-<h1 id="Moore-Penrose_u9006_24_5Cboldsymbol_7BA_7D_5E_7B+_7D_24"><a href="#Moore-Penrose_u9006_24_5Cboldsymbol_7BA_7D_5E_7B+_7D_24" class="headerlink" title="Moore-Penrose逆$\boldsymbol{A}^{+}$"></a>Moore-Penrose逆$\boldsymbol{A}^{+}$</h1><blockquote>
+<p><strong>定义</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}\)</span>。若 <span class="math">\(\boldsymbol{X} \in \mathbf{C}^{n \times m}\)</span> 满足Penrose方程中的第<span class="math">\((i),(j),\cdots,(l)\)</span> 等方程，则称 <span class="math">\(\boldsymbol{X}\)</span> 为 <span class="math">\(\boldsymbol{A}\)</span> 的 <span class="math">\(\{\boldsymbol{i},\boldsymbol{j},\cdots,\boldsymbol{l}\}\)</span> <strong>逆</strong>，记为 <span class="math">\[A^{(i,j,\cdots,l)}\]</span>， 其全体记为<span class="math">\[\boldsymbol{A}\{i,j,\cdots,l\}\]</span>。<span class="math">\(\boldsymbol{A}\)</span>的唯一的Moore-Penrose逆记为 <span class="math">\(\boldsymbol{A}^{+}\)</span>，也称之为 <span class="math">\(\boldsymbol{A}\)</span> 的<strong>加号逆</strong>。</p>
+<h1 id="由1逆构造其他广义逆矩阵">由{1}逆构造其他广义逆矩阵</h1>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}\)</span>，<span class="math">\(\boldsymbol{Y}, \boldsymbol{Z} \in A\{1\}\)</span>，记 <span class="math">\(\boldsymbol{X} = \boldsymbol{YAZ}\)</span>，则 <span class="math">\(\boldsymbol{X} \in A\{1,2\}\)</span></p>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}\)</span>，<span class="math">\[(\boldsymbol{A}^H\boldsymbol{A})^{(1)} \in (A^HA)\{1\}\]</span>，<span class="math">\[(\boldsymbol{A}\boldsymbol{A}^H)^{(1)} \in (AA^H)\{1\}\]</span>，则</p>
+<p><span class="math">\[ \boldsymbol{Y} = (\boldsymbol{A}^H\boldsymbol{A})^{(1)}\boldsymbol{A}^H \in A\{1,2,3\}, \quad \boldsymbol{Z} = \boldsymbol{A}^H(\boldsymbol{A}\boldsymbol{A}^H)^{(1)} \in A\{1,2,4\} \]</span></p>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}\)</span>，且<span class="math">\(\mathbf{A}^{(1,3)} \in A\{1,3\}, \boldsymbol{A}^{(1,4)} \in A\{1,4\}\)</span>，则</p>
+<p><span class="math">\[ \boldsymbol{A}^{+} = \boldsymbol{A}^{(1,4)}\boldsymbol{A}\boldsymbol{A}^{(1,3)} \]</span></p>
+<h1 id="moore-penrose逆boldsymbola">Moore-Penrose逆<span class="math">\(\boldsymbol{A}^{+}\)</span></h1>
+<blockquote>
 <p>Moore-Penrose逆毋庸置疑是所有矩阵广义逆中最重要的一种，因此下面我们给出它的性质、两种求法和在解方程中的重要应用</p>
 </blockquote>
-<h2 id="u6027_u8D28"><a href="#u6027_u8D28" class="headerlink" title="性质"></a>性质</h2><p>设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}$，则</p>
-<ol>
-<li>$(\boldsymbol{A}^{+})^{+} = \boldsymbol{A}$</li>
-<li>$(\boldsymbol{A}^{+})^H = (\boldsymbol{A}^H)^{+}, (\boldsymbol{A}^{+})^T = (\boldsymbol{A}^T)^{+}$</li>
-<li>$(\lambda\boldsymbol{A})^{+} = \lambda^{+}\boldsymbol{A}^{+}, \lambda \in \mathbf{C}$</li>
-<li>$\operatorname{rank}{\boldsymbol{A}^{+}} = \operatorname{rank}{\boldsymbol{A}}$</li>
-<li>$\operatorname{rank}{\boldsymbol{A}\boldsymbol{A}^{+}} = \operatorname{rank}{\boldsymbol{A}^{+}\boldsymbol{A}} = \operatorname{rank}{\boldsymbol{A}}$</li>
-<li>$\boldsymbol{A}^{+} = (\boldsymbol{A}^H\boldsymbol{A})^{+}\boldsymbol{A}^H = \boldsymbol{A}^H(\boldsymbol{A}\boldsymbol{A}^H)^{+}$</li>
-<li>$(\boldsymbol{A}^H\boldsymbol{A})^{+} = \boldsymbol{A}^{+}(\boldsymbol{A}^H)^{+}, (\boldsymbol{A}\boldsymbol{A}^H)^{+} = (\boldsymbol{A}^H)^{+}\boldsymbol{A}^{+}$</li>
-<li>当$\boldsymbol{U}$和$\boldsymbol{V}$分别是$m$阶和$n$阶酉矩阵时，有</li>
+<h2 id="性质">性质</h2>
+<p>设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}\)</span>，则</p>
+<ol style="list-style-type: decimal">
+<li><span class="math">\((\boldsymbol{A}^{+})^{+} = \boldsymbol{A}\)</span></li>
+<li><span class="math">\((\boldsymbol{A}^{+})^H = (\boldsymbol{A}^H)^{+}, (\boldsymbol{A}^{+})^T = (\boldsymbol{A}^T)^{+}\)</span></li>
+<li><span class="math">\((\lambda\boldsymbol{A})^{+} = \lambda^{+}\boldsymbol{A}^{+}, \lambda \in \mathbf{C}\)</span></li>
+<li><span class="math">\(\operatorname{rank}{\boldsymbol{A}^{+}} = \operatorname{rank}{\boldsymbol{A}}\)</span></li>
+<li><span class="math">\(\operatorname{rank}{\boldsymbol{A}\boldsymbol{A}^{+}} = \operatorname{rank}{\boldsymbol{A}^{+}\boldsymbol{A}} = \operatorname{rank}{\boldsymbol{A}}\)</span></li>
+<li><span class="math">\(\boldsymbol{A}^{+} = (\boldsymbol{A}^H\boldsymbol{A})^{+}\boldsymbol{A}^H = \boldsymbol{A}^H(\boldsymbol{A}\boldsymbol{A}^H)^{+}\)</span></li>
+<li><span class="math">\((\boldsymbol{A}^H\boldsymbol{A})^{+} = \boldsymbol{A}^{+}(\boldsymbol{A}^H)^{+}, (\boldsymbol{A}\boldsymbol{A}^H)^{+} = (\boldsymbol{A}^H)^{+}\boldsymbol{A}^{+}\)</span></li>
+<li>当<span class="math">\(\boldsymbol{U}\)</span>和<span class="math">\(\boldsymbol{V}\)</span>分别是<span class="math">\(m\)</span>阶和<span class="math">\(n\)</span>阶酉矩阵时，有</li>
 </ol>
-<p>$$ (\boldsymbol{UAV})^{+} = \boldsymbol{V}^H\boldsymbol{A}^{+}\boldsymbol{U}^H $$</p>
-<ol>
-<li>$\boldsymbol{A}\boldsymbol{A}^{+} = \boldsymbol{I}_m \Leftrightarrow \operatorname{rank}{\boldsymbol{A}} = m$</li>
-<li>$\boldsymbol{A}^{+}\boldsymbol{A} = \boldsymbol{I}_n \Leftrightarrow \operatorname{rank}{\boldsymbol{A}} = n$</li>
+<p><span class="math">\[ (\boldsymbol{UAV})^{+} = \boldsymbol{V}^H\boldsymbol{A}^{+}\boldsymbol{U}^H \]</span></p>
+<ol start="9" style="list-style-type: decimal">
+<li><span class="math">\(\boldsymbol{A}\boldsymbol{A}^{+} = \boldsymbol{I}\_m \Leftrightarrow \operatorname{rank}{\boldsymbol{A}} = m\)</span></li>
+<li><span class="math">\(\boldsymbol{A}^{+}\boldsymbol{A} = \boldsymbol{I}\_n \Leftrightarrow \operatorname{rank}{\boldsymbol{A}} = n\)</span></li>
 </ol>
-<h2 id="u4E24_u79CD_u5E38_u7528_u7B97_u6CD5"><a href="#u4E24_u79CD_u5E38_u7528_u7B97_u6CD5" class="headerlink" title="两种常用算法"></a>两种常用算法</h2><h3 id="u4F7F_u7528SVD"><a href="#u4F7F_u7528SVD" class="headerlink" title="使用SVD"></a>使用SVD</h3><p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}，\boldsymbol{b} \in \mathbf{C}^{m}$，且 $\boldsymbol{A}$ 的SVD为</p>
-<p>$$ \boldsymbol{A} = \boldsymbol{U} \begin{pmatrix} \boldsymbol{\Sigma} &amp; \boldsymbol{O} \\ \boldsymbol{O} &amp; \boldsymbol{O} \end{pmatrix} \boldsymbol{V}^H $$</p>
+<h2 id="两种常用算法">两种常用算法</h2>
+<h3 id="使用svd">使用SVD</h3>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}，\boldsymbol{b} \in \mathbf{C}^{m}\)</span>，且 <span class="math">\(\boldsymbol{A}\)</span> 的SVD为</p>
+<p><span class="math">\[ \boldsymbol{A} = \boldsymbol{U} \begin{pmatrix} \boldsymbol{\Sigma} &amp; \boldsymbol{O} \\\ \boldsymbol{O} &amp; \boldsymbol{O} \end{pmatrix} \boldsymbol{V}^H \]</span></p>
 <p>则</p>
-<p>$$ \boldsymbol{A}^{+} = \boldsymbol{V} \begin{pmatrix} \boldsymbol{\Sigma}^{-1} &amp; \boldsymbol{O} \\ \boldsymbol{O} &amp; \boldsymbol{O} \end{pmatrix} \boldsymbol{U}^H $$</p>
-<h3 id="u4F7F_u7528_u6EE1_u79E9_u5206_u89E3"><a href="#u4F7F_u7528_u6EE1_u79E9_u5206_u89E3" class="headerlink" title="使用满秩分解"></a>使用满秩分解</h3><p><strong>定理</strong>&nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}_r(r \gt 0)$，且 $\mathbf{A}$ 的满秩分解为</p>
-<p>$$ \boldsymbol{A} = \boldsymbol{FG} \quad (\boldsymbol{F} \in \mathbf{C}^{m \times r}<em>{r}, \boldsymbol{G} \in \mathbf{C}^{r \times n}</em>{r}) $$</p>
+<p><span class="math">\[ \boldsymbol{A}^{+} = \boldsymbol{V} \begin{pmatrix} \boldsymbol{\Sigma}^{-1} &amp; \boldsymbol{O} \\\ \boldsymbol{O} &amp; \boldsymbol{O} \end{pmatrix} \boldsymbol{U}^H \]</span></p>
+<h3 id="使用满秩分解">使用满秩分解</h3>
+<p><strong>定理</strong>  设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}\_r(r \gt 0)\)</span>，且 <span class="math">\(\mathbf{A}\)</span> 的满秩分解为</p>
+<p><span class="math">\[ \boldsymbol{A} = \boldsymbol{FG} \quad (\boldsymbol{F} \in \mathbf{C}^{m \times r}_{r}, \boldsymbol{G} \in \mathbf{C}^{r \times n}_{r}) \]</span></p>
 <p>则</p>
-<p>$$ \boldsymbol{A}^{+} = \boldsymbol{G}^H(\boldsymbol{G}\boldsymbol{G}^H)^{-1}(\boldsymbol{F}^H\boldsymbol{F})^{-1}\boldsymbol{F}^H $$</p>
-<h2 id="u901A_u8FC7Moore-Penrose_u9006_u89E3_u65B9_u7A0B"><a href="#u901A_u8FC7Moore-Penrose_u9006_u89E3_u65B9_u7A0B" class="headerlink" title="通过Moore-Penrose逆解方程"></a>通过Moore-Penrose逆解方程</h2><p>设 $\boldsymbol{A} \in \mathbf{C}^{m \times n}$，有线性方程组 $\boldsymbol{Ax} = \boldsymbol{b}$，则有如下结论：</p>
-<ol>
-<li>$\boldsymbol{Ax} = \boldsymbol{b}$有解（相容） $\Leftrightarrow$ $\boldsymbol{AA}^{+}\boldsymbol{b} = \boldsymbol{b}$</li>
-<li>$\boldsymbol{x} = \boldsymbol{A}^{+}\boldsymbol{b} + (\boldsymbol{I} - \boldsymbol{A}^{+}\boldsymbol{A})\boldsymbol{y} (\boldsymbol{y} \in \mathbf{C}^{n}任意)$是相容方程组<br>$\boldsymbol{Ax} = \boldsymbol{b}$的<strong>通解</strong>，或是矛盾方程组$\boldsymbol{Ax} = \boldsymbol{b}$的<strong>全部最小二乘解</strong></li>
-<li>$\boldsymbol{x}_0 = \boldsymbol{A}^{+}\boldsymbol{b}$ 是相容方程组 $\boldsymbol{Ax} = \boldsymbol{b}$的<strong>唯一极小范数解</strong>，或是矛盾方程组$\boldsymbol{Ax} = \boldsymbol{b}$<br>的<strong>唯一极小范数最小二乘解</strong></li>
+<p><span class="math">\[ \boldsymbol{A}^{+} = \boldsymbol{G}^H(\boldsymbol{G}\boldsymbol{G}^H)^{-1}(\boldsymbol{F}^H\boldsymbol{F})^{-1}\boldsymbol{F}^H \]</span></p>
+<h2 id="通过moore-penrose逆解方程">通过Moore-Penrose逆解方程</h2>
+<p>设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}\)</span>，有线性方程组 <span class="math">\(\boldsymbol{Ax} = \boldsymbol{b}\)</span>，则有如下结论：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math">\(\boldsymbol{Ax} = \boldsymbol{b}\)</span>有解（相容） <span class="math">\(\Leftrightarrow\)</span> <span class="math">\(\boldsymbol{AA}^{+}\boldsymbol{b} = \boldsymbol{b}\)</span></li>
+<li><span class="math">\(\boldsymbol{x} = \boldsymbol{A}^{+}\boldsymbol{b} + (\boldsymbol{I} - \boldsymbol{A}^{+}\boldsymbol{A})\boldsymbol{y} (\boldsymbol{y} \in \mathbf{C}^{n}任意)\)</span>是相容方程组 <span class="math">\(\boldsymbol{Ax} = \boldsymbol{b}\)</span>的<strong>通解</strong>，或是矛盾方程组<span class="math">\(\boldsymbol{Ax} = \boldsymbol{b}\)</span>的<strong>全部最小二乘解</strong></li>
+<li><span class="math">\(\boldsymbol{x}\_0 = \boldsymbol{A}^{+}\boldsymbol{b}\)</span> 是相容方程组 <span class="math">\(\boldsymbol{Ax} = \boldsymbol{b}\)</span>的<strong>唯一极小范数解</strong>，或是矛盾方程组<span class="math">\(\boldsymbol{Ax} = \boldsymbol{b}\)</span> 的<strong>唯一极小范数最小二乘解</strong></li>
 </ol>
 <p>简而言之，我们始终可以通过：</p>
-<p>$$ \boldsymbol{x}_0 = \boldsymbol{A}^{+}\boldsymbol{b} $$</p>
-<p>来求线性方程组$\boldsymbol{Ax} = \boldsymbol{b}$的<strong>唯一极小范数（最小二乘）解</strong>。</p>
-<h2 id="Matlab_u547D_u4EE4"><a href="#Matlab_u547D_u4EE4" class="headerlink" title="Matlab命令"></a>Matlab命令</h2><pre><code>pinv
-</code></pre><h1 id="Drazin_u9006"><a href="#Drazin_u9006" class="headerlink" title="Drazin逆"></a>Drazin逆</h1>
+<p><span class="math">\[ \boldsymbol{x}_0 = \boldsymbol{A}^{+}\boldsymbol{b} \]</span></p>
+<p>来求线性方程组<span class="math">\(\boldsymbol{Ax} = \boldsymbol{b}\)</span>的<strong>唯一极小范数（最小二乘）解</strong>。</p>
+<h2 id="matlab命令">Matlab命令</h2>
+<pre><code>pinv</code></pre>
+<h1 id="drazin逆">Drazin逆</h1>
+
       
     </div>
 
@@ -560,7 +598,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5E7F_u4E49_u9006_u77E9_u9635_u7684_u6982_u5FF5"><span class="nav-number">1.</span> <span class="nav-text">广义逆矩阵的概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u7531_7B1_7D_u9006_u6784_u9020_u5176_u4ED6_u5E7F_u4E49_u9006_u77E9_u9635"><span class="nav-number">2.</span> <span class="nav-text">由{1}逆构造其他广义逆矩阵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Moore-Penrose_u9006_24_5Cboldsymbol_7BA_7D_5E_7B+_7D_24"><span class="nav-number">3.</span> <span class="nav-text">Moore-Penrose逆$\boldsymbol{A}^{+}$</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u6027_u8D28"><span class="nav-number">3.1.</span> <span class="nav-text">性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4E24_u79CD_u5E38_u7528_u7B97_u6CD5"><span class="nav-number">3.2.</span> <span class="nav-text">两种常用算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F7F_u7528SVD"><span class="nav-number">3.2.1.</span> <span class="nav-text">使用SVD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F7F_u7528_u6EE1_u79E9_u5206_u89E3"><span class="nav-number">3.2.2.</span> <span class="nav-text">使用满秩分解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u901A_u8FC7Moore-Penrose_u9006_u89E3_u65B9_u7A0B"><span class="nav-number">3.3.</span> <span class="nav-text">通过Moore-Penrose逆解方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matlab_u547D_u4EE4"><span class="nav-number">3.4.</span> <span class="nav-text">Matlab命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Drazin_u9006"><span class="nav-number">4.</span> <span class="nav-text">Drazin逆</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#广义逆矩阵的概念"><span class="nav-number">1.</span> <span class="nav-text">广义逆矩阵的概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#由1逆构造其他广义逆矩阵"><span class="nav-number">2.</span> <span class="nav-text">由{1}逆构造其他广义逆矩阵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#moore-penrose逆boldsymbola"><span class="nav-number">3.</span> <span class="nav-text">Moore-Penrose逆\(\boldsymbol{A}^{+}\)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#性质"><span class="nav-number">3.1.</span> <span class="nav-text">性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两种常用算法"><span class="nav-number">3.2.</span> <span class="nav-text">两种常用算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用svd"><span class="nav-number">3.2.1.</span> <span class="nav-text">使用SVD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用满秩分解"><span class="nav-number">3.2.2.</span> <span class="nav-text">使用满秩分解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过moore-penrose逆解方程"><span class="nav-number">3.3.</span> <span class="nav-text">通过Moore-Penrose逆解方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matlab命令"><span class="nav-number">3.4.</span> <span class="nav-text">Matlab命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#drazin逆"><span class="nav-number">4.</span> <span class="nav-text">Drazin逆</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

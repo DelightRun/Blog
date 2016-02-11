@@ -155,7 +155,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -191,9 +191,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -274,42 +302,56 @@
       
         <p>LaTeX学习过程中的一些笔记 —— 数学相关</p>
 <a id="more"></a>
-<h2 id="u6570_u5B66_u6A21_u5F0F"><a href="#u6570_u5B66_u6A21_u5F0F" class="headerlink" title="数学模式"></a>数学模式</h2><h3 id="u884C_u5185_u6A21_u5F0F"><a href="#u884C_u5185_u6A21_u5F0F" class="headerlink" title="行内模式"></a>行内模式</h3><pre><code>$\lim_{n \to \infty}\sum_{k=1}^n \frac{1}{k^2}= \frac{\pi^2}{6}$
-</code></pre><p>效果如下：</p>
-<p>$\lim<em>{n \to \infty}\sum</em>{k=1}^n \frac{1}{k^2}= \frac{\pi^2}{6}$</p>
-<h3 id="u666E_u901A_u6A21_u5F0F"><a href="#u666E_u901A_u6A21_u5F0F" class="headerlink" title="普通模式"></a>普通模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;math&#125;&#10;\lim_&#123;n \to \infty&#125;\sum_&#123;k=1&#125;^n \frac&#123;1&#125;&#123;k^2&#125;= \frac&#123;\pi^2&#125;&#123;6&#125;&#10;\end&#123;math&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="数学模式">数学模式</h2>
+<h3 id="行内模式">行内模式</h3>
+<pre><code>$\lim_{n \to \infty}\sum_{k=1}^n \frac{1}{k^2}= \frac{\pi^2}{6}$</code></pre>
 <p>效果如下：</p>
-<p>$$<br>\lim<em>{n \to \infty}\sum</em>{k=1}^n \frac{1}{k^2}= \frac{\pi^2}{6}<br>$$</p>
-<h3 id="u5728_u6BB5_u843D_u5916_u663E_u793A"><a href="#u5728_u6BB5_u843D_u5916_u663E_u793A" class="headerlink" title="在段落外显示"></a>在段落外显示</h3><ul>
+<p><span class="math">\(\lim_{n \to \infty}\sum_{k=1}^n \frac{1}{k^2}= \frac{\pi^2}{6}\)</span></p>
+<h3 id="普通模式">普通模式</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;math&#125;&#10;\lim_&#123;n \to \infty&#125;\sum_&#123;k=1&#125;^n \frac&#123;1&#125;&#123;k^2&#125;= \frac&#123;\pi^2&#125;&#123;6&#125;&#10;\end&#123;math&#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><span class="math">\[
+\lim_{n \to \infty}\sum_{k=1}^n \frac{1}{k^2}= \frac{\pi^2}{6}
+\]</span></p>
+<h3 id="在段落外显示">在段落外显示</h3>
+<ul>
 <li><code>\[ TEXT \]</code></li>
 <li><code>\begin{displaymath} TEXT \end{displaymath}</code></li>
 </ul>
-<h3 id="u4E0E_u6587_u672C_u6A21_u5F0F_u7684_u533A_u522B"><a href="#u4E0E_u6587_u672C_u6A21_u5F0F_u7684_u533A_u522B" class="headerlink" title="与文本模式的区别"></a>与文本模式的区别</h3><ol>
+<h3 id="与文本模式的区别">与文本模式的区别</h3>
+<ol style="list-style-type: decimal">
 <li>大多数的空格和断行没有任何意义,而且所有的空隙要么是从相应数学 表达式中自然的生成,要么是用一些专门的命令来指定,如<code>\,</code>(小空白), <code>\quad</code>(中等空白) 或<code>\qquad</code>(大空白)。</li>
 <li>空白行是不允许的。每个公式只能为一段。</li>
-<li>每一个字母都会被认为是一个变量名,且会相应被排版为此种样式。如果 你想要在公式中排版普通的文本(直立字体和普通字距),那么你必须要 把这些文本放在\textrm{…} 命令中。</li>
+<li>每一个字母都会被认为是一个变量名,且会相应被排版为此种样式。如果 你想要在公式中排版普通的文本(直立字体和普通字距),那么你必须要 把这些文本放在 命令中。</li>
 </ol>
-<h2 id="u65B9_u7A0B_u548C_u6570_u7EC4"><a href="#u65B9_u7A0B_u548C_u6570_u7EC4" class="headerlink" title="方程和数组"></a>方程和数组</h2><h3 id="u65B9_u7A0B"><a href="#u65B9_u7A0B" class="headerlink" title="方程"></a>方程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;equation&#125;&#10;    \label&#123;maker&#125; EQUATION&#10;\end&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="方程和数组">方程和数组</h2>
+<h3 id="方程">方程</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;equation&#125;&#10;    \label&#123;maker&#125; EQUATION&#10;\end&#123;equation&#125;</span><br></pre></td></tr></table></figure>
 <p>其中<code>\label</code>是可选的，为了给方程加上编号以方便<code>\ref</code>等的引用</p>
-<h3 id="u6570_u7EC4"><a href="#u6570_u7EC4" class="headerlink" title="数组"></a>数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;array&#125;&#10;    x_&#123;11&#125; &#38; x_&#123;12&#125; &#38; \ldots \\&#13;    x_&#123;21&#125; &#38; x_&#123;22&#125; &#38; \ldots \\&#13;    \vdots &#38; \vdots &#38; \ddots&#10;\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="u5BF9_u9F50"><a href="#u5BF9_u9F50" class="headerlink" title="对齐"></a>对齐</h2><p>使用<code>&amp;</code>作为铆点进行对齐。</p>
+<h3 id="数组">数组</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;array&#125;&#10;    x_&#123;11&#125; &#38; x_&#123;12&#125; &#38; \ldots \\&#13;    x_&#123;21&#125; &#38; x_&#123;22&#125; &#38; \ldots \\&#13;    \vdots &#38; \vdots &#38; \ddots&#10;\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="对齐">对齐</h2>
+<p>使用<code>&amp;</code>作为铆点进行对齐。</p>
 <p>Example:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a^2 + b^2 &#38; = &#38; c^2&#10;a &#38; = &#38; b</span><br></pre></td></tr></table></figure>
 <p>则对齐两个方程的等号</p>
-<h2 id="u5404_u79CD_u5E0C_u814A_u5B57_u6BCD_u3001_u6570_u5B66_u7B26_u53F7_u7B49"><a href="#u5404_u79CD_u5E0C_u814A_u5B57_u6BCD_u3001_u6570_u5B66_u7B26_u53F7_u7B49" class="headerlink" title="各种希腊字母、数学符号等"></a>各种希腊字母、数学符号等</h2><p>这就不多说了，查手册就行，而且还有各种LaTeX的App可供参考</p>
-<h2 id="u590D_u6742_u8868_u8FBE_u5F0F_u4E2D_u6307_u6807_u7684_u653E_u7F6E"><a href="#u590D_u6742_u8868_u8FBE_u5F0F_u4E2D_u6307_u6807_u7684_u653E_u7F6E" class="headerlink" title="复杂表达式中指标的放置"></a>复杂表达式中指标的放置</h2><p>主要有两个环境：</p>
+<h2 id="各种希腊字母数学符号等">各种希腊字母、数学符号等</h2>
+<p>这就不多说了，查手册就行，而且还有各种LaTeX的App可供参考</p>
+<h2 id="复杂表达式中指标的放置">复杂表达式中指标的放置</h2>
+<p>主要有两个环境：</p>
 <ul>
 <li>substack环境 —— 居中对齐</li>
 <li>subarray环境 —— 左对齐</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\sum_&#123;\substack&#123;0&#60;i&#60;n \\ 1&#60;j&#60;m&#125;&#125;&#13;   P(i,j) =&#13;\sum_&#123;\begin&#123;subarray&#125;&#123;l&#125;&#13;        i\in I \\ 1&#60;j&#60;m&#13;      \end&#123;subarray&#125;&#125;&#10;   Q(i,j)</span><br></pre></td></tr></table></figure>
-<h2 id="u5B9A_u754C_u7B26_u5C3A_u5BF8_u5339_u914D"><a href="#u5B9A_u754C_u7B26_u5C3A_u5BF8_u5339_u914D" class="headerlink" title="定界符尺寸匹配"></a>定界符尺寸匹配</h2><p>主要通过在定界符左边放置<strong>成对的</strong>如下两个命令实现：</p>
+<h2 id="定界符尺寸匹配">定界符尺寸匹配</h2>
+<p>主要通过在定界符左边放置<strong>成对的</strong>如下两个命令实现：</p>
 <ul>
 <li><code>\left</code></li>
 <li><code>\right</code></li>
 </ul>
 <p>Example:</p>
-<p>$$ 1 + \left( \frac{1}{ 1-x^{2} } \right) $$</p>
+<p><span class="math">\[ 1 + \left( \frac{1}{ 1-x^{2} } \right) \]</span></p>
 <p>在必要的时候还可以通过如下四个命令调整尺寸：</p>
 <ul>
 <li><code>\big</code></li>
@@ -318,31 +360,40 @@
 <li><code>\Bigg</code></li>
 </ul>
 <p>Example：</p>
-<pre><code>\Bigg( \bigg( \Big( \big( \big) \Big) \bigg) \Bigg)
-</code></pre><p>效果如下：</p>
-<p>$$ \Bigg( \bigg( \Big( \big( \big) \Big) \bigg) \Bigg) $$</p>
-<h2 id="u865A_u4F4D"><a href="#u865A_u4F4D" class="headerlink" title="虚位"></a>虚位</h2><p>可以通过<code>\phantom</code>命令为不存在的字符留下虚位，如下面这个例子：</p>
+<pre><code>\Bigg( \bigg( \Big( \big( \big) \Big) \bigg) \Bigg)</code></pre>
+<p>效果如下：</p>
+<p><span class="math">\[ \Bigg( \bigg( \Big( \big( \big) \Big) \bigg) \Bigg) \]</span></p>
+<h2 id="虚位">虚位</h2>
+<p>可以通过<code>\phantom</code>命令为不存在的字符留下虚位，如下面这个例子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#125;^&#123;12&#125;_&#123;\phantom&#123;1&#125;6&#125;\textrm&#123;C&#125; &#10;   \qquad \textrm&#123;VS&#125; \qquad&#10;&#123;&#125;^&#123;12&#125;_&#123;6&#125;\textrm&#123;C&#125;</span><br></pre></td></tr></table></figure>
 <p>左边的使用了虚位，右边的没有使用虚位，效果如下：</p>
-<p>$$<br>{}^{12}<em>{\phantom{1}6}\textrm{C}<br>   \qquad \textrm{VS} \qquad<br>{}^{12}</em>{6}\textrm{C}<br>$$</p>
-<h2 id="u5B9A_u7406_u3001_u5B9A_u5F8B_u2026_u2026"><a href="#u5B9A_u7406_u3001_u5B9A_u5F8B_u2026_u2026" class="headerlink" title="定理、定律……"></a>定理、定律……</h2><h3 id="Usage_3A"><a href="#Usage_3A" class="headerlink" title="Usage:"></a>Usage:</h3><pre><code>￼\newtheorem{name}[counter]{text}[section]
-</code></pre><p>参量name 是用来标识“定理”的短关键字。而参数text 才是真正的“定理”名,它会在最终的文档中被打印出来。</p>
-<p>方括号中是可选参量。两者都均用来指定“定理”的编号问题。使用counter参数来指定先前声明的“定理”的name。则此新的“定理”将与先前定理统一编 号。section 参数让你来指定章节单元,而“定理”会按相应的章节层次来编号。</p>
-<p>在你的文档的导言区执行\newtheorem 命令后,你就可以在文档中使用以下命令了。</p>
+<p><span class="math">\[ 
+{}^{12}_{\phantom{1}6}\textrm{C} 
+   \qquad \textrm{VS} \qquad
+{}^{12}_{6}\textrm{C}       
+\]</span></p>
+<h2 id="定理定律">定理、定律……</h2>
+<h3 id="usage">Usage:</h3>
+<pre><code>￼\newtheorem{name}[counter]{text}[section]</code></pre>
+<p>参量name 是用来标识“定理”的短关键字。而参数text 才是真正的“定理”名,它会在最终的文档中被打印出来。方括号中是可选参量。两者都均用来指定“定理”的编号问题。使用counter参数来指定先前声明的“定理”的name。则此新的“定理”将与先前定理统一编 号。section 参数让你来指定章节单元,而“定理”会按相应的章节层次来编号。</p>
+<p>在你的文档的导言区执行命令后,你就可以在文档中使用以下命令了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;name&#125;[text]&#13;This is my interesting theorem &#10;\end&#123;name&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="u6837_u5F0F"><a href="#u6837_u5F0F" class="headerlink" title="样式"></a>样式</h3><p>使用如下命令设置定理样式：</p>
-<pre><code>\theoremstyle{style}
-</code></pre><p>其中style有如下三种：</p>
+<h3 id="样式">样式</h3>
+<p>使用如下命令设置定理样式：</p>
+<pre><code>\theoremstyle{style}</code></pre>
+<p>其中style有如下三种：</p>
 <ul>
 <li><code>definition</code> —— 标题粗体, 内容罗马体</li>
 <li><code>plain</code> —— 标题粗体,内容斜体</li>
 <li><code>remark</code> —— 标题斜体,内容罗马体</li>
 </ul>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>首先定义定理环境：</p>
+<h3 id="example">Example</h3>
+<p>首先定义定理环境：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\theoremstyle&#123;definition&#125; \newtheorem&#123;law&#125;&#123;Law&#125;&#13;\theoremstyle&#123;plain&#125;      \newtheorem&#123;jury&#125;[law]&#123;Jury&#125;&#13;\theoremstyle&#123;remark&#125;     \newtheorem*&#123;marg&#125;&#123;Margaret&#125;</span><br></pre></td></tr></table></figure>
 <p>然后在文中写定理：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;law&#125; \label&#123;law:box&#125;&#13;Don&#8217;t hide in the witness box&#13;\end&#123;law&#125;&#13;\begin&#123;jury&#125;[The Twelve]&#13;It could be you! So beware and&#13;see law \ref&#123;law:box&#125;\end&#123;jury&#125;&#13;\begin&#123;marg&#125;No, No, No\end&#123;marg&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="u5B9A_u7406_u7684_u8BC1_u660E"><a href="#u5B9A_u7406_u7684_u8BC1_u660E" class="headerlink" title="定理的证明"></a>定理的证明</h3><p>使用<code>proof</code>环境即可为定理写写证明</p>
+<h3 id="定理的证明">定理的证明</h3>
+<p>使用<code>proof</code>环境即可为定理写写证明</p>
 <p>使用<code>\qedhere</code>表明证明完毕</p>
 
       
@@ -520,7 +571,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u6570_u5B66_u6A21_u5F0F"><span class="nav-number">1.</span> <span class="nav-text">数学模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u884C_u5185_u6A21_u5F0F"><span class="nav-number">1.1.</span> <span class="nav-text">行内模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u666E_u901A_u6A21_u5F0F"><span class="nav-number">1.2.</span> <span class="nav-text">普通模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5728_u6BB5_u843D_u5916_u663E_u793A"><span class="nav-number">1.3.</span> <span class="nav-text">在段落外显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4E0E_u6587_u672C_u6A21_u5F0F_u7684_u533A_u522B"><span class="nav-number">1.4.</span> <span class="nav-text">与文本模式的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u65B9_u7A0B_u548C_u6570_u7EC4"><span class="nav-number">2.</span> <span class="nav-text">方程和数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u65B9_u7A0B"><span class="nav-number">2.1.</span> <span class="nav-text">方程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6570_u7EC4"><span class="nav-number">2.2.</span> <span class="nav-text">数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5BF9_u9F50"><span class="nav-number">3.</span> <span class="nav-text">对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5404_u79CD_u5E0C_u814A_u5B57_u6BCD_u3001_u6570_u5B66_u7B26_u53F7_u7B49"><span class="nav-number">4.</span> <span class="nav-text">各种希腊字母、数学符号等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u590D_u6742_u8868_u8FBE_u5F0F_u4E2D_u6307_u6807_u7684_u653E_u7F6E"><span class="nav-number">5.</span> <span class="nav-text">复杂表达式中指标的放置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B9A_u754C_u7B26_u5C3A_u5BF8_u5339_u914D"><span class="nav-number">6.</span> <span class="nav-text">定界符尺寸匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u865A_u4F4D"><span class="nav-number">7.</span> <span class="nav-text">虚位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B9A_u7406_u3001_u5B9A_u5F8B_u2026_u2026"><span class="nav-number">8.</span> <span class="nav-text">定理、定律……</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Usage_3A"><span class="nav-number">8.1.</span> <span class="nav-text">Usage:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6837_u5F0F"><span class="nav-number">8.2.</span> <span class="nav-text">样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">8.3.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B9A_u7406_u7684_u8BC1_u660E"><span class="nav-number">8.4.</span> <span class="nav-text">定理的证明</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数学模式"><span class="nav-number">1.</span> <span class="nav-text">数学模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#行内模式"><span class="nav-number">1.1.</span> <span class="nav-text">行内模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#普通模式"><span class="nav-number">1.2.</span> <span class="nav-text">普通模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在段落外显示"><span class="nav-number">1.3.</span> <span class="nav-text">在段落外显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与文本模式的区别"><span class="nav-number">1.4.</span> <span class="nav-text">与文本模式的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方程和数组"><span class="nav-number">2.</span> <span class="nav-text">方程和数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方程"><span class="nav-number">2.1.</span> <span class="nav-text">方程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.2.</span> <span class="nav-text">数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对齐"><span class="nav-number">3.</span> <span class="nav-text">对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种希腊字母数学符号等"><span class="nav-number">4.</span> <span class="nav-text">各种希腊字母、数学符号等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂表达式中指标的放置"><span class="nav-number">5.</span> <span class="nav-text">复杂表达式中指标的放置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定界符尺寸匹配"><span class="nav-number">6.</span> <span class="nav-text">定界符尺寸匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚位"><span class="nav-number">7.</span> <span class="nav-text">虚位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定理定律"><span class="nav-number">8.</span> <span class="nav-text">定理、定律……</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#usage"><span class="nav-number">8.1.</span> <span class="nav-text">Usage:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样式"><span class="nav-number">8.2.</span> <span class="nav-text">样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-number">8.3.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定理的证明"><span class="nav-number">8.4.</span> <span class="nav-text">定理的证明</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

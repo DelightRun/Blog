@@ -156,7 +156,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -192,9 +192,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -211,6 +239,11 @@
     
 
     
+    
+      
+      
+
+      
     
 
     
@@ -399,17 +432,20 @@
       
         
           
-            <h1 id="u534A_u7FA4"><a href="#u534A_u7FA4" class="headerlink" title="半群"></a>半群</h1><ul>
+            <h1 id="半群">半群</h1>
+<ul>
 <li>封闭性</li>
 <li>可结合性</li>
 <li>存在单位元e</li>
 </ul>
-<h1 id="u7FA4"><a href="#u7FA4" class="headerlink" title="群"></a>群</h1><ul>
+<h1 id="群">群</h1>
+<ul>
 <li><strong>是个半群</strong></li>
 <li>存在逆元</li>
 <li><em>Extra：交换律 - 交换群（Abel群）</em></li>
 </ul>
-<h1 id="u73AF"><a href="#u73AF" class="headerlink" title="环"></a>环</h1><ul>
+<h1 id="环">环</h1>
+<ul>
 <li>对加法是Abel群</li>
 <li>对乘法是半群</li>
 <li>乘法对加法可分配</li>
@@ -421,7 +457,8 @@
 <li>如果所有非零元均可逆，则称为可除环，及R{0}对乘法是个群</li>
 <li>若任意元素a均可唯一表示成不可约元素之积，则称为唯一析因整环UFD</li>
 </ul>
-<h1 id="u57DF"><a href="#u57DF" class="headerlink" title="域"></a>域</h1><ul>
+<h1 id="域">域</h1>
+<ul>
 <li><strong>是个环</strong></li>
 <li>F{0}是个Abel群</li>
 </ul>
@@ -517,9 +554,9 @@
 
       
         
-          <p>在<a href="//blog/2015/04/20/mo-shi-shi-bie-bei-xie-si-fen-lei-qi/">模式识别——贝叶斯分类器</a>一文中，我们提到贝叶斯分类器需要$P(\boldsymbol{t}\vert w_i)P(w_i)$和$P(w_i)$这两钟概率值。本文我们将介绍如何通过<code>极大似然估计</code>和<code>贝叶斯估计</code>来估计这两种概率。</p>
+          <p>在<a href="//blog/2015/04/20/mo-shi-shi-bie-bei-xie-si-fen-lei-qi/">模式识别——贝叶斯分类器</a>一文中，我们提到贝叶斯分类器需要<span class="math">\(P(\boldsymbol{t}\vert w\_i)P(w\_i)\)</span>和<span class="math">\(P(w\_i)\)</span>这两钟概率值。本文我们将介绍如何通过<code>极大似然估计</code>和<code>贝叶斯估计</code>来估计这两种概率。</p>
 <blockquote>
-<p>注意：本文针对$\boldsymbol{t}$为离散变量时的情形，对于$\boldsymbol{t}$为连续变量的情形我将在另外的博文中介绍</p>
+<p>注意：本文针对<span class="math">\(\boldsymbol{t}\)</span>为离散变量时的情形，对于<span class="math">\(\boldsymbol{t}\)</span>为连续变量的情形我将在另外的博文中介绍</p>
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/04/23/mo-shi-shi-bie-ji-da-si-ran-gu-ji-he-bei-xie-si-gu-ji/#more" rel="contents">
@@ -1099,7 +1136,7 @@
 
       
         
-          <p>以前部署网站经常使用FTP或scp方式，但这两种方式不仅操作麻烦而且有无法进行版本控制、用户权限等诸多问题。<br>使用Git我们能方便的部署网站，何乐而不为呢。</p>
+          <p>以前部署网站经常使用FTP或scp方式，但这两种方式不仅操作麻烦而且有无法进行版本控制、用户权限等诸多问题。 使用Git我们能方便的部署网站，何乐而不为呢。</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/03/26/use-git-to-deploy-website/#more" rel="contents">
               阅读全文 &raquo;
@@ -1235,7 +1272,7 @@
 
       
         
-          <p>IntelliJ IDEA是一款非常优秀的Java IDE，很多人认为它比Eclipse更优秀。<br>但是，在Ubuntu下安装后第一次打开，其界面只能用<strong>惨不忍睹</strong>来形容。<br>因此，我们需要对其字体进行一些基本设置。</p>
+          <p>IntelliJ IDEA是一款非常优秀的Java IDE，很多人认为它比Eclipse更优秀。 但是，在Ubuntu下安装后第一次打开，其界面只能用<strong>惨不忍睹</strong>来形容。 因此，我们需要对其字体进行一些基本设置。</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/10/22/setup-intellijidea/#more" rel="contents">
               阅读全文 &raquo;
@@ -1610,35 +1647,5 @@
   
 
 
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 </body>
 </html>

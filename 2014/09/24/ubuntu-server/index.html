@@ -161,7 +161,7 @@ LAMP = Linux + Apache + MySQL + PHP">
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -197,9 +197,37 @@ LAMP = Linux + Apache + MySQL + PHP">
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -314,23 +342,28 @@ LAMP = Linux + Apache + MySQL + PHP">
 <p>LAMP = Linux + Apache + MySQL + PHP</p>
 </blockquote>
 <a id="more"></a>
-<p>##安装Apache2</p>
+<h2 id="安装apache2">安装Apache2</h2>
 <p>搭建LAMP服务器第一步是安装Apache2，在Ubuntu下简单到只需如下一行命令：</p>
-<pre><code>$ sudo apt-get install apache2
-</code></pre><p>##安装PHP</p>
+<pre><code>$ sudo apt-get install apache2</code></pre>
+<h2 id="安装php">安装PHP</h2>
 <p>安装PHP需要安装两个包，一是<code>PHP5</code>本身，二是Apache2的<code>PHP模块</code>，安装命令如下：</p>
-<pre><code>$ sudo apt-get install php5 libapache2-mod-php5
-</code></pre><p>##安装MySQL</p>
-<p>安装MySQL需要安装服务端程序<code>mysql-server</code>、PHP的MySQL扩展<code>php5-mysql</code>，<br>同时一般还会安装MySQL的命令行客户端<code>mysql-client</code>：</p>
-<pre><code>$ sudo apt-get install mysql-server mysql-client php5-mysql
-</code></pre><p><strong>注意</strong>：安装过程中的<code>root</code>账户密码你可以随便填，反正第一次用这个密码你一定无法登陆，<br>下面我们将叙述如何解决该问题</p>
-<p>##配置MySQL的root密码</p>
+<pre><code>$ sudo apt-get install php5 libapache2-mod-php5</code></pre>
+<h2 id="安装mysql">安装MySQL</h2>
+<p>安装MySQL需要安装服务端程序<code>mysql-server</code>、PHP的MySQL扩展<code>php5-mysql</code>， 同时一般还会安装MySQL的命令行客户端<code>mysql-client</code>：</p>
+<pre><code>$ sudo apt-get install mysql-server mysql-client php5-mysql</code></pre>
+<p><strong>注意</strong>：安装过程中的<code>root</code>账户密码你可以随便填，反正第一次用这个密码你一定无法登陆， 下面我们将叙述如何解决该问题</p>
+<h2 id="配置mysql的root密码">配置MySQL的root密码</h2>
 <p>如果你在用上述命令安装完MySQL后使用命令：</p>
-<pre><code>$ mysql -uroot -p你的密码
-</code></pre><p>一定会出现<code>error 1045</code>的错误，具体原因我也没完全搞清，有谁知道请<a href="mailto:changxu.mail@gmail.com" target="_blank" rel="external">不吝赐教</a></p>
+<pre><code>$ mysql -uroot -p你的密码</code></pre>
+<p>一定会出现<code>error 1045</code>的错误，具体原因我也没完全搞清，有谁知道请<script type="text/javascript">
+<!--
+h='&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x63;&#104;&#x61;&#110;&#x67;&#120;&#x75;&#46;&#x6d;&#x61;&#x69;&#108;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'不吝赐教'+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x4e0d;&#x541d;&#36176;&#x6559;&#32;&#40;&#x63;&#104;&#x61;&#110;&#x67;&#120;&#x75;&#46;&#x6d;&#x61;&#x69;&#108;&#32;&#x61;&#116;&#32;&#x67;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;&#x29;</noscript></p>
 <p>解决方案是，首先查看文件<code>/etc/mysql/debian.cnf</code>文件：</p>
-<pre><code>$ sudo cat /etc/mysql/debian.cnf
-</code></pre><p><strong>注意</strong>：此处的<code>sudo</code>必不可少</p>
+<pre><code>$ sudo cat /etc/mysql/debian.cnf</code></pre>
+<p><strong>注意</strong>：此处的<code>sudo</code>必不可少</p>
 <p>然后会看到下面这样的内容：</p>
 <pre><code># Automatically generated for Debian scripts. DO NOT TOUCH!
 [client]
@@ -343,32 +376,32 @@ host     = localhost
 user     = debian-sys-maint
 password = 同上面那个乱七八糟的字符串
 socket   = /var/run/mysqld/mysqld.sock
-basedir  = /usr
-</code></pre><p>注意到其中的<code>user</code>和<code>password</code>两行，那边是安装过程中系统提供的默认账户密码，于是我们这样登陆：</p>
-<pre><code>$ mysql -udebian-sys-maint -p那个乱七八糟的字符串
-</code></pre><p>这时候我们就能进入MySQL的命令行管理后台，我们在此设置<code>root</code>的密码：</p>
+basedir  = /usr</code></pre>
+<p>注意到其中的<code>user</code>和<code>password</code>两行，那边是安装过程中系统提供的默认账户密码，于是我们这样登陆：</p>
+<pre><code>$ mysql -udebian-sys-maint -p那个乱七八糟的字符串</code></pre>
+<p>这时候我们就能进入MySQL的命令行管理后台，我们在此设置<code>root</code>的密码：</p>
 <pre><code>&gt; USE mysql;
-&gt; UPDATE user SET password=PASSWORD(&apos;你要设置的密码&apos;) WHERE user=&apos;root&apos;;
+&gt; UPDATE user SET password=PASSWORD(&#39;你要设置的密码&#39;) WHERE user=&#39;root&#39;;
 &gt; flush privilege;
-&gt; exit;
-</code></pre><p>这时候我们就能用<code>root</code>账户登陆MySQL</p>
-<pre><code>$ mysql -uroot -p你的root密码
-</code></pre><p>##启动Apache2</p>
+&gt; exit;</code></pre>
+<p>这时候我们就能用<code>root</code>账户登陆MySQL</p>
+<pre><code>$ mysql -uroot -p你的root密码</code></pre>
+<h2 id="启动apache2">启动Apache2</h2>
 <p>现在我们启动<code>apache2</code>服务：</p>
-<pre><code>$ sudo service apache2 start
-</code></pre><p>然后我们访问<a href="http://localhost/" target="_blank" rel="external">http://localhost/</a>，应该能看到一个网页写着：</p>
-<pre><code>It Works!
-</code></pre><p>至此，一台基于Ubuntu、功能正常、有数据库、支持PHP语言的服务器就搭建完成了，下面是附加部分</p>
-<p>##可选：安装PHPMyAdmin</p>
+<pre><code>$ sudo service apache2 start</code></pre>
+<p>然后我们访问<a href="http://localhost/" class="uri" target="_blank" rel="external">http://localhost/</a>，应该能看到一个网页写着：</p>
+<pre><code>It Works!</code></pre>
+<p>至此，一台基于Ubuntu、功能正常、有数据库、支持PHP语言的服务器就搭建完成了，下面是附加部分</p>
+<h2 id="可选安装phpmyadmin">可选：安装PHPMyAdmin</h2>
 <p>PHPMyAdmin是一款基于PHP的数据库管理网站，在Ubuntu下安装非常简单：</p>
-<pre><code>$ sudo apt-get install phpmyadmin
-</code></pre><p>然后我们将PHPMyAdmin的配置复制至apache2的配置文件夹下：</p>
+<pre><code>$ sudo apt-get install phpmyadmin</code></pre>
+<p>然后我们将PHPMyAdmin的配置复制至apache2的配置文件夹下：</p>
 <pre><code>$ sudo cp /etc/phpmyadmin/apache.conf /etc/apache2/sites-available/phpmyadmin.conf
-$ sudo ln -s /etc/apache2/sites-available/phpmyadmin.conf /etc/apache2/sites-enabled/phpmyadmin.conf
-</code></pre><p>最后重启apache2：</p>
-<pre><code>$ sudo service apache2 restart
-</code></pre><p>然后访问<a href="http://localhost/phpmyadmin/" target="_blank" rel="external">http://localhost/phpmyadmin/</a>，用你的数据库账号密码登陆</p>
-<p>###Enjoy!</p>
+$ sudo ln -s /etc/apache2/sites-available/phpmyadmin.conf /etc/apache2/sites-enabled/phpmyadmin.conf</code></pre>
+<p>最后重启apache2：</p>
+<pre><code>$ sudo service apache2 restart</code></pre>
+<p>然后访问<a href="http://localhost/phpmyadmin/" class="uri" target="_blank" rel="external">http://localhost/phpmyadmin/</a>，用你的数据库账号密码登陆</p>
+<h3 id="enjoy">Enjoy!</h3>
 
       
     </div>
@@ -545,7 +578,7 @@ $ sudo ln -s /etc/apache2/sites-available/phpmyadmin.conf /etc/apache2/sites-ena
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装apache2"><span class="nav-number">1.</span> <span class="nav-text">安装Apache2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装php"><span class="nav-number">2.</span> <span class="nav-text">安装PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装mysql"><span class="nav-number">3.</span> <span class="nav-text">安装MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置mysql的root密码"><span class="nav-number">4.</span> <span class="nav-text">配置MySQL的root密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动apache2"><span class="nav-number">5.</span> <span class="nav-text">启动Apache2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可选安装phpmyadmin"><span class="nav-number">6.</span> <span class="nav-text">可选：安装PHPMyAdmin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#enjoy"><span class="nav-number">6.1.</span> <span class="nav-text">Enjoy!</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

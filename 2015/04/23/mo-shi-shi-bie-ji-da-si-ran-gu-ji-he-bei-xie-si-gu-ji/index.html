@@ -61,22 +61,22 @@
 
 
 
-<meta name="description" content="在模式识别——贝叶斯分类器一文中，我们提到贝叶斯分类器需要$P(\boldsymbol{t}\vert w_i)P(w_i)$和$P(w_i)$这两钟概率值。本文我们将介绍如何通过极大似然估计和贝叶斯估计来估计这两种概率。
+<meta name="description" content="在模式识别——贝叶斯分类器一文中，我们提到贝叶斯分类器需要\(P(\boldsymbol{t}\vert w\_i)P(w\_i)\)和\(P(w\_i)\)这两钟概率值。本文我们将介绍如何通过极大似然估计和贝叶斯估计来估计这两种概率。
 
-注意：本文针对$\boldsymbol{t}$为离散变量时的情形，对于$\boldsymbol{t}$为连续变量的情形我将在另外的博文中介绍">
+注意：本文针对\(\boldsymbol{t}\)为离散变量时的情形，对于\(\boldsymbol{t}\)为连续变量的情形我将在另外的博文中介绍">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模式识别——极大似然估计和贝叶斯估计（离散随机变量）">
 <meta property="og:url" content="http://changxu.wang/2015/04/23/mo-shi-shi-bie-ji-da-si-ran-gu-ji-he-bei-xie-si-gu-ji/index.html">
 <meta property="og:site_name" content="昌旭的博客">
-<meta property="og:description" content="在模式识别——贝叶斯分类器一文中，我们提到贝叶斯分类器需要$P(\boldsymbol{t}\vert w_i)P(w_i)$和$P(w_i)$这两钟概率值。本文我们将介绍如何通过极大似然估计和贝叶斯估计来估计这两种概率。
+<meta property="og:description" content="在模式识别——贝叶斯分类器一文中，我们提到贝叶斯分类器需要\(P(\boldsymbol{t}\vert w\_i)P(w\_i)\)和\(P(w\_i)\)这两钟概率值。本文我们将介绍如何通过极大似然估计和贝叶斯估计来估计这两种概率。
 
-注意：本文针对$\boldsymbol{t}$为离散变量时的情形，对于$\boldsymbol{t}$为连续变量的情形我将在另外的博文中介绍">
+注意：本文针对\(\boldsymbol{t}\)为离散变量时的情形，对于\(\boldsymbol{t}\)为连续变量的情形我将在另外的博文中介绍">
 <meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模式识别——极大似然估计和贝叶斯估计（离散随机变量）">
-<meta name="twitter:description" content="在模式识别——贝叶斯分类器一文中，我们提到贝叶斯分类器需要$P(\boldsymbol{t}\vert w_i)P(w_i)$和$P(w_i)$这两钟概率值。本文我们将介绍如何通过极大似然估计和贝叶斯估计来估计这两种概率。
+<meta name="twitter:description" content="在模式识别——贝叶斯分类器一文中，我们提到贝叶斯分类器需要\(P(\boldsymbol{t}\vert w\_i)P(w\_i)\)和\(P(w\_i)\)这两钟概率值。本文我们将介绍如何通过极大似然估计和贝叶斯估计来估计这两种概率。
 
-注意：本文针对$\boldsymbol{t}$为离散变量时的情形，对于$\boldsymbol{t}$为连续变量的情形我将在另外的博文中介绍">
+注意：本文针对\(\boldsymbol{t}\)为离散变量时的情形，对于\(\boldsymbol{t}\)为连续变量的情形我将在另外的博文中介绍">
 
 
 
@@ -161,7 +161,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -197,9 +197,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -278,27 +306,29 @@
       
 
       
-        <p>在<a href="//blog/2015/04/20/mo-shi-shi-bie-bei-xie-si-fen-lei-qi/">模式识别——贝叶斯分类器</a>一文中，我们提到贝叶斯分类器需要$P(\boldsymbol{t}\vert w_i)P(w_i)$和$P(w_i)$这两钟概率值。本文我们将介绍如何通过<code>极大似然估计</code>和<code>贝叶斯估计</code>来估计这两种概率。</p>
+        <p>在<a href="//blog/2015/04/20/mo-shi-shi-bie-bei-xie-si-fen-lei-qi/">模式识别——贝叶斯分类器</a>一文中，我们提到贝叶斯分类器需要<span class="math">\(P(\boldsymbol{t}\vert w\_i)P(w\_i)\)</span>和<span class="math">\(P(w\_i)\)</span>这两钟概率值。本文我们将介绍如何通过<code>极大似然估计</code>和<code>贝叶斯估计</code>来估计这两种概率。</p>
 <blockquote>
-<p>注意：本文针对$\boldsymbol{t}$为离散变量时的情形，对于$\boldsymbol{t}$为连续变量的情形我将在另外的博文中介绍</p>
+<p>注意：本文针对<span class="math">\(\boldsymbol{t}\)</span>为离散变量时的情形，对于<span class="math">\(\boldsymbol{t}\)</span>为连续变量的情形我将在另外的博文中介绍</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="u6781_u5927_u4F3C_u7136_u4F30_u8BA1"><a href="#u6781_u5927_u4F3C_u7136_u4F30_u8BA1" class="headerlink" title="极大似然估计"></a>极大似然估计</h1><p>假设产品经理给我们了一组巨大的训练大数据（这个数据集非常巨大，大到保证其分布趋近于真实分布，并且能覆盖变量$\boldsymbol{t}$的全部可能），我们现在希望依据这个训练数据集来估计$P(\boldsymbol{t}\vert w_i)P(w_i)$和$P(w_i)$。</p>
+<h1 id="极大似然估计">极大似然估计</h1>
+<p>假设产品经理给我们了一组巨大的训练大数据（这个数据集非常巨大，大到保证其分布趋近于真实分布，并且能覆盖变量<span class="math">\(\boldsymbol{t}\)</span>的全部可能），我们现在希望依据这个训练数据集来估计<span class="math">\(P(\boldsymbol{t}\vert w\_i)P(w\_i)\)</span>和<span class="math">\(P(w\_i)\)</span>。</p>
 <p>很自然的，我们能想到先验概率为：</p>
-<p>$$ P(w<em>k) = \frac{\sum</em>{i=1}^{N}{I(y_i=w_k)}}{N}, \quad k = 1,2,\cdots,K $$</p>
-<p>其中$N$为样本数，$I(y_i=w_k)$当且仅当第$i$个样本属于$w_k$时为1。所以我们断言$P(w_k)$的值就是训练数据集中$w_k$类样本出现的频率（这非常符合直觉）。由于产品经理给的数据集非常非常大而完善，这种简单的想法效果拔群。</p>
+<p><span class="math">\[ P(w_k) = \frac{\sum_{i=1}^{N}{I(y_i=w_k)}}{N}, \quad k = 1,2,\cdots,K \]</span></p>
+<p>其中<span class="math">\(N\)</span>为样本数，<span class="math">\(I(y\_i=w\_k)\)</span>当且仅当第<span class="math">\(i\)</span>个样本属于<span class="math">\(w\_k\)</span>时为1。所以我们断言<span class="math">\(P(w\_k)\)</span>的值就是训练数据集中<span class="math">\(w\_k\)</span>类样本出现的频率（这非常符合直觉）。由于产品经理给的数据集非常非常大而完善，这种简单的想法效果拔群。</p>
 <p>接下来我们再依葫芦画瓢的估计条件概率：</p>
-<p>$$ P(X^{(j)}=a_{jl}\vert Y=c<em>k) = \frac{\sum</em>{i=1}^{N}{I(x<em>i^{(j)} = a</em>{jl}, y_i = c<em>k)}}{\sum</em>{i=1}^{N}{I(y_i = c_k)}} \quad j = 1,2,\cdots ,n; k = 1,2,\cdots , K $$</p>
-<p>其中$x<em>i^{(j)}$是指第$i$个样本的第$j$个特征；$a\</em>{jl}$是指第$j$个特征的第$l$个可能的取值。</p>
+<p><span class="math">\[ P(X^{(j)}=a_{jl}\vert Y=c_k) = \frac{\sum_{i=1}^{N}{I(x_i^{(j)} = a_{jl}, y_i = c_k)}}{\sum_{i=1}^{N}{I(y_i = c_k)}} \quad j = 1,2,\cdots ,n; k = 1,2,\cdots , K \]</span></p>
+<p>其中<span class="math">\(x_i^{(j)}\)</span>是指第<span class="math">\(i\)</span>个样本的第<span class="math">\(j\)</span>个特征；<span class="math">\(a\_{jl}\)</span>是指第<span class="math">\(j\)</span>个特征的第<span class="math">\(l\)</span>个可能的取值。</p>
 <p><em>但是，现实中训练数据集往往不能做到那么“大而全”，因此直接使用贝叶斯估计必然会出现很多概率为0的情况，这就需要我们改进极大似然估计</em></p>
-<h1 id="u8D1D_u53F6_u65AF_u4F30_u8BA1"><a href="#u8D1D_u53F6_u65AF_u4F30_u8BA1" class="headerlink" title="贝叶斯估计"></a>贝叶斯估计</h1><p>如果我们在极大似然估计方程的基础上加上一个常数项进行平滑处理，不就能一定程度解决上述问题么？按照这个思路，我们得出如下<code>贝叶斯估计</code>：</p>
-<p>$$ P(X^{(j)}=a_{jl}\vert Y=c<em>k) = \frac{\sum</em>{i=1}^{N}{I(x<em>i^{(j)} = a</em>{jl}, y_i = c<em>k)} + \lambda}{\sum</em>{i=1}^{N}{I(y_i = c_k)} + S_j\lambda} \quad j = 1,2,\cdots ,n; k = 1,2,\cdots , K $$</p>
-<p>式中$\lambda \geq 0$， $s_j$表示$x$的第$j$个分量可能取的值的个数。当常数$\lambda = 1$时上式称为<code>拉普拉斯平滑(Laplace smoothing)</code>。</p>
-<p>显然，对任何$l = 1,2,\cdots ,S_j, k = 1,2,\cdots ,K$有：</p>
-<p>$$  P<em>\lambda(X^{(j)}=a</em>{jl}\vert Y=c_k) &gt; 0 $$</p>
-<p>$$ \sum_{l=1}^{S<em>j}{P(X^{(j)}=a</em>{jl}\vert Y=c_k)} = 1 $$</p>
+<h1 id="贝叶斯估计">贝叶斯估计</h1>
+<p>如果我们在极大似然估计方程的基础上加上一个常数项进行平滑处理，不就能一定程度解决上述问题么？按照这个思路，我们得出如下<code>贝叶斯估计</code>：</p>
+<p><span class="math">\[ P(X^{(j)}=a_{jl}\vert Y=c_k) = \frac{\sum_{i=1}^{N}{I(x_i^{(j)} = a_{jl}, y_i = c_k)} + \lambda}{\sum_{i=1}^{N}{I(y_i = c_k)} + S_j\lambda} \quad j = 1,2,\cdots ,n; k = 1,2,\cdots , K \]</span></p>
+<p>式中<span class="math">\(\lambda \geq 0\)</span>， <span class="math">\(s\_j\)</span>表示<span class="math">\(x\)</span>的第<span class="math">\(j\)</span>个分量可能取的值的个数。当常数<span class="math">\(\lambda = 1\)</span>时上式称为<code>拉普拉斯平滑(Laplace smoothing)</code>。</p>
+<p>显然，对任何<span class="math">\(l = 1,2,\cdots ,S\_j, k = 1,2,\cdots ,K\)</span>有：</p>
+<p><span class="math">\[  P_\lambda(X^{(j)}=a_{jl}\vert Y=c_k) &gt; 0 \]</span></p>
+<p><span class="math">\[ \sum_{l=1}^{S_j}{P(X^{(j)}=a_{jl}\vert Y=c_k)} = 1 \]</span></p>
 <p>同理，先验概率为：</p>
-<p>$$ P_\lambda(Y = c<em>k) = \frac{\sum</em>{i=1}^{N}{I(y_i = c_k) + \lambda}}{N + K\lambda} $$</p>
+<p><span class="math">\[ P_\lambda(Y = c_k) = \frac{\sum_{i=1}^{N}{I(y_i = c_k) + \lambda}}{N + K\lambda} \]</span></p>
 <p>到此为止，我们介绍了当观测值为离散随机变量时的两种估计方法，以后我还会写一篇关于连续随机变量情况下极大似然估计和贝叶斯估计用于参数估计的方法。</p>
 
       
@@ -476,7 +506,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u6781_u5927_u4F3C_u7136_u4F30_u8BA1"><span class="nav-number">1.</span> <span class="nav-text">极大似然估计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u8D1D_u53F6_u65AF_u4F30_u8BA1"><span class="nav-number">2.</span> <span class="nav-text">贝叶斯估计</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#极大似然估计"><span class="nav-number">1.</span> <span class="nav-text">极大似然估计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#贝叶斯估计"><span class="nav-number">2.</span> <span class="nav-text">贝叶斯估计</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

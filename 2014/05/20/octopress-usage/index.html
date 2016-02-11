@@ -155,7 +155,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -191,9 +191,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -293,24 +321,21 @@
       
         <p>本文总结一些Octopress博客常用命令，以供参考</p>
 <a id="more"></a>
-<p>###新建博文:</p>
-<pre><code>$ rake new_post[&quot;title&quot;]    
-</code></pre><p>###新建页面:</p>
+<h3 id="新建博文">新建博文:</h3>
+<pre><code>$ rake new_post[&quot;title&quot;]    </code></pre>
+<h3 id="新建页面">新建页面:</h3>
 <pre><code># 创建/source/directory/index.markdown
 $ rake new_page[directory]
 
 # 创建/source/directory/page.html
-$ rake new_page[directory/page.html]
-</code></pre><p>###readmore长度控制</p>
-<p>编辑你的博文或页面，在你想要的截断的地方的下一行添加<br>    <!-- more --></p>
-<p>###设置为草稿:</p>
-<p>编辑你的博文或页面，<br>在<code>---</code>中间的元数据中添加下面一行<br>    published: false</p>
-<p>###改变文章分类:</p>
-<p>同样是在<code>---</code>中间添加内容，<br>添加的内容根据如下情况选择</p>
-<pre><code># 单个分类
-categories: your_category
-
-# 多个分类 - 方法1
+$ rake new_page[directory/page.html]</code></pre>
+<h3 id="readmore长度控制">readmore长度控制</h3>
+<p>编辑你的博文或页面，在你想要的截断的地方的下一行添加 <!-- more --></p>
+<h3 id="设置为草稿">设置为草稿:</h3>
+<p>编辑你的博文或页面， 在<code>---</code>中间的元数据中添加下面一行 published: false</p>
+<h3 id="改变文章分类">改变文章分类:</h3>
+<p>同样是在<code>---</code>中间添加内容， 添加的内容根据如下情况选择 # 单个分类 categories: your_category</p>
+<pre><code># 多个分类 - 方法1
 categories: [categories_1, categories_2, categories_3, etc.]
 
 # 多个分类 - 方法2
@@ -318,13 +343,13 @@ categories:
 - categories_1
 - categories_2
 - categories_3
-- etc.
-</code></pre><p>###生成、预览和部署:</p>
+- etc.</code></pre>
+<h3 id="生成预览和部署">生成、预览和部署:</h3>
 <pre><code>$ rake generate   # 生成博文和页面到`public`文件夹
 $ rake watch      # 查看`source/`和`sass/`的变更并重新生成
 $ rake preview    # 预览, 在浏览器中访问http://localhost:4000
-$ rake deploy     # 部署网站，如部署到github
-</code></pre>
+$ rake deploy     # 部署网站，如部署到github</code></pre>
+
       
     </div>
 
@@ -500,7 +525,7 @@ $ rake deploy     # 部署网站，如部署到github
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建博文"><span class="nav-number">1.</span> <span class="nav-text">新建博文:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建页面"><span class="nav-number">2.</span> <span class="nav-text">新建页面:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#readmore长度控制"><span class="nav-number">3.</span> <span class="nav-text">readmore长度控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置为草稿"><span class="nav-number">4.</span> <span class="nav-text">设置为草稿:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变文章分类"><span class="nav-number">5.</span> <span class="nav-text">改变文章分类:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成预览和部署"><span class="nav-number">6.</span> <span class="nav-text">生成、预览和部署:</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

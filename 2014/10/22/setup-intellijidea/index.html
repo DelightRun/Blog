@@ -61,16 +61,16 @@
 
 
 
-<meta name="description" content="IntelliJ IDEA是一款非常优秀的Java IDE，很多人认为它比Eclipse更优秀。但是，在Ubuntu下安装后第一次打开，其界面只能用惨不忍睹来形容。因此，我们需要对其字体进行一些基本设置。">
+<meta name="description" content="IntelliJ IDEA是一款非常优秀的Java IDE，很多人认为它比Eclipse更优秀。 但是，在Ubuntu下安装后第一次打开，其界面只能用惨不忍睹来形容。 因此，我们需要对其字体进行一些基本设置。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IntelliJ IDEA基本界面配置">
 <meta property="og:url" content="http://changxu.wang/2014/10/22/setup-intellijidea/index.html">
 <meta property="og:site_name" content="昌旭的博客">
-<meta property="og:description" content="IntelliJ IDEA是一款非常优秀的Java IDE，很多人认为它比Eclipse更优秀。但是，在Ubuntu下安装后第一次打开，其界面只能用惨不忍睹来形容。因此，我们需要对其字体进行一些基本设置。">
+<meta property="og:description" content="IntelliJ IDEA是一款非常优秀的Java IDE，很多人认为它比Eclipse更优秀。 但是，在Ubuntu下安装后第一次打开，其界面只能用惨不忍睹来形容。 因此，我们需要对其字体进行一些基本设置。">
 <meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IntelliJ IDEA基本界面配置">
-<meta name="twitter:description" content="IntelliJ IDEA是一款非常优秀的Java IDE，很多人认为它比Eclipse更优秀。但是，在Ubuntu下安装后第一次打开，其界面只能用惨不忍睹来形容。因此，我们需要对其字体进行一些基本设置。">
+<meta name="twitter:description" content="IntelliJ IDEA是一款非常优秀的Java IDE，很多人认为它比Eclipse更优秀。 但是，在Ubuntu下安装后第一次打开，其界面只能用惨不忍睹来形容。 因此，我们需要对其字体进行一些基本设置。">
 
 
 
@@ -155,7 +155,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -191,9 +191,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -315,23 +343,27 @@
       
 
       
-        <p>IntelliJ IDEA是一款非常优秀的Java IDE，很多人认为它比Eclipse更优秀。<br>但是，在Ubuntu下安装后第一次打开，其界面只能用<strong>惨不忍睹</strong>来形容。<br>因此，我们需要对其字体进行一些基本设置。</p>
+        <p>IntelliJ IDEA是一款非常优秀的Java IDE，很多人认为它比Eclipse更优秀。 但是，在Ubuntu下安装后第一次打开，其界面只能用<strong>惨不忍睹</strong>来形容。 因此，我们需要对其字体进行一些基本设置。</p>
 <a id="more"></a>
-<h3 id="u6253_u5F00_u5B57_u4F53_u6297_u952F_u9F7F"><a href="#u6253_u5F00_u5B57_u4F53_u6297_u952F_u9F7F" class="headerlink" title="打开字体抗锯齿"></a>打开字体抗锯齿</h3><p>编辑<code>~/.bashrc</code>，添加如下行：</p>
-<pre><code>export _JAVA_OPTIONS=&apos;-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel&apos;
-</code></pre><p>重启IntelliJ IDEA，字体的毛刺就消失了</p>
-<h3 id="u5207_u6362_u4E3B_u9898"><a href="#u5207_u6362_u4E3B_u9898" class="headerlink" title="切换主题"></a>切换主题</h3><p>IntelliJ IDEA的默认主题其实挺丑的，不过它自带的<code>Darcula</code>主题不错</p>
-<pre><code>File-&gt;Setting-&gt;Appearance-&gt;Theme
-</code></pre><p>选择<code>Darcula</code>并Apply即可</p>
-<h3 id="u6362_u5B57_u4F53"><a href="#u6362_u5B57_u4F53" class="headerlink" title="换字体"></a>换字体</h3><p>字体分为<code>IDE字体</code>和<code>编辑器字体</code>，首先设置<code>IDE字体</code>：</p>
+<h3 id="打开字体抗锯齿">打开字体抗锯齿</h3>
+<p>编辑<code>~/.bashrc</code>，添加如下行：</p>
+<pre><code>export _JAVA_OPTIONS=&#39;-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel&#39;</code></pre>
+<p>重启IntelliJ IDEA，字体的毛刺就消失了</p>
+<h3 id="切换主题">切换主题</h3>
+<p>IntelliJ IDEA的默认主题其实挺丑的，不过它自带的<code>Darcula</code>主题不错</p>
+<pre><code>File-&gt;Setting-&gt;Appearance-&gt;Theme</code></pre>
+<p>选择<code>Darcula</code>并Apply即可</p>
+<h3 id="换字体">换字体</h3>
+<p>字体分为<code>IDE字体</code>和<code>编辑器字体</code>，首先设置<code>IDE字体</code>：</p>
 <pre><code>在刚才的`Theme`选项下面，勾选`Override default fonts by`，
-然后选择`WenQuanYi Micro Hei`，字体大小看自己喜好
-</code></pre><p>然后设置<code>编辑器字体</code>：</p>
-<pre><code>File-&gt;Setting-&gt;Editor-&gt;Colors &amp; Fonts-&gt;Font
-</code></pre><p>首先在最上面的<code>Scheme</code>处选择<code>Darcula</code>（为了和上面主题统一），<br>然后点右边的<code>Save As</code>，起个你喜欢的名字，这时候下面的字体就可以选了：</p>
+然后选择`WenQuanYi Micro Hei`，字体大小看自己喜好</code></pre>
+<p>然后设置<code>编辑器字体</code>：</p>
+<pre><code>File-&gt;Setting-&gt;Editor-&gt;Colors &amp; Fonts-&gt;Font</code></pre>
+<p>首先在最上面的<code>Scheme</code>处选择<code>Darcula</code>（为了和上面主题统一）， 然后点右边的<code>Save As</code>，起个你喜欢的名字，这时候下面的字体就可以选了：</p>
 <pre><code>去掉`Show Only monospaced fonts`选择，在`Primary font`处选择个你喜欢的,
-然后在`Secondary font`中选择`文泉驿微米黑`
-</code></pre><h3 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h3><p>还有许多其他设置如<code>行号</code>、<code>空白符</code>等，看你自己喜好设置吧。。。</p>
+然后在`Secondary font`中选择`文泉驿微米黑`</code></pre>
+<h3 id="其他">其他</h3>
+<p>还有许多其他设置如<code>行号</code>、<code>空白符</code>等，看你自己喜好设置吧。。。</p>
 <p>当然最漂亮还是Mac OS X下的IntelliJ IDEA，土豪请无视本文，出门右拐Apple商店。</p>
 
       
@@ -509,7 +541,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6253_u5F00_u5B57_u4F53_u6297_u952F_u9F7F"><span class="nav-number">1.</span> <span class="nav-text">打开字体抗锯齿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5207_u6362_u4E3B_u9898"><span class="nav-number">2.</span> <span class="nav-text">切换主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6362_u5B57_u4F53"><span class="nav-number">3.</span> <span class="nav-text">换字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5176_u4ED6"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开字体抗锯齿"><span class="nav-number">1.</span> <span class="nav-text">打开字体抗锯齿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换主题"><span class="nav-number">2.</span> <span class="nav-text">切换主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#换字体"><span class="nav-number">3.</span> <span class="nav-text">换字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

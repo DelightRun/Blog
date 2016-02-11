@@ -61,19 +61,16 @@
 
 
 
-<meta name="description" content="layout: posttitle: Git常用命令date: 2014-05-20 22:50:43 +0800comments: true
-categories: [Git]本文总结一些常用的Git命令，以供参考">
+<meta name="description" content="本文总结一些常用的Git命令，以供参考">
 <meta property="og:type" content="article">
 <meta property="og:title" content="昌旭的博客">
 <meta property="og:url" content="http://changxu.wang/2014/05/20/git-commands/index.html">
 <meta property="og:site_name" content="昌旭的博客">
-<meta property="og:description" content="layout: posttitle: Git常用命令date: 2014-05-20 22:50:43 +0800comments: true
-categories: [Git]本文总结一些常用的Git命令，以供参考">
+<meta property="og:description" content="本文总结一些常用的Git命令，以供参考">
 <meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="昌旭的博客">
-<meta name="twitter:description" content="layout: posttitle: Git常用命令date: 2014-05-20 22:50:43 +0800comments: true
-categories: [Git]本文总结一些常用的Git命令，以供参考">
+<meta name="twitter:description" content="本文总结一些常用的Git命令，以供参考">
 
 
 
@@ -158,7 +155,7 @@ categories: [Git]本文总结一些常用的Git命令，以供参考">
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -194,9 +191,37 @@ categories: [Git]本文总结一些常用的Git命令，以供参考">
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -275,33 +300,31 @@ categories: [Git]本文总结一些常用的Git命令，以供参考">
       
 
       
-        <hr>
-<p>layout: post<br>title: Git常用命令<br>date: 2014-05-20 22:50:43 +0800<br>comments: true</p>
-<h2 id="categories_3A__5BGit_5D"><a href="#categories_3A__5BGit_5D" class="headerlink" title="categories: [Git]"></a>categories: [Git]</h2><p>本文总结一些常用的Git命令，以供参考</p>
+        <p>本文总结一些常用的Git命令，以供参考</p>
 <a id="more"></a>
-<p>##术语中英文对照表</p>
+<h2 id="术语中英文对照表">术语中英文对照表</h2>
 <ul>
-<li><code>仓库</code>      &lt;=&gt;     <code>repository</code></li>
-<li><code>工作区</code>    &lt;=&gt;     <code>working directory</code></li>
-<li><code>暂存区</code>    &lt;=&gt;     <code>staging area</code></li>
+<li><code>仓库</code> &lt;=&gt; <code>repository</code></li>
+<li><code>工作区</code> &lt;=&gt; <code>working directory</code></li>
+<li><code>暂存区</code> &lt;=&gt; <code>staging area</code></li>
 </ul>
-<p>##关于提交的某些代号</p>
+<h2 id="关于提交的某些代号">关于提交的某些代号</h2>
 <ul>
 <li><code>HEAD</code>代表版本库最近一次提交</li>
-<li><code>^</code>代表父提交，如：<ul>
+<li><code>^</code>代表父提交，如：
+<ul>
 <li>HEAD^代表上一次提交</li>
 <li>HEAD^^代表上上一次提交</li>
-</ul>
-</li>
+</ul></li>
 <li><code>^&lt;N&gt;</code>代表第N个父提交，如果某个提交有多个父提交</li>
 <li><code>~&lt;N&gt;</code>代表第N个祖先提交，如：<code>HEAD~5</code>相当于<code>HEAD^^^^^</code></li>
 <li><code>@{N}</code>代表N次修改前的值，如：<code>HEAD@{1}</code>代表HEAD上次被修改前的值</li>
 <li>每个分支的名称也指向某个独一无二的提交，所以下面的<commit>也可以是其他分支名</commit></li>
 </ul>
-<p>###配置用户名和邮件</p>
+<h3 id="配置用户名和邮件">配置用户名和邮件</h3>
 <pre><code>$ git config --global user.name &quot;name&quot;
-$ git config --global user.email &quot;email&quot;
-</code></pre><p>###配置命令别名</p>
+$ git config --global user.email &quot;email&quot;</code></pre>
+<h3 id="配置命令别名">配置命令别名</h3>
 <pre><code>#全局配置：
 $ sudo git config --system alias.st status
 $ sudo git config --system alias.ci commit
@@ -312,8 +335,8 @@ $ sudo git config --system alias.br branch
 $ git config --global alias.st status
 $ git config --global alias.ci commit
 $ git config --global alias.co checkout
-$ git config --global alias.br branch
-</code></pre><p>###建立仓库</p>
+$ git config --global alias.br branch</code></pre>
+<h3 id="建立仓库">建立仓库</h3>
 <pre><code># 新建
 $ git init [--bare]                  # 在本目录下初始化
 $ git init [--bare] &lt;directory&gt;      # 新建&lt;directory&gt;目录并在其中初始化
@@ -322,8 +345,8 @@ $ git init [--bare] &lt;directory&gt;      # 新建&lt;directory&gt;目录并在
 $ git clone &lt;repository&gt;
 $ git clone &lt;repository&gt; &lt;directory&gt;
 $ git clone --bare &lt;repository&gt;         # 克隆下来不包含工作区的裸版本
-$ git clone --mirror &lt;repository&gt;       # 克隆工作区，不过可以用git fetch和上游版本库持续同步
-</code></pre><p>###远程仓库操作</p>
+$ git clone --mirror &lt;repository&gt;       # 克隆工作区，不过可以用git fetch和上游版本库持续同步</code></pre>
+<h3 id="远程仓库操作">远程仓库操作</h3>
 <pre><code># 添加远程仓库
 $ git remote add &lt;remote&gt; &lt;url&gt;
 
@@ -341,8 +364,8 @@ $ git remote set-url --fetch &lt;remote&gt; &lt;url&gt;     # 设置fetch操作�
 $ git remote update
 
 # 删除远程仓库
-$ git remote rm &lt;remote&gt;
-</code></pre><p>###比较</p>
+$ git remote rm &lt;remote&gt;</code></pre>
+<h3 id="比较">比较</h3>
 <pre><code># 比较工作区与暂存区
 $ git diff              # 比较全部改动，下同
 $ git diff -- &lt;path&gt;    # 比较特定文件，下同
@@ -364,30 +387,30 @@ $ git diff &lt;commit1&gt; &lt;commit2&gt;
 $ git diff &lt;commit1&gt; &lt;commit2&gt; -- &lt;path&gt;
 
 # 比较两个文件
-$ git diff &lt;path1&gt; &lt;path2&gt;
-</code></pre><p>###删除及移动</p>
+$ git diff &lt;path1&gt; &lt;path2&gt;</code></pre>
+<h3 id="删除及移动">删除及移动</h3>
 <pre><code>$ git rm &lt;path1&gt; &lt;path2&gt; &lt;etc.&gt;     # 删除
-$ git mv &lt;path1&gt; &lt;path2&gt; &lt;etc.&gt;     # 移动
-</code></pre><p>###追溯文件修改记录</p>
+$ git mv &lt;path1&gt; &lt;path2&gt; &lt;etc.&gt;     # 移动</code></pre>
+<h3 id="追溯文件修改记录">追溯文件修改记录</h3>
 <pre><code>$ git blame &lt;path&gt;
-$ git blame -L n,m &lt;path&gt;   # 限定查看范围，m可以是相对坐标，如：-L 6,+5为查看[6,10]行
-</code></pre><p>###查看工作区状态</p>
+$ git blame -L n,m &lt;path&gt;   # 限定查看范围，m可以是相对坐标，如：-L 6,+5为查看[6,10]行</code></pre>
+<h3 id="查看工作区状态">查看工作区状态</h3>
 <pre><code>$ git status
 $ git status -s             # 精简显示
 $ git status --ignore       # 查看被忽略的文件
-$ git status --ignore -s    # 同上，只不过精简显示
-</code></pre><p>###添加文件到暂存区</p>
+$ git status --ignore -s    # 同上，只不过精简显示</code></pre>
+<h3 id="添加文件到暂存区">添加文件到暂存区</h3>
 <pre><code>$ git add &lt;path&gt;    # 暂存单个文件
 $ git add .         # 暂存所有文件
 $ git add -A        # 暂存所有改动及新增的文件
 $ git add -u        # 暂存删除的文件和目录
-$ git add -i        # 交互式暂存, 自己试试、无害
-</code></pre><p><em>在git中经常用<code>.</code>表示所有符合条件的文件，下同</em></p>
-<p>###替换暂存区文件</p>
+$ git add -i        # 交互式暂存, 自己试试、无害</code></pre>
+<p><em>在git中经常用<code>.</code>表示所有符合条件的文件，下同</em></p>
+<h3 id="替换暂存区文件">替换暂存区文件</h3>
 <pre><code>$ git reset                         # 用HEAD指向的提交重置整个暂存区
 $ git reset -- &lt;path&gt;               # 用HEAD指向提交替换暂存区指定文件
-$ git reset &lt;commit&gt; -- &lt;path&gt;      # 用&lt;commit&gt;替换暂存区指定文件，不重置HEAD值
-</code></pre><p>###重置HEAD</p>
+$ git reset &lt;commit&gt; -- &lt;path&gt;      # 用&lt;commit&gt;替换暂存区指定文件，不重置HEAD值</code></pre>
+<h3 id="重置head">重置HEAD</h3>
 <pre><code># 更改HEAD与HEAD所指分支（如一般为master）指向的提交
 $ git reset --soft &lt;commit&gt;
 
@@ -395,34 +418,34 @@ $ git reset --soft &lt;commit&gt;
 $ git reset [--mixed] &lt;commit&gt;      # --mixed是默认参数，没有也行
 
 # 更改HEAD与HEAD所指分支（如一般为master）指向的提交，并替换暂存区与工作区
-$ git reset --hard &lt;commit&gt;
-</code></pre><p>###提交</p>
+$ git reset --hard &lt;commit&gt;</code></pre>
+<h3 id="提交">提交</h3>
 <pre><code># 提交
 $ git commit
-$ git commit -m &apos;提交说明&apos;
+$ git commit -m &#39;提交说明&#39;
 
 # 暂存所有改动并提交（不推荐）
 $ git commit -a
-$ git commit -a -m &apos;提交说明&apos;
+$ git commit -a -m &#39;提交说明&#39;
 
 # 更改上次提交的说明
 $ git commit -amend
 
 # 重用某此提交的说明
-$ git commit -C &lt;commit&gt;
-</code></pre><p>###推送至远程仓库</p>
+$ git commit -C &lt;commit&gt;</code></pre>
+<h3 id="推送至远程仓库">推送至远程仓库</h3>
 <pre><code>$ git push                      # 推送所有分支至默认origin
 $ git push &lt;remote&gt;             # 推送所有分支至远程仓库
-$ git push &lt;remote&gt; &lt;branch&gt;    # 推送指定分支至远程仓库
-</code></pre><p>###从远程仓库拉取</p>
+$ git push &lt;remote&gt; &lt;branch&gt;    # 推送指定分支至远程仓库</code></pre>
+<h3 id="从远程仓库拉取">从远程仓库拉取</h3>
 <pre><code># 仅拉取不合并
 $ git fetch             # 默认获取origin
 $ git fetch &lt;remote&gt;    # 从指定仓库获取
 
 # 拉取并合并，相当于git fetch + git merge
 $ git pull              # 默认拉取并合并origin
-$ git pull &lt;remote&gt;     # 从指定仓库拉取并合并
-</code></pre><p>###提交一次反转提交</p>
+$ git pull &lt;remote&gt;     # 从指定仓库拉取并合并</code></pre>
+<h3 id="提交一次反转提交">提交一次反转提交</h3>
 <blockquote>
 <p>注：书上使用“反转提交”，但我认为这样有歧义，我管它叫“提交一次反转提交”</p>
 </blockquote>
@@ -437,30 +460,30 @@ $ git revert &lt;commit1&gt;..&lt;commit2&gt;
 # 遇到冲突
 $ git revert --continue     # 解决冲突后暂存更改，然后恢复反转提交
 $ git revert --quit         # 忽略这次失败的翻转，继续执行
-$ git revert --abort        # 终止反转提交，回到之前提交
-</code></pre><p>###查看某次提交详情</p>
+$ git revert --abort        # 终止反转提交，回到之前提交</code></pre>
+<h3 id="查看某次提交详情">查看某次提交详情</h3>
 <pre><code>$ git show              # 显示HEAD提交详情
-$ git show &lt;commit&gt;     # 显示&lt;commit&gt;提交详情
-</code></pre><p>###查看提交日志</p>
-<pre><code>$ git log [-&lt;num&gt;] [--pretty=&lt;pretty&gt;] [-stat] [--graph]
-</code></pre><ul>
+$ git show &lt;commit&gt;     # 显示&lt;commit&gt;提交详情</code></pre>
+<h3 id="查看提交日志">查看提交日志</h3>
+<pre><code>$ git log [-&lt;num&gt;] [--pretty=&lt;pretty&gt;] [-stat] [--graph]</code></pre>
+<ul>
 <li><em><code>-stat</code>参数自己试试吧</em></li>
 <li><em><code>&lt;num&gt;</code>为限定显示的数量，<num>可以是1,2,3等</num></em></li>
 <li><em><code>&lt;pretty&gt;</code>可以是<code>fuller</code>,<code>raw</code>,<code>oneline</code>,默认为<code>raw</code></em></li>
 </ul>
-<p>###更改工作区文件</p>
+<h3 id="更改工作区文件">更改工作区文件</h3>
 <pre><code># 用暂存区中的文件覆盖工作区中的文件
 $ git checkout -- &lt;path&gt;
 $ git checkout .
 
 # 维持HEAD不变，用&lt;commit&gt;所指向的提交同时覆盖暂存区和工作区文件
 $ git checkout &lt;commit&gt; -- &lt;path&gt;
-$ git checkout &lt;commit&gt; .
-</code></pre><p>###切换HEAD位置</p>
-<pre><code>$ git checkout &lt;commit&gt;
-</code></pre><p>###汇总显示工作区、暂存区与HEAD的差异</p>
-<pre><code>$ git checkout HEAD
-</code></pre><p>###分支管理</p>
+$ git checkout &lt;commit&gt; .</code></pre>
+<h3 id="切换head位置">切换HEAD位置</h3>
+<pre><code>$ git checkout &lt;commit&gt;</code></pre>
+<h3 id="汇总显示工作区暂存区与head的差异">汇总显示工作区、暂存区与HEAD的差异</h3>
+<pre><code>$ git checkout HEAD</code></pre>
+<h3 id="分支管理">分支管理</h3>
 <pre><code># 列出本地分支
 $ git branch
 
@@ -477,12 +500,12 @@ $ git branch -m &lt;oldbranch&gt; &lt;newbranch&gt;
 
 # 远程仓库分支操作
 $ git push &lt;remote&gt; &lt;local-branch&gt;:&lt;remote-branch&gt;     # 添加
-$ git push &lt;remote&gt; :&lt;remote-branch&gt;                   # 删除
-</code></pre><p>###合并分支</p>
+$ git push &lt;remote&gt; :&lt;remote-branch&gt;                   # 删除</code></pre>
+<h3 id="合并分支">合并分支</h3>
 <pre><code>$ git merge &lt;branch&gt;                # 将&lt;branch&gt;合并至当前分支并提交
-$ git merge --no-commit &lt;branch&gt;    # 仅合并不提交
-</code></pre><p><em>从远程仓库fetch下来的分支一般为<code>&lt;remote&gt;/&lt;branch&gt;</code>，如<code>origin/master</code></em></p>
-<p>###变基操作</p>
+$ git merge --no-commit &lt;branch&gt;    # 仅合并不提交</code></pre>
+<p><em>从远程仓库fetch下来的分支一般为<code>&lt;remote&gt;/&lt;branch&gt;</code>，如<code>origin/master</code></em></p>
+<h3 id="变基操作">变基操作</h3>
 <pre><code># 将(&lt;since&gt;, &lt;until&gt;]之间的提交（不含&lt;since&gt;）嫁接到HEAD后
 $ git rebase &lt;since&gt;            # &lt;until&gt;为空，则默认为最后一次提交，下同
 $ git rebase &lt;since&gt; &lt;until&gt;
@@ -497,11 +520,11 @@ $ git rebase -i
 # 变基遇到冲突
 $ git rebase --continue     # 解决冲突后暂存更改，然后恢复变基操作
 $ git rebase --skip         # 跳过当前提交
-$ git rebase --abort        # 终止变基操作，回到之前提交
-</code></pre><p>###进度的保存与恢复相关</p>
+$ git rebase --abort        # 终止变基操作，回到之前提交</code></pre>
+<h3 id="进度的保存与恢复相关">进度的保存与恢复相关</h3>
 <pre><code># 保存
 $ git stash
-$ git stash save &apos;保存说明&apos;
+$ git stash save &#39;保存说明&#39;
 
 # 查看保存的进度
 $ git stash list
@@ -516,11 +539,11 @@ $ git stash drop &lt;stash&gt;    # 删除&lt;stash&gt;
 $ git stash clean           # 全部删除
 
 # 基于进度创建分支
-$ git stash branch &lt;branchname&gt; &lt;stash&gt;
-</code></pre><p>###删除本地多余的文件与目录</p>
+$ git stash branch &lt;branchname&gt; &lt;stash&gt;</code></pre>
+<h3 id="删除本地多余的文件与目录">删除本地多余的文件与目录</h3>
 <pre><code>$ git clean -nd     # 删除测试
-$ git clean -fd     # 强制删除
-</code></pre><p>###打标签/里程碑</p>
+$ git clean -fd     # 强制删除</code></pre>
+<h3 id="打标签里程碑">打标签/里程碑</h3>
 <pre><code># 显示当前版本库的标签列表
 $ git tag
 $ git tag -n&lt;num&gt;       # 限定显示&lt;num&gt;个
@@ -528,25 +551,25 @@ $ git tag -l &lt;match&gt;     # 用通配符过滤
 
 # 为HEAD打标签
 $ git tag &lt;tag&gt;
-$ git tag -m &apos;标签说明信息&apos; &lt;tag&gt;
+$ git tag -m &#39;标签说明信息&#39; &lt;tag&gt;
 
 # 为某次提交打标签
 $ git tag &lt;tag&gt; &lt;commit&gt;
-$ git tag -m &apos;标签说明信息&apos; &lt;tag&gt; &lt;commit&gt;
+$ git tag -m &#39;标签说明信息&#39; &lt;tag&gt; &lt;commit&gt;
 
 # 删除标签
 $ git tag -d &lt;tag&gt;
 
 # 远程仓库标签操作
 $ git push &lt;remote&gt; &lt;tag&gt;       # 添加
-$ git push &lt;remote&gt; :&lt;tag&gt;      # 删除
-</code></pre><p>###打包/归档</p>
+$ git push &lt;remote&gt; :&lt;tag&gt;      # 删除</code></pre>
+<h3 id="打包归档">打包/归档</h3>
 <pre><code>$ git archive -o &lt;归档文件名&gt; &lt;commit&gt;
-$ git archive -o &lt;归档文件名&gt; &lt;commit&gt; &lt;path1&gt; &lt;path2&gt; &lt;etc.&gt;
-</code></pre><p>###其他常用功能</p>
+$ git archive -o &lt;归档文件名&gt; &lt;commit&gt; &lt;path1&gt; &lt;path2&gt; &lt;etc.&gt;</code></pre>
+<h3 id="其他常用功能">其他常用功能</h3>
 <pre><code>$ git bisect    # 这个功能很强大、但是有点复杂，所以就不想细说了
-$ git rc        # 清理版本库中的冗余、垃圾、过期信息
-</code></pre>
+$ git rc        # 清理版本库中的冗余、垃圾、过期信息</code></pre>
+
       
     </div>
 
@@ -722,7 +745,7 @@ $ git rc        # 清理版本库中的冗余、垃圾、过期信息
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#categories_3A__5BGit_5D"><span class="nav-number">1.</span> <span class="nav-text">categories: [Git]</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#术语中英文对照表"><span class="nav-number">1.</span> <span class="nav-text">术语中英文对照表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于提交的某些代号"><span class="nav-number">2.</span> <span class="nav-text">关于提交的某些代号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置用户名和邮件"><span class="nav-number">2.1.</span> <span class="nav-text">配置用户名和邮件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置命令别名"><span class="nav-number">2.2.</span> <span class="nav-text">配置命令别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立仓库"><span class="nav-number">2.3.</span> <span class="nav-text">建立仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程仓库操作"><span class="nav-number">2.4.</span> <span class="nav-text">远程仓库操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较"><span class="nav-number">2.5.</span> <span class="nav-text">比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除及移动"><span class="nav-number">2.6.</span> <span class="nav-text">删除及移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#追溯文件修改记录"><span class="nav-number">2.7.</span> <span class="nav-text">追溯文件修改记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看工作区状态"><span class="nav-number">2.8.</span> <span class="nav-text">查看工作区状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加文件到暂存区"><span class="nav-number">2.9.</span> <span class="nav-text">添加文件到暂存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换暂存区文件"><span class="nav-number">2.10.</span> <span class="nav-text">替换暂存区文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重置head"><span class="nav-number">2.11.</span> <span class="nav-text">重置HEAD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交"><span class="nav-number">2.12.</span> <span class="nav-text">提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推送至远程仓库"><span class="nav-number">2.13.</span> <span class="nav-text">推送至远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从远程仓库拉取"><span class="nav-number">2.14.</span> <span class="nav-text">从远程仓库拉取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交一次反转提交"><span class="nav-number">2.15.</span> <span class="nav-text">提交一次反转提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看某次提交详情"><span class="nav-number">2.16.</span> <span class="nav-text">查看某次提交详情</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看提交日志"><span class="nav-number">2.17.</span> <span class="nav-text">查看提交日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改工作区文件"><span class="nav-number">2.18.</span> <span class="nav-text">更改工作区文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换head位置"><span class="nav-number">2.19.</span> <span class="nav-text">切换HEAD位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#汇总显示工作区暂存区与head的差异"><span class="nav-number">2.20.</span> <span class="nav-text">汇总显示工作区、暂存区与HEAD的差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支管理"><span class="nav-number">2.21.</span> <span class="nav-text">分支管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并分支"><span class="nav-number">2.22.</span> <span class="nav-text">合并分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变基操作"><span class="nav-number">2.23.</span> <span class="nav-text">变基操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进度的保存与恢复相关"><span class="nav-number">2.24.</span> <span class="nav-text">进度的保存与恢复相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除本地多余的文件与目录"><span class="nav-number">2.25.</span> <span class="nav-text">删除本地多余的文件与目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打标签里程碑"><span class="nav-number">2.26.</span> <span class="nav-text">打标签/里程碑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包归档"><span class="nav-number">2.27.</span> <span class="nav-text">打包/归档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他常用功能"><span class="nav-number">2.28.</span> <span class="nav-text">其他常用功能</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

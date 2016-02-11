@@ -61,19 +61,19 @@
 
 
 
-<meta name="description" content="作为一种非常常用的高效率排序算法，快速排序的算法思想却异常的简单，恐怕这便是所谓的重剑无锋，大巧不工。虽然在C语言下快速排序算法比较长，并成为一些学渣在数据结构考试时的一个坎，但是如果使用函数式语言编写快速排序却只需一两行。
-本文便是受函数式编程的启发，用Python写出一行的快速排序。其实只要你理解了快排的思想，这个代码只能说是一个语法糖而已，没啥意思。">
+<meta name="description" content="作为一种非常常用的高效率排序算法，快速排序的算法思想却异常的简单，恐怕这便是所谓的重剑无锋，大巧不工。 虽然在C语言下快速排序算法比较长，并成为一些学渣在数据结构考试时的一个坎，但是如果使用函数式语言编写快速排序却只需一两行。
+本文便是受函数式编程的启发，用Python写出一行的快速排序。 其实只要你理解了快排的思想，这个代码只能说是一个语法糖而已，没啥意思。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用Python写出仅需一行的快速排序">
 <meta property="og:url" content="http://changxu.wang/2014/02/15/quicksort-on-one-line/index.html">
 <meta property="og:site_name" content="昌旭的博客">
-<meta property="og:description" content="作为一种非常常用的高效率排序算法，快速排序的算法思想却异常的简单，恐怕这便是所谓的重剑无锋，大巧不工。虽然在C语言下快速排序算法比较长，并成为一些学渣在数据结构考试时的一个坎，但是如果使用函数式语言编写快速排序却只需一两行。
-本文便是受函数式编程的启发，用Python写出一行的快速排序。其实只要你理解了快排的思想，这个代码只能说是一个语法糖而已，没啥意思。">
+<meta property="og:description" content="作为一种非常常用的高效率排序算法，快速排序的算法思想却异常的简单，恐怕这便是所谓的重剑无锋，大巧不工。 虽然在C语言下快速排序算法比较长，并成为一些学渣在数据结构考试时的一个坎，但是如果使用函数式语言编写快速排序却只需一两行。
+本文便是受函数式编程的启发，用Python写出一行的快速排序。 其实只要你理解了快排的思想，这个代码只能说是一个语法糖而已，没啥意思。">
 <meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Python写出仅需一行的快速排序">
-<meta name="twitter:description" content="作为一种非常常用的高效率排序算法，快速排序的算法思想却异常的简单，恐怕这便是所谓的重剑无锋，大巧不工。虽然在C语言下快速排序算法比较长，并成为一些学渣在数据结构考试时的一个坎，但是如果使用函数式语言编写快速排序却只需一两行。
-本文便是受函数式编程的启发，用Python写出一行的快速排序。其实只要你理解了快排的思想，这个代码只能说是一个语法糖而已，没啥意思。">
+<meta name="twitter:description" content="作为一种非常常用的高效率排序算法，快速排序的算法思想却异常的简单，恐怕这便是所谓的重剑无锋，大巧不工。 虽然在C语言下快速排序算法比较长，并成为一些学渣在数据结构考试时的一个坎，但是如果使用函数式语言编写快速排序却只需一两行。
+本文便是受函数式编程的启发，用Python写出一行的快速排序。 其实只要你理解了快排的思想，这个代码只能说是一个语法糖而已，没啥意思。">
 
 
 
@@ -158,7 +158,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -194,9 +194,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -294,26 +322,29 @@
       
 
       
-        <p>作为一种非常常用的高效率排序算法，快速排序的算法思想却异常的简单，恐怕这便是所谓的<strong>重剑无锋，大巧不工</strong>。<br>虽然在C语言下快速排序算法比较长，并成为一些学渣在<em>数据结构</em>考试时的一个坎，但是如果使用<em>函数式语言</em>编写快速排序却只需一两行。</p>
-<p>本文便是受<em>函数式编程</em>的启发，用Python写出一行的快速排序。<br>其实只要你理解了快排的思想，这个代码只能说是一个语法糖而已，没啥意思。</p>
+        <p>作为一种非常常用的高效率排序算法，快速排序的算法思想却异常的简单，恐怕这便是所谓的<strong>重剑无锋，大巧不工</strong>。 虽然在C语言下快速排序算法比较长，并成为一些学渣在<em>数据结构</em>考试时的一个坎，但是如果使用<em>函数式语言</em>编写快速排序却只需一两行。</p>
+<p>本文便是受<em>函数式编程</em>的启发，用Python写出一行的快速排序。 其实只要你理解了快排的思想，这个代码只能说是一个语法糖而已，没啥意思。</p>
 <a id="more"></a>
-<p>#预备知识</p>
-<p>####lambda表达式<br>lambda表达式是<code>函数式编程</code>中的一种概念，也叫匿名函数。用法举例如下:</p>
+<h1 id="预备知识">预备知识</h1>
+<h4 id="lambda表达式">lambda表达式</h4>
+<p>lambda表达式是<code>函数式编程</code>中的一种概念，也叫匿名函数。用法举例如下:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="keyword">lambda</span> x: (x + <span class="number">2</span>) * x</span><br><span class="line"><span class="keyword">print</span> f(<span class="number">3</span>) <span class="comment"># =&gt; 15</span></span><br></pre></td></tr></table></figure>
-<p>####列表推导式<br>Python中的列表推导式，这个自行<a href="https://www.google.com" target="_blank" rel="external">Google</a>吧，在Python中非常常用。</p>
-<p>####Python中的三元表达式<br>在Python中也有三元表达式, 形式如下:</p>
+<h4 id="列表推导式">列表推导式</h4>
+<p>Python中的列表推导式，这个自行<a href="https://www.google.com" target="_blank" rel="external">Google</a>吧，在Python中非常常用。</p>
+<h4 id="python中的三元表达式">Python中的三元表达式</h4>
+<p>在Python中也有三元表达式, 形式如下:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TruePart <span class="keyword">if</span> Condition <span class="keyword">else</span> FalsePart</span><br></pre></td></tr></table></figure>
 <p>相当于C语言中的:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TruePart ? Condition : FalsePart</span><br></pre></td></tr></table></figure>
-<p>#如何实现</p>
-<p>我们知道，快排的思想是，选定一个<code>key</code>，然后将比<code>key</code>小的选出构成一个线性表<code>smaller</code>，比<code>key</code>大的也选出来构成一个线性表<code>bigger</code>，然后对<code>smaller</code>和<code>bigger</code>递归进行快排直到表为空，最后合并。<br>用Python表示就是:</p>
+<h1 id="如何实现">如何实现</h1>
+<p>我们知道，快排的思想是，选定一个<code>key</code>，然后将比<code>key</code>小的选出构成一个线性表<code>smaller</code>，比<code>key</code>大的也选出来构成一个线性表<code>bigger</code>，然后对<code>smaller</code>和<code>bigger</code>递归进行快排直到表为空，最后合并。 用Python表示就是:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">smaller = [i <span class="keyword">for</span> i <span class="keyword">in</span> data <span class="keyword">if</span> i &lt; key]</span><br><span class="line">bigger = [i <span class="keyword">for</span> i <span class="keyword">in</span> data <span class="keyword">if</span> i &gt; key]</span><br><span class="line">result = smaller + [key] + bigger</span><br></pre></td></tr></table></figure>
 <p>那递归的边界条件怎么办呢？简单，用三元表达式啊:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[] <span class="keyword">if</span> len(X) == <span class="number">0</span> <span class="keyword">else</span> [doSomething]</span><br></pre></td></tr></table></figure>
 <p>好了，现在再结合上lambda表达式，最后一行的快速排序如下:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QuickSort = <span class="keyword">lambda</span> X: [] <span class="keyword">if</span> len(X) == <span class="number">0</span> <span class="keyword">else</span> QuickSort([i <span class="keyword">for</span> i <span class="keyword">in</span> X <span class="keyword">if</span> i &lt; X[<span class="number">0</span>]]) + [X[<span class="number">0</span>]] + QuickSort([i <span class="keyword">for</span> i <span class="keyword">in</span> X <span class="keyword">if</span> i &gt; X[<span class="number">0</span>]])</span><br></pre></td></tr></table></figure>
 <p>这就结束了，亲测可用。</p>
-<p>#结语</p>
+<h1 id="结语">结语</h1>
 <p>很显然这样的快速排序是效率低下的，而且玩这种语法糖也没啥意思。但是当写出这句一行的的快速排序后，我瞬间明白了快速排序的原理。就当闲的没事娱乐下吧！</p>
 
       
@@ -491,7 +522,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#预备知识"><span class="nav-number">1.</span> <span class="nav-text">预备知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lambda表达式"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">lambda表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表推导式"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">列表推导式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python中的三元表达式"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">Python中的三元表达式</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何实现"><span class="nav-number">2.</span> <span class="nav-text">如何实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

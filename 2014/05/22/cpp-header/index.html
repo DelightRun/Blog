@@ -161,7 +161,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -197,9 +197,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -302,30 +330,30 @@
 <p>本文内容摘自《C++程序设计语言》</p>
 </blockquote>
 <a id="more"></a>
-<p>###可以包含</p>
+<h3 id="可以包含">可以包含</h3>
 <ul>
-<li>命名名字空间          namespace N {/*…*/}</li>
-<li>类型定义              struct Point { int x,y; };</li>
-<li>模板声明              template<class t=""> class Z;</class></li>
-<li>模板定义              template<class t=""> class V {/*…*/};</class></li>
-<li>函数声明              extern int strlen(const chari*);</li>
-<li>inline函数定义        inline char get(char* p) { return *p++; }</li>
-<li>数据声明              extern int a;</li>
-<li>常量定义              const float pi = 3.141593;</li>
-<li>枚举                  enum Light { red,yellow,green };</li>
-<li>名字声明              class Matrix;</li>
-<li>包含指令              #include <iostream></iostream></li>
-<li>宏定义                #define VERSION 12</li>
-<li>条件编译指令          #ifdef __cplusplus</li>
-<li>注释                  /* comment */</li>
+<li>命名名字空间 namespace N {/*…*/}</li>
+<li>类型定义 struct Point { int x,y; };</li>
+<li>模板声明 template<class t=""> class Z;</class></li>
+<li>模板定义 template<class t=""> class V {/*…*/};</class></li>
+<li>函数声明 extern int strlen(const chari*);</li>
+<li>inline函数定义 inline char get(char* p) { return *p++; }</li>
+<li>数据声明 extern int a;</li>
+<li>常量定义 const float pi = 3.141593;</li>
+<li>枚举 enum Light { red,yellow,green };</li>
+<li>名字声明 class Matrix;</li>
+<li>包含指令 #include <iostream></iostream></li>
+<li>宏定义 #define VERSION 12</li>
+<li>条件编译指令 #ifdef __cplusplus</li>
+<li>注释 /* comment */</li>
 </ul>
-<p>###绝不该有</p>
+<h3 id="绝不该有">绝不该有</h3>
 <ul>
-<li>常规的函数定义        char get(char* p) { return *p++; }</li>
-<li>数据定义              int a;</li>
-<li>聚集量定义            short tbl[] = {1,2,3};</li>
-<li>无名名字空间          namespace {/*…*/}</li>
-<li>导出的模板定义        export template<class t=""> f(T t) {/*…*/}</class></li>
+<li>常规的函数定义 char get(char* p) { return *p++; }</li>
+<li>数据定义 int a;</li>
+<li>聚集量定义 short tbl[] = {1,2,3};</li>
+<li>无名名字空间 namespace {/*…*/}</li>
+<li>导出的模板定义 export template<class t=""> f(T t) {/*…*/}</class></li>
 </ul>
 
       
@@ -503,7 +531,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#可以包含"><span class="nav-number">1.</span> <span class="nav-text">可以包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绝不该有"><span class="nav-number">2.</span> <span class="nav-text">绝不该有</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

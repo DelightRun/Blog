@@ -61,16 +61,16 @@
 
 
 
-<meta name="description" content="以前部署网站经常使用FTP或scp方式，但这两种方式不仅操作麻烦而且有无法进行版本控制、用户权限等诸多问题。使用Git我们能方便的部署网站，何乐而不为呢。">
+<meta name="description" content="以前部署网站经常使用FTP或scp方式，但这两种方式不仅操作麻烦而且有无法进行版本控制、用户权限等诸多问题。 使用Git我们能方便的部署网站，何乐而不为呢。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Git部署网站">
 <meta property="og:url" content="http://changxu.wang/2015/03/26/use-git-to-deploy-website/index.html">
 <meta property="og:site_name" content="昌旭的博客">
-<meta property="og:description" content="以前部署网站经常使用FTP或scp方式，但这两种方式不仅操作麻烦而且有无法进行版本控制、用户权限等诸多问题。使用Git我们能方便的部署网站，何乐而不为呢。">
+<meta property="og:description" content="以前部署网站经常使用FTP或scp方式，但这两种方式不仅操作麻烦而且有无法进行版本控制、用户权限等诸多问题。 使用Git我们能方便的部署网站，何乐而不为呢。">
 <meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Git部署网站">
-<meta name="twitter:description" content="以前部署网站经常使用FTP或scp方式，但这两种方式不仅操作麻烦而且有无法进行版本控制、用户权限等诸多问题。使用Git我们能方便的部署网站，何乐而不为呢。">
+<meta name="twitter:description" content="以前部署网站经常使用FTP或scp方式，但这两种方式不仅操作麻烦而且有无法进行版本控制、用户权限等诸多问题。 使用Git我们能方便的部署网站，何乐而不为呢。">
 
 
 
@@ -155,7 +155,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -191,9 +191,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -303,30 +331,36 @@
       
 
       
-        <p>以前部署网站经常使用FTP或scp方式，但这两种方式不仅操作麻烦而且有无法进行版本控制、用户权限等诸多问题。<br>使用Git我们能方便的部署网站，何乐而不为呢。</p>
+        <p>以前部署网站经常使用FTP或scp方式，但这两种方式不仅操作麻烦而且有无法进行版本控制、用户权限等诸多问题。 使用Git我们能方便的部署网站，何乐而不为呢。</p>
 <a id="more"></a>
-<h1 id="u4E00_u3001_u5B89_u88C5Git_u4E0ESSH"><a href="#u4E00_u3001_u5B89_u88C5Git_u4E0ESSH" class="headerlink" title="一、安装Git与SSH"></a>一、安装Git与SSH</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install git git-core ssh</span><br></pre></td></tr></table></figure>
-<h1 id="u4E8C_u3001_u5EFA_u7ACBgit_u7528_u6237"><a href="#u4E8C_u3001_u5EFA_u7ACBgit_u7528_u6237" class="headerlink" title="二、建立git用户"></a>二、建立git用户</h1><ol>
+<h1 id="一安装git与ssh">一、安装Git与SSH</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install git git-core ssh</span><br></pre></td></tr></table></figure>
+<h1 id="二建立git用户">二、建立git用户</h1>
+<ol style="list-style-type: decimal">
 <li>新建git用户并设置密码</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo useradd git&#10;$ passwd git</span><br></pre></td></tr></table></figure>
-<ol>
+<ol start="2" style="list-style-type: decimal">
 <li>禁止git用户通过shell登录</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/passwd</span><br></pre></td></tr></table></figure>
-<p>将<em>git:x:1001:1001:,,,:/home/git:/bin/bash</em><br>修改为<em>git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</em></p>
-<h1 id="u4E09_u3001_u5EFA_u7ACBGit_u88F8_u4ED3_u5E93"><a href="#u4E09_u3001_u5EFA_u7ACBGit_u88F8_u4ED3_u5E93" class="headerlink" title="三、建立Git裸仓库"></a>三、建立Git裸仓库</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd /path/to/your/git/repo&#10;$ sudo git init --bare your_repo_name.git</span><br></pre></td></tr></table></figure>
+<p>将<em>git:x:1001:1001:,,,:/home/git:/bin/bash</em> 修改为<em>git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</em></p>
+<h1 id="三建立git裸仓库">三、建立Git裸仓库</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd /path/to/your/git/repo&#10;$ sudo git init --bare your_repo_name.git</span><br></pre></td></tr></table></figure>
 <p>并修改权限</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chown -R git:git your_repo_name.git</span><br></pre></td></tr></table></figure>
-<h1 id="u56DB_u3001_u8BBE_u7F6EGit_hook_u4EE5_u5B9E_u73B0_u81EA_u52A8_u90E8_u7F72"><a href="#u56DB_u3001_u8BBE_u7F6EGit_hook_u4EE5_u5B9E_u73B0_u81EA_u52A8_u90E8_u7F72" class="headerlink" title="四、设置Git hook以实现自动部署"></a>四、设置Git hook以实现自动部署</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd your_repo_name.git/hooks&#10;$ sudo vim post-receive</span><br></pre></td></tr></table></figure>
+<h1 id="四设置git-hook以实现自动部署">四、设置Git hook以实现自动部署</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd your_repo_name.git/hooks&#10;$ sudo vim post-receive</span><br></pre></td></tr></table></figure>
 <p>写入以下内容</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh&#10;GIT_WORK_TREE=/path/to/your/website git checkout -f</span><br></pre></td></tr></table></figure>
 <p>最后加上执行权限</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x post-receive</span><br></pre></td></tr></table></figure>
 <p><strong>注意：/path/to/your/website目录需自己手动创建</strong></p>
-<h1 id="u4E94_u3001_u5728_u672C_u5730_u6DFB_u52A0_u8FDC_u7A0B_u4ED3_u5E93"><a href="#u4E94_u3001_u5728_u672C_u5730_u6DFB_u52A0_u8FDC_u7A0B_u4ED3_u5E93" class="headerlink" title="五、在本地添加远程仓库"></a>五、在本地添加远程仓库</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin ssh://git@your_server:/path/to/your/repo.git</span><br></pre></td></tr></table></figure>
+<h1 id="五在本地添加远程仓库">五、在本地添加远程仓库</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin ssh://git@your_server:/path/to/your/repo.git</span><br></pre></td></tr></table></figure>
 <p>接下来就可以正常的<em>git push origin</em>了</p>
-<h1 id="Extra_u3001_u4F7F_u7528_u516C_u94A5_u8FDB_u884CSSH_u8BA4_u8BC1"><a href="#Extra_u3001_u4F7F_u7528_u516C_u94A5_u8FDB_u884CSSH_u8BA4_u8BC1" class="headerlink" title="Extra、使用公钥进行SSH认证"></a>Extra、使用公钥进行SSH认证</h1><p>每次登陆SSH都需要输入密码是一件非常麻烦的事情，所以我们使用公钥认证。</p>
+<h1 id="extra使用公钥进行ssh认证">Extra、使用公钥进行SSH认证</h1>
+<p>每次登陆SSH都需要输入密码是一件非常麻烦的事情，所以我们使用公钥认证。</p>
 <p>首先，在本地生成公钥——输入以下命令并按提示操作</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &#34;your_email@youremail.com&#34;</span><br></pre></td></tr></table></figure>
 <p>然后，打开<em>~/.ssh</em>目录下的<em>id_rsa.pub</em>文件，复制里面的内容，</p>
@@ -507,7 +541,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E00_u3001_u5B89_u88C5Git_u4E0ESSH"><span class="nav-number">1.</span> <span class="nav-text">一、安装Git与SSH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E8C_u3001_u5EFA_u7ACBgit_u7528_u6237"><span class="nav-number">2.</span> <span class="nav-text">二、建立git用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E09_u3001_u5EFA_u7ACBGit_u88F8_u4ED3_u5E93"><span class="nav-number">3.</span> <span class="nav-text">三、建立Git裸仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u56DB_u3001_u8BBE_u7F6EGit_hook_u4EE5_u5B9E_u73B0_u81EA_u52A8_u90E8_u7F72"><span class="nav-number">4.</span> <span class="nav-text">四、设置Git hook以实现自动部署</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E94_u3001_u5728_u672C_u5730_u6DFB_u52A0_u8FDC_u7A0B_u4ED3_u5E93"><span class="nav-number">5.</span> <span class="nav-text">五、在本地添加远程仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Extra_u3001_u4F7F_u7528_u516C_u94A5_u8FDB_u884CSSH_u8BA4_u8BC1"><span class="nav-number">6.</span> <span class="nav-text">Extra、使用公钥进行SSH认证</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一安装git与ssh"><span class="nav-number">1.</span> <span class="nav-text">一、安装Git与SSH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二建立git用户"><span class="nav-number">2.</span> <span class="nav-text">二、建立git用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三建立git裸仓库"><span class="nav-number">3.</span> <span class="nav-text">三、建立Git裸仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四设置git-hook以实现自动部署"><span class="nav-number">4.</span> <span class="nav-text">四、设置Git hook以实现自动部署</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五在本地添加远程仓库"><span class="nav-number">5.</span> <span class="nav-text">五、在本地添加远程仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#extra使用公钥进行ssh认证"><span class="nav-number">6.</span> <span class="nav-text">Extra、使用公钥进行SSH认证</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -61,7 +61,7 @@
 
 
 
-<meta name="description" content="#概述
+<meta name="description" content="概述
 相较于HTML这种重量级文本标记语言，Markdown是一种轻量级的文档标记语言。
 从Markdown可以非常容易的生成HTML。关于Markdown的更多介绍请自行Google。
 
@@ -70,7 +70,7 @@
 <meta property="og:title" content="Markdown概述与标记总结">
 <meta property="og:url" content="http://changxu.wang/2014/02/14/markdown-tutorial/index.html">
 <meta property="og:site_name" content="昌旭的博客">
-<meta property="og:description" content="#概述
+<meta property="og:description" content="概述
 相较于HTML这种重量级文本标记语言，Markdown是一种轻量级的文档标记语言。
 从Markdown可以非常容易的生成HTML。关于Markdown的更多介绍请自行Google。
 
@@ -78,7 +78,7 @@
 <meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markdown概述与标记总结">
-<meta name="twitter:description" content="#概述
+<meta name="twitter:description" content="概述
 相较于HTML这种重量级文本标记语言，Markdown是一种轻量级的文档标记语言。
 从Markdown可以非常容易的生成HTML。关于Markdown的更多介绍请自行Google。
 
@@ -167,7 +167,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -203,9 +203,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -315,85 +343,81 @@
       
 
       
-        <p>#概述</p>
+        <h1 id="概述">概述</h1>
 <p>相较于HTML这种重量级文本标记语言，Markdown是一种轻量级的文档标记语言。</p>
 <p>从Markdown可以非常容易的生成HTML。关于Markdown的更多介绍请自行Google。</p>
 <blockquote>
 <p>请关注下<a href="http://docutils.sourceforge.net/rst.html" target="_blank" rel="external">reStructuredText</a>和<a href="http://sphinx-doc.org/" target="_blank" rel="external">Sphinx</a>，他们经常被用于生成Python的文档。</p>
 </blockquote>
 <a id="more"></a>
-<p>#语法标记</p>
-<p>##段落和换行</p>
+<h1 id="语法标记">语法标记</h1>
+<h2 id="段落和换行">段落和换行</h2>
 <p>一个或多个连续的文本行可作为一个Markdown的段落，它的前后要有一个或多个空行</p>
 <blockquote>
 <p>Markdown不会将单独一个换行符转为换行，若想在Markdown中插入一个换行的话，在插入处先按两个以上空格再回车。</p>
 </blockquote>
-<p>##标题</p>
+<h2 id="标题">标题</h2>
 <ul>
 <li><p>类Setext式:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>一级标题<code>&lt;h1&gt;</code> – <code>=</code></li>
 <li>二级标题<code>&lt;h2&gt;</code> – <code>-</code></li>
-</ol>
-</li>
+</ol></li>
 <li><p>类Atx式:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>一级标题<code>&lt;h1&gt;</code> – <code>#</code></li>
 <li>二级标题<code>&lt;h2&gt;</code> – <code>##</code></li>
 <li>三级标题<code>&lt;h3&gt;</code> – <code>###</code></li>
 <li>四级标题<code>&lt;h4&gt;</code> – <code>####</code></li>
 <li>五级标题<code>&lt;h5&gt;</code> – <code>#####</code></li>
 <li>六级标题<code>&lt;h6&gt;</code> – <code>######</code></li>
-</ol>
-</li>
+</ol></li>
 </ul>
-<p>##区块引用</p>
+<h2 id="区块引用">区块引用</h2>
 <p>在每行前面加上<code>&gt;</code>，如:</p>
 <pre><code>&gt; 这是区块引用第一行
 &gt; 第二行
-&gt; etc.
-</code></pre><p>##列表</p>
-<p>####无序列表</p>
+&gt; etc.</code></pre>
+<h2 id="列表">列表</h2>
+<h4 id="无序列表">无序列表</h4>
 <pre><code>* item 1
 * item 2
-* item 3
-</code></pre><p><em>注：<code>\*</code>可替换为<code>+</code>或<code>-</code></em></p>
-<p>####有序列表</p>
+* item 3</code></pre>
+<p><em>注：<code>\*</code>可替换为<code>+</code>或<code>-</code></em></p>
+<h4 id="有序列表">有序列表</h4>
 <pre><code>1. item 1
 2. item 2
-3. item 3
-</code></pre><p>##代码块</p>
-<p>####缩进4个空格或一个Tab制表符</p>
+3. item 3</code></pre>
+<h2 id="代码块">代码块</h2>
+<h4 id="缩进4个空格或一个tab制表符">缩进4个空格或一个Tab制表符</h4>
 <pre><code>def func():
-    pass
-</code></pre><p>####使用单撇号(`)</p>
-<p>如<code>`代码在这` </code></p>
-<p>##强调</p>
-<ol>
+    pass</code></pre>
+<h4 id="使用单撇号">使用单撇号(`)</h4>
+<p>如<code>`代码在这`</code></p>
+<h2 id="强调">强调</h2>
+<ol style="list-style-type: decimal">
 <li><p><strong>加粗</strong></p>
-<p> <code>**内容**</code></p>
-</li>
+<p><code>**内容**</code></p></li>
 <li><p><em>斜体</em></p>
-<p> <code>*内容*</code></p>
-</li>
+<p><code>*内容*</code></p></li>
 </ol>
 <blockquote>
 <p><code>*</code>可以用<code>_</code>替换</p>
 </blockquote>
-<p>##超链接</p>
-<p>####行内式:</p>
-<pre><code>这是[谷歌](http://www.google.com，&quot;可选的title&quot;)的链接
-</code></pre><p>####参考式:</p>
+<h2 id="超链接">超链接</h2>
+<h4 id="行内式">行内式:</h4>
+<pre><code>这是[谷歌](http://www.google.com，&quot;可选的title&quot;)的链接</code></pre>
+<h4 id="参考式">参考式:</h4>
 <pre><code>这是[谷歌][id]的链接
 
-[id]: http://www.google.com &quot;可选的title&quot;
-</code></pre><p><em>注：同HTML一样、超链接可以是锚点</em></p>
-<p>##图片</p>
+[id]: http://www.google.com &quot;可选的title&quot;</code></pre>
+<p><em>注：同HTML一样、超链接可以是锚点</em></p>
+<h2 id="图片">图片</h2>
 <p>同样分<code>行内式</code>和<code>参考式</code>，在此只写出行内式</p>
-<pre><code>![图片的替代文字](图片链接, &quot;可选title&quot;)
-</code></pre><p>##转义字符</p>
+<pre><code>![图片的替代文字](图片链接, &quot;可选title&quot;)</code></pre>
+<h2 id="转义字符">转义字符</h2>
 <p>同C语言一样，为<code>\</code></p>
-<p>#参考链接</p>
+<h1 id="参考链接">参考链接</h1>
 <p><a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">Markdown语法说明（简体中文版）</a></p>
 
       
@@ -571,7 +595,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法标记"><span class="nav-number">2.</span> <span class="nav-text">语法标记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#段落和换行"><span class="nav-number">2.1.</span> <span class="nav-text">段落和换行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">2.2.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区块引用"><span class="nav-number">2.3.</span> <span class="nav-text">区块引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">2.4.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#无序列表"><span class="nav-number">2.4.0.1.</span> <span class="nav-text">无序列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有序列表"><span class="nav-number">2.4.0.2.</span> <span class="nav-text">有序列表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码块"><span class="nav-number">2.5.</span> <span class="nav-text">代码块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缩进4个空格或一个tab制表符"><span class="nav-number">2.5.0.1.</span> <span class="nav-text">缩进4个空格或一个Tab制表符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用单撇号"><span class="nav-number">2.5.0.2.</span> <span class="nav-text">使用单撇号(`)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强调"><span class="nav-number">2.6.</span> <span class="nav-text">强调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超链接"><span class="nav-number">2.7.</span> <span class="nav-text">超链接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#行内式"><span class="nav-number">2.7.0.1.</span> <span class="nav-text">行内式:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考式"><span class="nav-number">2.7.0.2.</span> <span class="nav-text">参考式:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-number">2.8.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转义字符"><span class="nav-number">2.9.</span> <span class="nav-text">转义字符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">3.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

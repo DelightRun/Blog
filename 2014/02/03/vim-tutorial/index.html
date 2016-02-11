@@ -61,18 +61,18 @@
 
 
 
-<meta name="description" content="说起来VIM确实好用，不仅高效率，而且更重要的是 —— 能装逼。但是代价便是入门门槛较高。所以在此我总结下自己常用的VIM命令，同时也是给我同学的一个入门教程。VIM还有个官方自带教程，在命令行下输入
+<meta name="description" content="说起来VIM确实好用，不仅高效率，而且更重要的是 —— 能装逼。但是代价便是入门门槛较高。 所以在此我总结下自己常用的VIM命令，同时也是给我同学的一个入门教程。 VIM还有个官方自带教程，在命令行下输入
 $ vimtutor">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vim基本操作总结">
 <meta property="og:url" content="http://changxu.wang/2014/02/03/vim-tutorial/index.html">
 <meta property="og:site_name" content="昌旭的博客">
-<meta property="og:description" content="说起来VIM确实好用，不仅高效率，而且更重要的是 —— 能装逼。但是代价便是入门门槛较高。所以在此我总结下自己常用的VIM命令，同时也是给我同学的一个入门教程。VIM还有个官方自带教程，在命令行下输入
+<meta property="og:description" content="说起来VIM确实好用，不仅高效率，而且更重要的是 —— 能装逼。但是代价便是入门门槛较高。 所以在此我总结下自己常用的VIM命令，同时也是给我同学的一个入门教程。 VIM还有个官方自带教程，在命令行下输入
 $ vimtutor">
 <meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim基本操作总结">
-<meta name="twitter:description" content="说起来VIM确实好用，不仅高效率，而且更重要的是 —— 能装逼。但是代价便是入门门槛较高。所以在此我总结下自己常用的VIM命令，同时也是给我同学的一个入门教程。VIM还有个官方自带教程，在命令行下输入
+<meta name="twitter:description" content="说起来VIM确实好用，不仅高效率，而且更重要的是 —— 能装逼。但是代价便是入门门槛较高。 所以在此我总结下自己常用的VIM命令，同时也是给我同学的一个入门教程。 VIM还有个官方自带教程，在命令行下输入
 $ vimtutor">
 
 
@@ -158,7 +158,7 @@ $ vimtutor">
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -194,9 +194,37 @@ $ vimtutor">
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -306,26 +334,29 @@ $ vimtutor">
       
 
       
-        <p>说起来VIM确实好用，不仅高效率，而且更重要的是 —— 能装逼。但是代价便是入门门槛较高。<br>所以在此我总结下自己常用的VIM命令，同时也是给我同学的一个入门教程。<br>VIM还有个官方自带教程，在命令行下输入</p>
-<pre><code>$ vimtutor
-</code></pre><a id="more"></a>
-<h2 id="VIM_u7684_u6A21_u5F0F"><a href="#VIM_u7684_u6A21_u5F0F" class="headerlink" title="VIM的模式"></a>VIM的模式</h2><ul>
-<li><p><code>x</code>删除当前字符<br>VIM的强大之处便在于它有很多种模式，传统的编辑器如记事本只是对应了VIM中的<strong>编辑模式(Insert Mode)</strong>。<br>细说起来VIM其实有很多种模式，但是实际上对我们来讲最常用也是最重要的是其中三种</p>
-</li>
-<li><p>一般模式(Normal Mode)</p>
-</li>
+        <p>说起来VIM确实好用，不仅高效率，而且更重要的是 —— 能装逼。但是代价便是入门门槛较高。 所以在此我总结下自己常用的VIM命令，同时也是给我同学的一个入门教程。 VIM还有个官方自带教程，在命令行下输入</p>
+<pre><code>$ vimtutor</code></pre>
+<a id="more"></a>
+<h2 id="vim的模式">VIM的模式</h2>
+<ul>
+<li><p><code>x</code>删除当前字符 VIM的强大之处便在于它有很多种模式，传统的编辑器如记事本只是对应了VIM中的<strong>编辑模式(Insert Mode)</strong>。 细说起来VIM其实有很多种模式，但是实际上对我们来讲最常用也是最重要的是其中三种</p></li>
+<li>一般模式(Normal Mode)</li>
 <li>编辑模式(Insert Mode)</li>
-<li>命令模式(Command Mode)</li>
+<li><p>命令模式(Command Mode)</p></li>
 </ul>
-<h2 id="u57FA_u672C_u64CD_u4F5C"><a href="#u57FA_u672C_u64CD_u4F5C" class="headerlink" title="基本操作"></a>基本操作</h2><p>以下介绍的所有命令都是<strong>大小写敏感</strong>的，而且是在<strong>一般模式</strong>和<strong>命令模式</strong>下执行，务必注意!!!</p>
-<h3 id="u79FB_u52A8"><a href="#u79FB_u52A8" class="headerlink" title="移动"></a>移动</h3><h4 id="u4EE5_u5B57_u7B26_u4E3A_u5355_u4F4D_u7684_u79FB_u52A8"><a href="#u4EE5_u5B57_u7B26_u4E3A_u5355_u4F4D_u7684_u79FB_u52A8" class="headerlink" title="以字符为单位的移动"></a>以字符为单位的移动</h4><ul>
+<h2 id="基本操作">基本操作</h2>
+<p>以下介绍的所有命令都是<strong>大小写敏感</strong>的，而且是在<strong>一般模式</strong>和<strong>命令模式</strong>下执行，务必注意!!!</p>
+<h3 id="移动">移动</h3>
+<h4 id="以字符为单位的移动">以字符为单位的移动</h4>
+<ul>
 <li><code>x</code>删除当前字符</li>
 <li><code>k</code>上</li>
 <li><code>j</code>下</li>
 <li><code>h</code>左</li>
 <li><code>l</code>右</li>
 </ul>
-<h4 id="u4EE5_u8BCD_u4E3A_u5355_u4F4D_u7684_u79FB_u52A8"><a href="#u4EE5_u8BCD_u4E3A_u5355_u4F4D_u7684_u79FB_u52A8" class="headerlink" title="以词为单位的移动"></a>以词为单位的移动</h4><ul>
+<h4 id="以词为单位的移动">以词为单位的移动</h4>
+<ul>
 <li><code>x</code>删除当前字符</li>
 <li><code>w</code>ord，下一个词</li>
 <li><code>W</code>ord，下一个词，但是跳过标点</li>
@@ -333,19 +364,22 @@ $ vimtutor">
 <li><code>B</code>你猜</li>
 <li><code>e</code>nd，当前词的尾部</li>
 </ul>
-<h4 id="u884C_u79FB_u52A8"><a href="#u884C_u79FB_u52A8" class="headerlink" title="行移动"></a>行移动</h4><ul>
+<h4 id="行移动">行移动</h4>
+<ul>
 <li><code>x</code>删除当前字符</li>
 <li><code>0</code>移动到0号字符，即行开头</li>
 <li><code>^</code>跳到当前行第一个非空字符，意义同正则表达式</li>
 <li><code>$</code>跳到行尾，意义同正则表达式</li>
 </ul>
-<h4 id="u6BB5_u843D_u79FB_u52A8"><a href="#u6BB5_u843D_u79FB_u52A8" class="headerlink" title="段落移动"></a>段落移动</h4><ul>
+<h4 id="段落移动">段落移动</h4>
+<ul>
 <li><code>x</code>删除当前字符</li>
 <li><code>{</code>上一段(以空白行分隔)</li>
 <li><code>}</code>下一段(以空白行分隔)</li>
 <li><code>%</code>跳到与当前括号对应的括号上</li>
 </ul>
-<h4 id="u8DF3_u8DC3_u79FB_u52A8"><a href="#u8DF3_u8DC3_u79FB_u52A8" class="headerlink" title="跳跃移动"></a>跳跃移动</h4><ul>
+<h4 id="跳跃移动">跳跃移动</h4>
+<ul>
 <li><code>x</code>删除当前字符</li>
 <li><code>/word</code>搜索输入的word，然后用<code>n</code>到下一个位置，用<code>N</code>到上一个位置</li>
 <li><code>#</code>向前搜索当前所在字符</li>
@@ -357,7 +391,9 @@ $ vimtutor">
 <li><code>Ctrl+d</code>向下翻页</li>
 <li><code>Ctrl+u</code>向上翻页</li>
 </ul>
-<h3 id="u7F16_u8F91"><a href="#u7F16_u8F91" class="headerlink" title="编辑"></a>编辑</h3><h4 id="u63D2_u5165"><a href="#u63D2_u5165" class="headerlink" title="插入"></a>插入</h4><ul>
+<h3 id="编辑">编辑</h3>
+<h4 id="插入">插入</h4>
+<ul>
 <li><code>x</code>删除当前字符</li>
 <li><code>i</code>nsert，在当前位置向前插入</li>
 <li><code>I</code>在本行第一个字符前插入</li>
@@ -366,29 +402,35 @@ $ vimtutor">
 <li><code>o</code>向下插入一新行</li>
 <li><code>O</code>你猜</li>
 </ul>
-<h4 id="u5220_u9664"><a href="#u5220_u9664" class="headerlink" title="删除"></a>删除</h4><ul>
+<h4 id="删除">删除</h4>
+<ul>
 <li><code>x</code>删除当前字符</li>
 <li><code>dd</code>删除当前行</li>
 <li><code>dw</code>删除当前词</li>
 <li><code>u</code>撤销操作</li>
 </ul>
-<h4 id="u590D_u5236_u7C98_u8D34"><a href="#u590D_u5236_u7C98_u8D34" class="headerlink" title="复制粘贴"></a>复制粘贴</h4><ul>
+<h4 id="复制粘贴">复制粘贴</h4>
+<ul>
 <li><code>x</code>删除当前字符</li>
 <li><code>yy</code>复制当前行</li>
 <li><code>yw</code>复制当前词</li>
 <li><code>p</code>粘贴</li>
 <li><code>P</code>粘贴在当前位置之前</li>
 </ul>
-<h4 id="u4FDD_u5B58"><a href="#u4FDD_u5B58" class="headerlink" title="保存"></a>保存</h4><ul>
+<h4 id="保存">保存</h4>
+<ul>
 <li><code>x</code>删除当前字符</li>
 <li><code>:q</code>退出</li>
 <li><code>:w</code>保存</li>
 <li><code>:wq</code>保存并退出</li>
 </ul>
-<h2 id="u8FDB_u9636_u64CD_u4F5C"><a href="#u8FDB_u9636_u64CD_u4F5C" class="headerlink" title="进阶操作"></a>进阶操作</h2><p>这本来只是一个操作总结，为了ZM才写的多一点的，再多就成了教程了，那就说多了，所以以下仅仅是抛砖引玉。</p>
-<h3 id="VIM_u64CD_u4F5C_u539F_u5B50_u5316"><a href="#VIM_u64CD_u4F5C_u539F_u5B50_u5316" class="headerlink" title="VIM操作原子化"></a>VIM操作原子化</h3><p>VIM操作都是原子化的，所以可以组合，比如<code>16j</code>就是向下移动16行，<code>3dw</code>就是删除3个词，无数情况，详见vimtutor。</p>
-<h3 id="u9AD8_u6548_u7F16_u8F91"><a href="#u9AD8_u6548_u7F16_u8F91" class="headerlink" title="高效编辑"></a>高效编辑</h3><ul>
-<li><code>di&quot;</code>光标在””之间，则删除””之间的内容</li>
+<h2 id="进阶操作">进阶操作</h2>
+<p>这本来只是一个操作总结，为了ZM才写的多一点的，再多就成了教程了，那就说多了，所以以下仅仅是抛砖引玉。</p>
+<h3 id="vim操作原子化">VIM操作原子化</h3>
+<p>VIM操作都是原子化的，所以可以组合，比如<code>16j</code>就是向下移动16行，<code>3dw</code>就是删除3个词，无数情况，详见vimtutor。</p>
+<h3 id="高效编辑">高效编辑</h3>
+<ul>
+<li><code>di&quot;</code>光标在“”之间，则删除“”之间的内容</li>
 <li><code>yi(</code>你猜</li>
 <li><code>vi[</code>选中[]之间的内容</li>
 </ul>
@@ -397,8 +439,10 @@ $ vimtutor">
 <li><code>dtx</code>从光标位置开始删除字符，直到遇到第一个字符<code>x</code></li>
 <li><code>ytx</code>你猜</li>
 </ul>
-<h2 id="u66F4_u591A"><a href="#u66F4_u591A" class="headerlink" title="更多"></a>更多</h2><p>VIM绝对是博大精深，还有标记啊、宏啊、一堆插件啊、配置啊什么的，慢慢研究吧。用好了绝对超神，还能装逼。<br>据说微软许多大牛放着VS不用，用VIM、Emacs写C#。</p>
-<h5 id="u53C2_u8003_u8D44_u6599_3A"><a href="#u53C2_u8003_u8D44_u6599_3A" class="headerlink" title="参考资料:"></a>参考资料:</h5><ul>
+<h2 id="更多">更多</h2>
+<p>VIM绝对是博大精深，还有标记啊、宏啊、一堆插件啊、配置啊什么的，慢慢研究吧。用好了绝对超神，还能装逼。 据说微软许多大牛放着VS不用，用VIM、Emacs写C#。</p>
+<h5 id="参考资料">参考资料:</h5>
+<ul>
 <li><a href="http://beiyuu.com/git-vim-tutorial/" target="_blank" rel="external">Git时代的VIM不完全使用教程</a>，一篇博文，本文就是照着那个写的，而且那个博客也不错</li>
 <li><a href="https://github.com/DelightRun/vim" target="_blank" rel="external">超强VIM配置</a>，我在Github里fork的一个超强的配置好的VIM，插件和配置文件都弄好了，很酷</li>
 </ul>
@@ -574,7 +618,7 @@ $ vimtutor">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#VIM_u7684_u6A21_u5F0F"><span class="nav-number">1.</span> <span class="nav-text">VIM的模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u57FA_u672C_u64CD_u4F5C"><span class="nav-number">2.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u79FB_u52A8"><span class="nav-number">2.1.</span> <span class="nav-text">移动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u4EE5_u5B57_u7B26_u4E3A_u5355_u4F4D_u7684_u79FB_u52A8"><span class="nav-number">2.1.1.</span> <span class="nav-text">以字符为单位的移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u4EE5_u8BCD_u4E3A_u5355_u4F4D_u7684_u79FB_u52A8"><span class="nav-number">2.1.2.</span> <span class="nav-text">以词为单位的移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u884C_u79FB_u52A8"><span class="nav-number">2.1.3.</span> <span class="nav-text">行移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u6BB5_u843D_u79FB_u52A8"><span class="nav-number">2.1.4.</span> <span class="nav-text">段落移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u8DF3_u8DC3_u79FB_u52A8"><span class="nav-number">2.1.5.</span> <span class="nav-text">跳跃移动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u7F16_u8F91"><span class="nav-number">2.2.</span> <span class="nav-text">编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u63D2_u5165"><span class="nav-number">2.2.1.</span> <span class="nav-text">插入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u5220_u9664"><span class="nav-number">2.2.2.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u590D_u5236_u7C98_u8D34"><span class="nav-number">2.2.3.</span> <span class="nav-text">复制粘贴</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u4FDD_u5B58"><span class="nav-number">2.2.4.</span> <span class="nav-text">保存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u8FDB_u9636_u64CD_u4F5C"><span class="nav-number">3.</span> <span class="nav-text">进阶操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VIM_u64CD_u4F5C_u539F_u5B50_u5316"><span class="nav-number">3.1.</span> <span class="nav-text">VIM操作原子化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u9AD8_u6548_u7F16_u8F91"><span class="nav-number">3.2.</span> <span class="nav-text">高效编辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u66F4_u591A"><span class="nav-number">4.</span> <span class="nav-text">更多</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#u53C2_u8003_u8D44_u6599_3A"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">参考资料:</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vim的模式"><span class="nav-number">1.</span> <span class="nav-text">VIM的模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">2.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动"><span class="nav-number">2.1.</span> <span class="nav-text">移动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#以字符为单位的移动"><span class="nav-number">2.1.1.</span> <span class="nav-text">以字符为单位的移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#以词为单位的移动"><span class="nav-number">2.1.2.</span> <span class="nav-text">以词为单位的移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#行移动"><span class="nav-number">2.1.3.</span> <span class="nav-text">行移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#段落移动"><span class="nav-number">2.1.4.</span> <span class="nav-text">段落移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跳跃移动"><span class="nav-number">2.1.5.</span> <span class="nav-text">跳跃移动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑"><span class="nav-number">2.2.</span> <span class="nav-text">编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入"><span class="nav-number">2.2.1.</span> <span class="nav-text">插入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除"><span class="nav-number">2.2.2.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制粘贴"><span class="nav-number">2.2.3.</span> <span class="nav-text">复制粘贴</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#保存"><span class="nav-number">2.2.4.</span> <span class="nav-text">保存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶操作"><span class="nav-number">3.</span> <span class="nav-text">进阶操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vim操作原子化"><span class="nav-number">3.1.</span> <span class="nav-text">VIM操作原子化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高效编辑"><span class="nav-number">3.2.</span> <span class="nav-text">高效编辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多"><span class="nav-number">4.</span> <span class="nav-text">更多</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考资料"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">参考资料:</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

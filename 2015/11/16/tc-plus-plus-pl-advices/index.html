@@ -155,7 +155,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -191,9 +191,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -305,12 +333,14 @@
       
         <p>Advices from <em>The C++ Programming Language, 4th Edition</em>.</p>
 <a id="more"></a>
-<h1 id="Chapter_2_-_A_Tour_of_C++_3A_The_Basics"><a href="#Chapter_2_-_A_Tour_of_C++_3A_The_Basics" class="headerlink" title="Chapter 2 - A Tour of C++: The Basics"></a>Chapter 2 - A Tour of C++: The Basics</h1><ol>
+<h1 id="chapter-2---a-tour-of-c-the-basics">Chapter 2 - A Tour of C++: The Basics</h1>
+<ol style="list-style-type: decimal">
 <li>Don’t panic! All will become clear in time. <code>section 2.1</code></li>
 <li>You don’t have to know every detail of C++ to write good programs. <code>section 1.3.1</code></li>
 <li>Focus on programming techniques, not on language features. <code>section 2.1</code></li>
 </ol>
-<h1 id="Chapter_3_-_A_Tour_of_C++_3A_Abstraction_Mechanisms"><a href="#Chapter_3_-_A_Tour_of_C++_3A_Abstraction_Mechanisms" class="headerlink" title="Chapter 3 - A Tour of C++: Abstraction Mechanisms"></a>Chapter 3 - A Tour of C++: Abstraction Mechanisms</h1><ol>
+<h1 id="chapter-3---a-tour-of-c-abstraction-mechanisms">Chapter 3 - A Tour of C++: Abstraction Mechanisms</h1>
+<ol style="list-style-type: decimal">
 <li>Express ideas directly in code. <code>section 3.2</code></li>
 <li>Define classes to represent application concepts directly in code. <code>section 3.2</code></li>
 <li>Use concrete classes to represent simple concepts and performance-critical components. <code>section 3.2.1</code></li>
@@ -327,7 +357,8 @@
 <li>Use function objects, including lambdas, to represent policies and actions. <code>section 3.4.3</code></li>
 <li>Use type and template aliases to provide a uniform notation for types that may vary among similar types or among implementations. <code>section 3.4.5</code></li>
 </ol>
-<h1 id="Chapter_4_-_A_Tour_of_C++_3A_Containers_and_Algorithms"><a href="#Chapter_4_-_A_Tour_of_C++_3A_Containers_and_Algorithms" class="headerlink" title="Chapter 4 - A Tour of C++: Containers and Algorithms"></a>Chapter 4 - A Tour of C++: Containers and Algorithms</h1><ol>
+<h1 id="chapter-4---a-tour-of-c-containers-and-algorithms">Chapter 4 - A Tour of C++: Containers and Algorithms</h1>
+<ol style="list-style-type: decimal">
 <li>Don’t reinvent the wheel, use libraries. <code>section 4.1</code></li>
 <li>When you have a choices, prefer the standard library over other libraries. <code>section 4.1</code></li>
 <li>Do not think that the standard library is ideal for everything. <code>section 4.1</code></li>
@@ -345,7 +376,8 @@
 <li>Know your standard algorithms and prefer them over handwritten loops. <code>section 4.5.5</code></li>
 <li>If iterator use gets tedious, define container algorithms. <code>section 4.5.6</code></li>
 </ol>
-<h1 id="Chapter_5_-_A_Tour_of_C++_3A_Concurrency_and_Utilities"><a href="#Chapter_5_-_A_Tour_of_C++_3A_Concurrency_and_Utilities" class="headerlink" title="Chapter 5 - A Tour of C++: Concurrency and Utilities"></a>Chapter 5 - A Tour of C++: Concurrency and Utilities</h1><ol>
+<h1 id="chapter-5---a-tour-of-c-concurrency-and-utilities">Chapter 5 - A Tour of C++: Concurrency and Utilities</h1>
+<ol style="list-style-type: decimal">
 <li>Use resource handles to manage resources (RAII). <code>section 5.2</code></li>
 <li>Use <code>unique_ptr</code> to refer to objects of polymorphic type. <code>section 5.2.1</code></li>
 <li>Use <code>shared_ptr</code> to refer to shared objects. <code>section 5.2.1</code></li>
@@ -360,7 +392,8 @@
 <li>Don’t try to do serious numeric computation using only the language, use libraries. <code>section 5.6</code></li>
 <li>Properties of numeric types are accessible through <code>numeric_limits</code>. <code>section 5.6.5</code></li>
 </ol>
-<h1 id="Chapter_6_-_Types_and_Declarations"><a href="#Chapter_6_-_Types_and_Declarations" class="headerlink" title="Chapter 6 - Types and Declarations"></a>Chapter 6 - Types and Declarations</h1><ol>
+<h1 id="chapter-6---types-and-declarations">Chapter 6 - Types and Declarations</h1>
+<ol style="list-style-type: decimal">
 <li>For the final word on language definition issues, see the ISO C++ standard. <code>section 6.1</code></li>
 <li>Avoid unspecified and undefined behavior. <code>section 6.1</code></li>
 <li>Isolate code that must depend on implementation-defined behavior. <code>section 6.1</code></li>
@@ -385,7 +418,8 @@
 <li>Use an alias to define a meaningful name for a built-in type in cases in which the built-in type used to represent a value might change. <code>section 6.5</code></li>
 <li>Use an alias to define synonyms for types, use enumerations and classes to define new types. <code>section 6.5</code></li>
 </ol>
-<h1 id="Chapter_7_-_Pointers_2C_Arrays_2C_and_References"><a href="#Chapter_7_-_Pointers_2C_Arrays_2C_and_References" class="headerlink" title="Chapter 7 - Pointers, Arrays, and References"></a>Chapter 7 - Pointers, Arrays, and References</h1><ol>
+<h1 id="chapter-7---pointers-arrays-and-references">Chapter 7 - Pointers, Arrays, and References</h1>
+<ol style="list-style-type: decimal">
 <li>Keep use of pointers simple and straightforward. <code>section 7.4.1</code></li>
 <li>Avoid nontrivial pointer arithmetic. <code>section 7.4</code></li>
 <li>Take care not to write beyond the bounds of an array. <code>section 7.4.1</code></li>
@@ -401,7 +435,8 @@
 <li>Use <code>const</code> pointers and <code>const</code> references to express immutablility in interfaces. <code>section 7.5</code></li>
 <li>Prefer references to pointers as arguments, except where “no object” is a reasonable option. <code>section 7.7.4</code></li>
 </ol>
-<h1 id="Chapter_8_-_Structures_2C_Unions_2C_and_Enumerations"><a href="#Chapter_8_-_Structures_2C_Unions_2C_and_Enumerations" class="headerlink" title="Chapter 8 - Structures, Unions, and Enumerations"></a>Chapter 8 - Structures, Unions, and Enumerations</h1><ol>
+<h1 id="chapter-8---structures-unions-and-enumerations">Chapter 8 - Structures, Unions, and Enumerations</h1>
+<ol style="list-style-type: decimal">
 <li>When compactness of data is important, lay out structure data members with larger members before smaller ones. <code>section 8.2.1</code></li>
 <li>Use bit-fields to represent hardware-imposed data layouts. <code>section 8.2.7</code></li>
 <li>Don’t naively try to optimize memory consumption by packing several values into a single byte. <code>section 8.2.7</code></li>
@@ -410,7 +445,8 @@
 <li>Prefer <code>class enum</code>s over “plain” <code>enum</code>s to minimize surprises. <code>section 8.4</code></li>
 <li>Define operations on enumerations for safe and simple use. <code>section 8.4.1</code></li>
 </ol>
-<h1 id="Chapter_9_-_Statements"><a href="#Chapter_9_-_Statements" class="headerlink" title="Chapter 9 - Statements"></a>Chapter 9 - Statements</h1><ol>
+<h1 id="chapter-9---statements">Chapter 9 - Statements</h1>
+<ol style="list-style-type: decimal">
 <li>Don’t declare a variable until you have a value to initialize it with. <code>section 9.3</code> <code>section 9.4.3</code> <code>section 9.5.2</code></li>
 <li>Prefer a <code>switch</code>-statement to an <code>if</code>-statement when there is a choice. <code>section 9.4.2</code></li>
 <li>Prefer a range-<code>for</code>-statement to a <code>for</code>-statement when there is a choice. <code>section 9.5.1</code></li>
@@ -423,11 +459,12 @@
 <li>State intent in comments. <code>section 9.7</code></li>
 <li>Maintain a consistent indentation style. <code>section 9.7</code></li>
 </ol>
-<h1 id="Chapter_10_-_Expressions"><a href="#Chapter_10_-_Expressions" class="headerlink" title="Chapter 10 - Expressions"></a>Chapter 10 - Expressions</h1><ol>
+<h1 id="chapter-10---expressions">Chapter 10 - Expressions</h1>
+<ol style="list-style-type: decimal">
 <li>Prefer the standard library to other libraries and to “handcrafted code”. <code>section 10.2.8</code></li>
 <li>Use character-level input only when you have to. <code>section 10.2.3</code></li>
 <li>When reading, always consider ill-formed input. <code>section 10.2.3</code>4.</li>
-<li>Prefer suitable abstractions (class, algorithms, etc.) to direct use of language features (e.g. ints, statements). <code>section 10.2.8</code></li>
+<li>Prefer suitable abstractions (class, algorithms, etc.) to direct use of language features (e.g. ints, statements). <code>section 10.2.8</code></li>
 <li>Avoid complicated expressions. <code>section 10.3.3</code></li>
 <li>If in doubt about operator precedence, parenthesize. <code>section 10.3.3</code></li>
 <li>Avoid expressions with undefined order of evaluation. <code>section 10.3.2</code></li>
@@ -435,11 +472,12 @@
 <li>Define symbolic constants to avoid “magic constants”. <code>section 10.4.1</code></li>
 <li>Avoid narrowing conversions. <code>section 10.5.2</code></li>
 </ol>
-<h1 id="Chapter_11_-_Select_Operations"><a href="#Chapter_11_-_Select_Operations" class="headerlink" title="Chapter 11 - Select Operations"></a>Chapter 11 - Select Operations</h1><ol>
+<h1 id="chapter-11---select-operations">Chapter 11 - Select Operations</h1>
+<ol style="list-style-type: decimal">
 <li>Prefer prefix <code>++</code> over suffix <code>++</code>. <code>section 11.1.4</code></li>
 <li>Use resource handles to avoid leaks, premature deletion, and double deletion. <code>section 11.2.1</code></li>
 <li>Don’t put objects on the free store if you don’t have to, prefer scoped variables. <code>section 11.2.1</code></li>
-<li>Avoid “naked <code>new</code>“ and “naked <code>delete</code>“. <code>section 11.2.1</code></li>
+<li>Avoid “naked <code>new</code>” and “naked <code>delete</code>”. <code>section 11.2.1</code></li>
 <li>Use RAII. <code>section 11.2.1</code></li>
 <li>Prefer a named function object to a lambda if the operation requires comments. <code>section 11.4.2</code></li>
 <li>Prefer a named function object to a lambda if the operation is generally useful. <code>section 11.4.2</code></li>
@@ -451,7 +489,8 @@
 <li>When explicit type conversion is necessary, prefer a named cast. <code>section 11.5</code></li>
 <li>Consider using a run-time checked cast, such as <code>narrow_cast&lt;&gt;()</code>, for conversion between numeric types. <code>section 11.5</code></li>
 </ol>
-<h1 id="Chapter_12_-_Functions"><a href="#Chapter_12_-_Functions" class="headerlink" title="Chapter 12 - Functions"></a>Chapter 12 - Functions</h1><ol>
+<h1 id="chapter-12---functions">Chapter 12 - Functions</h1>
+<ol style="list-style-type: decimal">
 <li>“Package” meaningful operations as carefully named function. <code>section 12.1</code></li>
 <li>A function should perform a single logical operation. <code>section 12.1</code></li>
 <li>Keep functions short. <code>section 12.1</code></li>
@@ -476,7 +515,8 @@
 <li>Avoid macros. <code>section 12.6</code></li>
 <li>If you must use macros, use ugly names with lots of capital letters. <code>section 12.6</code></li>
 </ol>
-<h1 id="Chapter_13_-_Exception_Handling"><a href="#Chapter_13_-_Exception_Handling" class="headerlink" title="Chapter 13 - Exception Handling"></a>Chapter 13 - Exception Handling</h1><ol>
+<h1 id="chapter-13---exception-handling">Chapter 13 - Exception Handling</h1>
+<ol style="list-style-type: decimal">
 <li>Develop an error-handling strategy early in a design. <code>section 13.1</code></li>
 <li>Throw an exception to indicate that you cannot perform an assigned task. <code>section 13.1.1</code></li>
 <li>Use exceptions for error handling. <code>section 13.1.4.2</code></li>
@@ -513,7 +553,8 @@
 <li>A library shouldn’t unilaterally terminate a program. Instead, throw an exception and let a caller decided. <code>section 13.4</code></li>
 <li>A library shouldn’t produce diagnostic output aimed at an end user. Instead, throw an exception and let a caller decide. <code>section 13.1.3</code></li>
 </ol>
-<h1 id="Chapter_14_-_Namespaces"><a href="#Chapter_14_-_Namespaces" class="headerlink" title="Chapter 14 - Namespaces"></a>Chapter 14 - Namespaces</h1><ol>
+<h1 id="chapter-14---namespaces">Chapter 14 - Namespaces</h1>
+<ol style="list-style-type: decimal">
 <li>Use namespaces to express logical structure. <code>section 14.3.1</code></li>
 <li>Place every nonlocal name, except main(), in some namespace. <code>section 14.3.1</code></li>
 <li>Design a namespace so that you can conveniently use it without accidentally gaining access to unrelated namespaces. <code>section 14.3.3</code></li>
@@ -526,7 +567,8 @@
 <li>Use <code>using</code>-directives for transition, for foundational libraries (such as <code>std</code>), or within a local scope. <code>section 14.4.9</code></li>
 <li>Don’t put a <code>using</code>-directive in a header file. <code>section 14.2.3</code></li>
 </ol>
-<h1 id="Chapter_15_-_Source_Files_and_Programs"><a href="#Chapter_15_-_Source_Files_and_Programs" class="headerlink" title="Chapter 15 - Source Files and Programs"></a>Chapter 15 - Source Files and Programs</h1><ol>
+<h1 id="chapter-15---source-files-and-programs">Chapter 15 - Source Files and Programs</h1>
+<ol style="list-style-type: decimal">
 <li>Use header files to represent interfaces and to emphasize logical structure. <code>section 15.1</code> <code>section 15.3.2</code></li>
 <li><code>#include</code> a header in the source file that implements its functions. <code>section 15.3.1</code></li>
 <li>Don’t define global entities with the same name and similar-but-different meanings in different translation units. <code>section 15.2</code></li>
@@ -540,7 +582,8 @@
 <li>Distinguish between average users’ interfaces and expert users’ interfaces. <code>section 15.3.2</code></li>
 <li>Avoid nonlocal objects that require run-time initialization in code intended for use as part of non-C++ programs. <code>section 15.4.1</code></li>
 </ol>
-<h1 id="Chapter_16_-_Classes"><a href="#Chapter_16_-_Classes" class="headerlink" title="Chapter 16 - Classes"></a>Chapter 16 - Classes</h1><ol>
+<h1 id="chapter-16---classes">Chapter 16 - Classes</h1>
+<ol style="list-style-type: decimal">
 <li>Represent concepts as classes. <code>section 16.1</code></li>
 <li>Separate the interface of a class from its implementation. <code>section 16.1</code></li>
 <li>Use public data (<code>struct</code>s) only when it really is just data an no invariant is meaningful for the data members. <code>section 16.2.4</code></li>
@@ -553,7 +596,8 @@
 <li>Make a member function that doesn’t modify the value of its object a <code>const</code> member function. <code>section 16.2.9.1</code></li>
 <li>Make a function that needs access to the representation of a class but needn’t be called for a specific object a <code>static</code> member function. <code>section 16.2.12</code></li>
 </ol>
-<h1 id="Chapter_17_-_Construction_2C_Cleanup_2C_Copy_2C_and_Move"><a href="#Chapter_17_-_Construction_2C_Cleanup_2C_Copy_2C_and_Move" class="headerlink" title="Chapter 17 - Construction, Cleanup, Copy, and Move"></a>Chapter 17 - Construction, Cleanup, Copy, and Move</h1><ol>
+<h1 id="chapter-17---construction-cleanup-copy-and-move">Chapter 17 - Construction, Cleanup, Copy, and Move</h1>
+<ol style="list-style-type: decimal">
 <li>Design constructors, assignments, and the destructor as a matched set of operations. <code>section 17.1</code></li>
 <li>Use a constructor to establish an invariant for a class. <code>section 17.2.1</code></li>
 <li>If a constructor acquires a resource, its class needs a destructor to release the resource. <code>section 17.2.2</code></li>
@@ -580,7 +624,8 @@
 <li>Make sure that copy assignments are safe for self-assignment. <code>section 17.5.1</code></li>
 <li>When adding a new member to a class, check to see if there are user-defined constructors that need to be updated to initialize the member. <code>section 17.5.1</code></li>
 </ol>
-<h1 id="Chapter_18_-_Operator_Overloading"><a href="#Chapter_18_-_Operator_Overloading" class="headerlink" title="Chapter 18 - Operator Overloading"></a>Chapter 18 - Operator Overloading</h1><ol>
+<h1 id="chapter-18---operator-overloading">Chapter 18 - Operator Overloading</h1>
+<ol style="list-style-type: decimal">
 <li>Define operators primarily to mimic conventional usage. <code>section 18.1</code></li>
 <li>Redefine or prohibit copying if the default is not appropriate for a type. <code>section 18.2.2</code></li>
 <li>For large operands, use <code>const</code> reference argument types. <code>section 18.2.4</code></li>
@@ -596,7 +641,8 @@
 <li>Avoid value-destroying (“narrowing”) conversions. <code>section 18.4.1</code></li>
 <li>Do not define the same conversion as both a constructor and a conversion operator. <code>section 18.4.3</code></li>
 </ol>
-<h1 id="Chapter_19_-_Friends_and_Members"><a href="#Chapter_19_-_Friends_and_Members" class="headerlink" title="Chapter 19 - Friends and Members"></a>Chapter 19 - Friends and Members</h1><ol>
+<h1 id="chapter-19---friends-and-members">Chapter 19 - Friends and Members</h1>
+<ol style="list-style-type: decimal">
 <li>Use <code>operator[]()</code> for subscripting and for selection based on a single value. <code>section 19.2.1</code></li>
 <li>Use <code>operator()()</code> for call semantics, for subscripting, and for selection based on multiple values. <code>section 19.2.2</code></li>
 <li>Use <code>operator-&gt;()</code> to dereference “smart pointers”. <code>section 19.2.3</code></li>
@@ -606,10 +652,11 @@
 <li>Use user-defined literals to mimic conventional notation. <code>section 19.2.6</code></li>
 <li>Place literal operators in separate namespaces to allow selective user. <code>section 19.2.6</code></li>
 <li>For nonspecialized uses, prefer the standard <code>string</code> to the result of your own exercises. <code>section 19.3</code></li>
-<li>Use a friend function if you need a nonmember function to have access to the representation of a class (e.g. to improve notation or to access the representation of two classes). <code>section 19.4</code></li>
+<li>Use a friend function if you need a nonmember function to have access to the representation of a class (e.g. to improve notation or to access the representation of two classes). <code>section 19.4</code></li>
 <li>Prefer member functions to friend functions for granting access to the implementation of a class. <code>section 19.4.2</code></li>
 </ol>
-<h1 id="Chapter_20_-_Derived_Classes"><a href="#Chapter_20_-_Derived_Classes" class="headerlink" title="Chapter 20 - Derived Classes"></a>Chapter 20 - Derived Classes</h1><ol>
+<h1 id="chapter-20---derived-classes">Chapter 20 - Derived Classes</h1>
+<ol style="list-style-type: decimal">
 <li>Avoid type fields. <code>section 20.3.1</code></li>
 <li>Access polymorphic objects through pointers and references. <code>section 20.3.2</code></li>
 <li>Use abstract classes to focus design on the provision of clean interfaces. <code>section 20.4</code></li>
@@ -624,7 +671,8 @@
 <li>Use <code>protected</code> members only carefully when really needed. <code>section 20.5.1.1</code></li>
 <li>Don’t declare data members <code>protected</code>. <code>section 20.5.1.1</code></li>
 </ol>
-<h1 id="Chapter_21_-_Class_Hierarchies"><a href="#Chapter_21_-_Class_Hierarchies" class="headerlink" title="Chapter 21 - Class Hierarchies"></a>Chapter 21 - Class Hierarchies</h1><ol>
+<h1 id="chapter-21---class-hierarchies">Chapter 21 - Class Hierarchies</h1>
+<ol style="list-style-type: decimal">
 <li>Use <code>unique_ptr</code> or <code>shared_ptr</code> to avoid forgetting to <code>delete</code> objects created using <code>new</code>. <code>section 21.2.1</code></li>
 <li>Avoid data members in base classes intended as interfaces. <code>section 21.2.1.1</code></li>
 <li>Use abstract classes to express interfaces. <code>section 21.2.2</code></li>
@@ -633,9 +681,10 @@
 <li>Use abstract classes to support interface inheritance. <code>section 21.2.2</code></li>
 <li>Use base classes with data members to support implementation inheritance. <code>section 21.2.2</code></li>
 <li>Use ordinary multiple inheritance to express a union of features. <code>section 21.3</code></li>
-<li>Use multiple inheritance to separate implementation from interface. <code>section 21.3</code><br>10 Use a virtual base to represent something common to some, but not all, classes in a hierarchy. <code>section 21.3.5</code></li>
+<li>Use multiple inheritance to separate implementation from interface. <code>section 21.3</code> 10 Use a virtual base to represent something common to some, but not all, classes in a hierarchy. <code>section 21.3.5</code></li>
 </ol>
-<h1 id="Chapter_22_-_Run-Time_Type_Information"><a href="#Chapter_22_-_Run-Time_Type_Information" class="headerlink" title="Chapter 22 - Run-Time Type Information"></a>Chapter 22 - Run-Time Type Information</h1><ol>
+<h1 id="chapter-22---run-time-type-information">Chapter 22 - Run-Time Type Information</h1>
+<ol style="list-style-type: decimal">
 <li>Use virtual functions to ensure that the same operation is performed independently of which interface is used for an object. <code>section 22.1</code></li>
 <li>Use <code>dynamic_cast</code> where class hierarchy navigation is unavoidable. <code>section 22.2</code></li>
 <li>Use <code>dynamic_cast</code> for type-safe explicit navigation of a class hierarchy. <code>section 22.2.1</code></li>
@@ -647,7 +696,8 @@
 <li>Use <code>typeid</code> to find the type of an object (and not to find an interface to an object). <code>section 22.5</code></li>
 <li>Prefer virtual functions to repeated <code>switch</code>-statements based on <code>typeid</code> or <code>dynamic_cast</code>. <code>section 22.6</code></li>
 </ol>
-<h1 id="Chapter_23_-_Templates"><a href="#Chapter_23_-_Templates" class="headerlink" title="Chapter 23 - Templates"></a>Chapter 23 - Templates</h1><ol>
+<h1 id="chapter-23---templates">Chapter 23 - Templates</h1>
+<ol style="list-style-type: decimal">
 <li>Use templates to express algorithms that apply to many argument types. <code>section 23.1</code></li>
 <li>Use templates to express containers. <code>section 23.2</code></li>
 <li>Note that <code>template&lt;class T&gt;</code> and <code>template&lt;typename T&gt;</code> are synonymous. <code>section 23.2</code></li>
@@ -666,7 +716,8 @@
 <li>Use ordinary functions as interfaces to code that cannot deal with templates. <code>section 23.7.1</code></li>
 <li>Separately compile large templates and templates with nontrivial context dependencies. <code>section 23.7</code></li>
 </ol>
-<h1 id="Chapter_24_-_Generic_Programming"><a href="#Chapter_24_-_Generic_Programming" class="headerlink" title="Chapter 24 - Generic Programming"></a>Chapter 24 - Generic Programming</h1><ol>
+<h1 id="chapter-24---generic-programming">Chapter 24 - Generic Programming</h1>
+<ol style="list-style-type: decimal">
 <li>A template can pass argument types without loss of information. <code>section 24.1</code></li>
 <li>Templates provide a general mechanism for compile-time programming. <code>section 24.1</code></li>
 <li>Templates provide compile-time “duck typing”. <code>section 24.1</code></li>
@@ -690,7 +741,8 @@
 <li>Concepts can involve numeric values. <code>section 24.4.3</code></li>
 <li>Use concepts as a guide for testing template definitions. <code>section 24.4.5</code></li>
 </ol>
-<h1 id="Chapter_25_-_Specialization"><a href="#Chapter_25_-_Specialization" class="headerlink" title="Chapter 25 - Specialization"></a>Chapter 25 - Specialization</h1><ol>
+<h1 id="chapter-25---specialization">Chapter 25 - Specialization</h1>
+<ol style="list-style-type: decimal">
 <li>Use templates to improve type safety. <code>section 25.1</code></li>
 <li>Use templates to raise the level of abstraction of code. <code>section 25.1</code></li>
 <li>Use templates to provide flexible and efficient parameterization of types and algorithms. <code>section 25.1</code></li>
@@ -874,7 +926,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_2_-_A_Tour_of_C++_3A_The_Basics"><span class="nav-number">1.</span> <span class="nav-text">Chapter 2 - A Tour of C++: The Basics</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_3_-_A_Tour_of_C++_3A_Abstraction_Mechanisms"><span class="nav-number">2.</span> <span class="nav-text">Chapter 3 - A Tour of C++: Abstraction Mechanisms</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_4_-_A_Tour_of_C++_3A_Containers_and_Algorithms"><span class="nav-number">3.</span> <span class="nav-text">Chapter 4 - A Tour of C++: Containers and Algorithms</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_5_-_A_Tour_of_C++_3A_Concurrency_and_Utilities"><span class="nav-number">4.</span> <span class="nav-text">Chapter 5 - A Tour of C++: Concurrency and Utilities</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_6_-_Types_and_Declarations"><span class="nav-number">5.</span> <span class="nav-text">Chapter 6 - Types and Declarations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_7_-_Pointers_2C_Arrays_2C_and_References"><span class="nav-number">6.</span> <span class="nav-text">Chapter 7 - Pointers, Arrays, and References</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_8_-_Structures_2C_Unions_2C_and_Enumerations"><span class="nav-number">7.</span> <span class="nav-text">Chapter 8 - Structures, Unions, and Enumerations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_9_-_Statements"><span class="nav-number">8.</span> <span class="nav-text">Chapter 9 - Statements</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_10_-_Expressions"><span class="nav-number">9.</span> <span class="nav-text">Chapter 10 - Expressions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_11_-_Select_Operations"><span class="nav-number">10.</span> <span class="nav-text">Chapter 11 - Select Operations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_12_-_Functions"><span class="nav-number">11.</span> <span class="nav-text">Chapter 12 - Functions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_13_-_Exception_Handling"><span class="nav-number">12.</span> <span class="nav-text">Chapter 13 - Exception Handling</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_14_-_Namespaces"><span class="nav-number">13.</span> <span class="nav-text">Chapter 14 - Namespaces</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_15_-_Source_Files_and_Programs"><span class="nav-number">14.</span> <span class="nav-text">Chapter 15 - Source Files and Programs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_16_-_Classes"><span class="nav-number">15.</span> <span class="nav-text">Chapter 16 - Classes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_17_-_Construction_2C_Cleanup_2C_Copy_2C_and_Move"><span class="nav-number">16.</span> <span class="nav-text">Chapter 17 - Construction, Cleanup, Copy, and Move</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_18_-_Operator_Overloading"><span class="nav-number">17.</span> <span class="nav-text">Chapter 18 - Operator Overloading</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_19_-_Friends_and_Members"><span class="nav-number">18.</span> <span class="nav-text">Chapter 19 - Friends and Members</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_20_-_Derived_Classes"><span class="nav-number">19.</span> <span class="nav-text">Chapter 20 - Derived Classes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_21_-_Class_Hierarchies"><span class="nav-number">20.</span> <span class="nav-text">Chapter 21 - Class Hierarchies</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_22_-_Run-Time_Type_Information"><span class="nav-number">21.</span> <span class="nav-text">Chapter 22 - Run-Time Type Information</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_23_-_Templates"><span class="nav-number">22.</span> <span class="nav-text">Chapter 23 - Templates</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_24_-_Generic_Programming"><span class="nav-number">23.</span> <span class="nav-text">Chapter 24 - Generic Programming</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter_25_-_Specialization"><span class="nav-number">24.</span> <span class="nav-text">Chapter 25 - Specialization</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-2---a-tour-of-c-the-basics"><span class="nav-number">1.</span> <span class="nav-text">Chapter 2 - A Tour of C++: The Basics</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-3---a-tour-of-c-abstraction-mechanisms"><span class="nav-number">2.</span> <span class="nav-text">Chapter 3 - A Tour of C++: Abstraction Mechanisms</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-4---a-tour-of-c-containers-and-algorithms"><span class="nav-number">3.</span> <span class="nav-text">Chapter 4 - A Tour of C++: Containers and Algorithms</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-5---a-tour-of-c-concurrency-and-utilities"><span class="nav-number">4.</span> <span class="nav-text">Chapter 5 - A Tour of C++: Concurrency and Utilities</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-6---types-and-declarations"><span class="nav-number">5.</span> <span class="nav-text">Chapter 6 - Types and Declarations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-7---pointers-arrays-and-references"><span class="nav-number">6.</span> <span class="nav-text">Chapter 7 - Pointers, Arrays, and References</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-8---structures-unions-and-enumerations"><span class="nav-number">7.</span> <span class="nav-text">Chapter 8 - Structures, Unions, and Enumerations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-9---statements"><span class="nav-number">8.</span> <span class="nav-text">Chapter 9 - Statements</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-10---expressions"><span class="nav-number">9.</span> <span class="nav-text">Chapter 10 - Expressions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-11---select-operations"><span class="nav-number">10.</span> <span class="nav-text">Chapter 11 - Select Operations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-12---functions"><span class="nav-number">11.</span> <span class="nav-text">Chapter 12 - Functions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-13---exception-handling"><span class="nav-number">12.</span> <span class="nav-text">Chapter 13 - Exception Handling</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-14---namespaces"><span class="nav-number">13.</span> <span class="nav-text">Chapter 14 - Namespaces</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-15---source-files-and-programs"><span class="nav-number">14.</span> <span class="nav-text">Chapter 15 - Source Files and Programs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-16---classes"><span class="nav-number">15.</span> <span class="nav-text">Chapter 16 - Classes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-17---construction-cleanup-copy-and-move"><span class="nav-number">16.</span> <span class="nav-text">Chapter 17 - Construction, Cleanup, Copy, and Move</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-18---operator-overloading"><span class="nav-number">17.</span> <span class="nav-text">Chapter 18 - Operator Overloading</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-19---friends-and-members"><span class="nav-number">18.</span> <span class="nav-text">Chapter 19 - Friends and Members</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-20---derived-classes"><span class="nav-number">19.</span> <span class="nav-text">Chapter 20 - Derived Classes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-21---class-hierarchies"><span class="nav-number">20.</span> <span class="nav-text">Chapter 21 - Class Hierarchies</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-22---run-time-type-information"><span class="nav-number">21.</span> <span class="nav-text">Chapter 22 - Run-Time Type Information</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-23---templates"><span class="nav-number">22.</span> <span class="nav-text">Chapter 23 - Templates</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-24---generic-programming"><span class="nav-number">23.</span> <span class="nav-text">Chapter 24 - Generic Programming</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-25---specialization"><span class="nav-number">24.</span> <span class="nav-text">Chapter 25 - Specialization</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

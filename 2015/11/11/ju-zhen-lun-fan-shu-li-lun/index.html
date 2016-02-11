@@ -63,20 +63,20 @@
 
 <meta name="description" content="不加证明地简述向量范数和矩阵范数的概念与部分定理。
 
-内容摘录自《矩阵论简明教程》（科学出版社）">
+R内容摘录自《矩阵论简明教程》（科学出版社）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="矩阵论——范数理论">
 <meta property="og:url" content="http://changxu.wang/2015/11/11/ju-zhen-lun-fan-shu-li-lun/index.html">
 <meta property="og:site_name" content="昌旭的博客">
 <meta property="og:description" content="不加证明地简述向量范数和矩阵范数的概念与部分定理。
 
-内容摘录自《矩阵论简明教程》（科学出版社）">
-<meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
+R内容摘录自《矩阵论简明教程》（科学出版社）">
+<meta property="og:updated_time" content="2016-02-11T06:33:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="矩阵论——范数理论">
 <meta name="twitter:description" content="不加证明地简述向量范数和矩阵范数的概念与部分定理。
 
-内容摘录自《矩阵论简明教程》（科学出版社）">
+R内容摘录自《矩阵论简明教程》（科学出版社）">
 
 
 
@@ -161,7 +161,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -197,9 +197,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -323,123 +351,142 @@
       
         <p>不加证明地简述向量范数和矩阵范数的概念与部分定理。</p>
 <blockquote>
-<p>内容摘录自《矩阵论简明教程》（科学出版社）</p>
+<p>R内容摘录自《矩阵论简明教程》（科学出版社）</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="u5411_u91CF_u8303_u6570"><a href="#u5411_u91CF_u8303_u6570" class="headerlink" title="向量范数"></a>向量范数</h1><h2 id="u5411_u91CF_u8303_u6570_u4E09_u516C_u7406"><a href="#u5411_u91CF_u8303_u6570_u4E09_u516C_u7406" class="headerlink" title="向量范数三公理"></a>向量范数三公理</h2><p><strong>定义</strong> &nbsp; 若对任意 $$\boldsymbol{x} \in \mathbf{C}$$ 都有一个实数$$|\boldsymbol{x}|$$与之对应，且满足：</p>
-<ol>
-<li>非负性：当$\boldsymbol{x} \neq 0$时，$$| \boldsymbol{x} | \gt 0$$，当$\boldsymbol{x} = 0$时，$$| \boldsymbol{x} | = 0$$，</li>
-<li>齐次性：对任何$\lambda \in \mathbf{C}$，$$ |\lambda \boldsymbol{x}| = \vert\lambda\vert |\boldsymbol{x}| $$，</li>
-<li>三角不等式：对任意$\boldsymbol{x}, \boldsymbol{y} \in \mathbf{C}^n$，都有$$| \boldsymbol{x} + \boldsymbol{y} | \leq | \boldsymbol{x} | + | \boldsymbol{y} | $$，</li>
+<h1 id="向量范数">向量范数</h1>
+<h2 id="向量范数三公理">向量范数三公理</h2>
+<p><strong>定义</strong>   若对任意<span class="math">\(\boldsymbol{x} \in \mathbf{C}\)</span>都有一个实数<span class="math">\(\Vert\boldsymbol{x}\Vert\)</span>与之对应，且满足：</p>
+<ol style="list-style-type: decimal">
+<li>非负性：当<span class="math">\(\boldsymbol{x} \neq 0\)</span>时，<span class="math">\(\Vert \boldsymbol{x} \Vert \gt 0\)</span>，当<span class="math">\(\boldsymbol{x} = 0\)</span>时，<span class="math">\(\Vert \boldsymbol{x} \Vert = 0\)</span>，</li>
+<li>齐次性：对任何<span class="math">\(\lambda \in \mathbf{C}\)</span>，<span class="math">\(\Vert\lambda \boldsymbol{x}\Vert = \vert\lambda\vert \Vert\boldsymbol{x}\Vert\)</span>，</li>
+<li>三角不等式：对任意<span class="math">\(\boldsymbol{x}, \boldsymbol{y} \in \mathbf{C}^n\)</span>，都有<span class="math">\(\Vert \boldsymbol{x} + \boldsymbol{y} \Vert \leq \Vert \boldsymbol{x} \Vert + \Vert \boldsymbol{y} \Vert\)</span>，</li>
 </ol>
-<p>则称$\| \boldsymbol{x} \|$为$\mathbf{C}^n$<strong>上向量$\| \boldsymbol{x} \|$的范数，简称向量范数</strong>。</p>
-<h2 id="u5E38_u7528_u5411_u91CF_u8303_u6570"><a href="#u5E38_u7528_u5411_u91CF_u8303_u6570" class="headerlink" title="常用向量范数"></a>常用向量范数</h2><h3 id="u5B9A_u4E49"><a href="#u5B9A_u4E49" class="headerlink" title="定义"></a>定义</h3><p>设向量$$\boldsymbol{x} = (\xi_1, \xi_2, \cdots, \xi_n)^T \in \mathbf{C}^n$$</p>
+<p>则称<span class="math">\(\Vert \boldsymbol{x} \Vert\)</span>为<span class="math">\(\mathbf{C}^n\)</span><strong>上向量<span class="math">\(\Vert \boldsymbol{x} \Vert\)</span>的范数，简称向量范数</strong>。</p>
+<h2 id="常用向量范数">常用向量范数</h2>
+<h3 id="定义">定义</h3>
+<p>设向量<span class="math">\(\boldsymbol{x} = (\xi_1, \xi_2, \cdots, \xi_n)^T \in \mathbf{C}^n\)</span></p>
 <ul>
 <li>向量<strong>1范数</strong>：</li>
 </ul>
-<p>$$ | \boldsymbol{x} |<em>1 = \sum</em>{k=1}^{n}{\vert \xi_k \vert} $$</p>
+<p><span class="math">\[ \Vert \boldsymbol{x} \Vert_1 = \sum_{k=1}^{n}{\vert \xi_k \vert} \]</span></p>
 <ul>
 <li>向量<strong>p范数</strong>：</li>
 </ul>
-<p>$$ | \boldsymbol{x} |<em>p = ( \sum</em>{k=1}^{n}{\vert \xi_k \vert^p} )^{\frac{1}{p}} \quad (1 \leq p \lt +\infty) $$</p>
+<p><span class="math">\[ \Vert \boldsymbol{x} \Vert_p = ( \sum_{k=1}^{n}{\vert \xi_k \vert^p} )^{\frac{1}{p}} \quad (1 \leq p \lt +\infty) \]</span></p>
 <ul>
-<li>向量<strong>$\infty$范数</strong>：</li>
+<li>向量<strong><span class="math">\(\infty\)</span>范数</strong>：</li>
 </ul>
-<p>$$ | \boldsymbol{x} |<em>\infty = \max</em>{k}\vert \xi_k \vert $$</p>
+<p><span class="math">\[ \Vert \boldsymbol{x} \Vert_\infty = \max_{k}\vert \xi_k \vert \]</span></p>
 <ul>
 <li>向量<strong>加权范数</strong>或<strong>椭圆范数</strong>：</li>
 </ul>
-<p>$$ |\boldsymbol{x}|_\boldsymbol{A} = \sqrt{\boldsymbol{x}^H\boldsymbol{A}\boldsymbol{x}}，\boldsymbol{A}是n阶Hermite正定矩阵 $$</p>
-<h3 id="u6027_u8D28"><a href="#u6027_u8D28" class="headerlink" title="性质"></a>性质</h3><ol>
+<p><span class="math">\[ \Vert\boldsymbol{x}\Vert_\boldsymbol{A} = \sqrt{\boldsymbol{x}^H\boldsymbol{A}\boldsymbol{x}}，\boldsymbol{A}是n阶Hermite正定矩阵 \]</span></p>
+<h3 id="性质">性质</h3>
+<ol style="list-style-type: decimal">
 <li>常见的<strong>1范数和2范数（欧氏距离）</strong>是都是特殊的<strong>p范数</strong></li>
-<li>$$ \lim_{p \rightarrow +\infty} |\boldsymbol{x}|<em>p = |\boldsymbol{x}|</em>\infty $$</li>
+<li><span class="math">\[ \lim_{p \rightarrow +\infty} \Vert\boldsymbol{x}\Vert_p = \Vert\boldsymbol{x}\Vert_\infty \]</span></li>
 <li><strong>2范数</strong>具有<strong>酉不变性</strong></li>
 </ol>
-<h2 id="u5411_u91CF_u8303_u6570_u7B49_u4EF7_u6027"><a href="#u5411_u91CF_u8303_u6570_u7B49_u4EF7_u6027" class="headerlink" title="向量范数等价性"></a>向量范数等价性</h2><p><strong>定义</strong> &nbsp; 设 $$| \bullet |_a$$ 和 $$| \bullet |_b$$ 是 $\mathbf{C}^n$上的两种向量范数，如果存在<strong>正数</strong> $\alpha$ 和 $\beta$，使对任意 $\boldsymbol{x} \in \mathbf{C}^n$ 都有</p>
-<p>$$ \alpha|\boldsymbol{x}|_a \leq |\boldsymbol{x}|_a \leq \beta|\boldsymbol{x}|_b $$</p>
-<p>则称向量范数 $$| \bullet |_a$$ 和 $$| \bullet |_b$$ <strong>等价</strong>。</p>
-<p><strong>定理</strong> &nbsp; $\mathbf{C}^n$上所有向量范数等价</p>
-<h2 id="24_5Cboldsymbol_7BH_5Cddot_7Bo_7Dlder_7D_u4E0D_u7B49_u5F0F_24"><a href="#24_5Cboldsymbol_7BH_5Cddot_7Bo_7Dlder_7D_u4E0D_u7B49_u5F0F_24" class="headerlink" title="$\boldsymbol{H\ddot{o}lder}不等式$"></a>$\boldsymbol{H\ddot{o}lder}不等式$</h2><p>对任意 $$\xi_k, \eta_k \in \mathbf{C}(k=1,2,\cdots,n)$$，有：</p>
-<p>$$ \sum_{k=1}^{n}{\vert \xi_k \vert \vert \eta<em>k \vert} \leq<br>    ( \sum</em>{k=1}^{n}{\vert \xi<em>k \vert^p} )^{\frac{1}{p}}<br>    ( \sum</em>{k=1}^{n}{\vert \eta_k \vert^q} )^{\frac{1}{q}} $$</p>
-<p>其中 $p \gt 1, q \gt 1, \frac{1}{p} + \frac{1}{q} = 1$</p>
+<h2 id="向量范数等价性">向量范数等价性</h2>
+<p><strong>定义</strong>   设 <span class="math">\(\Vert \bullet \Vert_a\)</span>$ 和 <span class="math">\($\Vert \bullet \Vert_b\)</span> 是 <span class="math">\(\mathbf{C}^n\)</span>上的两种向量范数，如果存在<strong>正数</strong> <span class="math">\(\alpha\)</span> 和 <span class="math">\(\beta\)</span>，使对任意 <span class="math">\(\boldsymbol{x} \in \mathbf{C}^n\)</span> 都有</p>
+<p><span class="math">\[ \alpha\Vert\boldsymbol{x}\Vert_a \leq \Vert\boldsymbol{x}\Vert_a \leq \beta\Vert\boldsymbol{x}\Vert_b \]</span></p>
+<p>则称向量范数 <span class="math">\(\Vert \bullet \Vert_a\)</span> 和 <span class="math">\(\Vert \bullet \Vert_b\)</span> <strong>等价</strong>。</p>
+<p><strong>定理</strong>   <span class="math">\(\mathbf{C}^n\)</span>上所有向量范数等价</p>
+<h2 id="boldsymbolhddotolder不等式"><span class="math">\(\boldsymbol{H\ddot{o}lder}不等式\)</span></h2>
+<p>对任意 <span class="math">\(\xi_k, \eta_k \in \mathbf{C}(k=1,2,\cdots,n)\)</span>，有：</p>
+<p><span class="math">\[ \sum_{k=1}^{n}{\vert \xi_k \vert \vert \eta_k \vert} \leq
+    ( \sum_{k=1}^{n}{\vert \xi_k \vert^p} )^{\frac{1}{p}}
+    ( \sum_{k=1}^{n}{\vert \eta_k \vert^q} )^{\frac{1}{q}} \]</span></p>
+<p>其中 <span class="math">\(p \gt 1, q \gt 1, \frac{1}{p} + \frac{1}{q} = 1\)</span></p>
 <blockquote>
-<p>当 $p = q = 2$ 时，即得到Cauchy-Schwarz不等式</p>
+<p>当 <span class="math">\(p = q = 2\)</span> 时，即得到Cauchy-Schwarz不等式</p>
 </blockquote>
-<h1 id="u77E9_u9635_u8303_u6570"><a href="#u77E9_u9635_u8303_u6570" class="headerlink" title="矩阵范数"></a>矩阵范数</h1><h2 id="u77E9_u9635_u8303_u6570_u56DB_u516C_u7406"><a href="#u77E9_u9635_u8303_u6570_u56DB_u516C_u7406" class="headerlink" title="矩阵范数四公理"></a>矩阵范数四公理</h2><p><strong>定义</strong> &nbsp; 若对任意 $\boldsymbol{A} \in \mathbf{C}^{m \times n}$ 都有一个实数 $|\boldsymbol{A}|$ 与之对应，且满足</p>
-<ol>
-<li>非负性：当 $\boldsymbol{A} \neq \boldsymbol{O}$ 时，$$|\boldsymbol{A}| \gt 0$$，当 $\boldsymbol{A} = \boldsymbol{O}$ 时，$$|\boldsymbol{A}| = 0$$，</li>
-<li>齐次性：对任意 $$\lambda \in \mathbf{C}， |\lambda \boldsymbol{A}| = \vert\lambda \vert | \boldsymbol{A} |$$，</li>
-<li>三角不等式：对任意 $\boldsymbol{A,B} \in \mathbf{C}^{n \times n}$，都有 $$|\boldsymbol{A} + \boldsymbol{B}| \leq |\boldsymbol{A}| + |\boldsymbol{B}|$$，</li>
-<li>相容性：对任意 $\boldsymbol{A} \in \mathbf{C}^{m \times n}, \boldsymbol{B} \in \mathbf{C}^{n \times l}$，都有 $$|\boldsymbol{A}\boldsymbol{B}| \leq |\boldsymbol{A}| |\boldsymbol{B}|$$，</li>
+<h1 id="矩阵范数">矩阵范数</h1>
+<h2 id="矩阵范数四公理">矩阵范数四公理</h2>
+<p><strong>定义</strong>   若对任意 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}\)</span> 都有一个实数 <span class="math">\(\Vert\boldsymbol{A}\Vert\)</span> 与之对应，且满足</p>
+<ol style="list-style-type: decimal">
+<li>非负性：当 <span class="math">\(\boldsymbol{A} \neq \boldsymbol{O}\)</span> 时，<span class="math">\(\Vert\boldsymbol{A}\Vert \gt 0\)</span>，当 <span class="math">\(\boldsymbol{A} = \boldsymbol{O}\)</span> 时，<span class="math">\(\Vert\boldsymbol{A}\Vert = 0\)</span>，</li>
+<li>齐次性：对任意 <span class="math">\(\lambda \in \mathbf{C}， \Vert\lambda \boldsymbol{A}\Vert = \vert\lambda \vert \Vert \boldsymbol{A} \Vert\)</span>，</li>
+<li>三角不等式：对任意 <span class="math">\(\boldsymbol{A,B} \in \mathbf{C}^{n \times n}\)</span>，都有 <span class="math">\(\Vert\boldsymbol{A} + \boldsymbol{B}\Vert \leq \Vert\boldsymbol{A}\Vert + \Vert\boldsymbol{B}\Vert\)</span>，</li>
+<li>相容性：对任意 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}, \boldsymbol{B} \in \mathbf{C}^{n \times l}\)</span>，都有 <span class="math">\(\Vert\boldsymbol{A}\boldsymbol{B}\Vert \leq \Vert\boldsymbol{A}\Vert \Vert\boldsymbol{B}\Vert\)</span>，</li>
 </ol>
-<p>则称 $$| \boldsymbol{A} |$$ 为 $\mathbf{C}^{m \times n}$<strong>上矩阵 $\boldsymbol{A}$ 的范数，简称矩阵范数</strong>。</p>
-<h2 id="u4E0E_u5411_u91CF_u8303_u6570_u7684_u76F8_u5BB9_u6027"><a href="#u4E0E_u5411_u91CF_u8303_u6570_u7684_u76F8_u5BB9_u6027" class="headerlink" title="与向量范数的相容性"></a>与向量范数的相容性</h2><p><strong>定义</strong> &nbsp; 设 $$| \bullet |_m$$ 是 $\mathbf{C}^{n \times n}$ 上的矩阵范数，$$| \bullet |_v$$ 是 $\mathbf{C}^n$ 上的向量范数，如果对任意 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$ 和 $\boldsymbol{x} \in \mathbf{C}^m$ 都有</p>
-<p>$$ |\boldsymbol{A}\boldsymbol{x}|_v \leq |\boldsymbol{A}|_m |\boldsymbol{x}|_v $$</p>
-<p>则称矩阵范数 $$| \bullet |_m$$ 与向量范数 $$| \bullet |_v$$ 是<strong>相容</strong>的。</p>
-<h2 id="u4ECE_u5C5E_u8303_u6570_uFF08_u53C8_u540D_uFF1A_u5BFC_u51FA_u8303_u6570_uFF09"><a href="#u4ECE_u5C5E_u8303_u6570_uFF08_u53C8_u540D_uFF1A_u5BFC_u51FA_u8303_u6570_uFF09" class="headerlink" title="从属范数（又名：导出范数）"></a>从属范数（又名：导出范数）</h2><p>我们知道，单位矩阵在矩阵乘法中的作用类似于1在数的乘法的作用，但是对于矩阵的$m_1$、F和M范数，有</p>
-<p>$$ |\boldsymbol{I}<em>n|</em>{m_1} = n, \quad |\boldsymbol{I}_n|_F = \sqrt{n}, \quad |\boldsymbol{I}_n|_M = n $$</p>
-<p>这对于一些理论分析带来不便，因此下面定理告诉我们如何构造出使$| \boldsymbol{I}_n | \equiv 1$的矩阵范数。</p>
-<p><strong>定理</strong> &nbsp; 已知 $\mathbf{C}^n$ 上的向量范数 $$| \bullet |_v$$，对任意 $\boldsymbol{A} \in \mathbf{C}^{m \times n}$，规定</p>
-<p>$$ | \boldsymbol{A} | = \max_{x \neq 0}{\frac{|\boldsymbol{A} \boldsymbol{x}|_v}{| \boldsymbol{x} |<em>v}}  = \max</em>{| \boldsymbol{X} |_v = 1}{| \boldsymbol{A} \boldsymbol{x} |_v} $$</p>
-<p>则 $$| \bullet |$$ 是 $\mathbf{C}^{m \times n}$上与向量范数 $$| \bullet |_v$$ 相容的矩阵范数，称之为<strong>由向量范数 $$| \bullet |_v$$ 导出的矩阵范数</strong>或<strong>从属于向量范数 $$| \bullet |_v$$ 的矩阵范数</strong>，简称<strong>导出范数</strong>或<strong>从属范数</strong>。</p>
-<h2 id="u5E38_u7528_u77E9_u9635_u8303_u6570"><a href="#u5E38_u7528_u77E9_u9635_u8303_u6570" class="headerlink" title="常用矩阵范数"></a>常用矩阵范数</h2><p>设 $$\boldsymbol{A} = (a<em>{ij})</em>{m \times n} \in \mathbf{C}^{m \times n}$$</p>
+<p>则称 <span class="math">\(\Vert \boldsymbol{A} \Vert\)</span> 为 <span class="math">\(\mathbf{C}^{m \times n}\)</span><strong>上矩阵 <span class="math">\(\boldsymbol{A}\)</span> 的范数，简称矩阵范数</strong>。</p>
+<h2 id="与向量范数的相容性">与向量范数的相容性</h2>
+<p><strong>定义</strong>   设 <span class="math">\(\Vert \bullet \Vert_m\)</span> 是 <span class="math">\(\mathbf{C}^{n \times n}\)</span> 上的矩阵范数，<span class="math">\(\Vert \bullet \Vert_v\)</span> 是 <span class="math">\(\mathbf{C}^n\)</span> 上的向量范数，如果对任意 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}\)</span> 和 <span class="math">\(\boldsymbol{x} \in \mathbf{C}^m\)</span> 都有</p>
+<p><span class="math">\[ \Vert\boldsymbol{A}\boldsymbol{x}\Vert_v \leq \Vert\boldsymbol{A}\Vert_m \Vert\boldsymbol{x}\Vert_v \]</span></p>
+<p>则称矩阵范数 <span class="math">\(\Vert \bullet \Vert_m\)</span> 与向量范数 <span class="math">\(\Vert \bullet \Vert_v\)</span> 是<strong>相容</strong>的。</p>
+<h2 id="从属范数又名导出范数">从属范数（又名：导出范数）</h2>
+<p>我们知道，单位矩阵在矩阵乘法中的作用类似于1在数的乘法的作用，但是对于矩阵的<span class="math">\(m_1\)</span>、F和M范数，有</p>
+<p><span class="math">\[ \Vert\boldsymbol{I}_n\Vert_{m_1} = n, \quad \Vert\boldsymbol{I}_n\Vert_F = \sqrt{n}, \quad \Vert\boldsymbol{I}_n\Vert_M = n \]</span></p>
+<p>这对于一些理论分析带来不便，因此下面定理告诉我们如何构造出使<span class="math">\(\Vert \boldsymbol{I}_n \Vert \equiv 1\)</span>的矩阵范数。</p>
+<p><strong>定理</strong>   已知 <span class="math">\(\mathbf{C}^n\)</span> 上的向量范数 <span class="math">\(\Vert \bullet \Vert_v\)</span>，对任意 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{m \times n}\)</span>，规定</p>
+<p><span class="math">\[ \Vert \boldsymbol{A} \Vert = \max_{x \neq 0}{\frac{\Vert\boldsymbol{A} \boldsymbol{x}\Vert_v}{\Vert \boldsymbol{x} \Vert_v}}  = \max_{\Vert \boldsymbol{X} \Vert_v = 1}{\Vert \boldsymbol{A} \boldsymbol{x} \Vert_v} \]</span></p>
+<p>则 <span class="math">\(\Vert \bullet \Vert\)</span> 是 <span class="math">\(\mathbf{C}^{m \times n}\)</span>上与向量范数 <span class="math">\(\Vert \bullet \Vert_v\)</span> 相容的矩阵范数，称之为<strong>由向量范数 <span class="math">\(\Vert \bullet \Vert_v\)</span> 导出的矩阵范数</strong>或<strong>从属于向量范数 <span class="math">\(\Vert \bullet \Vert_v\)</span> 的矩阵范数</strong>，简称<strong>导出范数</strong>或<strong>从属范数</strong>。</p>
+<h2 id="常用矩阵范数">常用矩阵范数</h2>
+<p>设 <span class="math">\(\boldsymbol{A} = (a_{ij})_{m \times n} \in \mathbf{C}^{m \times n}\)</span></p>
 <ul>
-<li>矩阵$\boldsymbol{m_1}$<strong>范数</strong>：</li>
+<li>矩阵<span class="math">\(\boldsymbol{m\_1}\)</span><strong>范数</strong>：</li>
 </ul>
-<p>$$ | \boldsymbol{A} |_{m<em>1} = \sum</em>{i=1}^{m}{\sum<em>{j=1}^{n}{\vert a</em>{ij} \vert}} $$</p>
+<p><span class="math">\[ \Vert \boldsymbol{A} \Vert_{m_1} = \sum_{i=1}^{m}{\sum_{j=1}^{n}{\vert a_{ij} \vert}} \]</span></p>
 <ul>
 <li>矩阵<strong>Frobeniuse范数</strong>或<strong>F范数</strong>：</li>
 </ul>
-<p>$$ | \boldsymbol{A} |<em>F = \sqrt{ \sum</em>{i=1}^{m}{\sum<em>{j=1}^{n}{\vert a</em>{ij} \vert^2 }} } = \sqrt{tr(\boldsymbol{A}^H \boldsymbol{A})}$$</p>
+<p><span class="math">\[ \Vert \boldsymbol{A} \Vert_F = \sqrt{ \sum_{i=1}^{m}{\sum_{j=1}^{n}{\vert a_{ij} \vert^2 }} } = \sqrt{tr(\boldsymbol{A}^H \boldsymbol{A})}\]</span></p>
 <ul>
 <li>矩阵<strong>M范数</strong>或<strong>最大范数</strong>：</li>
 </ul>
-<p>$$ | \boldsymbol{A} |<em>M = max{m,n} \max</em>{i,j}{\vert a_{ij} \vert} $$</p>
+<p><span class="math">\[ \Vert \boldsymbol{A} \Vert_M = max\{m,n\} \max_{i,j}{\vert a_{ij} \vert} \]</span></p>
 <ul>
 <li>矩阵<strong>G范数</strong>或<strong>几何平均范数</strong>：</li>
 </ul>
-<p>$$ | \boldsymbol{A} |<em>G = \sqrt{mn} \max</em>{i,j}{\vert a_{ij} \vert} $$</p>
+<p><span class="math">\[ \Vert \boldsymbol{A} \Vert_G = \sqrt{mn} \max_{i,j}{\vert a_{ij} \vert} \]</span></p>
 <ul>
 <li>矩阵<strong>1范数</strong>或<strong>列和范数</strong>：</li>
 </ul>
-<p>$$ | \boldsymbol{A} |<em>1 = \max</em>{j}{\sum<em>{i=1}^{m}{\vert a</em>{ij} \vert}} $$</p>
+<p><span class="math">\[ \Vert \boldsymbol{A} \Vert_1 = \max_{j}{\sum_{i=1}^{m}{\vert a_{ij} \vert}} \]</span></p>
 <ul>
 <li>矩阵<strong>2范数</strong>或<strong>谱范数</strong>：</li>
 </ul>
-<p>$$ | \boldsymbol{A} |_2 = \sqrt{\boldsymbol{A}^H \boldsymbol{A} 的最大特征值} $$</p>
+<p><span class="math">\[ \Vert \boldsymbol{A} \Vert_2 = \sqrt{\boldsymbol{A}^H \boldsymbol{A} 的最大特征值} \]</span></p>
 <ul>
-<li>矩阵$\boldsymbol{\infty}$<strong>范数</strong>或<strong>行和范数</strong>：</li>
+<li>矩阵<span class="math">\(\boldsymbol{\infty}\)</span><strong>范数</strong>或<strong>行和范数</strong>：</li>
 </ul>
-<p>$$ \max<em>i{\sum</em>{j=1}^{n}{\vert a_{ij} \vert}} $$</p>
-<h3 id="u6027_u8D28-1"><a href="#u6027_u8D28-1" class="headerlink" title="性质"></a>性质</h3><ol>
+<p><span class="math">\[ \max_i{\sum_{j=1}^{n}{\vert a_{ij} \vert}} \]</span></p>
+<h3 id="性质-1">性质</h3>
+<ol style="list-style-type: decimal">
 <li><strong>F范数</strong>和<strong>2范数</strong>具有<code>酉不变性</code></li>
-<li>相容性：<ul>
-<li><strong>矩阵$m_1$范数</strong>与<strong>向量1范数</strong>相容</li>
+<li>相容性：
+<ul>
+<li><strong>矩阵<span class="math">\(m\_1\)</span>范数</strong>与<strong>向量1范数</strong>相容</li>
 <li><strong>矩阵F范数、G范数</strong>与<strong>向量2范数</strong>相容</li>
-<li><strong>矩阵M范数</strong>分别与<strong>向量1、2、$\boldsymbol{\infty}$范数</strong>相容</li>
-<li><strong>矩阵1、2、$\boldsymbol{\infty}$范数</strong>分别与<strong>向量1、2、$\boldsymbol{\infty}$范数</strong>相容</li>
-</ul>
-</li>
-<li><strong>矩阵1、2、$\boldsymbol{\infty}$范数</strong>分别由<strong>向量1、2、$\boldsymbol{\infty}$范数</strong>导出，从而与相应的向量范数相容</li>
+<li><strong>矩阵M范数</strong>分别与<strong>向量1、2、<span class="math">\(\boldsymbol{\infty}\)</span>范数</strong>相容</li>
+<li><strong>矩阵1、2、<span class="math">\(\boldsymbol{\infty}\)</span>范数</strong>分别与<strong>向量1、2、<span class="math">\(\boldsymbol{\infty}\)</span>范数</strong>相容</li>
+</ul></li>
+<li><strong>矩阵1、2、<span class="math">\(\boldsymbol{\infty}\)</span>范数</strong>分别由<strong>向量1、2、<span class="math">\(\boldsymbol{\infty}\)</span>范数</strong>导出，从而与相应的向量范数相容</li>
 </ol>
-<h1 id="u8BA1_u7B97_u8303_u6570_u7684Matlab_u547D_u4EE4__u2014_u2014_norm"><a href="#u8BA1_u7B97_u8303_u6570_u7684Matlab_u547D_u4EE4__u2014_u2014_norm" class="headerlink" title="计算范数的Matlab命令 —— norm"></a>计算范数的Matlab命令 —— norm</h1><blockquote>
+<h1 id="计算范数的matlab命令-norm">计算范数的Matlab命令 —— norm</h1>
+<blockquote>
 <p>在Matlab中使用<code>doc norm</code>可查看其文档，在此不再赘述</p>
 </blockquote>
-<h1 id="u8303_u6570_u7684_u4E24_u79CD_u5E38_u89C1_u5E94_u7528"><a href="#u8303_u6570_u7684_u4E24_u79CD_u5E38_u89C1_u5E94_u7528" class="headerlink" title="范数的两种常见应用"></a>范数的两种常见应用</h1><h2 id="u8C31_u534A_u5F84"><a href="#u8C31_u534A_u5F84" class="headerlink" title="谱半径"></a>谱半径</h2><p><strong>定义</strong> &nbsp; 设 $$\boldsymbol{A} \in \mathbf{C}^{n \times n}, \lambda_1, \lambda_2, \cdots, \lambda_n$$ 为 $\boldsymbol{A}$ 的 $n$ 个特征值，称</p>
-<p>$$ \rho(\boldsymbol{A}) = \max_{j}{\vert \lambda_j \vert} $$</p>
-<p>为 $\boldsymbol{A}$ 的<strong>谱半径</strong></p>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$， 则</p>
-<ol>
-<li>$\rho(\boldsymbol{A}^k) = (\rho(\boldsymbol{A}))^k$</li>
-<li>$\rho(\boldsymbol{A}^H \boldsymbol{A}) = \rho(\boldsymbol{A} \boldsymbol{A}^H) = \| \boldsymbol{A} \|_2^2$</li>
-<li>当 $\boldsymbol{A}$ 是正规矩阵时，$$\rho(\boldsymbol{A}) = |A|_2$$</li>
+<h1 id="范数的两种常见应用">范数的两种常见应用</h1>
+<h2 id="谱半径">谱半径</h2>
+<p><strong>定义</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}, \lambda_1, \lambda_2, \cdots, \lambda_n\)</span>为<span class="math">\(\boldsymbol{A}\)</span>的<span class="math">\(n\)</span>个特征值，称</p>
+<p><span class="math">\[ \rho(\boldsymbol{A}) = \max_{j}{\vert \lambda_j \vert} \]</span></p>
+<p>为<span class="math">\(\boldsymbol{A}\)</span>的<strong>谱半径</strong></p>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}\)</span>，则</p>
+<ol style="list-style-type: decimal">
+<li><span class="math">\(\rho(\boldsymbol{A}^k) = (\rho(\boldsymbol{A}))^k\)</span></li>
+<li><span class="math">\(\rho(\boldsymbol{A}^H \boldsymbol{A}) = \rho(\boldsymbol{A} \boldsymbol{A}^H) = \Vert \boldsymbol{A} \Vert_2^2\)</span></li>
+<li>当 <span class="math">\(\boldsymbol{A}\)</span> 是正规矩阵时，<span class="math">\(\rho(\boldsymbol{A}) = \Vert A \Vert_2\)</span></li>
 </ol>
-<p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}^{n \times n}$， 则对 $\mathbf{C}^{n \times n}$上的任一矩阵范数 $$| \bullet |$$，都有</p>
-<p>$$ \rho(\boldsymbol{A}) \leq | \boldsymbol{A} | $$</p>
-<h2 id="u6761_u4EF6_u6570"><a href="#u6761_u4EF6_u6570" class="headerlink" title="条件数"></a>条件数</h2><p><strong>定理</strong> &nbsp; 设 $\boldsymbol{A} \in \mathbf{C}_n^{n \times n}$， $$| \bullet |$$ 是 $\mathbf{C}^{n \times n}$ 上的矩阵范数，称</p>
-<p>$$ cond(\boldsymbol{A}) = | \boldsymbol{A} | | \boldsymbol{A}^{-1} | $$</p>
-<p>为矩阵 $\boldsymbol{A}$（关于求逆或求解线性方程组）的<strong>条件数</strong>。</p>
-<p>一般地，如果矩阵 $\boldsymbol{A}$ 的条件数大就称 $\boldsymbol{A}$ 对于求逆矩阵或求解线性方程组是<strong>病态的</strong>，或<strong>坏条件的</strong>；否则，称为<strong>良态</strong>或<strong>好条件的</strong></p>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}^{n \times n}\)</span>，则对<span class="math">\(\mathbf{C}^{n \times n}\)</span>上的任一矩阵范数<span class="math">\(\Vert \bullet \Vert\)</span>，都有</p>
+<p><span class="math">\[ \rho(\boldsymbol{A}) \leq \Vert \boldsymbol{A} \Vert \]</span></p>
+<h2 id="条件数">条件数</h2>
+<p><strong>定理</strong>   设 <span class="math">\(\boldsymbol{A} \in \mathbf{C}_n^{n \times n}\)</span>， <span class="math">\(\Vert \bullet \Vert\)</span>是<span class="math">\(\mathbf{C}^{n \times n}\)</span>上的矩阵范数，称</p>
+<p><span class="math">\[ cond(\boldsymbol{A}) = \Vert \boldsymbol{A} \Vert \Vert \boldsymbol{A}^{-1} \Vert \]</span></p>
+<p>为矩阵 <span class="math">\(\boldsymbol{A}\)</span>（关于求逆或求解线性方程组）的<strong>条件数</strong>。</p>
+<p>一般地，如果矩阵 <span class="math">\(\boldsymbol{A}\)</span> 的条件数大就称 <span class="math">\(\boldsymbol{A}\)</span> 对于求逆矩阵或求解线性方程组是<strong>病态的</strong>，或<strong>坏条件的</strong>；否则，称为<strong>良态</strong>或<strong>好条件的</strong></p>
 
       
     </div>
@@ -616,7 +663,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5411_u91CF_u8303_u6570"><span class="nav-number">1.</span> <span class="nav-text">向量范数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5411_u91CF_u8303_u6570_u4E09_u516C_u7406"><span class="nav-number">1.1.</span> <span class="nav-text">向量范数三公理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5E38_u7528_u5411_u91CF_u8303_u6570"><span class="nav-number">1.2.</span> <span class="nav-text">常用向量范数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B9A_u4E49"><span class="nav-number">1.2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6027_u8D28"><span class="nav-number">1.2.2.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5411_u91CF_u8303_u6570_u7B49_u4EF7_u6027"><span class="nav-number">1.3.</span> <span class="nav-text">向量范数等价性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24_5Cboldsymbol_7BH_5Cddot_7Bo_7Dlder_7D_u4E0D_u7B49_u5F0F_24"><span class="nav-number">1.4.</span> <span class="nav-text">$\boldsymbol{H\ddot{o}lder}不等式$</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u77E9_u9635_u8303_u6570"><span class="nav-number">2.</span> <span class="nav-text">矩阵范数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u77E9_u9635_u8303_u6570_u56DB_u516C_u7406"><span class="nav-number">2.1.</span> <span class="nav-text">矩阵范数四公理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4E0E_u5411_u91CF_u8303_u6570_u7684_u76F8_u5BB9_u6027"><span class="nav-number">2.2.</span> <span class="nav-text">与向量范数的相容性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4ECE_u5C5E_u8303_u6570_uFF08_u53C8_u540D_uFF1A_u5BFC_u51FA_u8303_u6570_uFF09"><span class="nav-number">2.3.</span> <span class="nav-text">从属范数（又名：导出范数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5E38_u7528_u77E9_u9635_u8303_u6570"><span class="nav-number">2.4.</span> <span class="nav-text">常用矩阵范数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6027_u8D28-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">性质</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u8BA1_u7B97_u8303_u6570_u7684Matlab_u547D_u4EE4__u2014_u2014_norm"><span class="nav-number">3.</span> <span class="nav-text">计算范数的Matlab命令 —— norm</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u8303_u6570_u7684_u4E24_u79CD_u5E38_u89C1_u5E94_u7528"><span class="nav-number">4.</span> <span class="nav-text">范数的两种常见应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u8C31_u534A_u5F84"><span class="nav-number">4.1.</span> <span class="nav-text">谱半径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6761_u4EF6_u6570"><span class="nav-number">4.2.</span> <span class="nav-text">条件数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#向量范数"><span class="nav-number">1.</span> <span class="nav-text">向量范数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#向量范数三公理"><span class="nav-number">1.1.</span> <span class="nav-text">向量范数三公理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用向量范数"><span class="nav-number">1.2.</span> <span class="nav-text">常用向量范数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质"><span class="nav-number">1.2.2.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向量范数等价性"><span class="nav-number">1.3.</span> <span class="nav-text">向量范数等价性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boldsymbolhddotolder不等式"><span class="nav-number">1.4.</span> <span class="nav-text">\(\boldsymbol{H\ddot{o}lder}不等式\)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#矩阵范数"><span class="nav-number">2.</span> <span class="nav-text">矩阵范数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵范数四公理"><span class="nav-number">2.1.</span> <span class="nav-text">矩阵范数四公理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与向量范数的相容性"><span class="nav-number">2.2.</span> <span class="nav-text">与向量范数的相容性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从属范数又名导出范数"><span class="nav-number">2.3.</span> <span class="nav-text">从属范数（又名：导出范数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用矩阵范数"><span class="nav-number">2.4.</span> <span class="nav-text">常用矩阵范数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">性质</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计算范数的matlab命令-norm"><span class="nav-number">3.</span> <span class="nav-text">计算范数的Matlab命令 —— norm</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#范数的两种常见应用"><span class="nav-number">4.</span> <span class="nav-text">范数的两种常见应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#谱半径"><span class="nav-number">4.1.</span> <span class="nav-text">谱半径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件数"><span class="nav-number">4.2.</span> <span class="nav-text">条件数</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

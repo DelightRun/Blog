@@ -61,16 +61,16 @@
 
 
 
-<meta name="description" content="在Ubuntu13.04下使用apt-get安装的Ruby版本为1.9.3，本文将介绍如何在Ubuntu下安装最新的Ruby 2.1.2">
+<meta name="description" content="在Ubuntu13.04下使用apt-get安装的Ruby版本为1.9.3， 本文将介绍如何在Ubuntu下安装最新的Ruby 2.1.2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu下安装Ruby 2.1.2和Rails">
 <meta property="og:url" content="http://changxu.wang/2014/08/29/install-ruby-on-rails-in-ubuntu/index.html">
 <meta property="og:site_name" content="昌旭的博客">
-<meta property="og:description" content="在Ubuntu13.04下使用apt-get安装的Ruby版本为1.9.3，本文将介绍如何在Ubuntu下安装最新的Ruby 2.1.2">
+<meta property="og:description" content="在Ubuntu13.04下使用apt-get安装的Ruby版本为1.9.3， 本文将介绍如何在Ubuntu下安装最新的Ruby 2.1.2">
 <meta property="og:updated_time" content="2016-01-26T03:11:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu下安装Ruby 2.1.2和Rails">
-<meta name="twitter:description" content="在Ubuntu13.04下使用apt-get安装的Ruby版本为1.9.3，本文将介绍如何在Ubuntu下安装最新的Ruby 2.1.2">
+<meta name="twitter:description" content="在Ubuntu13.04下使用apt-get安装的Ruby版本为1.9.3， 本文将介绍如何在Ubuntu下安装最新的Ruby 2.1.2">
 
 
 
@@ -155,7 +155,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -191,9 +191,37 @@
       
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -303,9 +331,9 @@
       
 
       
-        <p>在Ubuntu13.04下使用<code>apt-get</code>安装的Ruby版本为<code>1.9.3</code>，<br>本文将介绍如何在Ubuntu下安装最新的<code>Ruby 2.1.2</code></p>
+        <p>在Ubuntu13.04下使用<code>apt-get</code>安装的Ruby版本为<code>1.9.3</code>， 本文将介绍如何在Ubuntu下安装最新的<code>Ruby 2.1.2</code></p>
 <a id="more"></a>
-<p>###安装rbenv</p>
+<h3 id="安装rbenv">安装rbenv</h3>
 <p><strong>首先</strong>，手动安装rbenv</p>
 <pre><code>$ git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 # 用来编译安装 ruby
@@ -313,35 +341,35 @@ $ git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-bu
 # 通过 gem 命令安装完 gem 后无需手动输入 rbenv rehash 命令, 推荐
 $ git clone git://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
 # 通过 rbenv update 命令来更新 rbenv 以及所有插件, 推荐
-$ git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
-</code></pre><p><strong>然后</strong>，在<code>~/.bashrc</code>里添加如下内容</p>
+$ git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update</code></pre>
+<p><strong>然后</strong>，在<code>~/.bashrc</code>里添加如下内容</p>
 <pre><code>export PATH=&quot;$HOME/.rbenv/bin:$PATH&quot;
-eval &quot;$(rbenv init -)&quot;
-</code></pre><p><strong>最后</strong>，执行以使<code>~/.bashrc</code>生效</p>
-<pre><code>$ source ~/.bashrc
-</code></pre><p><em>注意</em>：其他Linux发行版如CentOS中为<code>~/.bash_profile</code></p>
-<p>###安装Ruby</p>
-<p>由于在国内<em>你懂的</em>的网络环境下，直接使用rbenv下载安装Ruby速度非常慢，<br>所以我们使用如下技巧加快安装速度</p>
+eval &quot;$(rbenv init -)&quot;</code></pre>
+<p><strong>最后</strong>，执行以使<code>~/.bashrc</code>生效</p>
+<pre><code>$ source ~/.bashrc</code></pre>
+<p><em>注意</em>：其他Linux发行版如CentOS中为<code>~/.bash_profile</code></p>
+<h3 id="安装ruby">安装Ruby</h3>
+<p>由于在国内<em>你懂的</em>的网络环境下，直接使用rbenv下载安装Ruby速度非常慢， 所以我们使用如下技巧加快安装速度</p>
 <p><strong>首先</strong>，从淘宝的Ruby镜像处下载安装包</p>
-<pre><code>$ wget http://ruby.taobao.org/mirrors/ruby/2.1/ruby-2.1.2.tar.gz -O ~/.rbenv/versions/ruby-2.1.2.tar.gz
-</code></pre><p><strong>然后</strong>，配置环境变量</p>
-<pre><code>$ env RUBY_BUILD_MIRROR_URL=file://$HOME/.rbenv/versions/ruby-2.1.2.tar.gz#~/.rbenv/bin/rbenv install 2.1.2
-</code></pre><p><em>注意</em>：文件地址后面的<code>#</code>及其以后内容不能省略</p>
+<pre><code>$ wget http://ruby.taobao.org/mirrors/ruby/2.1/ruby-2.1.2.tar.gz -O ~/.rbenv/versions/ruby-2.1.2.tar.gz</code></pre>
+<p><strong>然后</strong>，配置环境变量</p>
+<pre><code>$ env RUBY_BUILD_MIRROR_URL=file://$HOME/.rbenv/versions/ruby-2.1.2.tar.gz#~/.rbenv/bin/rbenv install 2.1.2</code></pre>
+<p><em>注意</em>：文件地址后面的<code>#</code>及其以后内容不能省略</p>
 <p><strong>最后</strong>，安装Ruby 2.1.2</p>
-<pre><code>$ rbenv install 2.1.2
-</code></pre><p>###替换Gems源</p>
-<p>还是由于<em>你懂的</em>的原因，在国内直接使用<code>gem install</code>命令是不行的，<br>所以我们要将其源替换为淘宝的Gems源</p>
+<pre><code>$ rbenv install 2.1.2</code></pre>
+<h3 id="替换gems源">替换Gems源</h3>
+<p>还是由于<em>你懂的</em>的原因，在国内直接使用<code>gem install</code>命令是不行的， 所以我们要将其源替换为淘宝的Gems源</p>
 <pre><code>$ gem sources -r https://rubygems.org/
 $ gem sources -a https://ruby.taobao.org/
-$ gem sources -l
-</code></pre><p>执行完成后会看到</p>
+$ gem sources -l</code></pre>
+<p>执行完成后会看到</p>
 <pre><code>*** CURRENT SOURCES ***
 
-https://ruby.taobao.org
-</code></pre><p>###安装Rails</p>
+https://ruby.taobao.org</code></pre>
+<h3 id="安装rails">安装Rails</h3>
 <p>接下来直接安装<code>rails</code>即可</p>
-<pre><code>$ gem install rails
-</code></pre>
+<pre><code>$ gem install rails</code></pre>
+
       
     </div>
 
@@ -517,7 +545,7 @@ https://ruby.taobao.org
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装rbenv"><span class="nav-number">1.</span> <span class="nav-text">安装rbenv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ruby"><span class="nav-number">2.</span> <span class="nav-text">安装Ruby</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换gems源"><span class="nav-number">3.</span> <span class="nav-text">替换Gems源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装rails"><span class="nav-number">4.</span> <span class="nav-text">安装Rails</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
