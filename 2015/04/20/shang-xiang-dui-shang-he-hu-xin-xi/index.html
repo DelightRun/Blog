@@ -1,65 +1,16 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="google-site-verification" content="FXzFPoVRWr9svWNTns-bJzqL2dDrqHS2IpeLIC1YPaY" />
-
-
-
-
-  <meta name="baidu-site-verification" content="hJJbXprROq" />
-
-
-
-
-
-
-
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
-
-
-
-
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
-
-
-
-
-
+<title>
+  
+    熵、相对熵和互信息
+  
+</title>
 
 <meta name="description" content="综述熵、相对熵和互信息的概念">
 <meta property="og:type" content="article">
@@ -73,801 +24,336 @@
 <meta name="twitter:description" content="综述熵、相对熵和互信息的概念">
 
 
+  <link rel="alternative" href="/atom.xml" title="昌旭的博客" type="application/atom+xml">
 
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
-    }
-  };
-</script>
 
-  <title> 熵、相对熵和互信息 | 昌旭的博客 </title>
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+<body
   
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-72919231-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?89199bd2c47b68c8b327d4c058e916ab";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-
+    class="monochrome"
   
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">昌旭的博客</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle">机器学习、编程和数学</p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
   </button>
+  <a class="title" href="/">昌旭的博客</a>
 </div>
 
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu menu-left">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-
-      
-      
-      
-        <li class="menu-item menu-item-search">
-          <a href="#" class="st-search-show-outputs">
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
-</script>
-
-
-
-    </div>
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">昌旭的博客</a></h1>
     
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+      <p class="subtitle">
+        机器学习、编程和数学
+      </p>
     
-      <header class="post-header">
-
+    <div class="info">
+      <div class="content">
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                熵、相对熵和互信息
-              
-            
-          </h1>
+          <div class="author">昌旭(Changxu)</div>
         
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-04-20T19:56:13+08:00" content="2015-04-20">
-              2015-04-20
-            </time>
-          </span>
-
+      </div>
+      
+        <div class="avatar">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/信息论-熵/" itemprop="url" rel="index">
-                    <span itemprop="name">信息论, 熵</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/04/20/shang-xiang-dui-shang-he-hu-xin-xi/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/20/shang-xiang-dui-shang-he-hu-xin-xi/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
+            <a href="/about"><img src="https://cn.gravatar.com/avatar/35fef74d731255cd569c2c2b0b9e87e4?s=200"></a>
           
         </div>
-      </header>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/">IntellijIDEA</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Shadowsocks/">Linux, Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Vim/">Linux, Vim</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/">Octopress</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-C/">Programming, C++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/信息论-熵/">信息论, 熵</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用数据库-人脸识别/">常用数据库, 人脸识别</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-数学/">机器学习, 数学</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-神经网络/">机器学习, 神经网络</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/自然语言处理-机器学习/">自然语言处理, 机器学习</a><span class="category-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">11</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/denjones/hexo-theme-chan" title="Chan" target="_blank" rel="external">Chan</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/denjones" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/atom.xml" title="RSS">RSS</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-shang-xiang-dui-shang-he-hu-xin-xi" class="article article-type-post">
+  
+    <h1 class="article-header">
+      熵、相对熵和互信息
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2015-04-20
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/信息论-熵/">信息论, 熵</a></li></ul>
+	</span>
+
+
     
 
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>综述熵、相对熵和互信息的概念</p>
+  </div>
+  <div class="article-entry">
+    <p>综述熵、相对熵和互信息的概念</p>
 <a id="more"></a>
-<h1 id="熵">熵</h1>
-<p><strong>定义</strong> 离散型随机变量X的<code>熵(entropy)</code> <span class="math">\(H(X)\)</span>定义为：</p>
-<p><span class="math">\[ H(X) = -\sum_{x \in \mathscr X}{p(x)\log{p(x)}} \]</span></p>
+<h1 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h1><p><strong>定义</strong> 离散型随机变量X的<code>熵(entropy)</code> $H(X)$定义为：</p>
+<p>$$ H(X) = -\sum_{x \in \mathscr X}{p(x)\log{p(x)}} $$</p>
 <blockquote>
-<p>注意：熵实际上是随机变量<span class="math">\(X\)</span>概率分布的泛函</p>
+<p>注意：熵实际上是随机变量$X$概率分布的泛函</p>
 </blockquote>
-<h1 id="联合熵">联合熵</h1>
-<p><strong>定义</strong> 对于服从联合分布为<span class="math">\(p(x,y)\)</span>的一对离散型随机变量<span class="math">\((X,Y)\)</span>，其<code>联合熵(joint entropy)</code> <span class="math">\(H(X,Y)\)</span>定义为：</p>
-<p><span class="math">\[ H(X,Y) = -\sum_{x\in \mathscr X}{\sum_{y\in \mathscr Y}{p(x,y)\log{p(x,y)}}} \]</span></p>
+<h1 id="联合熵"><a href="#联合熵" class="headerlink" title="联合熵"></a>联合熵</h1><p><strong>定义</strong> 对于服从联合分布为$p(x,y)$的一对离散型随机变量$(X,Y)$，其<code>联合熵(joint entropy)</code> $H(X,Y)$定义为：</p>
+<p>$$ H(X,Y) = -\sum<em>{x\in \mathscr X}{\sum</em>{y\in \mathscr Y}{p(x,y)\log{p(x,y)}}} $$</p>
 <p>亦可表示成：</p>
-<p><span class="math">\[ H(X,Y) = -E\log{p(X,Y)} \]</span></p>
+<p>$$ H(X,Y) = -E\log{p(X,Y)} $$</p>
 <p>即一个随机变量在给定另一个随机变量下的<code>条件熵</code>，它是条件分布熵关于起条件作用的那个随机变量取平均后的期望值。</p>
-<h1 id="条件熵">条件熵</h1>
-<p><strong>定义</strong> 若<span class="math">\((X,Y)\)</span>服从联合分布<span class="math">\(p(x,y)\)</span>,<code>条件熵(conditional entropy)</code><span class="math">\(H(Y\vert X)\)</span>定义为：</p>
-<p><span class="math">\[ H(Y\vert X) = \sum_{x\in \mathscr X}{p(x)H(Y\vert X=x)} = -\sum_{x\in \mathscr X}{\sum_{y\in \mathscr Y}{p(x,y)\log{p(y\vert x)}}} = -E_{p((x,y)}\log{p(Y\vert X)} \]</span></p>
-<p><strong>定理</strong> <code>链式法则</code> 设随机变量<span class="math">\(X_1,X_2,\cdots,X_n\)</span>服从<span class="math">\(p(x_1,x2,\cdots,x_n)\)</span>，则有：</p>
-<p><span class="math">\[ H(X_1,X_2,\cdots,X_n) = \sum_{i=1}^{n}H(X_i\vert X_{i-1},\cdots,X_1) \]</span></p>
-<p>比如，对于二元情况，<span class="math">\(H(X,Y) = H(X) + H(Y\vert X)\)</span></p>
-<h1 id="相对熵">相对熵</h1>
-<p>相对熵是两个随机分部之间的距离的度量。相对熵<span class="math">\(D(p\Vert q)\)</span>度量的是当真是分布为<span class="math">\(p\)</span>而假定分布为<span class="math">\(q\)</span>时的无效性。</p>
-<p><strong>定义</strong> 两个概率密度函数<span class="math">\(p(x)\)</span>和<span class="math">\(q(x)\)</span>之间的<code>相对熵</code>，或<code>Kullback Leibler距离</code>定义为：</p>
-<p><span class="math">\[ D(p\Vert q) = \sum_{x\in \mathscr X}{p(x)\log{\frac{p(x)}{q(x)}}} = E_p\log{\frac{p(X)}{q(X)}} \]</span></p>
+<h1 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a>条件熵</h1><p><strong>定义</strong> 若$(X,Y)$服从联合分布$p(x,y)$,<code>条件熵(conditional entropy)</code>$H(Y\vert X)$定义为：</p>
+<p>$$ H(Y\vert X) = \sum<em>{x\in \mathscr X}{p(x)H(Y\vert X=x)} = -\sum</em>{x\in \mathscr X}{\sum<em>{y\in \mathscr Y}{p(x,y)\log{p(y\vert x)}}} = -E</em>{p((x,y)}\log{p(Y\vert X)} $$</p>
+<p><strong>定理</strong>  <code>链式法则</code> 设随机变量$X_1,X_2,\cdots,X_n$服从$p(x_1,x2,\cdots,x_n)$，则有：</p>
+<p>$$ H(X_1,X_2,\cdots,X<em>n) = \sum</em>{i=1}^{n}H(X<em>i\vert X</em>{i-1},\cdots,X_1) $$</p>
+<p>比如，对于二元情况，$H(X,Y) = H(X) + H(Y\vert X)$</p>
+<h1 id="相对熵"><a href="#相对熵" class="headerlink" title="相对熵"></a>相对熵</h1><p>相对熵是两个随机分部之间的距离的度量。相对熵$D(p\Vert q)$度量的是当真是分布为$p$而假定分布为$q$时的无效性。</p>
+<p><strong>定义</strong> 两个概率密度函数$p(x)$和$q(x)$之间的<code>相对熵</code>，或<code>Kullback Leibler距离</code>定义为：</p>
+<p>$$ D(p\Vert q) = \sum_{x\in \mathscr X}{p(x)\log{\frac{p(x)}{q(x)}}} = E_p\log{\frac{p(X)}{q(X)}} $$</p>
 <blockquote>
-<p>约定 <span class="math">\(0\log{\frac{0}{q}}=0\)</span> 和 <span class="math">\(p\log{\frac{p}{0}}=\infty\)</span> （基于连续性假设）</p>
-</blockquote>
-<blockquote>
+<p>约定 $0\log{\frac{0}{q}}=0$ 和 $p\log{\frac{p}{0}}=\infty$ （基于连续性假设）</p>
 <p>注意，相对熵并不对称且不满足三角不等式，所以并不是<code>范数</code>，但是将其视作<code>距离</code>往往很有用</p>
 </blockquote>
 <p><strong>定理</strong> <code>相对熵的链式法则</code></p>
-<p><span class="math">\[ D(p(x,y)\Vert q(x,y)) = D(p(x)\Vert q(x)) + D(p(y\vert x)\Vert q(y\vert x)) \]</span></p>
-<h1 id="互信息">互信息</h1>
-<p><strong>定义</strong> 考虑两个随机变量<span class="math">\(X\)</span>和<span class="math">\(Y\)</span>，其联合概率密度函数为<span class="math">\(p(x,y)\)</span>，其边际概率密度函数分别是<span class="math">\(p(x)\)</span>和<span class="math">\(p(y)\)</span>。<code>互信息</code><span class="math">\(I(X;Y)\)</span>定义为联合分布<span class="math">\(p(x,y)\)</span>和乘积分布<span class="math">\(p(x)p(y)\)</span>之间的相对熵，即：</p>
-<p><span class="math">\[ I(X;Y) = \sum_{x\in \mathscr X}{\sum_{y\in \mathscr Y}{p(x,y)\log{\frac{p(x,y)}{p(x)p(y)}}}} = D(p(x,y)\Vert p(x)p(y)) = E_{p(x,y)}\log{\frac{p(X,Y)}{p(X)p(Y)}} \]</span></p>
-<h1 id="熵与互信息的关系">熵与互信息的关系</h1>
-<p>注意到：</p>
-<p><span class="math">\[ I(X;Y) = H(X) - H(X\vert Y) = H(Y) - H(Y\vert X) \]</span></p>
-<p>由此表明互信息I(X;Y)是在给定<span class="math">\(Y(X)\)</span>知识条件下<span class="math">\(X(Y)\)</span>的不确定度的缩减量，即<span class="math">\(X(Y)\)</span>中含有<span class="math">\(Y(X)\)</span>的信息量。</p>
-<p>又因为<span class="math">\(H(X,Y) = H(X) + H(Y\vert X)\)</span>，所以有：</p>
-<p><span class="math">\[ I(X;Y) = H(X) + H(Y) - H(X,Y) \]</span></p>
+<p>$$ D(p(x,y)\Vert q(x,y)) = D(p(x)\Vert q(x)) + D(p(y\vert x)\Vert q(y\vert x)) $$</p>
+<h1 id="互信息"><a href="#互信息" class="headerlink" title="互信息"></a>互信息</h1><p><strong>定义</strong> 考虑两个随机变量$X$和$Y$，其联合概率密度函数为$p(x,y)$，其边际概率密度函数分别是$p(x)$和$p(y)$。<code>互信息</code>$I(X;Y)$定义为联合分布$p(x,y)$和乘积分布$p(x)p(y)$之间的相对熵，即：</p>
+<p>$$ I(X;Y) = \sum<em>{x\in \mathscr X}{\sum</em>{y\in \mathscr Y}{p(x,y)\log{\frac{p(x,y)}{p(x)p(y)}}}} = D(p(x,y)\Vert p(x)p(y)) = E_{p(x,y)}\log{\frac{p(X,Y)}{p(X)p(Y)}} $$</p>
+<h1 id="熵与互信息的关系"><a href="#熵与互信息的关系" class="headerlink" title="熵与互信息的关系"></a>熵与互信息的关系</h1><p>注意到：</p>
+<p>$$ I(X;Y) = H(X) - H(X\vert Y) = H(Y) - H(Y\vert X) $$</p>
+<p>由此表明互信息I(X;Y)是在给定$Y(X)$知识条件下$X(Y)$的不确定度的缩减量，即$X(Y)$中含有$Y(X)$的信息量。</p>
+<p>又因为$H(X,Y) = H(X) + H(Y\vert X)$，所以有：</p>
+<p>$$ I(X;Y) = H(X) + H(Y) - H(X,Y) $$</p>
 <p>最后，注意到：</p>
-<p><span class="math">\[ I(X;X) = H(X) \]</span></p>
+<p>$$ I(X;X) = H(X) $$</p>
 <p>所以，有时熵也被称为<code>自信息(self-information)</code>。</p>
 <p>综上，我们关于熵和互信息有如下一组定理公式</p>
 <p><strong>定理</strong> <code>互信息与熵</code></p>
-<p><span class="math">\[ I(X;Y) = H(X) - H(X\vert Y) = H(Y) - H(Y\vert X) \]</span></p>
-<p><span class="math">\[ I(X;Y) = H(X) + H(Y) - H(X,Y) \]</span></p>
-<p><span class="math">\[ I(X;Y) = I(Y;X) \]</span></p>
-<p><span class="math">\[ I(X;X) = H(X) \]</span></p>
-<h1 id="条件互信息">条件互信息</h1>
-<p><strong>定义</strong> 随机变量<span class="math">\(X\)</span>和<span class="math">\(Y\)</span>在随机变量<span class="math">\(Z\)</span>下的<code>条件互信息(conditional mutual information)</code>定义为：</p>
-<p><span class="math">\[ I(X;Y\vert Z) = H(X\vert Z) - H(X\vert Y,Z) = E_{p(x,y,z)}\log{\frac{p(X,Y\vert Z)}{p(X\vert Z)p(Y\vert Z)}} \]</span></p>
+<p>$$ I(X;Y) = H(X) - H(X\vert Y) = H(Y) - H(Y\vert X) $$</p>
+<p>$$ I(X;Y) = H(X) + H(Y) - H(X,Y) $$</p>
+<p>$$ I(X;Y) = I(Y;X) $$</p>
+<p>$$ I(X;X) = H(X) $$</p>
+<h1 id="条件互信息"><a href="#条件互信息" class="headerlink" title="条件互信息"></a>条件互信息</h1><p><strong>定义</strong> 随机变量$X$和$Y$在随机变量$Z$下的<code>条件互信息(conditional mutual information)</code>定义为：</p>
+<p>$$ I(X;Y\vert Z) = H(X\vert Z) - H(X\vert Y,Z) = E_{p(x,y,z)}\log{\frac{p(X,Y\vert Z)}{p(X\vert Z)p(Y\vert Z)}} $$</p>
 <p><strong>定理</strong> <code>互信息链式法则</code></p>
-<p><span class="math">\[ I(X_1,X_2,\cdots,X_n\vert Y) = \sum_{i=1}^{n}I(X_i;Y\vert X_{i-1},X_{i-2},\cdots,X_1) \]</span></p>
-<h1 id="条件相对熵">条件相对熵</h1>
-<p><strong>定义</strong> <code>条件相对熵(conditional relative entropy)</code><span class="math">\(D(p(y\vert x)\Vert q(y\vert x))\)</span>定义为条件概率密度函数<span class="math">\(p(y\vert x)\)</span>和<span class="math">\(q(y\vert x)\)</span>之间的平均相对熵，其中“平均”二字是指针对<span class="math">\(p(x)\)</span>平均，具体来讲就是：</p>
-<p><span class="math">\[ D(p(y\vert x)\Vert q(y\vert x)) = \sum_{x}{p(x)\sum_{y}{p(y\vert x)\log{\frac{p(y\vert x)}{q(y\vert x)}}}} = E_{p(x,y)}\log{\frac{p(Y\vert X)}{q(Y\vert X)}} \]</span></p>
+<p>$$ I(X_1,X_2,\cdots,X<em>n\vert Y) = \sum</em>{i=1}^{n}I(X<em>i;Y\vert X</em>{i-1},X_{i-2},\cdots,X_1) $$</p>
+<h1 id="条件相对熵"><a href="#条件相对熵" class="headerlink" title="条件相对熵"></a>条件相对熵</h1><p><strong>定义</strong> <code>条件相对熵(conditional relative entropy)</code>$D(p(y\vert x)\Vert q(y\vert x))$定义为条件概率密度函数$p(y\vert x)$和$q(y\vert x)$之间的平均相对熵，其中“平均”二字是指针对$p(x)$平均，具体来讲就是：</p>
+<p>$$ D(p(y\vert x)\Vert q(y\vert x)) = \sum<em>{x}{p(x)\sum</em>{y}{p(y\vert x)\log{\frac{p(y\vert x)}{q(y\vert x)}}}} = E_{p(x,y)}\log{\frac{p(Y\vert X)}{q(Y\vert X)}} $$</p>
 
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/03/31/c-object-oriented-programming/" rel="next" title="面向对象的C编程">
-                <i class="fa fa-chevron-left"></i> 面向对象的C编程
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/04/23/15ge-chang-yong-vimzhi-ling/" rel="prev" title="15个常用Vim指令">
-                15个常用Vim指令 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
-
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
+  <footer class="article-footer">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
     
-  </div>
 
+  </footer>
+</article>
 
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
 
-      
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="昌旭(Changxu)" />
-          <p class="site-author-name" itemprop="name">昌旭(Changxu)</p>
-          <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">29</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">29</span>
-              <span class="site-state-item-name">分类</span>
-              </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            
-              <span class="site-state-item-count">0</span>
-              <span class="site-state-item-name">标签</span>
-              
-          </div>
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/DelightRun" target="_blank">
-                  
-                    <i class="fa fa-github"></i> GitHub
-                  
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/singledust" target="_blank">
-                  
-                    <i class="fa fa-weibo"></i> Weibo
-                  
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/wang-chang-xu" target="_blank">
-                  
-                    <i class="fa fa-globe"></i> ZhiHu
-                  
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.facebook.com/Changxu.Black" target="_blank">
-                  
-                    <i class="fa fa-globe"></i> Facebook
-                  
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#熵"><span class="nav-number">1.</span> <span class="nav-text">熵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#联合熵"><span class="nav-number">2.</span> <span class="nav-text">联合熵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件熵"><span class="nav-number">3.</span> <span class="nav-text">条件熵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相对熵"><span class="nav-number">4.</span> <span class="nav-text">相对熵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#互信息"><span class="nav-number">5.</span> <span class="nav-text">互信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#熵与互信息的关系"><span class="nav-number">6.</span> <span class="nav-text">熵与互信息的关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件互信息"><span class="nav-number">7.</span> <span class="nav-text">条件互信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件相对熵"><span class="nav-number">8.</span> <span class="nav-text">条件相对熵</span></a></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
-          </div>
-        </section>
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">昌旭(Changxu)</span>
-</div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
-
-
-
-      </div>
-    </footer>
-
-    <div class="back-to-top"></div>
-  </div>
-
-  
-
-
-  
-
-
-
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
-
-
-
-  
-  
-
-  
-  
-<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    NexT.motion.middleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-
-      if (CONFIG.sidebar === 'post') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          NexT.utils.displaySidebar();
-        }
-      }
-    };
-  });
-</script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
-
-
-
-  
-
-
-
-  
-
+<section id="comments">
+  <div id="disqus_thread"></div>
     <script type="text/javascript">
-      var disqus_shortname = 'changxusblog';
-      var disqus_identifier = '2015/04/20/shang-xiang-dui-shang-he-hu-xin-xi/';
-      var disqus_title = '熵、相对熵和互信息';
-      var disqus_url = 'http://changxu.wang/2015/04/20/shang-xiang-dui-shang-he-hu-xin-xi/';
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'changxusblog'; // required: replace example with your forum shortname
 
-      function run_disqus_script(disqus_script){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
 
-      run_disqus_script('count.js');
+
+
+
+          <div class="main-footer">
+  
+    © 2016 昌旭的博客 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
       
-        run_disqus_script('embed.js');
+        </div>
       
-    </script>
-  
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
 
 
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
 
-  
-  
-
-  
-  
-
-
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 </body>
 </html>

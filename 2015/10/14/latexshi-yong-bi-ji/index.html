@@ -1,65 +1,16 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="google-site-verification" content="FXzFPoVRWr9svWNTns-bJzqL2dDrqHS2IpeLIC1YPaY" />
-
-
-
-
-  <meta name="baidu-site-verification" content="hJJbXprROq" />
-
-
-
-
-
-
-
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
-
-
-
-
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
-
-
-
-
-
+<title>
+  
+    LaTeX笔记 —— 基础内容
+  
+</title>
 
 <meta name="description" content="LaTeX学习过程中的一些笔记 —— 基础内容">
 <meta property="og:type" content="article">
@@ -73,240 +24,158 @@
 <meta name="twitter:description" content="LaTeX学习过程中的一些笔记 —— 基础内容">
 
 
+  <link rel="alternative" href="/atom.xml" title="昌旭的博客" type="application/atom+xml">
 
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
-    }
-  };
-</script>
 
-  <title> LaTeX笔记 —— 基础内容 | 昌旭的博客 </title>
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+<body
   
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-72919231-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?89199bd2c47b68c8b327d4c058e916ab";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-
+    class="monochrome"
   
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">昌旭的博客</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle">机器学习、编程和数学</p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
   </button>
+  <a class="title" href="/">昌旭的博客</a>
 </div>
 
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu menu-left">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-
-      
-      
-      
-        <li class="menu-item menu-item-search">
-          <a href="#" class="st-search-show-outputs">
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', 'To_fxizZWUyK7wGxcaKB','2.0.0');
-</script>
-
-
-
-    </div>
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">昌旭的博客</a></h1>
     
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+      <p class="subtitle">
+        机器学习、编程和数学
+      </p>
     
-      <header class="post-header">
-
+    <div class="info">
+      <div class="content">
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                LaTeX笔记 —— 基础内容
-              
-            
-          </h1>
+          <div class="author">昌旭(Changxu)</div>
         
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-14T18:16:21+08:00" content="2015-10-14">
-              2015-10-14
-            </time>
-          </span>
-
+      </div>
+      
+        <div class="avatar">
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/14/latexshi-yong-bi-ji/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/10/14/latexshi-yong-bi-ji/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
+            <a href="/about"><img src="https://cn.gravatar.com/avatar/35fef74d731255cd569c2c2b0b9e87e4?s=200"></a>
           
         </div>
-      </header>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IntellijIDEA/">IntellijIDEA</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Shadowsocks/">Linux, Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Vim/">Linux, Vim</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/">Octopress</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-C/">Programming, C++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/信息论-熵/">信息论, 熵</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用数据库-人脸识别/">常用数据库, 人脸识别</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-数学/">机器学习, 数学</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习-神经网络/">机器学习, 神经网络</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/自然语言处理-机器学习/">自然语言处理, 机器学习</a><span class="category-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">11</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/denjones/hexo-theme-chan" title="Chan" target="_blank" rel="external">Chan</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/denjones" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/atom.xml" title="RSS">RSS</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-latexshi-yong-bi-ji" class="article article-type-post">
+  
+    <h1 class="article-header">
+      LaTeX笔记 —— 基础内容
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2015-10-14
+</span>
+
     
 
+    
 
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>LaTeX学习过程中的一些笔记 —— 基础内容</p>
+  </div>
+  <div class="article-entry">
+    <p>LaTeX学习过程中的一些笔记 —— 基础内容</p>
 <a id="more"></a>
-<h2 id="文档类">文档类</h2>
-<h3 id="usage">Usage:</h3>
-<pre><code>\documentclass[options]{class}</code></pre>
-<h3 id="class">Class:</h3>
-<ul>
+<h2 id="文档类"><a href="#文档类" class="headerlink" title="文档类"></a>文档类</h2><h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage:"></a>Usage:</h3><pre><code>\documentclass[options]{class}
+</code></pre><h3 id="Class"><a href="#Class" class="headerlink" title="Class:"></a>Class:</h3><ul>
 <li><code>article</code> 排版科学期刊、演示文档、短报告、程序文档、邀请函……</li>
 <li><code>proc</code> 一个基于 article 的会议文集类</li>
 <li><code>minimal</code> 非常小的文档类。只设置了页面尺寸和基本字体。主要用来查错</li>
@@ -314,151 +183,129 @@
 <li><code>book</code> 排版书籍</li>
 <li><code>slides</code> 排版幻灯片。该文档类使用大号 sans serif 字体。也可以选用 FoilTEX来得到相同的效果。</li>
 </ul>
-<h3 id="options">Options:</h3>
-<ul>
-<li><code>10pt, 11pt, 12pt</code> 设置文档中所使用的字体的大小。如果该项没有指定,默认使用10pt 字体。+ <code>a4paper, letterpaper,</code> . . . 定义纸张的尺寸。缺省设置为letterpaper。此外,还可以使用a5paper, b5paper, executivepaper 以及legalpaper。+ <code>fleqn</code> 设置行间公式为左对齐,而不是居中对齐。+ <code>leqno</code> 设置行间公式的编号为左对齐,而不是右对齐。+ <code>titlepage, notitlepage</code> 指定是否在文档标题(document title) 后另起一 页。article 文档类缺省设置为不开始新页,report 和book 类则相反。+ <code>onecolumn, twocolumn</code> LATEX 以单栏(one column) 或双栏(two column) 的 方式来排版文档。+ <code>twoside, oneside</code> 指定文档为双面或单面打印格式。article 和report 类 为单面(single sided) 格式,book 类缺省为双面(double sided) 格式。注意 该选项只是作用于文档样式,而不会通知打印机以双面格式打印文档。+ <code>landscape</code> 将文档的打印输出布局设置为 landscape 模式。+ <code>openright, openany</code> 决定新的一章仅在奇数页开始还是在下一页开始。在文 档类型为article 时该选项不起作用,因为该类中没有定义“章” (chapter)。report 类默认在下一页开始新一章而book 类的新一章总是在 奇数页开始。</li>
+<h3 id="Options"><a href="#Options" class="headerlink" title="Options:"></a>Options:</h3><ul>
+<li><code>10pt, 11pt, 12pt</code> 设置文档中所使用的字体的大小。如果该项没有指定,默认<br>使用10pt 字体。</li>
+<li><code>a4paper, letterpaper,</code> . . . 定义纸张的尺寸。缺省设置为letterpaper。此<br>外,还可以使用a5paper, b5paper, executivepaper 以及legalpaper。</li>
+<li><code>fleqn</code> 设置行间公式为左对齐,而不是居中对齐。</li>
+<li><code>leqno</code> 设置行间公式的编号为左对齐,而不是右对齐。</li>
+<li><code>titlepage, notitlepage</code> 指定是否在文档标题(document title) 后另起一 页。article 文档类缺省设置为不开始新页,report 和book 类则相反。</li>
+<li><code>onecolumn, twocolumn</code> LATEX 以单栏(one column) 或双栏(two column) 的 方式来排版文档。</li>
+<li><code>twoside, oneside</code> 指定文档为双面或单面打印格式。article 和report 类 为单面(single sided) 格式,book 类缺省为双面(double sided) 格式。注意 该选项只是作用于文档样式,而不会通知打印机以双面格式打印文档。</li>
+<li><code>landscape</code> 将文档的打印输出布局设置为 landscape 模式。</li>
+<li><code>openright, openany</code> 决定新的一章仅在奇数页开始还是在下一页开始。在文 档类型为article 时该选项不起作用,因为该类中没有定义“章” (chapter)。report 类默认在下一页开始新一章而book 类的新一章总是在 奇数页开始。</li>
 </ul>
-<h2 id="页面样式">页面样式</h2>
-<h3 id="usage-1">Usage:</h3>
-<p>全部设定：</p>
-<pre><code>\￼pagestyle{style}</code></pre>
-<p>仅设置本页：</p>
-<pre><code>￼\thispagestyle{style}</code></pre>
-<h3 id="style">Style:</h3>
-<ul>
-<li><code>￼plain</code> 在页脚正中显示页码。这是页面样式的缺省设置。+ <code>headings</code> 在页眉中显示章节名及页码,页脚空白。</li>
+<h2 id="页面样式"><a href="#页面样式" class="headerlink" title="页面样式"></a>页面样式</h2><h3 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage:"></a>Usage:</h3><p>全部设定：</p>
+<pre><code>\￼pagestyle{style}
+</code></pre><p>仅设置本页：</p>
+<pre><code>￼\thispagestyle{style}
+</code></pre><h3 id="Style"><a href="#Style" class="headerlink" title="Style:"></a>Style:</h3><ul>
+<li><code>￼plain</code> 在页脚正中显示页码。这是页面样式的缺省设置。</li>
+<li><code>headings</code> 在页眉中显示章节名及页码,页脚空白。</li>
 <li><code>empty</code> 将页眉页脚都设为空白。</li>
 </ul>
-<h2 id="大型项目">大型项目</h2>
-<h3 id="引用单个文件">引用单个文件</h3>
-<p>另起一页加入内容：</p>
-<pre><code>\include{filename}</code></pre>
-<p>在当前位置插入文本：</p>
-<pre><code>\input{filename}</code></pre>
-<h3 id="进行语法差错而不生成">进行语法差错而不生成</h3>
-<p>首先：</p>
-<pre><code>\usepackage{syntonly}然后：    \syntaxonly</code></pre>
-<h2 id="断行和分页">断行和分页</h2>
-<h3 id="断行">断行</h3>
-<p>另起一行而不另起一段：</p>
-<pre><code>\\ 或 \newline</code></pre>
-<p>断行后禁止分页：</p>
-<pre><code>\\*</code></pre>
-<h3 id="分页">分页</h3>
-<p>另起一页：</p>
-<pre><code>\newpage</code></pre>
-<h3 id="断词">断词</h3>
-<p>设置断词点：</p>
-<pre><code>\￼hyphenation{wo-rd1 w-or-d2}</code></pre>
-<p>命令</p>
-<pre><code>\mbox{text}</code></pre>
-<p>保证把几个单词排在同一行上，其兄弟命令：</p>
-<pre><code>\fbox{text}</code></pre>
-<p>还会额外围绕内容加个框</p>
-<h2 id="几个内置字符串">几个内置字符串</h2>
-<ul>
+<h2 id="大型项目"><a href="#大型项目" class="headerlink" title="大型项目"></a>大型项目</h2><h3 id="引用单个文件"><a href="#引用单个文件" class="headerlink" title="引用单个文件"></a>引用单个文件</h3><p>另起一页加入内容：</p>
+<pre><code>\include{filename}
+</code></pre><p>在当前位置插入文本：</p>
+<pre><code>\input{filename}
+</code></pre><h3 id="进行语法差错而不生成"><a href="#进行语法差错而不生成" class="headerlink" title="进行语法差错而不生成"></a>进行语法差错而不生成</h3><p>首先：</p>
+<pre><code>\usepackage{syntonly}
+</code></pre><p>然后：</p>
+<pre><code>\syntaxonly
+</code></pre><h2 id="断行和分页"><a href="#断行和分页" class="headerlink" title="断行和分页"></a>断行和分页</h2><h3 id="断行"><a href="#断行" class="headerlink" title="断行"></a>断行</h3><p>另起一行而不另起一段：</p>
+<pre><code>\\ 或 \newline
+</code></pre><p>断行后禁止分页：</p>
+<pre><code>\\*
+</code></pre><h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><p>另起一页：</p>
+<pre><code>\newpage
+</code></pre><h3 id="断词"><a href="#断词" class="headerlink" title="断词"></a>断词</h3><p>设置断词点：</p>
+<pre><code>\￼hyphenation{wo-rd1 w-or-d2}
+</code></pre><p>命令</p>
+<pre><code>\mbox{text}
+</code></pre><p>保证把几个单词排在同一行上，其兄弟命令：</p>
+<pre><code>\fbox{text}
+</code></pre><p>还会额外围绕内容加个框</p>
+<h2 id="几个内置字符串"><a href="#几个内置字符串" class="headerlink" title="几个内置字符串"></a>几个内置字符串</h2><ul>
 <li><code>\today</code></li>
 <li><code>\TeX</code></li>
 <li><code>\LaTeX</code></li>
 <li><code>\LaTeXe</code></li>
 </ul>
-<h2 id="特殊符号">特殊符号</h2>
-<h3 id="引号">引号</h3>
-<ul>
-<li>左引号 —— 连续两个<code>`</code></li>
-<li>右引号 —— 连续两个<code>'</code></li>
+<h2 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h2><h3 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h3><ul>
+<li>左引号 —— 连续两个<code>` </code></li>
+<li>右引号 —— 连续两个<code>&#39;</code></li>
 </ul>
-<h3 id="破折号和连字号">破折号和连字号</h3>
-<ul>
+<h3 id="破折号和连字号"><a href="#破折号和连字号" class="headerlink" title="破折号和连字号"></a>破折号和连字号</h3><ul>
 <li><code>-</code> —— 连字号(hyphen)</li>
 <li><code>--</code> —— 短破折号(en-dash)</li>
 <li><code>---</code> —— 长破折号(em-dash)</li>
 <li><code>$-$</code> —— 负号/减号</li>
 </ul>
-<h3 id="波浪号">波浪号</h3>
-<ul>
+<h3 id="波浪号"><a href="#波浪号" class="headerlink" title="波浪号"></a>波浪号</h3><ul>
 <li><code>\~{}</code> —— <code>̃</code></li>
 <li><code>$\sim$</code> —— <code>∼</code></li>
 </ul>
-<h3 id="度的符号">度的符号</h3>
-<ul>
+<h3 id="度的符号"><a href="#度的符号" class="headerlink" title="度的符号"></a>度的符号</h3><ul>
 <li><code>\circ</code> —— <code>◦</code></li>
 </ul>
 <p>如果想排到右上角，可以如下：</p>
-<pre><code>It’s $-30\,^{\circ}\mathrm{C}$</code></pre>
-<h3 id="货币符号">货币符号</h3>
-<p>首先载入宏包：</p>
-<pre><code>\usepackage{textcomp}</code></pre>
-<p>然后引用：</p>
+<pre><code>It’s $-30\,^{\circ}\mathrm{C}$
+</code></pre><h3 id="货币符号"><a href="#货币符号" class="headerlink" title="货币符号"></a>货币符号</h3><p>首先载入宏包：</p>
+<pre><code>\usepackage{textcomp}
+</code></pre><p>然后引用：</p>
 <ul>
 <li><code>\texteuro</code> —— 欧元</li>
 <li><code>\textyen</code> —— 人民币</li>
 <li>其它符号请参考<code>textcomp</code>手册</li>
 </ul>
-<h3 id="省略号">省略号</h3>
-<ul>
+<h3 id="省略号"><a href="#省略号" class="headerlink" title="省略号"></a>省略号</h3><ul>
 <li><code>ldots</code></li>
 </ul>
-<h2 id="交叉引用">交叉引用</h2>
-<ul>
+<h2 id="交叉引用"><a href="#交叉引用" class="headerlink" title="交叉引用"></a>交叉引用</h2><ul>
 <li><code>\label{marker}</code> —— 设定label</li>
 <li><code>\ref{marker}</code> —— 引用，序号</li>
 <li><code>\pageref{marker}</code> —— 引用，页号</li>
 </ul>
-<h2 id="脚注">脚注</h2>
-<h3 id="usage-2">Usage:</h3>
-<pre><code>￼\footnote{footnote text}</code></pre>
-<h3 id="example">Example:</h3>
-<pre><code>Footnotes\footnote{This is a footnote.} are often used by people using \LaTeX.## 强调</code></pre>
-<ul>
+<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><h3 id="Usage-2"><a href="#Usage-2" class="headerlink" title="Usage:"></a>Usage:</h3><pre><code>￼\footnote{footnote text}
+</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h3><pre><code>Footnotes\footnote{This is a footnote.} are often used by people using \LaTeX.
+</code></pre><h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><ul>
 <li><code>\underline{text}</code> —— 下划线</li>
 <li><code>\emph{text}</code> —— 斜体</li>
 </ul>
-<h2 id="环境">环境</h2>
-<h3 id="usage-3">Usage:</h3>
-<pre><code>\begin{environment} TEXT \end{environment}</code></pre>
-<h3 id="常用环境">常用环境：</h3>
-<h4 id="列表">列表:</h4>
-<ul>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><h3 id="Usage-3"><a href="#Usage-3" class="headerlink" title="Usage:"></a>Usage:</h3><pre><code>\begin{environment} TEXT \end{environment}
+</code></pre><h3 id="常用环境："><a href="#常用环境：" class="headerlink" title="常用环境："></a>常用环境：</h3><h4 id="列表"><a href="#列表" class="headerlink" title="列表:"></a>列表:</h4><ul>
 <li><code>itemize</code> —— 无序列表</li>
 <li><code>enumerate</code> —— 有序列表</li>
 <li><code>description</code> —— 带描述的列表</li>
 </ul>
 <p>Example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;enumerate&#125;&#13;    \item You can mix the list environments to your taste:&#10;        \begin&#123;itemize&#125;&#13;            \item But it might start to look silly.&#13;            \item[-] With a dash.&#13;        \end&#123;itemize&#125;&#13;    \item Therefore remember:&#10;        \begin&#123;description&#125;&#13;            \item[Stupid] things will not become smart because they are in a list.&#13;            \item[Smart] things, though, can be presented beautifully in a list.&#13;        \end&#123;description&#125;&#13;\end&#123;enumerate&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="左对齐右对齐和居中">左对齐、右对齐和居中</h4>
-<ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">\begin&#123;enumerate&#125;    \item You can mix the list environments to your taste:</div><div class="line">        \begin&#123;itemize&#125;            \item But it might start to look silly.            \item[-] With a dash.        \end&#123;itemize&#125;    \item Therefore remember:</div><div class="line">        \begin&#123;description&#125;            \item[Stupid] things will not become smart because they are in a list.            \item[Smart] things, though, can be presented beautifully in a list.        \end&#123;description&#125;\end&#123;enumerate&#125;</div></pre></td></tr></table></figure>
+<h4 id="左对齐、右对齐和居中"><a href="#左对齐、右对齐和居中" class="headerlink" title="左对齐、右对齐和居中"></a>左对齐、右对齐和居中</h4><ul>
 <li><code>flushleft</code> —— 左对齐</li>
 <li><code>flushright</code> —— 右对齐</li>
 <li><code>center</code> —— 居中</li>
 </ul>
-<h4 id="引用语录和韵文">引用、语录和韵文</h4>
-<ul>
+<h4 id="引用、语录和韵文"><a href="#引用、语录和韵文" class="headerlink" title="引用、语录和韵文"></a>引用、语录和韵文</h4><ul>
 <li><code>quote</code> —— 短引文、语录、例子</li>
 <li><code>quotation</code> —— 超过几段的长引文，会对段落进行缩紧</li>
 <li><code>verse</code> —— 用于诗歌</li>
 </ul>
-<h4 id="摘要">摘要</h4>
-<ul>
+<h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><ul>
 <li><code>abstract</code> —— 就是论文的那个摘要</li>
 </ul>
-<h4 id="原文打印">原文打印</h4>
-<ul>
+<h4 id="原文打印"><a href="#原文打印" class="headerlink" title="原文打印"></a>原文打印</h4><ul>
 <li><code>verbatim</code> —— 原文打印，不执行中间的LaTeX命令</li>
 </ul>
-<h4 id="表格">表格</h4>
-<ul>
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><ul>
 <li><code>tabular</code> —— 用法太麻烦了，不写了</li>
 </ul>
-<h4 id="浮动体">浮动体</h4>
-<p>就是浮动图片、图表什么的，使其周围被文本环绕</p>
+<h4 id="浮动体"><a href="#浮动体" class="headerlink" title="浮动体"></a>浮动体</h4><p>就是浮动图片、图表什么的，使其周围被文本环绕</p>
 <ul>
 <li><code>figure</code> —— 图片</li>
 <li><code>table</code> —— 表格</li>
 </ul>
 <p>可以带参数，如：</p>
-<pre><code>\begin{figure}[arguments]</code></pre>
-<p>参数可以如下参数的组合：</p>
+<pre><code>\begin{figure}[arguments]
+</code></pre><p>参数可以如下参数的组合：</p>
 <ul>
 <li><code>h</code> —— here 在文本的确切位置上,对于小的浮动体很有用。</li>
 <li><code>t</code> —— 在页面的顶部(top)</li>
@@ -467,503 +314,140 @@
 <li><code>!</code> —— 忽略阻止浮动体放置的大多数内部参数a。</li>
 </ul>
 <p>此外，还可用如下命令添加说明文字：</p>
-<pre><code>\caption[short]{long caption text}</code></pre>
-<h2 id="保护脆弱命令">保护脆弱命令</h2>
-<p>作为命令(如<code>\caption</code> 或<code>\section</code>)参量的文本,可能在文档中出现多次(例 如,在文档的目录和正文中)。当用于类似<code>\section</code>的参量时,一些命令会失效。它们被称为脆弱命令(fragile commands)。</p>
-<p><code>\footnote</code> 或<code>\phantom</code> 是脆弱命令的例子。这些脆弱命令需要的,正是保护。把<code>\protect</code> 命令放在它们前面, 就能保护它们。<code>\protect</code> 仅仅保护紧跟其右侧的命令,连它的参量也不惠及。在大多数情形下,过多的<code>\protect</code> 并不碍事。</p>
-<h3 id="example-1">Example:</h3>
-<pre><code>\protect\footnote{and protect my footnotes}</code></pre>
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/09/30/da-jian-shadowsocksfu-wu-qi-bing-kai-qi-fastopenyou-hua/" rel="next" title="搭建Shadowsocks服务器并开启FastOpen优化">
-                <i class="fa fa-chevron-left"></i> 搭建Shadowsocks服务器并开启FastOpen优化
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/10/14/latexbi-ji-shu-xue/" rel="prev" title="LaTeX笔记 —— 数学">
-                LaTeX笔记 —— 数学 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
+<pre><code>\caption[short]{long caption text}
+</code></pre><h2 id="保护脆弱命令"><a href="#保护脆弱命令" class="headerlink" title="保护脆弱命令"></a>保护脆弱命令</h2><p>作为命令(如<code>\caption</code> 或<code>\section</code>)参量的文本,可能在文档中出现多次(例 如,在文档的目录和正文中)。当用于类似<code>\section</code>的参量时,一些命令会失效。它们被称为脆弱命令(fragile commands)。</p>
+<p><code>\footnote</code> 或<code>\phantom</code> 是脆弱命令的例子。这些脆弱命令需要的,正是保护。把<code>\protect</code> 命令放在它们前面, 就能保护它们。<br><code>\protect</code> 仅仅保护紧跟其右侧的命令,连它的参量也不惠及。在大多数情形下,过多的<code>\protect</code> 并不碍事。</p>
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example:"></a>Example:</h3><pre><code>\protect\footnote{and protect my footnotes}
+</code></pre>
   </div>
-
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
+  <footer class="article-footer">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
     
-  </div>
 
+  </footer>
+</article>
 
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
 
-      
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="昌旭(Changxu)" />
-          <p class="site-author-name" itemprop="name">昌旭(Changxu)</p>
-          <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">29</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">29</span>
-              <span class="site-state-item-name">分类</span>
-              </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            
-              <span class="site-state-item-count">0</span>
-              <span class="site-state-item-name">标签</span>
-              
-          </div>
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/DelightRun" target="_blank">
-                  
-                    <i class="fa fa-github"></i> GitHub
-                  
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/singledust" target="_blank">
-                  
-                    <i class="fa fa-weibo"></i> Weibo
-                  
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/wang-chang-xu" target="_blank">
-                  
-                    <i class="fa fa-globe"></i> ZhiHu
-                  
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.facebook.com/Changxu.Black" target="_blank">
-                  
-                    <i class="fa fa-globe"></i> Facebook
-                  
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文档类"><span class="nav-number">1.</span> <span class="nav-text">文档类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#usage"><span class="nav-number">1.1.</span> <span class="nav-text">Usage:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class"><span class="nav-number">1.2.</span> <span class="nav-text">Class:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options"><span class="nav-number">1.3.</span> <span class="nav-text">Options:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面样式"><span class="nav-number">2.</span> <span class="nav-text">页面样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#usage-1"><span class="nav-number">2.1.</span> <span class="nav-text">Usage:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#style"><span class="nav-number">2.2.</span> <span class="nav-text">Style:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大型项目"><span class="nav-number">3.</span> <span class="nav-text">大型项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用单个文件"><span class="nav-number">3.1.</span> <span class="nav-text">引用单个文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进行语法差错而不生成"><span class="nav-number">3.2.</span> <span class="nav-text">进行语法差错而不生成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#断行和分页"><span class="nav-number">4.</span> <span class="nav-text">断行和分页</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#断行"><span class="nav-number">4.1.</span> <span class="nav-text">断行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分页"><span class="nav-number">4.2.</span> <span class="nav-text">分页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#断词"><span class="nav-number">4.3.</span> <span class="nav-text">断词</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几个内置字符串"><span class="nav-number">5.</span> <span class="nav-text">几个内置字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊符号"><span class="nav-number">6.</span> <span class="nav-text">特殊符号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引号"><span class="nav-number">6.1.</span> <span class="nav-text">引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#破折号和连字号"><span class="nav-number">6.2.</span> <span class="nav-text">破折号和连字号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#波浪号"><span class="nav-number">6.3.</span> <span class="nav-text">波浪号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#度的符号"><span class="nav-number">6.4.</span> <span class="nav-text">度的符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#货币符号"><span class="nav-number">6.5.</span> <span class="nav-text">货币符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#省略号"><span class="nav-number">6.6.</span> <span class="nav-text">省略号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉引用"><span class="nav-number">7.</span> <span class="nav-text">交叉引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚注"><span class="nav-number">8.</span> <span class="nav-text">脚注</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#usage-2"><span class="nav-number">8.1.</span> <span class="nav-text">Usage:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-number">8.2.</span> <span class="nav-text">Example:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">9.</span> <span class="nav-text">环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#usage-3"><span class="nav-number">9.1.</span> <span class="nav-text">Usage:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用环境"><span class="nav-number">9.2.</span> <span class="nav-text">常用环境：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#列表"><span class="nav-number">9.2.1.</span> <span class="nav-text">列表:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#左对齐右对齐和居中"><span class="nav-number">9.2.2.</span> <span class="nav-text">左对齐、右对齐和居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用语录和韵文"><span class="nav-number">9.2.3.</span> <span class="nav-text">引用、语录和韵文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#摘要"><span class="nav-number">9.2.4.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原文打印"><span class="nav-number">9.2.5.</span> <span class="nav-text">原文打印</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表格"><span class="nav-number">9.2.6.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动体"><span class="nav-number">9.2.7.</span> <span class="nav-text">浮动体</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保护脆弱命令"><span class="nav-number">10.</span> <span class="nav-text">保护脆弱命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example-1"><span class="nav-number">10.1.</span> <span class="nav-text">Example:</span></a></li></ol></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
-          </div>
-        </section>
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">昌旭(Changxu)</span>
-</div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
-
-
-
-      </div>
-    </footer>
-
-    <div class="back-to-top"></div>
-  </div>
-
-  
-
-
-  
-
-
-
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
-
-
-
-  
-  
-
-  
-  
-<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    NexT.motion.middleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-
-      if (CONFIG.sidebar === 'post') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          NexT.utils.displaySidebar();
-        }
-      }
-    };
-  });
-</script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
-
-
-
-  
-
-
-
-  
-
+<section id="comments">
+  <div id="disqus_thread"></div>
     <script type="text/javascript">
-      var disqus_shortname = 'changxusblog';
-      var disqus_identifier = '2015/10/14/latexshi-yong-bi-ji/';
-      var disqus_title = 'LaTeX笔记 —— 基础内容';
-      var disqus_url = 'http://changxu.wang/2015/10/14/latexshi-yong-bi-ji/';
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'changxusblog'; // required: replace example with your forum shortname
 
-      function run_disqus_script(disqus_script){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
 
-      run_disqus_script('count.js');
+
+
+
+          <div class="main-footer">
+  
+    © 2016 昌旭的博客 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
       
-        run_disqus_script('embed.js');
+        </div>
       
-    </script>
-  
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
 
 
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
 
-  
-  
-
-  
-  
-
-
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 </body>
 </html>
